@@ -140,8 +140,17 @@ public class InterfacciaGioco extends javax.swing.JFrame {
             return;
         }
 
-        // 3. SE C'È UN COMANDO IN ATTESA DI TARGET (Memoria contestuale sblocca clunkiness!)
+        // 3. SE C'È UN COMANDO IN ATTESA DI TARGET (Memoria contestuale)
         if (comandoInAttesaDiTarget != null) {
+            String inputLower = input.toLowerCase();
+            // FIX LOOP: Controllo annullamento PRIMA di aggiungere il verbo
+            if (inputLower.contains("annulla") || inputLower.contains("nessuno") || inputLower.contains("niente")) {
+                comandoInAttesaDiTarget = null;
+                stampaTesto("Azione annullata.");
+                stampaTesto("");
+                return;
+            }
+
             // Se l'input inserito è un comando di direzione, annulliamo la memoria contestuale e ci spostiamo normalmente
             ParserOutput testOutput = parser.parse(input, gioco.getComandi(), gioco.getStanzaCorrente().getOggetti(), gioco.getInventario().getElementi());
             if (testOutput != null && testOutput.getComando() != null && 
@@ -149,12 +158,11 @@ public class InterfacciaGioco extends javax.swing.JFrame {
                  testOutput.getComando().getTipo() == TipoComando.SUD ||
                  testOutput.getComando().getTipo() == TipoComando.EST ||
                  testOutput.getComando().getTipo() == TipoComando.OVEST)) {
-                comandoInAttesaDiTarget = null; // Resetta memoria
+                comandoInAttesaDiTarget = null;
             } else {
-                // Riscrive l'input accorpando il verbo in attesa col bersaglio (es: "tessera" -> "prendi tessera")
                 String verboStr = getVerboString(comandoInAttesaDiTarget);
                 input = verboStr + " " + input;
-                comandoInAttesaDiTarget = null; // Resetta memoria
+                comandoInAttesaDiTarget = null;
             }
         }
 
@@ -201,6 +209,17 @@ public class InterfacciaGioco extends javax.swing.JFrame {
             }
         }
 
+        // 6.1 GESTIONE ANNULLAMENTO MEMORIA CONTESTUALE
+        if (comandoInAttesaDiTarget != null) {
+            String inputLower = input.toLowerCase();
+            if (inputLower.contains("annulla") || inputLower.contains("nessuno") || inputLower.contains("niente")) {
+                comandoInAttesaDiTarget = null;
+                stampaTesto("Azione annullata.");
+                stampaTesto("");
+                return;
+            }
+        }
+
         // 7. SE IL COMANDO (VERBO) È NULLO MA È STATO RICONOSCIUTO UN OGGETTO (es: "tessera", "silos", "libreria")
         if (output.getComando() == null && output.getOggetto() != null) {
             stampaTesto("Capisco che vuoi interagire con '" + output.getOggetto().getNome() + 
@@ -227,7 +246,7 @@ public class InterfacciaGioco extends javax.swing.JFrame {
                 } else if (sconosciuto.equalsIgnoreCase("ciao") || sconosciuto.equalsIgnoreCase("salve")) {
                     stampaTesto("Non c'è tempo per i convenevoli. Sei intrappolato! Cerca un modo per fuggire o digita 'aiuto'.");
                 } else {
-                    stampaTesto("Non so come compiere l'action '" + sconosciuto + "'. Digita 'aiuto' per l'elenco dei comandi disponibili.");
+                    stampaTesto("Non so come compiere l'azione '" + sconosciuto + "'. Digita 'aiuto' per l'elenco dei comandi disponibili.");
                 }
             }
             stampaTesto("");
@@ -245,9 +264,10 @@ public class InterfacciaGioco extends javax.swing.JFrame {
         }
 
         // Arresta il timer se il condotto è purificato
-        if (((LaMiaAvventura) gioco).isCondottoPurificato() && timerRunnable != null) {
+        if (((LaMiaAvventura) gioco).isCondottoPurificato() && timerRunnable != null && !timerSpegneteNotificato) {
             timerRunnable.fermaTimer();
             stampaTesto("⏰ SISTEMA DI RISCALDAMENTO DISATTIVATO. Aria purificata correttamente.");
+            timerSpegneteNotificato = true;
         }
         
         stampaTesto("");
@@ -262,6 +282,10 @@ public class InterfacciaGioco extends javax.swing.JFrame {
     }
 
     public void stampaTesto(String testo) {
+        if (testo != null && testo.startsWith("[CLEAR_CHAT]")) {
+            txtConsole.setText("");
+            testo = testo.replace("[CLEAR_CHAT]", "");
+        }
         txtConsole.append(testo + "\n");
         txtConsole.setCaretPosition(txtConsole.getDocument().getLength());
         
@@ -303,6 +327,8 @@ public class InterfacciaGioco extends javax.swing.JFrame {
         DialogRicerca dialog = new DialogRicerca(this);
         dialog.setVisible(true); // Modale
     }
+
+    private boolean timerSpegneteNotificato = false;
 
     public void avviaTimer() {
         timerRunnable = new ThreadTimer(2, this); // 2 minuti di tempo

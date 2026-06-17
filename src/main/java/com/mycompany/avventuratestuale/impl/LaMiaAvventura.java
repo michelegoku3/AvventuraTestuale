@@ -1,38 +1,29 @@
 package com.mycompany.avventuratestuale.impl;
 
-import com.mycompany.avventuratestuale.core.Gioco;
-import com.mycompany.avventuratestuale.core.Inventario;
-import com.mycompany.avventuratestuale.core.ParserOutput;
-import com.mycompany.avventuratestuale.core.Comando;
-import com.mycompany.avventuratestuale.core.TipoComando;
-import com.mycompany.avventuratestuale.core.SalvataggioManager;
+import com.mycompany.avventuratestuale.core.*;
+import com.mycompany.avventuratestuale.core.commands.*;
 import com.mycompany.avventuratestuale.model.Stanza;
 import com.mycompany.avventuratestuale.model.Oggetto;
 import com.mycompany.avventuratestuale.database.DialogoNode;
 import com.mycompany.avventuratestuale.database.DialogoDAO;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
  * LaMiaAvventura - implementazione concreta del motore di gioco.
  * Tema: "Protocollo Chimera" - laboratorio sotterraneo di bio-ingegneria.
  *
- * Aggiornamento 2026-06-17 (bug fix + refactor leggero):
+ * Aggiornamento 2026-06-17:
+ * - Implementato Command Pattern per la gestione dei comandi (modularizzazione).
  * - Inventario ora e' un ADT conforme alla specifica algebrica.
  * - Descrizioni stanze dinamiche in base ai flag di stato.
- * - Bug fix: inventario obbligatorio per usare oggetti.
- * - Bug fix: impossibile ri-usare oggetti "usa-e-getta".
- * - Bug fix: corridoio descrive anche l'uscita nord verso l'ufficio.
- * - Bug fix: aggiunti casi SALVA, CARICA, CLASSIFICA, ESCI.
- * - Bug fix: indizi narrativi per PIN cassaforte + sequenza enigmi.
- * - Bug fix: Prometeo ricorda la conversazione precedente.
- * - Bug fix: hint d'emergenza nella camera di decontaminazione.
  */
 public class LaMiaAvventura extends Gioco {
     private static final long serialVersionUID = 1L;
+
+    // Marcata come transient per evitare errori di serializzazione (le classi Command non sono Serializable)
+    private transient Map<TipoComando, Command> commandMap = new HashMap<>();
 
     private boolean isBarrieraLaserAttiva = true;
     private boolean isPortaCrioAperta = false;
@@ -72,11 +63,15 @@ public class LaMiaAvventura extends Gioco {
     private static final int ID_SCRIVANIA     = 122;
     private static final int ID_LIBRERIA      = 123;
     private static final int ID_BARRIERA      = 124;
+    private static final int ID_BIGLIETTO     = 125;
     private static final int ID_DROIDE        = 301;
 
     @Override
     public void inizializza() throws Exception {
+        setupCommands(); // Metodo estratto per poterlo richiamare anche dopo il caricamento
         inizializzaInventario();
+        
+        // 1. Registrazione dei comandi sintattici (per il Parser)
         getComandi().add(new Comando(TipoComando.NORD, new HashSet<>(Arrays.asList("nord", "n", "vai a nord", "north", "go north"))));
         getComandi().add(new Comando(TipoComando.SUD, new HashSet<>(Arrays.asList("sud", "s", "vai a sud", "south", "go south"))));
         getComandi().add(new Comando(TipoComando.EST, new HashSet<>(Arrays.asList("est", "e", "vai a est", "east", "go east"))));
@@ -95,6 +90,10 @@ public class LaMiaAvventura extends Gioco {
         getComandi().add(new Comando(TipoComando.MAPPA, new HashSet<>(Arrays.asList("mappa", "map", "m", "radar", "cartina"))));
         getComandi().add(new Comando(TipoComando.PARLA, new HashSet<>(Arrays.asList("parla", "parla con", "interroga", "chiedi a", "talk", "talk to", "converse"))));
 
+        // 2. Registrazione della logica dei comandi (Command Pattern)
+        setupCommands();
+
+        // Definizione Mappa e Oggetti
         Stanza cameraCrio = new Stanza(1, "Camera Criogenica",
                 "L'aria e' gelida e satura di vapori chimici. Intorno a te ci sono tre capsule criogeniche inattive,\n" +
                 "tranne la tua, che emette scintille dal pannello dei circuiti. Una spessa porta blindata a EST,\n" +
@@ -161,6 +160,11 @@ public class LaMiaAvventura extends Gioco {
                 "Un cacciavite da officina con manico isolato giallo e punta a stella. Utilissimo per riparazioni.");
         cacciavite.getSinonimi().addAll(Arrays.asList("giravite", "utensile", "attrezzo", "cacciavite a stella"));
         salaServer.aggiungiOggetto(cacciavite);
+
+        Oggetto biglietto = new Oggetto(ID_BIGLIETTO, "biglietto",
+                "Un foglietto di carta sgualcito con scritto a mano: 'PIN Cassaforte: 2041'. Sembra un appunto frettoloso.");
+        biglietto.getSinonimi().addAll(Arrays.asList("appunto", "nota", "foglietto", "codice"));
+        salaServer.aggiungiOggetto(biglietto);
 
         Oggetto diario = new Oggetto(ID_DIARIO, "diario",
                 "Il diario rilegato del Dr. Moretti. Le pagine recano la dicitura 'Registro 2041'.");
@@ -267,7 +271,7 @@ public class LaMiaAvventura extends Gioco {
         setStanzaCorrente(cameraCrio);
     }
 
-    private String descrizioneOggetto(Oggetto o) {
+    public String descrizioneOggetto(Oggetto o) {
         if (o == null) return "";
         int id = o.getId();
         if (id == ID_PORTA) {
@@ -292,7 +296,10 @@ public class LaMiaAvventura extends Gioco {
         }
         if (id == ID_CASSAFORTE) {
             if (isCassaforteAperta) return "La cassaforte e' APERTA. All'interno vedi il DIARIO del Dr. Moretti.";
-            return "Una cassaforte blindata a combinazione digitale. Il tastierino attende un PIN a 4 cifre (prova 'usa 2041 cassaforte').";
+            return "Una cassaforte blindata a combinazione digitale. Il tastierino attende un PIN a 4 cifre.";
+        }
+        if (id == ID_BIGLIETTO) {
+            return "Un foglietto con un codice numerico: '2041'.";
         }
         if (id == ID_DROIDE) {
             if (isDroideRiparato) return "Il droide R-301 'Rancido' e' attivo, con i sensori ottici rossi accesi. Sembrerebbe disposto a parlare.";
@@ -306,6 +313,9 @@ public class LaMiaAvventura extends Gioco {
         }
         if (id == ID_RITRATTO) {
             return "Un dipinto ad olio del Dr. Moretti. La cornice reca un'incisione latina: MDCCCXCI. Sotto la cornice, un foglietto ingiallito con la scritta '2041'.";
+        }
+        if (id == ID_CONSOLE_CENTRALE) {
+            return "L'interfaccia primaria del Protocollo Chimera. I circuiti pulsano di luce violacea. Sembra che attendano un comando finale per decidere il destino del mondo.";
         }
         return o.getDescrizione();
     }
@@ -334,6 +344,13 @@ public class LaMiaAvventura extends Gioco {
 
     private String descrizioneStanza(Stanza stanza) {
         String base = stanza.getDescrizione();
+        if (stanza.getId() == 3) {
+            if (!isBarrieraLaserAttiva) {
+                base = base.replace("A SUD, una fitta barriera di laser rossi sbarra il cammino verso\n" +
+                                   "il settore inferiore: il calore che ne emana e' quasi insopportabile.",
+                                   "A SUD, il passaggio verso il settore inferiore e' ora libero: i laser sono stati disattivati.");
+            }
+        }
         if (stanza.getId() == 5) {
             if (!isCondottoPurificato) {
                 Oggetto sieroDummy = new Oggetto(ID_SIERO, "siero", "");
@@ -346,160 +363,97 @@ public class LaMiaAvventura extends Gioco {
         return base;
     }
 
+    public void setupCommands() {
+        if (commandMap == null) commandMap = new HashMap<>();
+        commandMap.put(TipoComando.NORD, new MoveCommand());
+        commandMap.put(TipoComando.SUD, new MoveCommand());
+        commandMap.put(TipoComando.EST, new MoveCommand());
+        commandMap.put(TipoComando.OVEST, new MoveCommand());
+        commandMap.put(TipoComando.PRENDI, new TakeCommand());
+        commandMap.put(TipoComando.LASCIA, new DropCommand());
+        commandMap.put(TipoComando.APRI, new OpenCommand());
+        commandMap.put(TipoComando.USA, new UseCommand());
+        commandMap.put(TipoComando.GUARDA, new LookCommand());
+        commandMap.put(TipoComando.INVENTARIO, new InventoryCommand());
+        commandMap.put(TipoComando.AIUTO, new HelpCommand());
+        commandMap.put(TipoComando.MAPPA, new MapCommand());
+        commandMap.put(TipoComando.CLASSIFICA, new LeaderboardCommand());
+        commandMap.put(TipoComando.SALVA, new SaveCommand());
+        commandMap.put(TipoComando.CARICA, new LoadCommand());
+        commandMap.put(TipoComando.ESCI, new ExitCommand());
+        commandMap.put(TipoComando.PARLA, new TalkCommand());
+    }
+
     @Override
     public String elaboraComando(ParserOutput output) {
-        TipoComando tipo = output.getComando().getTipo();
-        Oggetto obj = output.getOggetto();
+        if (commandMap == null) setupCommands();
+        TipoComando tipo = output.getComando() != null ? output.getComando().getTipo() : null;
+        if (tipo == null) return "Non ho capito cosa vuoi fare.";
+        
+        Command cmd = commandMap.get(tipo);
+        if (cmd != null) {
+            return cmd.execute(this, output);
+        }
+        
+        return "Comando non riconosciuto. Digita 'aiuto' per la lista completa.";
+    }
 
-        switch (tipo) {
-            case NORD:
-            case SUD:
-            case EST:
-            case OVEST: {
-                return gestisciSpostamento(tipo);
+    public String elaboraComandoTalk(ParserOutput output) {
+        com.mycompany.avventuratestuale.model.Oggetto obj = output.getOggetto();
+        if (obj == null) {
+            // Gestione annullamento o input non validi per interrompere il loop
+            String inputRaw = output.getRawInput(); // Assumendo che ParserOutput abbia getRawInput()
+            if (inputRaw != null && (inputRaw.toLowerCase().contains("nessuno") || 
+                                     inputRaw.toLowerCase().contains("annulla") || 
+                                     inputRaw.toLowerCase().contains("niente"))) {
+                return "Non c'e' nessuno con cui parlare qui. Interrompo la ricerca.";
             }
-            case PRENDI: {
-                if (obj == null) return "Cosa vuoi prendere?";
-                if (!getStanzaCorrente().getOggetti().contains(obj)) return "Non vedo '" + obj.getNome() + "' qui.";
-                if (!obj.isPrendibile()) return "Non puoi prendere '" + obj.getNome() + "': e' saldato o fissato.";
-                getStanzaCorrente().rimuoviOggetto(obj);
-                aggiungiAInventario(obj);
-                if (obj.getId() == ID_DIARIO) isDiarioPreso = true;
-                return "Hai raccolto l'oggetto: " + obj.getNome() +
-                        ". Digita 'inventario' per vederlo o 'guarda " + obj.getNome() + "' per esaminarlo.";
-            }
-            case LASCIA: {
-                if (obj == null) return "Cosa vuoi lasciare?";
-                if (!getInventario().contiene(obj)) return "Non hai '" + obj.getNome() + "' nell'inventario.";
-                rimuoviDaInventario(obj);
-                getStanzaCorrente().aggiungiOggetto(obj);
-                return "Hai lasciato '" + obj.getNome() + "' sul pavimento di questa stanza.";
-            }
-            case GUARDA: {
-                if (obj != null) {
-                    if (obj.getId() == ID_DIARIO) return testoCompletoDiario();
-                    return descrizioneOggetto(obj);
-                }
-                return getStanzaDescrizioneCompleta(getStanzaCorrente());
-            }
-            case INVENTARIO: {
-                if (getInventario().vuoto()) return "Il tuo inventario e' desolatamente vuoto.";
-                StringBuilder invStr = new StringBuilder("Nel tuo zaino ci sono:\n");
-                getInventario().getElementi().forEach(o -> invStr.append("- ").append(o.getNome()).append("\n"));
-                return invStr.toString();
-            }
-            case APRI: {
-                if (obj == null) return "Cosa vuoi aprire?";
-                if (obj.getId() == ID_DIARIO) return testoCompletoDiario();
-                if (obj.getId() == ID_CASSAFORTE) {
-                    return "Per aprire la cassaforte digita il codice: 'usa 2041 cassaforte'.\n" +
-                           "In alternativa puoi provare a forzarla con il cacciavite.";
-                }
-                if (obj.getId() == ID_DROIDE && !isDroideRiparato) {
-                    return "Il droide non ha pannelli apribili: serve un utensile per ripararlo.";
-                }
-                return "Non puoi aprire questo.";
-            }
-            case USA: {
-                if (obj == null) return "Cosa vuoi usare?";
-                return gestisciUsoOggetto(output);
-            }
-            case AIUTO: {
-                return "=== GUIDA COMANDI - PROTOCOLLO CHIMERA ===\n" +
-                       "Spostamenti: 'nord', 'sud', 'est', 'ovest' (anche 'n','s','e','o' e in inglese)\n" +
-                       "Azioni base: 'prendi <ogg>', 'lascia <ogg>', 'guarda', 'guarda <ogg>', 'inventario'\n" +
-                       "Azioni speciali: 'usa <ogg> [<target>]', 'apri <ogg>', 'parla [<npc>]', 'mappa'\n" +
-                       "Sistema: 'salva' (su file), 'carica' (da file), 'classifica' (Top 5 DB H2), 'esci'\n" +
-                       "Per uscire da un comando pendente scrivi 'annulla' o 'niente'.";
-            }
-            case MAPPA: {
-                return renderMappaASCII();
-            }
-            case CLASSIFICA: {
-                com.mycompany.avventuratestuale.database.PunteggioDAO dao =
-                        new com.mycompany.avventuratestuale.database.PunteggioDAO();
-                java.util.List<com.mycompany.avventuratestuale.database.Punteggio> tutti = dao.getMiglioriPunteggi();
-                if (tutti.isEmpty()) return "La classifica H2 e' vuota. Completa il gioco e inserisci il tuo nome!";
-                StringBuilder sb = new StringBuilder("=== CLASSIFICA H2 (Top 5) ===\n");
-                tutti.forEach(p -> sb.append("- ").append(p.getNomeGiocatore())
-                        .append(" - ").append(p.getPunti()).append(" pt (")
-                        .append(p.getDataPartita()).append(")\n"));
-                return sb.toString();
-            }
-            case SALVA: {
-                try {
-                    SalvataggioManager.salvaPartita(this, "partita_chemera.sav");
-                    return "Partita salvata con successo su 'partita_chemera.sav'.";
-                } catch (Exception ex) {
-                    return "Errore durante il salvataggio: " + ex.getMessage();
-                }
-            }
-            case CARICA: {
-                try {
-                    LaMiaAvventura caricata = (LaMiaAvventura) SalvataggioManager.caricaPartita("partita_chemera.sav");
-                    return "Partita caricata da file.\n" +
-                           "Stanza attuale: " + caricata.getStanzaCorrente().getNome() + "\n" +
-                           "Inventario: " + (caricata.getInventario().vuoto() ? "vuoto" :
-                                   caricata.getInventario().getElementi().size() + " oggetti.");
-                } catch (Exception ex) {
-                    return "Errore durante il caricamento: " + ex.getMessage();
-                }
-            }
-            case ESCI: {
-                return "Per uscire dal gioco chiudi la finestra con la X.";
-            }
-            case PARLA: {
-                if (obj == null) {
-                    if (getStanzaCorrente().getId() == 4) {
-                        obj = getStanzaCorrente().getOggetti().stream()
-                                .filter(o -> o.getId() == ID_TERMINALE).findFirst().orElse(null);
-                    } else if (getStanzaCorrente().getId() == 2) {
-                        obj = getStanzaCorrente().getOggetti().stream()
-                                .filter(o -> o.getId() == ID_DROIDE).findFirst().orElse(null);
-                    }
-                }
-                if (obj == null) return "Con chi vorresti parlare? Non vedo nessuno con cui dialogare qui.";
-                if (obj.getId() == ID_TERMINALE || obj.getNome().equalsIgnoreCase("terminale") ||
-                    obj.getNome().equalsIgnoreCase("prometeo") || obj.getNome().equalsIgnoreCase("ia")) {
-                    if (getStanzaCorrente().getId() == 4) {
-                        idDialogoCorrente = 1;
-                        if (!isSieroSintetizzato) {
-                            Stanza lab = cercaStanzaPerId(2);
-                            if (lab != null) {
-                                lab.getOggetti().stream()
-                                   .filter(o -> o.getId() == ID_FIALA)
-                                   .forEach(o -> o.setVisibile(true));
-                            }
-                        }
-                        return mostraNodoDialogo(idDialogoCorrente);
-                    } else {
-                        return "Non c'e' alcun segnale qui per comunicare.";
-                    }
-                }
-                if (obj.getId() == ID_DROIDE || obj.getNome().equalsIgnoreCase("droide") ||
-                    obj.getNome().equalsIgnoreCase("rancido")) {
-                    if (getStanzaCorrente().getId() == 2) {
-                        if (!isDroideRiparato) {
-                            return "R-301 'Rancido' e' riverso a terra, spento. I suoi circuiti sono esposti e un bullone blocca i cingoli.\n" +
-                                   "Ti serve un utensile (es. cacciavite) per rimetterlo in sesto.";
-                        } else {
-                            if (!isCassaforteAperta) {
-                                return "Rancido gracida: 'Segnale vitale compatibile con clone #12 rilevato. " +
-                                       "Il vecchio Moretti era un paranoico: usava sempre l'anno di fondazione come PIN della cassaforte. " +
-                                       "Mi pare fosse il 2041. Ricordatelo, clone!'";
-                            } else {
-                                return "Rancido: 'Hai scoperto la verita', vero? Moretti era un mostro egoista. " +
-                                       "Ora disinnesca la decontaminazione prima di finire arrostito come lui!'";
-                            }
-                        }
-                    }
-                }
-                return "Non puoi dialogare con questo.";
-            }
-            default: {
-                return "Comando non riconosciuto. Digita 'aiuto' per la lista completa.";
+
+            if (getStanzaCorrente().getId() == 4) {
+                obj = getStanzaCorrente().getOggetti().stream()
+                        .filter(o -> o.getId() == ID_TERMINALE).findFirst().orElse(null);
+            } else if (getStanzaCorrente().getId() == 2) {
+                obj = getStanzaCorrente().getOggetti().stream()
+                        .filter(o -> o.getId() == ID_DROIDE).findFirst().orElse(null);
             }
         }
+        if (obj == null) return "Con chi vorresti parlare? Non vedo nessuno con cui dialogare qui. (Digita 'annulla' per uscire)";
+        if (obj.getId() == ID_TERMINALE || obj.getNome().equalsIgnoreCase("terminale") ||
+            obj.getNome().equalsIgnoreCase("prometeo") || obj.getNome().equalsIgnoreCase("ia")) {
+            if (getStanzaCorrente().getId() == 4) {
+                idDialogoCorrente = 1;
+                if (!isSieroSintetizzato) {
+                    Stanza lab = cercaStanzaPerId(2);
+                    if (lab != null) {
+                        lab.getOggetti().stream()
+                           .filter(o -> o.getId() == ID_FIALA)
+                           .forEach(o -> o.setVisibile(true));
+                    }
+                }
+                return mostraNodoDialogo(idDialogoCorrente);
+            } else {
+                return "Non c'e' alcun segnale qui per comunicare.";
+            }
+        }
+        if (obj.getId() == ID_DROIDE || obj.getNome().equalsIgnoreCase("droide") ||
+            obj.getNome().equalsIgnoreCase("rancido")) {
+            if (getStanzaCorrente().getId() == 2) {
+                if (!isDroideRiparato) {
+                    return "R-301 'Rancido' e' riverso a terra, spento. I suoi circuiti sono esposti e un bullone blocca i cingoli.\n" +
+                           "Ti serve un utensile (es. cacciavite) per rimetterlo in sesto.";
+                } else {
+                    if (!isCassaforteAperta) {
+                        return "Rancido gracida: 'Segnale vitale compatibile con clone #12 rilevato. " +
+                               "Il vecchio Moretti era un paranoico: usava sempre l'anno di fondazione come PIN della cassaforte. " +
+                               "Mi pare fosse il 2041. Ricordatelo, clone!'";
+                    } else {
+                        return "Rancido: 'Hai scoperto la verita', vero? Moretti era un mostro egoista. " +
+                               "Ora disinnesca la decontaminazione prima di finire arrostito come lui!'";
+                    }
+                }
+            }
+        }
+        return "Non puoi dialogare con questo.";
     }
 
     private Stanza cercaStanzaPerId(int id) {
@@ -517,8 +471,8 @@ public class LaMiaAvventura extends Gioco {
         return null;
     }
 
-    private String testoCompletoDiario() {
-        return "--- DIARIO DI RICERCA DEL DR. MORETTI ---\n" +
+    public String testoCompletoDiario() {
+        return "--- DIARIO di RICERCA DEL DR. MORETTI ---\n" +
                "Registro 2041: L'esperimento sulla clonazione del Soggetto #12 e' completato.\n" +
                "Il clone possiede i miei ricordi d'infanzia ma e' portatore sano del ceppo Chimera-V4.\n" +
                "Se io dovessi morire, il clone e' l'unica sorgente genetica in grado di legarsi al virus\n" +
@@ -528,7 +482,7 @@ public class LaMiaAvventura extends Gioco {
                "Spero che Prometeo non debba mai attivare il lockdown...";
     }
 
-    private String gestisciSpostamento(TipoComando direzione) {
+    public String gestisciSpostamento(TipoComando direzione) {
         Stanza destinazione = null;
         switch (direzione) {
             case NORD: destinazione = getStanzaCorrente().getNord(); break;
@@ -544,6 +498,9 @@ public class LaMiaAvventura extends Gioco {
             return "Impossibile andare a sud: la fitta barriera di laser rossi ti farebbe a pezzi. " +
                    "Trova un modo per disattivarla (suggerimento: cerca un decodificatore nella Sala Server).";
         }
+        // FIX DEADLOCK: Rimosso il blocco verso Nord dalla decontaminazione. 
+        // Il giocatore DEVE poter uscire per andare a prendere il siero.
+        
         setStanzaCorrente(destinazione);
         String risposta = getStanzaDescrizioneCompleta(getStanzaCorrente());
         if (destinazione.getId() == 5 && !isCondottoPurificato) {
@@ -555,13 +512,20 @@ public class LaMiaAvventura extends Gioco {
         return risposta;
     }
 
-    private String gestisciUsoOggetto(ParserOutput output) {
+    public String gestisciUsoOggetto(ParserOutput output) {
         Oggetto obj = output.getOggetto();
         Oggetto target = output.getOggettoSecondario();
 
-        if (obj.getId() == ID_CASSAFORTE && getStanzaCorrente().getId() == 6) {
+        if (obj == null) return "Cosa vuoi usare?";
+
+        if (obj.getId() == ID_BIGLIETTO && target != null && target.getId() == ID_CASSAFORTE) {
             return digitaCodiceCassaforte("2041");
         }
+
+        if (obj.getId() == ID_CASSAFORTE && getStanzaCorrente().getId() == 6) {
+            return "Per aprire la cassaforte devi digitare il codice (se lo conosci) o usare un oggetto appropriato.";
+        }
+        // ... resto del metodo
 
         if (obj.getId() == ID_TESSERA) {
             if (!getInventario().contiene(obj)) return "Non hai la tessera nello zaino. Prima 'prendi tessera'.";
@@ -602,8 +566,7 @@ public class LaMiaAvventura extends Gioco {
             isSieroNelCondotto = true;
             isCondottoPurificato = true;
             rimuoviDaInventario(obj);
-            return "Versi il siero nel condotto di ventilazione. Un vapore bianco spegne l'allarme, " +
-                   "i portelloni di emergenza EST si sbloccano, liberando l'accesso al Nucleo di Comando!";
+            return "Versi il siero nel condotto di ventilazione. Un vapore bianco spegne l'allarme e i sistemi di sicurezza si resettano. L'aria e' ora respirabile!";
         }
 
         if (obj.getId() == ID_CACCIAVITE && getStanzaCorrente().getId() == 2 &&
@@ -621,15 +584,7 @@ public class LaMiaAvventura extends Gioco {
         if (obj.getId() == ID_CACCIAVITE && getStanzaCorrente().getId() == 6 &&
                 (target != null && target.getId() == ID_CASSAFORTE)) {
             if (!getInventario().contiene(obj)) return "Non hai il cacciavite.";
-            if (isCacciaviteUsato) return "Il cacciavite ha gia' esaurito la sua carica utile. Prova a inserire il PIN 2041.";
-            if (isCassaforteAperta) return "La cassaforte e' gia' aperta.";
-            isCacciaviteUsato = true;
-            isCassaforteAperta = true;
-            getStanzaCorrente().getOggetti().stream()
-                    .filter(o -> o.getId() == ID_DIARIO)
-                    .forEach(o -> { o.setVisibile(true); o.setPrendibile(true); });
-            return "Forzi la serratura digitale con il cacciavite: scintille, un CLACK metallico, " +
-                   "e la cassaforte si sblocca. All'interno trovi il DIARIO del Dr. Moretti.";
+            return "Tenti di forzare la serratura con il cacciavite. Senti un rumore metallico e la superficie della cassaforte viene scalfita, ma il meccanismo e' troppo complesso per essere aperto così. Ti serve il codice.";
         }
 
         if (obj.getId() == ID_TERMINALE) {
@@ -700,7 +655,7 @@ public class LaMiaAvventura extends Gioco {
         return preambolo + "\n\n" + mostraNodoDialogo(dest);
     }
 
-    private String mostraNodoDialogo(int nodoId) {
+    public String mostraNodoDialogo(int nodoId) {
         DialogoDAO dao = new DialogoDAO();
         DialogoNode nodo = dao.getDialogoNode(nodoId);
         if (nodo == null) return "Errore di trasmissione del database di Prometeo.";
@@ -757,7 +712,7 @@ public class LaMiaAvventura extends Gioco {
                "(il ritratto del Dr. Moretti ha qualcosa di strano...).";
     }
 
-    private String renderMappaASCII() {
+    public String renderMappaASCII() {
         int id = getStanzaCorrente().getId();
         String r1 = (id == 6) ? "[X] Uff. Direttore" : "[ ] Uff. Direttore";
         String r2 = (id == 1) ? "[X] Camera Crio   " : "[ ] Camera Crio   ";
@@ -768,11 +723,11 @@ public class LaMiaAvventura extends Gioco {
         String r7 = (id == 7) ? "[X] Nucl. Comando " : "[ ] Nucl. Comando ";
         return "=== PLANIMETRIA DEL LABORATORIO CHIMERA ===\n" +
                "                 " + r1 + "\n" +
+               "                        ^\n" +
                "                        |\n" +
-               "                        v\n" +
                "  " + r2 + " <--> " + r3 + " <--> " + r4 + "\n" +
                "                        |\n" +
-                       "                        v\n" +
+               "                        v\n" +
                "                 " + r5 + " <--> " + r7 + "\n" +
                "                        ^\n" +
                "                        |\n" +
@@ -786,4 +741,5 @@ public class LaMiaAvventura extends Gioco {
     public boolean isCondottoPurificato() { return isCondottoPurificato; }
     public boolean isSieroSintetizzato() { return isSieroSintetizzato; }
     public boolean isCassaforteAperta() { return isCassaforteAperta; }
+    public boolean isDroideRiparato() { return isDroideRiparato; }
 }

@@ -41,10 +41,10 @@ public class Parser {
             Oggetto objSolo = cercaOggetto(primoToken, oggettiStanza, inventario);
             if (objSolo != null) {
                 // Ritorna un output con oggetto riconosciuto ma verbo nullo
-                return new ParserOutput(null, objSolo, null, null);
+                return new ParserOutput(null, objSolo, null, input);
             }
             // Altrimenti, è un comando del tutto sconosciuto (es: "ciao", "aiuo")
-            return new ParserOutput(null, null, null, primoToken);
+            return new ParserOutput(null, null, null, input);
         }
 
         Oggetto oggettoRilevato = null;
@@ -72,7 +72,7 @@ public class Parser {
             }
         }
 
-        return new ParserOutput(comandoRilevato, oggettoRilevato, oggettoSecRilevato);
+        return new ParserOutput(comandoRilevato, oggettoRilevato, oggettoSecRilevato, input);
     }
 
     private Oggetto cercaOggetto(String token, List<Oggetto> oggettiStanza, List<Oggetto> inventario) {
