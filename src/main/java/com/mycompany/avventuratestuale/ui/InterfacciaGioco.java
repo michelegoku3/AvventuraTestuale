@@ -109,13 +109,11 @@ public class InterfacciaGioco extends javax.swing.JFrame {
             // Se l'input corrisponde ad un finale valido (1-4)
             if (input.equals("1") || input.equals("2") || input.equals("3") || input.equals("4")) {
                 int puntiLog = 0;
-                switch (input) {
-                    case "1" -> puntiLog = 500;
-                    case "2" -> puntiLog = 400;
-                    case "3" -> puntiLog = 300;
-                    case "4" -> puntiLog = 100;
-                }
-                
+                if (input.equals("1")) puntiLog = 500;
+                else if (input.equals("2")) puntiLog = 400;
+                else if (input.equals("3")) puntiLog = 300;
+                else if (input.equals("4")) puntiLog = 100;
+
                 final int puntiFinali = puntiLog;
                 
                 // Disabilita gli input per fine partita
@@ -145,7 +143,7 @@ public class InterfacciaGioco extends javax.swing.JFrame {
         // 3. SE C'È UN COMANDO IN ATTESA DI TARGET (Memoria contestuale sblocca clunkiness!)
         if (comandoInAttesaDiTarget != null) {
             // Se l'input inserito è un comando di direzione, annulliamo la memoria contestuale e ci spostiamo normalmente
-            ParserOutput testOutput = parser.parse(input, gioco.getComandi(), gioco.getStanzaCorrente().getOggetti(), gioco.getInventario());
+            ParserOutput testOutput = parser.parse(input, gioco.getComandi(), gioco.getStanzaCorrente().getOggetti(), gioco.getInventario().getElementi());
             if (testOutput != null && testOutput.getComando() != null && 
                 (testOutput.getComando().getTipo() == TipoComando.NORD ||
                  testOutput.getComando().getTipo() == TipoComando.SUD ||
@@ -168,7 +166,7 @@ public class InterfacciaGioco extends javax.swing.JFrame {
             return;
         }
 
-        ParserOutput output = parser.parse(input, gioco.getComandi(), gioco.getStanzaCorrente().getOggetti(), gioco.getInventario());
+        ParserOutput output = parser.parse(input, gioco.getComandi(), gioco.getStanzaCorrente().getOggetti(), gioco.getInventario().getElementi());
 
         // 5. SE IL PARSER NON HA TROVATO NULLA (INPUT VUOTO O GRAVE ERRORE)
         if (output == null) {
@@ -256,13 +254,11 @@ public class InterfacciaGioco extends javax.swing.JFrame {
     }
 
     private String getVerboString(TipoComando tipo) {
-        switch (tipo) {
-            case PRENDI -> { return "prendi"; }
-            case LASCIA -> { return "lascia"; }
-            case USA -> { return "usa"; }
-            case PARLA -> { return "parla"; }
-            default -> { return ""; }
-        }
+        if (tipo == TipoComando.PRENDI) return "prendi";
+        if (tipo == TipoComando.LASCIA) return "lascia";
+        if (tipo == TipoComando.USA) return "usa";
+        if (tipo == TipoComando.PARLA) return "parla";
+        return "";
     }
 
     public void stampaTesto(String testo) {
@@ -278,7 +274,7 @@ public class InterfacciaGioco extends javax.swing.JFrame {
     private void aggiornaInventarioGrafico() {
         modelInventario.clear();
         // Uso di Stream Pipeline e Lambda per aggiornare la JList [Lezioni/16 - Swing, Slide 48]
-        gioco.getInventario().stream()
+        gioco.getInventario().getElementi().stream()
                 .map(Oggetto::getNome)
                 .forEach(modelInventario::addElement);
     }
