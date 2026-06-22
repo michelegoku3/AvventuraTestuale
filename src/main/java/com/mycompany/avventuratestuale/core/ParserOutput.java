@@ -2,13 +2,16 @@ package com.mycompany.avventuratestuale.core;
 
 import java.io.Serializable;
 
+/**
+ * Risultato del parsing di un comando utente.
+ */
 public class ParserOutput implements Serializable {
     private final Comando comando;
     private final com.mycompany.avventuratestuale.model.Oggetto oggetto;
     private final com.mycompany.avventuratestuale.model.Oggetto oggettoSecondario;
     private final String rawInput;
 
-    public ParserOutput(Comando comando, com.mycompany.avventuratestuale.model.Oggetto oggetto, 
+    public ParserOutput(Comando comando, com.mycompany.avventuratestuale.model.Oggetto oggetto,
                         com.mycompany.avventuratestuale.model.Oggetto oggettoSecondario, String rawInput) {
         this.comando = comando;
         this.oggetto = oggetto;
@@ -21,10 +24,12 @@ public class ParserOutput implements Serializable {
     public com.mycompany.avventuratestuale.model.Oggetto getOggettoSecondario() { return oggettoSecondario; }
     public String getRawInput() { return rawInput; }
 
-    /**
-     * Restituisce un messaggio di errore se l'input non è stato parsito correttamente.
-     */
+
     public String getInputInvalido() {
-        return "Comando non riconosciuto o sintassi errata. Digita 'aiuto' per i comandi validi.";
+        if (rawInput == null || rawInput.trim().isEmpty()) {
+            return null;
+        }
+        String[] tokens = rawInput.toLowerCase().trim().split("\\s+");
+        return tokens.length == 0 ? null : tokens[0];
     }
 }

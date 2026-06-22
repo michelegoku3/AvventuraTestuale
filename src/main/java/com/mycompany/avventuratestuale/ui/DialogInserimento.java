@@ -4,15 +4,18 @@ import com.mycompany.avventuratestuale.database.PunteggioDAO;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * Dialog Swing per inserimento manuale di un punteggio.
+ */
 public class DialogInserimento extends JDialog {
 
     private JTextField txtNome;
     private JTextField txtPunti;
-    private JCheckBox chkPrime; // JCheckBox conforme a [Esercizi/Esercizio Lab.pdf, p. 4]
+    private JCheckBox chkPrime;
     private JButton btnSalva, btnAnnulla;
 
     public DialogInserimento(JFrame parent) {
-        super(parent, "Registra Punteggio nel Database", true); // JDialog Modale [Lezioni/16 - Swing.pdf, Slide 50-51]
+        super(parent, "Registra Punteggio nel Database", true);
         initComponents();
     }
 
@@ -30,7 +33,7 @@ public class DialogInserimento extends JDialog {
         add(txtPunti);
 
         add(new JLabel(" Attiva Bonus?"));
-        chkPrime = new JCheckBox("Bonus d'Iscrizione (+50pt)"); // JCheckBox [Lezioni/16 - Swing.pdf, Slide 24]
+        chkPrime = new JCheckBox("Bonus d'Iscrizione (+50pt)");
         add(chkPrime);
 
         btnSalva = new JButton("Salva");
@@ -54,10 +57,10 @@ public class DialogInserimento extends JDialog {
         try {
             int punti = Integer.parseInt(puntiStr);
             if (chkPrime.isSelected()) {
-                punti += 50; // Applica il bonus booleano
+                punti += 50;
             }
 
-            // Salva tramite DAO relazionale
+
             PunteggioDAO dao = new PunteggioDAO();
             dao.aggiungiPunteggio(nome, punti);
 

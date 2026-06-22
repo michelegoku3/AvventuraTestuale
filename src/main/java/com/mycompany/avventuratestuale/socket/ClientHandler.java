@@ -8,6 +8,9 @@ import java.io.PrintWriter;
 import java.net.Socket;
 import javax.swing.SwingUtilities;
 
+/**
+ * Thread dedicato alla gestione di un client socket connesso.
+ */
 public class ClientHandler extends Thread {
 
     private final Socket socket;
@@ -35,7 +38,7 @@ public class ClientHandler extends Thread {
     @Override
     public void run() {
         try {
-            // Ottiene flussi di input/output e fa il wrapping [Lezioni/14 / Lezioni/15 - Programmazione in Rete.pdf, Slide 12]
+
             out = new PrintWriter(socket.getOutputStream(), true);
             in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 
@@ -45,21 +48,21 @@ public class ClientHandler extends Thread {
             out.println("==================================================");
 
             String riga;
-            // Legge i comandi conformemente all'esercitazione delle socket [Esercizio Socket.pdf, p. 1]
+
             while (connesso && (riga = in.readLine()) != null) {
                 final String cmdRemoto = riga.trim();
-                
+
                 if (cmdRemoto.equalsIgnoreCase("#exit")) {
                     out.println("#ok Disconnessione riuscita.");
                     break;
                 }
 
-                // Inoltra alla GUI in modo thread-safe
+
                 SwingUtilities.invokeLater(() -> {
-                    gui.stampaTesto("💬 [Terminale Remoto]: " + cmdRemoto);
+                    gui.stampaTesto("[Terminale Remoto]: " + cmdRemoto);
                     gui.eseguiComandoDaRemoto(cmdRemoto);
                 });
-                
+
                 out.println("#ok Comando '" + cmdRemoto + "' inviato all'elaboratore centrale.");
             }
         } catch (IOException e) {
@@ -68,7 +71,7 @@ public class ClientHandler extends Thread {
             try {
                 connesso = false;
                 socket.close();
-                gui.stampaTesto("🔌 Connessione remota disattivata.");
+                gui.stampaTesto("[Socket] Connessione remota disattivata.");
             } catch (IOException e) {
                 System.err.println("Errore chiusura socket: " + e.getMessage());
             }

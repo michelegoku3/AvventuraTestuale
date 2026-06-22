@@ -1,0 +1,4213 @@
+SOURCE: /home/user/AvventuraTestuale/Materiale/Avventura Testuale/Quaderni Jackson - Scrivere un Gioco di Avventura sul PC.pdf
+PAGES: 116
+
+===== PAGE 1 =====
+I QUADERNI JACKSON 
+di Personal Computer 
+Enrico Colombini 
+Scrivere un gioco 
+di avventura 
+sul persona! computer 
+
+
+===== PAGE 2 =====
+
+
+===== PAGE 3 =====
+Enrico Colornbini 
+Scrivere un gioco 
+di avventura .. 
+sul persona! co~puter 
+
+
+===== PAGE 4 =====
+DIRETIORE RESPONSABILE 
+Giampietro Zanga 
+DIRETIORE EDITORIALE 
+Roberto Pancaldi 
+COORDINAMENTO 
+E SUPERVISIONE 
+Gianni Giaccaglirn 
+GRAFICA E IMPAGINAZIONE 
+Claudio Parmiani 
+FOTOCOMPOSIZIONE 
+CorpoNove · Via Borfuro, 14/c · Bergamo 
+STAMPA 
+Rotolito Lombarda S.p.A · Via Brescia, 
+53/55 · Cernusco S/ N (Ml) 
+DIREZIONE E REDAZIONE 
+Via Rosellini, 12 · 20124 Milano 
+Tel. 02/ 6880951/5 
+©Gruppo Editoriale Jackson 1985 
+Tutti i diritti sono riservati. Stampato in Ita-
+lia. Nessuna parte di questo libro può essere 
+riprodotta, memorizzata in sistemi di archi-
+vio, o trasmessa in qualsiasi forma o mezzo, 
+. elettronico, meccanico, fotocopia, registra-
+zione o altri senza la preventiva autorizza-
+i zione scritta dell'editore. 
+Il 
+
+
+===== PAGE 5 =====
+SOMMARIO 
+L'AUTORE . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . IV 
+PREFAZIONE . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+V 
+CAPITOLO 1 -
+L'AWENTURA DEI GIOCHI 
+DI AWENTURA . . . . . . . . . . . . . . . . . . . . . 
+1 
+CAPITOLO 2 -
+L'ASTRONAVE CONDANNATA . . . . . . 
+5 
+CAPITOLO 3 -
+LA SCENEGGIATURA .... . . ... .. . .. 
+19 
+CAPITOLO 4 -
+COME NON SI SCRIVE 
+UN' A WENTURA . . . . . . . . . . . . . . . . . . . . 
+25 
+CAPITOLO 5 -
+UNA MACCHINA A STATI ...... ..... 
+29 
+CAPITOLO 6 -
+IL COMPUTER 
+CAPISCE L'ITALIANO . . . . . . . . . . . . . . . . 
+35 
+CAPITOLO 7 -
+MAPPA, DIZIONARIO E OGGETII . . . 
+39 
+CAPITOLO 8 -
+AZIONE! . .. .. . . . . . .. . .. .. . .. .. .. . .. .. 
+49 
+CAPITOLO 9 -
+UN PO' DI BUONE AZIONI 
+PER DARE L'ESEMPIO . . .. . . .. .. .. .. . 
+55 
+CAPITOLO 10 -
+A BORDO DEL "NEUTRONIA" . . . . . . . 
+61 
+CAPITOLO 11 -
+MONTAGGIO FINALE . . . . . . . . . . . . . . . 
+71 
+CAPITOLO 12 -
+L'INTERPRETE..... .. .. ..... .... . .. .. 
+79 
+CAPITOLO 13 -
+VARIAZIONI SUL TEMA . . . . . . . . . . . . . 
+87 
+III 
+
+
+===== PAGE 6 =====
+L'AUTORE 
+Enrico Colombini, 32 ann~ autore di software e di pubblicazioni 
+didattiche, vive e lavora a Brescia. Lasciati gli studi universitari ("poco 
+spazio per la fantasia", ricorda), ha lavorato per vari anni come progetti-
+sta elettronico indipendente (buona parte delle radio private, per dirne 
+una, funzionano con circuiti di suo progetto). Nel 1980 è tra i fondatori 
+della EC Elettronica (microprocessori ed automazione industriale), desti-
+nata ad una solida affermazione. Sempre inquieto ed in cerca dell'ultima 
+frontiera, nel 1983 esce dall'azienda per occuparsi a tempo pieno di 
+software (giochi intelligenti, soprattutto) e didattica (come questo libro). 
+Fa parte dell'ABRS (Associazione Bresciana Ricerca Scientifica) e di 
+Astrofisma (un 'associazione scientifica specialmente attenta alla didatti-
+ca extrascolastica). Nasconde sotto il suo caratteristico stile scanzonato 
+una preparazione solida e aggiornata, dovuta ad un costante impegno 
+professionale. Uno dei lati buoni di questo lavoro -
+dice - è che c'è sem-
+pre qualcosa da imparare. Altrimenti, avrebbe già cambiato mestiere 
+un'altra volta. 
+IV 
+
+
+===== PAGE 7 =====
+PREFAZIONE 
+Questo libro vi insegna come scrivere un gioco di awentura con il vostro 
+persona! computer. Se non sapete cos'è un gioco di avventura, potete 
+facilmente colmare una sì grave lacuna nella vostra formazione intellet-
+tuale con una semplice lettura del capitolo 1. Se siete già infonnati (o e-
+sperti avventurieri) potete saltare il capitolo in questione o leggerlo 
+comunque per arricchire il vostro bagaglio culturale di ulteriori valigie, 
+ehm, infonnazioni. Comunque, fate come vi pare: i lettori siete voi. 
+Sia detto di passata, mi propongo anche di insegnare un poco di Basic e 
+di "stile" di programmazione. Ludendo docere {insegnare giocando), di-
+cevano già molti secoli addietro: e così mi sento in buona compagnia 
+nella mia avversione per ogni forma di insegnamento inutilmente noio-
+so o "professorale", senza offesa (anzi con molto rispetto) per i professori 
+veri, quelli che sanno attivare negli ascoltatori il più potente meccanismo 
+di apprendimento: l'interesse. 
+Buon divertimento! 
+V 
+
+
+===== PAGE 8 =====
+
+
+===== PAGE 9 =====
+CAPITOLO 1 
+L'AWENTURA 
+DEI GIOCHI 
+DIAWENTURA 
+La prima awentura 
+In una data che non sono riuscito a scoprire con esattezza, ma in ogni 
+caso precedente l'esistenza dei persona! computer (più o meno nei primi 
+anni '70), tali Crowther e Woods inventarono, o comunque realizzarono, 
+un nuovo tipo di gioco, nel quale il calcolatore descrive un ambiente, o 
+una situazione, con frasi come questa (traduco liberamente): 
+Sei in una splendida camera di una decina di metri d'altezza. I muri so· 
+no fiumi congelati di pietra arancione. Uno scosceso canyon ed unfaci· 
+le passaggio escono dai lati est ed ovest della camera. 
+C'è un allegro fringuello cinguettante. 
+Il giocatore, che si identifica nel personaggio che sta esplorando il luogo 
+misterioso, può comunicare con il computer per mezzo di semplici frasi 
+scritte alla tastiera, per esempio: 
+Cattura il fringuello 
+Ottenendo una risposta: 
+Il fringuello non aveva paura quando sei entrato, ma nell'avvicinarti si 
+inquieta e non riesci a catturarlo. 
+Da questa risposta, il giocatore trae informazioni: ad esempio, che il 
+fringuello ha paura di lui. Oppure, ha paura di qualche oggetto che egli 
+possiede. Infatti, è anche possibile prendere e lasciare oggetti di vario 
+tipo Oo scopo del gioco è trovare tutti i tesori ed uscire dalle caverne) e 
+spostarsi da un luogo all'altro. 
+li computer si comporta come se "capisse" le frasi del giocatore, dando 
+1 
+
+
+===== PAGE 10 =====
+l'illusione di vivere realmente le situazioni descritte. 
+Crowther e Woods chiamarono il loro gioco semplicemente "Adventure", 
+cioè "Awentura". Un nome azzeccato, che da allora viene impiegato per 
+indicare tutti i giochi dello stesso genere. 
+Dai mini ai personal 
+Anche se il programma era scritto su un minicomputer, cioè una 
+macchina relativamente piccola (per la precisione un DEC PDP-1 O}, l'Ad-
+venture originale non era di certo destinata ad un folto pubblico: a quel 
+tempo (come sembra lontano!) i computer erano macchine costosissime, 
+accessibili soltanto a pochi specialisti in camice bianco e patrimonio di 
+grandi industrie, università e centri di ricerca. 
+Tuttavia, il programma ebbe un grande successo tra i pochi fortunati che 
+poterono giocarlo. Causò anche la disperazione di molti dirigenti, che ve-
+devano i programmatori assorti in problemi ben diversi dal lavoro. Pare 
+che ogni proibizione fosse inutile: l'unica terapia era attendere che il gioco 
+venisse risolto, poi il lavoro poteva riprendere regolarmente. 
+Con l'introduzione del persona! computer, vari programmatori si cimen-
+tarono nel compito di creare giochi di ~wentura che potessero funziona-
+re sulle nuove macchine. La cosa non era facile: basti pensare che 
+l'Adventure originale (scritto in linguaggio FORTRAN) occupava circa 
+300 Kbyte, quando sui persona! c'erano sì e no 16 Kbyte disponibilL Uno 
+dei precursori dei giochi di awentura sui persona! fu Scott Adams, che già 
+nel 1978 scrisse (in BASIC) un interprete che gli consentì di creare piccole 
+ma ben congegnate awenture (se non sapete cosa sia un interprete, ab-
+biate pazienza per qualche capitolo). 
+In seguito, l'evoluzione dei piccoli computer consentì di scrivere awen-
+ture sempre più complesse, incluse versioni déll' Adventure originale 
+(per !'Appie II, ad esempio, ne esistono ben due: Appie Adventure e Mi-
+crosoft Adventure, praticamente identiche). 
+Testo o grafica? 
+Il dialogo scritto non è il solo possibile mezzo di comunicazione tra gioca-
+tore e computer: un ambiente può essere disegnato invece che descritto. 
+Esiste quindi anche un filone di awenture grafiche, ed esiste una dispu-
+ta tra i sostenitori dei due tipi di gioco. Personalmente, trovo che 
+entrambe le forme abbiano il loro fascino: se un'immagine colorata è più 
+2 ~----
+
+
+===== PAGE 11 =====
+attraente di un testo scritto, è anche vero che il secondo stimola maggior· 
+mente la fantasia: nessun disegno sarà mai all'altezza di una scena 
+immaginata sulla base di pochi spunti suggestivi. È la stessa differenza 
+che passa tra un buon libro ed un bel film. 
+lo, in ogni caso, gioco volentieri sia awenture scritte che grafiche. Vi fac· 
+cio notare che ho detto "un buon libro" ed "un bel film". Intendo dire che 
+entrambi i tipi sono validi se ben fatti, ma c'è una vera inflazione di 
+awenture decisamente scadenti (di entrambi i generi). Riprenderò più 
+avanti questo argomento, per cercare di spiegare cosa può contribuire 
+alla qualità di un'awentura. 
+In questo libro vi insegno come costruire awenture di tipo testo, ma gli 
+stessi principi (come vedremo) sono perfettamente applicabili alla co· 
+struzione di awenture grafiche. 
+Qualche esempio 
+Se già non li conoscete, vi suggerisco qualche titolo tra le migliori awen· 
+ture in circolazione. Se esiste per il vostro calcolatore, procuratevi 
+senz'altro l'Adventure originale: ne vale la pena. Owiamente è in inglese 
+(o meglio, in americano), come d'altronde la stragrande maggioranza 
+delle awenture .. Non lasciatevi scoraggiare: è un ottimo stimolo per 
+migliorare la conoscenza della lingua. Se volete saperlo, a scuola ho 
+studiato soltanto francese: una lingua interessante, ma del tutto ina· 
+<latta alle necessità di qualunque professione scientifica. Ho iniziato a 
+conoscere un buon numero di vocaboli inglesi proprio grazie ad "Appie 
+Adventure". Non ho mai sfogliato tanto un dizionario in vita mia, ma ne 
+valeva la pena. Le awenture di Scott Adams sono invece scritte in ingle· 
+se molto sintetico, per occupare il minimo di memoria. Si trovano perfi· 
+no in cartuccia per VIC-20. Interessanti, tra le altre, "Pirate's adventure" 
+(la ricerca di un tesoro) e "Mission impossible" (un reattore nucleare im· 
+pazzito), che recentemente è stata ribattezzata con altro nome per non 
+confonderla con un omonimo videogame. 
+La più complessa ed affascinante awentura di tipo testo è senza dubbio 
+"Zork", divisa in tre distinte awenture. Si svolge in un immaginario impe· 
+ro sotterraneo (the Great Underground Empire), ed è scritta in un inglese 
+molto ricercato, quasi letterario. È molto bella, ma anche molto difficile. 
+Tra le awenture grafiche, vi consiglio "Ulysses and the golden fleece" 
+(Ulisse e il vello d'oro) e "Dark Crystal", entrambe pubblicate dalla On· 
+line Systems. Se avete molta pazienza, c'è anche la colossale "Time 
+Zone" (12 dischi nella versione Appie Il!), anche se un po' meno appas· 
+3 
+
+
+===== PAGE 12 =====
+sionante per l'eccessiva dispersione dei problemi da risolvere. 
+Un'awentura che non vi consiglio è la pubblicizzatissima The Hobbit, 
+che dietro un'apparente intelligenza nasconde una notevole stupidità, 
+parecchi errori di programmazione e la totale assenza del fascino del 
+libro originale di T olkien. Potete consolarvi con i disegni, che sono ben 
+fatti. 
+. 
+Se volete qualcosa in italiano, vi consiglio naturalmente "Awentura nel 
+castello", opera del sottoscritto insieme con Chiara Tovena (grazie, basta 
+applausi) e "li mistero della piramide" di Enrico Ragaini. Non è detto che 
+le awenture italiane siano peggio di quelle USA Giocare per credere. 
+4 
+
+
+===== PAGE 13 =====
+CAPITOLO 2 
+L'ASTRONAVE 
+CONDANNATA ,~I 
+Introdurre il programma 
+Non è mia intenzione annoiarvi con astrusi discorsi teorici. Invece, vi pro-
+pongo subito un'awentura da giocare. Nei capitoli successivi vi mostrerò 
+come, un passo alla volta, sia nata questa awentura. Imparerete così a 
+costruire le vostre awenture, sfruttando una parte (la più complessa) del 
+programma che vi propongo, ed aggiungendovi i frutti della vostra fanta-
+sia. Infine, potrete vedere come funziona il programma e come modifi-
+carlo per le vostre esigenze particolari. Ci sarà anche una certa dose di 
+teoria, ma diluita e (spero) facilmente digeribile. Questo libro richiede 
+una conoscenza (almeno superficiale) del Basic. Se non l'avete, o se 
+volete migliorarla, leggetevi ABC persona! computer o i Quaderni Jackson 
+n. 3, 5 e 9. 
+Il listato dell'awentura è riportato al termine di questo capitolo. Se non 
+avete voglia di battere sulla tastiera le oltre 350 linee che costituiscono il 
+programma, potete trovarlo già pronto in "JACKSON SOFT AWEN-
+TURE 1 ", anche leggermente modificato. 
+Altrimenti, armatevi di santa pazienza e mettetevi alla tastiera. li listato di 
+seguito pubblicato è nella versione per Appie Il, ma per le altre macchine 
+bastano poche varianti (che elenco). Unica eccezione: non fornisco la 
+versione per il Sinclair Spectrum, che usa un Basic del tutto fuori 
+standard ed alquanto limitato. Se avete lo Spectrum, non vi resta che 
+procurarvi il numero citato di JACKSON SOFT AWENTURE, la cui cas-
+setta allegata contiene una versione del gioco adeguatamente modificata. 
+Per Appie Il (tutte le versioni): nessuna variazione. 
+Per Commodore 64 o VIC-20 espanso (almeno 16K), togliere il punto 
+5 
+
+
+===== PAGE 14 =====
+di domanda nelle INPUT alla bnea 800 e 1330, e sostituire le linee 
+1990-2090 con quelle riponate in Figura 1. 
+1990 REM 5: SAUE 
+2000 OPEN 1, 1, 1,F$ 
+2010 FOR lal TO FO:PRINT•l,LOl(l):NEXT 
+2020 PRINT•l,LU:PRINT•l,Tl:PAINT•l,Ul :PAINT•1,U2 
+2030 CLOSE 1 :AETUAN 
+2050 AEM 6: LOAD 
+2060 OPEN 1, 1,0,F$ 
+2070 FOR 1•1 TO FO: INPUT•l,LOl(l):NEXT 
+2080 INPUT•1,LU,T1,Ul,U2 
+~090 CLOSE l:AETUAN 
+Fig. 1 -
+Routine di Saue e Load per Commodore 64 e Vie 20 espanso. 
+Per MSX, IBM, Olivetti, Macintosh con Microsoft Basic, togliere il 
+punto di domanda nelle INPUT alla linea 800 e 1330, sostituire la linea 
+1130 con: 
+1130 A$=INPUT$(1) 
+e sostituire le linee 1990-2090 con quelle. riportate in Figura 2. Ci 
+1990 AEM 5: SAUE 
+2000 OPEH F$ FOR OUTPUT AS •1 
+2010 FOR 1•1 TO FO:PRIHT1 1,LOl{l):HEXT 
+2020 PRIHT1 1,LU:PRIHT•1,Tl:PRIHT•l,U1:PRIHT1 1,U2 
+2030 CLOSE•l :RETURH 
+2050 REM 6: LOAD 
+2060 OPEN F$ FOR INPUT AS •1 
+2070 FOR 1•1 TO FO:IHPUT1 1,LOl(l):HEXT 
+2080 IHPUT•1,LU,T1,Ul,U2 
+2090 CLOSE1 1 :RETURH 
+Fig. 2 -
+Routine di Saue e Load per versioni recenti di Microsoft Basic. 
+6 
+
+
+===== PAGE 15 =====
+possono essere problemi con le lettere minuscole. Se il vostro com-
+puter non le possiede o volete evitare qualsiasi problema, scrivete 
+semplicemente tutto in maiuscolo. Se invece avete il Commodore 64, 
+rischiate di trovarvi invischiati in una mostruosità di progetto che la Com-
+modore si trascina da anni: lavorando in modo "solo maiuscole" va tutto 
+bene, ma passando in modo "maiuscole/minuscole" i codici dei caratteri 
+vengono· scambiati su video (e lasciati inalterati su tastiera). Se volete 
+usare il C-64 in modo "maiuscole/minuscole", dovete: 
+• Mettere in modo "maiuscole/minuscole" con SHIFf /C= 
+• Scrivere il programma in minuscolo. 
+• Scrivere i REM in minuscolo. 
+• Scrivere quello che sta tra virgolette come appare nel listato, con le 
+seguenti eccezioni: 
+• Unee 1340,1350: "S" ed "N" vanno minuscole. 
+• Unea 830: "RE" va minuscolo. 
+• Unee 3990-4090: tutto minuscolo. 
+• Linee 4090, 4230, 4360, 4510: "FD", "FM", "FA'', "FO" minuscoli. 
+Lo stesso nelle linee 1040, 1050, 1060, 1070. 
+• e inserire il programma, fate attenzione alle solite cose: a non confon-
+ere la ettera O con la cifra zero {che è di solito barrata proprio per 
+::-:ig; erla . a non tralasciare gli spazi nelle stringhe (quelli tra virgolet-
+ct..-nenticare due punti virgole o punti e virgola. Se volete, 
+-·--- nspa_-m2!'" .. -; e nee di commento (quelle che cominciano con 
+Q-..a"ltlo a1.~e finito, fatevi aiutare da qualcuno per verificare 
+tutto. 
+Giocare l'avventura 
+Quando avete il programma in macchina (ricordatevi di salvarne una 
+copia se l'avete battuto a mano), potete dare RUN e giocare. Non vi con-
+viene andare avanti nella lettura del libro prima di aver giocato, perché 
+trovereste le soluzioni dell'awentura (rovinandovi il divertimento) ed 
+avreste qualche difficoltà a comprendere i continui riferimenti all'awen-
+tura contenuta nel programma. 
+Per chi non fosse esperto di awenture, ecco le istruzioni: 
+Siete divisi in una doppia personalità, che potremmo chiamare il braccio 
+e la mente. Dovete dare ordini al voi stesso che vive dentro il calcolatore 
+e che si trova a dover affrontare il problema di un'astronave condannata 
+a sicura fine. Potete farlo con frasi del tipo: 
+7 
+
+
+===== PAGE 16 =====
+GUARDA IL COMODINO 
+(ricordatevi di darvi sempre del tu) oppure indicando la direzione in cui 
+volete muovervi, ad esempio: 
+NORD 
+o, più semplicemente: 
+N 
+Le direzioni possibili sono NORD, SUD, EST, OVEST, ALTO, BASSO, 
+abbreviabili rispettivamente in N, S, E, O, A, B. Provatele in tutti i luoghi e 
+diseQnate una buona piantina. 
+Un'azione fondamentale è GUARDA, che fornisce informazioni tipo: 
+GUARDA IL CARTELLO 
+Altre azioni essenziali sono PRENDI e LASCIA, per manipolare gli 
+oggetti: 
+PRENDI LA CHIAVE 
+Per ottenere l'elenco degli oggetti posseduti, scrivete COSA o INVEN-
+TARIO. 
+Se volete registrare la situazione su disco (o cassetta) per continuare in 
+seguito, scrivete: 
+SAVE 
+Questo comando è anche utile prima di compiere un'azione pericolosa, 
+per non dover ricominciare dall'inizio. Se vi capita qualche sgradevole 
+incidente, basta poi scrivere: 
+LOAD 
+per riprendere la situazione esattamente com'era al punto dell'ultimo 
+SA VE effettuato in precedenza. 
+Naturalmente i vocaboli citati non esauriscono tutte le possibilità. ~ 
+proprio non trovate l'azione giusta da fare su un' oggetto, potete dare una 
+sbirciatina alle linee dalla 3990 alla 4090, che contengono le parole am-
+messe. 
+L'awentura è molto semplice (a parte forse l'azione conclusiva, che 
+richiede un po' di ragionamento), ma abbastanza curata e "realistica". 
+Spero vi divertiate a giocarla, e spero anche che la risolviate senza troppi 
+8 
+
+
+===== PAGE 17 =====
+problemi. In ogni caso, non disperate: nei prossimi capitoli è descritta in 
+dettaglio. Certo che sarebbe meglio riuscire a risolverla da soli ... 
+Ecco il programma, in versione per Appie II (per gli altri computer, vedi 
+sopra): 
+lSS REM MM 
+AVVENTURA: L'ASTRONAVE CONDANNATA 
+MM 
+llS REM #M di Enrico Colombini e Chiara Tovena 
+MM 
+12S REM MM <Cl 1985 DINOSOFT E JACKSON EDITRICE MM 
+13S REM 
+14S GOTO 710:REM MAIN 
+150 REM 
+160 REM -
+CERCA PS IN DIZIONARIO, CaCODICE <0 SE ASSENTE> -
+170 REM 
+180 I•l:F•FD 
+190 A•INT<<I+Fl/2l:AS=DZS<Al:IF PS=AS THEN C=DZ<A>:GOTO 240 
+20S IF PS>AS THEN I•A+l 
+210 IF PS<AS THEN F•A-1 
+220 IF I<•F THEN 190 
+230 C•0 
+240 RETURN 
+250 REM 
+26S REM -
+ESTRAE PS DA INS"CINJ, TROVA CODICE C, SALTA ART. -
+27S REM 
+200 c-0 
+29S CS•MIDS<INS,IN,ll:IF es=· • OR es=··· THEN IN• IN+l: 
+GOTO 29S 
+300 IF IN >LI THEN PS•"":GOTO 360 
+310 A•IN:REM INIZIO 
+320 CS•MIDS<INS, IN,1 > 
+330 IF CS<> " • AND CS<> ••• AND IN<=LI THEN IN• IN+l:GOTO 320 
+340 PS•MIDS<INS,A,IN- A>:GOSUB 180:REM CERCA 
+350 IF C•7 THEN 280!REM ARTICOLO 
+360 RETURN 
+37S REM 
+380 REM -
+CERCA AZIONE A, A=AZIONE <0 SE NON TROVATA> -
+390 REM 
+400 I•l:FaFA:N•A 
+410 A•INT<<l+Fl/2l:M=CA<A>:IF N=M THEN A=AZ%<A>:GOTO 460 
+420 IF N>M THEN I•A+l 
+430 IF N<M THEN F•A-1 
+44S IF I<•F THEN 410 
+450 A•S 
+460 RETURN 
+47S REM 
+48S REM -
+ESEGUE AZIONE A, A=S SE NON TROVATA -
+49fil REM 
+500 GOSUB 4SS:IF A•0 THEN 550 
+51S IF C2•S OR A>e THEN 53e:REM SOLO VERBO o NO TEST 
+52S Ac - A:·IF OG• S THEN PRINT •- Elui non c•e•. ":GOTO 540 
+53fil GOSUB 171S:REM ESEGUE 
+54S Acl 
+55S RETURN 
+56S REM 
+57S REM -
+ELENCA OGGETTI IN LUOGO L, CON PREFISSO PS -
+58S REM 
+9 
+
+
+===== PAGE 18 =====
+590 FOR Ixl TO FO 
+600 lF ABS<LO%Clll•L THEN PRINT PSJOGSCII;",• 
+610 NEXT:RETURN 
+620 REM 
+ti: :€~ - OG•INDICE OGGETTO C2, 0 SE NON PRES. o TRASP. _ 
+650 OG•0:FOR l•l TO FO 
+660 IF C0%1Il=C2 THEN IF ABSIL0%1Ill•LU OR L0%1l1 • 0 THEN 
+OG=I:I• FO 
+670 NEXT:RETURN 
+680 REM 
+690 REM -
+MAIN IPARSERI -
+700 REM 
+710 GOSUB 970:REM INIT 
+720 GOSUB 1540:REM INTRODUZIONE 
+730 GOSUB 112 0:REM <SP > 
+740 REM 
+750 REM CICLO DI GIOCO: 
+760 PRINT:PRINT "Sei ";DESILUl;".":REM DESCRIZIONE 
+7 70 L=LU : PS• "Vedo " :GOSUB 5 90:REM OGGETTI 
+780 GOSUB l400:REM TEMPO 
+7 90 PRINT : PRINT 
+800 INS•"" :INPUT " Cosa dev o fare
+? " ;INS:IF INS="" THEN 800 
+810 PRINT:LI• LENllNSl:IN• l:GOSUB 2 80:P1S=PS:Cl• C 
+820 IF PlS• "" THEN PRINT "- Beh ?":GOTO 760 
+830 IF RIGHTSIP1S,21 • "RE" THEN PRINT 
+•-Dammi d•l tu, per favore. " : GOTO 760 
+840 IF Cl•0 AND PlS< >" " THEN PRINT 
+Non conosco il v•rbo ' "PlS"'.":GOTO 7 60 
+850 GOSUB 280:P2S=PS:C2•C 
+860 IF C2• 0 AND P2S< >"" THEN PRINT 
+• -Non conosco la parola ••p2s••.•:GOTO 7 60 
+870 IF C2<>0 THEN GOSUB 650:REM OG•INDICE 
+880 Nl•LU*10000:N2•Cl*100 
+890 A•Nl+N2+C2:GOSUB 500:IF A GOTO 7 60:REM VERBO+NOME IN LU 
+900 IF C2< >0 THEN A• Nl+N2+99:GOSUB 500: IF A GOTO 7 60:REM 
+VERBO+X IN LU 
+910 A=N2+C2:GOSUB 500:IF A GOTO 760:REM VERBO+NOME GENERICO 
+920 IF C2< >0 THEN A•N2+99:GOSUB 500:IF A GOTO 7 60:REM 
+VERBO+X GENERICO 
+930 PRINT •-Non capisco . ":GOTO 760 
+940 REM 
+950 REM -
+INIT -
+960 REM 
+970 DIM DZS1100l , DZl100l:REM DIZIONARIO 
+980 DIM DES1301,DISl30l:REM MAPPA 
+990 DIM CAl150l , AZ%11501:REM AZIONI 
+1000 DIM OGSl50l,C0%1501,LO%C501:REM OGGETTI 
+1010 F••"ASTRO":REM FILE SITUAZIONE 
+1020 REM FD,FM,FA,F0•0 
+1030 PRlNT:PRlNT "Un attimo di pazi•nza ... •; 
+1040 READ AS:IF AS<> "FD" THEN FD=FD+l:DZSIFDl =AS: 
+READ DZIFDl:GOTO 1040 
+1050 READ AS:IF AS<> "FM" THEN FM=FM+l:DESCFMl =AS: 
+READ DISIFM>:GOTO 1050 
+1060 READ A•:IF AS<>"FA" THEN FA•FA+l:CACFAl=VALCASI: 
+READ AZ%1FAJ:GOTO 1060 
+10 
+
+
+===== PAGE 19 =====
+1878 READ A•:IF A•<>•Fo• THEN FO•FO+l:OG•<FOl•A•: 
+READ 
+CO~IFO>,LO~IFOl:GOTO 1878 
+1888 PRINT:PRINT:RETURN 
+1898 REM 
+1188 REM -
+<SP> PER CONTINUARE -
+1118 REM 
+1128 PRINT!PRINT •- Premi <spazio> per continuar• -·1 
+1138 GET A•:IF A•< >• • THEN 1138 
+1148 PRINT:PRINT:RETURN 
+11~8 REM 
+1168 REM MMM FINE INTERPRETE, INIZIO AVVENTURA MMM 
+1178 REM 
+1188 REM -
+MORTO -
+1198 REM 
+1288 GOSUB 1128:REM <SP> 
+1218 PRINT "MMM IL GAZZETTINO DELLA GALASSIA MMM 
+1228 PRINT:PRINT "- Tragedia al largo di Vega -•:PRINT 
+1238 PRINT "L'astronave 'Neutroni•', in servizio" 
+1248 PRINT "passeggeri con 2S8 persone a borde,• 
+12S8 PRINT "•' stata distrutta da una violenta• 
+1268 PRINT "esplosione,_ causata probabilmente• 
+1278 PRINT "da imperizia del comandante lun• 
+1288 PRINT "lnov•lltnc, stando• indiscrezioni" 
+1298 PRINT " raccolte dal nostro corrispondente>." 
+1388 PRINT "Il responsabile del peggior disastro• 
+1318 PRINT "della storta galattica sara' di certe • 
+1328 PRINT "degradato alla memoria.•:PRINT 
+1338 INPUT •vuoi giocare ancora? •1A• 
+1348 A••LEFTSIAS,ll:IF A•<>"S" AND AS<>•N• THEN 1338 
+13~8 IF A•••s• THEN RUN:REM RIPARTE 
+1368 PRINT:PRINT:PRINT "Ciao!":PRINT:END 
+1378 REM 
+1388 REM -
+TEMPO -
+1398 REM 
+1488 Tl • Tl - 1 
+1418 IF T1< • 18 THEN PRINT •sente un segnai• di allarme.• 
+1428 IF Tl<•S THEN PRINT "La temperatura e' insopportabile.• 
+1438 IF T1<•2 THEN PRINT •La nave•' scossa da vibrazioni." 
+1448 IF T1>8 THEN RETURN 
+14S8 PRINT:PRINT "***Troppo tardi! ***":PRINT 
+1468 PRINT "Il r•attcre e' fuori controllo.• 
+1478 PRINT:PRINT "L'astronave e' dislnt•grata• 
+1488 PRINT "in minuscoli framm•nti." 
+1498 PRINT "E' incredlbll• il silenzio" 
+1S88 PRINT "d•lle esplosioni n•I vuctc.•:GOTO 1288 
+1S18 REM 
+1S28 REM -
+INTRODUZIONE -
+1S38 REM 
+1S48 PRINT:PRINT!PRINT 
+1SS8 PRINT "M L'astronave condannata:un'avventura M" 
+1S68 PRINT "M di Enrico Cclcmbint • Chiara Tov•na M" 
+1S78 PRINT:PRINT "<cl Dincscft e Jackscn editrice 198S": 
+PRINT 
+1S88 PRINT "Sdraiate nella sabbia, ti godi il" 
+1S98 PRINT "dole• calar• del scie tropical• ..• • 
+1688 PRINT:PRINT "Ora il sole picchia piu' forte,• 
+11 
+
+
+===== PAGE 20 =====
+1610 PRINT "••i in pi•no d•••rto e non c'•'" 
+1620 PRINT •traccia di oasi ... • 
+1630 PRINT:PRINT "Ti sve9li di soprassalto n•ll& tua• 
+1640 PRINT •cabina di comandante del 'Neutronia'." 
+1650 PRINT "F& molto caldo. Troppo caldo. Ci" 
+1660 PRINT "d•v'essere qualcosa che non funziona.• 
+1670 T1•100:LU•6:V1•0:V2•0:PRINT:RETURN 
+1680 REM 
+1690 REM -
+ESEGUE AZIONE A -
+1700 REM 
+1710 ON A GOTO 1780,18301 1920 1 1970,2000,2060,2120,2150, 
+2180,2210 
+1720 ON A-10 GOTO 2260,2300,2380,2410,2460,2580,2640,2700, 
+2740,2800 
+1730 ON A-20 GOTO 2860,2910,2960,3010,3040,3080,3190,3320, 
+3370,3400 
+1740 ON A-30 GOTO 3440,3520,3570,3640,3800,3860,3900,3940 
+1750 PRINT "AZIONE "A:RETURN:REM 
+TEST 
+1760 REM 
+1770 REM 1:DIREZIONl 
+1780 A=VALI MIDS<DISILU>,2*C1-1,2>> 
+1790 IF A•0 THEN PRINT •-Di li' non puoi andar•.":RETURN 
+1800 LU•A:RETURN 
+1810 REM 
+1820 REM 2:PRENDI 
+1830 IF LO%<OG>s0 THEN PRINT "- Gia' fatto.":RETURN 
+1840 IF LO%<OG><0 THEN PRINT •-Non e' possibile.":RETURN 
+1850 IF OG•4 AND L0%122>=0 THEN PRINT 
+"To9li prima il camice.":RETURN 
+1860 IF OG•22 AND L0%14l=0 THEN PRINT 
+"To9li prima la tuta.":RETURN 
+1870 L0%<0Gl•0 
+1880 IF OG•4 OR OG•9 OR OG=11 THEN PRINT 
+"Ora l'hai addosso.":RETURN 
+1890 PRINT "Fatto.•:RETURN 
+1900 REM 
+1910 REM 3: LASCIA 
+1920 IF OG•0 OR LO%<OG><>0 THEN PRINT 
+•-Non ce l'h&i.":RETURN 
+1930 IF LU<9 THEN LO%<OG>=LU:PRINT "Fatto.":RETURN 
+1940 LO%<OG>•-99:PRINT "Si e' perso nello spazio.•:RETURN 
+1950 REM 
+1960 REM 4: GUARDA 
+1970 PRINT "Non noto nulla di particolare.":RETURN 
+1980 REM 
+1990 REM 5: SAVE 
+2000 DS•CHRSl4>:PR1NT DS"OPEN"F$:PRINT D$"WRITE"FS 
+2010 FOR I•l TO FO:PRINT L0%1I>:NEXT 
+2020 PRINT LU:PRINT T1:PRINT Vl:PRINT V2 
+2030 PRINT DS"CLOSE":RETURN 
+2040 REM 
+2050 REM 6: LOAD 
+2060 DS•CHRS<4>:PRINT DS"OPEN"FS:PRINT DS"READ"FS 
+2070 FOR I•1 TO FO:INPUT LO%<I>:NEXT 
+2080 INPUT LU,T1,V1,V2 
+2090 PRINT DS"CLOSE":RETURN 
+12 
+
+
+===== PAGE 21 =====
+' I liHt Rl M 
+l llY HIM 7 : COS A 
+•' • •'" f'HI NT "Pos si•di: "!L•0:PS•"-
+"!GOTO :590 
+I Ht Hl M 
+:.> t •Ut RUM 8: 
+•' I :1111 HG I URN 
+l t.11 HEM 
+:.n _.., REM 9 ! 
+•' l l.1111 HETURN 
+~ I Y" HllM 
+" 
+REM 10: 
+If 
+L O~C OG> <> 0 THEN PRINT " Non ce l'hai.":RETURN 
+IF NOTCLU>•9 ORCLU•7 AND V2-1>> GOTO 1920:REM LASCIA 
+PRINT "L'ar ia! L'aria! Aaaagh! ! !"!GOTO 1200 
+HEM 
+Rt.M 11 ! 
+f'RINT "E' la tua tuta p•r attivita•• 
+PRINT " •xtrav•icolare.•:RETURN 
+RE.M 
+REM 12 : 
+P IHNT 
+PRINT 
+PRI NT 
+PRI NT 
+PRINT 
+PR INT 
+REM 
+"E ' privo di conoscenza ed ha" 
+•un'ammaccatura nel casco . • 
+"Probabilm•nt• •' stato colpito• 
+"da un °piccolo m•t•orit• mentr•• 
+"ripara va l'ant•nna. P•r" 
+•+ortuna, •' ancora vivo. ":RETURN 
+REM 13: 
+PRI NT "Non• ' ••9lio le99•rlo ? ":RETURN 
+REM 
+..... .,., REM 1 '4 : 
+~ "
+I " PRINT "E' piuttosto pesante . • 
+1 ... 7111 PHINT "Probabil••nte, e•• 
+.lq Il PRINT •trattato al piombo. ":RETURN 
+•' "'1111 REM 
+•" l:"\0 REM 1:5: 
+.l•l t.8 I F 
+LO~COG)•LU THEN PRINT 
+"Pr•ndilo in mano, prima.":RETURN 
+.1" 7" PRINT • -
+MANUALE DI ISTRUZIONI DEL - • 
+r.'l•IUll PR I NT • -
+•'"Ylil PRINT • -
+REATTORE POSITRONICO 
+Mod. YTREWQ 8'421 
+-· 
+- ":PRINT 
+~ ~ 11111 PRINT •- P•r attivar• il reattore,• 
+~~ 1 111 PRI NT "tirar• la leva • poi pr•m•r•" 
+IO.I• PRINT "in sequ•nza i pulsanti verde,• 
+.I ~
+" PRI NT "giallo• rosso.• 
+~0"" PRINT • - P•r disattivar• il reattore ••• • 
+' t.\~• l'RINT:PRINT "Dannazion•! La pagina•' strappata.•: 
+Rli: TURN 
+Hl:M 
+H EM 16: 
+l'RlNT • 
+TEMPERATURA REATTORE - ":PRINT 
+l' RlNT "S• g na "848- T1*4" gradi • sta• 
+PRlNT "s al•ndo v•locem•nt•. C' • ' " 
+P NIN T " u n s e g no ros so a 800 9rad t .•:RETURN 
+Hl M 
+H M 1 7 : 
+13 
+
+
+===== PAGE 22 =====
+2649 PRINT ·- S.O.S. GALAITICO 
+":PRINT 
+26~9 PRINT "Premere tl pulsante solo" 
+2669 PRINT •tn caso di emer9enza.• 
+2679 PRINT "09ni abuso verra' puntto.":RETURN 
+2688 REM 
+2698 REM 18: 
+2788 PRINT "Una 5critta lampe99ia brevemente:•:PRINT 
+2718 PRINT •- ANTENNA ESTERNA DIFETTOSA 
+":RETURN 
+2728 REM 
+2739 REM 19: 
+2748 PRINT "E' alla base dt una scaletta• 
+27~8 PRINT "e dtce:•:PRINT 
+2768 PRINT "INGRESSO RISERVATO AL" 
+2779 PRINT "PERSONALE DI BORDO.":RETURN 
+2788 REM 
+2799 REM 28: 
+2888 LU-l:IF LO~t28><>9 THEN RETURN 
+2819 PRINT •se solo et fos•• qui il secondo" 
+2828 PRINT "pilota, il solo che•• ne intende" 
+2838 PRINT "di problemi tecnici!":RETURN 
+2849 REM 
+28~8 REM 21: 
+2869 PRINT "Me9lio non sv•9liare i" 
+2878 PRINT "P••••99eri, potrebbero• 
+2889 PRINT "farsi pr•nd•r• dal panico.":RETURN 
+2899 REM 
+2989 REM 22: 
+2918 PRINT "E' posto ad ovest e dice:":PRINT 
+2929 PRINT •- ATTENZIONE: -":PRINT 
+2938 PRINT "STANZA DEPRESSURIZZATA":RETURN 
+2948 REM 
+29~8 REM 23: 
+2968 IF LO~C24><>-99 THEN PRINT "Gia' fatto.":RETURN 
+2978 IF L0~<23><>9 THEN PRINT "E' chiuso a chiav•.":RETURN 
+2988 PRINT 
+"Fatto.":LO~C24>-LU:L0~<22>-LU:RETURN 
+2999 REM 
+3988 REM 24: 
+3918 PRINT "E' vuoto.•:RETURN 
+3828 REM 
+3838 REM 
+2~: 
+3848 PRINT "Di•mi: 'Premi il rosso•• 
+39~9 PRINT "o 'PreMi il verd•'.":RETURN 
+3868 REM 
+3978 REM 26: 
+3888 IF v2-1 THEN PRINT "Click.":RETURN 
+3898 PRINT "La paret• ad est si chiude.• 
+3188 PRINT "La par•t• ad ovest si apre• 
+3119 PRINT •verso lo spazio ••terno.• 
+3128 PRINT "L'aria ••e• aibilando.• 
+3139 IF LO~t4l<>8 OR LO~Clll<>S THEN PRINT:PRINT 
+"Aaaa9h!":GOTO 1288 
+3148 FOR I-1 TO FO 
+31~8 IF LO~<I>-LU THEN PRINT 
+OGStil" •i p•rd• n•llo spazio.":LO~Cil•-99 
+3168 NEXT:V2-1:RETURN 
+3178 REM 
+14 
+
+
+===== PAGE 23 =====
+/ 3189 
+3199 
+32"" 
+321" 
+322" 
+323e 
+324e 
+325e 
+3269 
+327e 
+320e 
+329e 
+339e 
+331e 
+332e 
+333e 
+334e 
+335e 
+336e 
+337e 
+338e 
+339" 
+34"" 
+341" 
+342" 
+343e 
+REM 27: 
+IF v2-e THEN PRINT "Click.":RETURN 
+PRINT "La par•t• ad ovest si chiude.• 
+PRINT "La parete ad est si apr•" 
+PRINT "v•rso il corridoio.• 
+PRINT "L'aria rientra sibilando. ":V2•0 
+IF L0~128><>0 OR 
+L0~123><>-99 THEN RETURN 
+PRINT:PRINT "Il ••condo pilota rinvi•ne, si r•nde" 
+PRINT •subito conto della situazion• e dic•:":PRINT 
+PRINT • -
+Pr••to, f•rma il reattor•!" 
+PRINT "Ecco la chiav• d•l mio ... • 
+PRINT "Poi p•rd• nuovamente i sensi.": 
+L0~123l•LU:RETURN 
+REM 
+REM 28: 
+PRINT • -
+L'EMERGENZA E' IN AGGUATO! - • 
+PRINT "-
+PRINT "-
+REM 
+REM 29: 
+Porta sempre con te 
+il manuale del reattore. -· 
+- ":RETURN 
+PRINT "Il t•cnico •' il ••condo pilota.":RETURN 
+REM 
+REM 3e: 
+PRINT "DiMMi: 'Premi il rosso•, 'Premi" 
+PRINT "il verde' o 'Pr•mi il giallo'.":RETURN 
+REM 
+REM 31: 
+344e PRINT "Click.":IF V1<>8 GOTO 3830 
+345e PRINT "Una tubatura p•rd• l•gg•rm•nt•• 
+3468 PRINT "da un raccordo lprobabilm•nt• p•r" 
+3478 PRINT •sovrapression•>. Le gocc• cadono sul" 
+3488 PRINT •quadro di controllo, vicino ·a t•." 
+3498 Vl•l:RETURN 
+358e REM 
+3518 REM 32: 
+3528 PRINT "Click.":IF Vl<>l GOTO 3830 
+3538 V1•2:IF LO~l221<>8 THEN PRINT 
+"Non ti s•nti troppo bene.• 
+3540 RETURN 
+3550 REM 
+356e REM 33: 
+3578 PRINT "Click.":IF V1<>2 GOTO 3830 
+358e V1•3:IF LO~l22l•0 THEN RETURN 
+3590 PRINT "Temo eh• tu abbia assorbito tropp•" 
+3688 PRINT •radiazioni. Ora stai d•cisament•• 
+3618 PRINT "male. Perdi cono•c•nza •.• ":GOTO 1200 
+362e REM 
+3630 REM 34: 
+3648 PRINT "Clank.":IF V1<>3 GOTO 3830 
+365e GOSUB 112e:REM <SP> 
+3660 PRINT "MMM IL GAZZETTINO DELLA GALASSIA MMM 
+3678 PRINT:PRINT •- Comandante salva astronave -":PRINT 
+368e PRINT "L ' astronave 'Neutronia', in servizio" 
+3698 PRINT "passeggeri con 250 persone a bordo,• 
+3788 PRINT •e• stata salvata da sicura distruzione• 
+371e PRINT •grazie al coraggio e al sangue freddo" 
+15 
+
+
+===== PAGE 24 =====
+3728 PRINT "d•I comandant•, eh• •' riu•cito a• 
+3738 PRINT "di•attivar• il r•attor• impazzito.• 
+3748 PRINT "li •uo nom• v•rra' ricordato p•r• 
+3758 PRINT "••mpr• tra 911 •roi d•lla no•tra• 
+3768 PRINT "flotta 9alattica.•:PRINT 
+3778 PRINT:PRINT •- Con9ratulazioni! -•:PRINT:END 
+3788 REM 
+3790 REM 35: 
+3888 PRINT "Clunk.":GOTO 3838 
+3818 REM 
+3820 REM COMUNE: 
+3838 V1•8:Tl•INT<T1/2l:RETURN 
+3848 REM 
+3858 REM 36: 
+3868 PRINT "S•mbra dann•99iata, for••" 
+3878 PRINT "da un 9rosso meteorit•.":RETURN 
+3888 REM 
+3898 REM 37: 
+3980 IF V2•8 THEN LU•4:RETURN 
+3910 GOTO 1788:REM DIREZIONI 
+3928 REM 
+3938 REM 38: 
+3940 IF V2•1 THEN LU•ll:RETURN 
+3958 GOTO 1788:REM DIREZIONI 
+3960 REM 
+3978 REM -
+DIZIONARIO: 
+3980 REM 
+3998 DATA "A",5,"AGGIUSTA",27,"ALT0",5,"ANTENNA",69, 
+"APRI",22 
+4088 DATA "ARMADIETT0",67,"B",6,"BASS0",6,"BOTTONE",61, 
+"CAMICE",52 
+4818 DATA "CARTELL0",68,"CASC0",58,"CHIAVE",54,"COSA",13, 
+"E",3,"EST",3 
+4828 DATA "ETICHETTA",70,"GIALL0",63,"GUARDA",18,"IL",7 
+4838 DATA "INDICATORE",66,"INDOSSA",20,"INVENTARI0",13, 
+"L",7,"LA",7 
+4848 DATA "LASCIA",9,"LEGGI",25,"LETT0",68,"LEVA",65, 
+"L0",7,"LOAD",12 
+4858 DATA "MANUALE",55,"METTI",28,"N",l,"NORD",1,"0",4, 
+"OVEST",4 
+4868 DATA "PREHI",26,"PRENDI",8,"PULSANTE",61,"RIPARA",27, 
+"ROSS0",64 
+4878 DATA "S",2,"SALI",5,"SAVE",ll,"SCENDI",6, 
+"SCHIACCIA",26 
+4888 DATA "SECOND0",53,"SPINGI",24,"SUD",2,"TIRA",23, 
+"TOGLI",21 
+4898 DATA "TUTA",51,"VERDE",62,"W",4,"FD" 
+4188 REM 
+4118 REM -
+MAPPA: 
+4120 REM 
+4138 DATA "n•lla cabina di pilota9910•,•ss0ssssssss2• 
+4148 DATA "ad un'••tr•mita' del corridoio","088388858188" 
+4158 DATA "n•l corridoio","828488868808" 
+4168 DATA "ad un'••tre•ita• del corridoio•,•939999979999• 
+4178 DATA •nella cabina d•l ••condo pilota•,•sssss2s00s00• 
+4188 DATA •nella tua cabina•,•0s00030000s0• 
+16 
+
+
+===== PAGE 25 =====
+4198 DATA •n•l compartim•nto stagno•,•008888888888• 
+4288 DATA •n•ll& •al& contro llo d• l r•attor••,•008888888408" 
+4218 DATA •al l '••t•rno, a prua d•ll'&atronave•, 
+•001000000000• 
+4228 DATA •all'••t•rno ' dell'astronav••,•091100000000• 
+4230 DATA •all'••t•rno, & poppa dell'astronave•, 
+"108887888808","FM" 
+4248 REM 
+4258 REM -
+AZIONI: 
+4260 REM 
+4278 DATA 108,1,280,1,388,1,488,1,588,1,688,1,899, - 2 
+4280 DATA 950, - 10,951, - 10,999,3,1051, - 11,1052, - 14,1853, - 12 
+4290 DATA 1855, - 13,1868,-13,1899,-4,1108,5,1288,6,1380, 7 
+4300 DATA 2858, - 2,2051, - 2,2052, - 2,2150, - 18,2151, - 18, 
+2152,-3,2255, - 15 
+4318 DATA 2555, - 15,2769, - 29,6558, - 10,6551, - 10,6552, - 3 
+4320 DATA 11066,16,12570,17,12661,18,28300,21,20500,28, 
+22560,19 
+4338 DATA 38388,21,40380,21,42568,22,52267,23,62267 ,24 
+4340 DATA 78300,37 ,70400,38 
+4350 DATA 72661,25,72662,27,72664,26,81066,16, 82365,35 , 
+82465,34 
+4368 DATA 82560,28,82661,30,82662,33,82663,32,82664,31, 
+91069,36,"FA" 
+4370 REM 
+4380 REM -
+OGGETTI: 
+4398 REM 
+4400 DATA •un indicatore " ,66,-1,"un pulsante " ,61, - 1 
+4410 DATA • un'etichetta", 70,-1,"una tuta",51,1 
+4420 DATA "un cart•llo bianco " ,60,-2, 
+•un cart•llo giallo", 60, - 4 
+4430 DATA •un l•tto•,68 , - 5 , •un arma d i•tto " ,67 , - 5 
+4440 DATA •un l•tto",68,-6,•un armad i etto " ,67 , - 6 
+4450 DATA " un casco• , 5 0,6," u n pulsante rosso•, 61, -7 
+4460 DATA •un pulsant• v erde•,61, -7 , • un indicatore" ,66,-8 
+4478 DATA •una l•va",65, - 8 , "un pulsant• rosso•,61, - 0 
+4480 DATA •un pul•ant• verde",61,-8 , 
+•un cart•llo roa• o " ,60,-8 
+4490 DATA "un pulsant• giallo",61, - 8, 
+"il secondo pilota",53,9 
+4500 DATA "un'ant•nna parabolica",69, - 9,"un camice",52, - 99 
+4518 DATA •una chiav••,54, - 99,•un man u al• • ,55,-99,•Fo• 
+17 
+
+
+===== PAGE 26 =====
+
+
+===== PAGE 27 =====
+CAPITOLO 3 
+IA SCENEGGIATURA 
+Attenzione: questo capitolo contiene le soluzioni dell'awentura. Se lo 
+leggete prima di averla giocata, vi perdete tutto il divertimento. 
+L'idea 
+Realizzare un'awentura richiede fantasia e tecnica, esattamente come 
+scrivere un racconto, dipingere un quadro, o qualunque altra forma es-
+pressiva. Entrambe le componenti sono fondamentali per una buona 
+riuscita del lavoro. 
+È chiaro che io posso fornirvi soltanto gli strumenti tecnic~ non certo la 
+fantasia o la creatività. Posso però esservi d'aiuto nell'organizzare le idee 
+nella fase iniziale di creazione del gioco, mostrandovi come è nata "L'a-
+stronave condannata". 
+Per prima cosa occorre un'idea, un'ambientazione: dove si svolge 
+l'awentura? Qual è il soggetto della storia? 
+Era un sabato mattina d'inverno, con 85 centimetri di neve fuori dalla 
+porta di casa (ma non divaghiamo, questa è un'altra awentura). Era un 
+sabato mattina, dicevo, e stavo discutendo .con Chiara su quale potesse 
+essere il soggetto della piccola awentura dimostrativa da includere in 
+questo libro. La prima idea riguardava la ricerca di un tesoro in un'isola 
+dei Caraibi, sulle antiche rotte dei pirati. Provammo a scrivere qualche 
+appunto: le idee non mancavano, anzi erano talmente buone che 
+decidemmo di accantonare il soggetto per una futura awentura in gran-
+de stile (succede anche questo). E allora, che ambientazione usare? Per 
+amore di varietà, non volevo un'ambientazione fantasy o gotica (tipo 
+"Awentura nel castello"), anche perché non si presta molto ad awentu-
+re di piccole dimensioni, dove l'atmosfera non può essere sviluppata più 
+di tanto. Occorreva anche motivare l'awenturiero: non c'è niente di 
+peggio di un'awentura noiosa, in cui il giocatore si sente "staccato" dal 
+gioco invece di "viverlo" dawero in prima persona. Un reattore nuclea-
+re impazzito? Troppo banale. Un computer maligno a bordo di 
+19 
+
+
+===== PAGE 28 =====
+un'astronave (come HAL 9000 nel celebre "2001, odissea nello 
+spazio")? Già più interessante, anche se difficile da sviluppare in poco 
+spazio. Togliamo il computer e mettiamo il reattore impazzito a bordo 
+dell'astronave. Quasi ci siamo. Aggiungiamo un tempo limite e 250 
+ignari passeggeri da salvare (in aggiunta alla propria pelle). Sì, così 
+può andare. 
+La trama 
+Ora che abbiamo l'idea di base, vediamo di combinare una trama 
+coerente. Il protagonista è il capitano dell'astronave, che dovrà riuscire a 
+fermare in tempo il reattore. Naturalmente, dovrà cavarsela da solo: non 
+deve poter scaricare su qualcun altro parte della responsabilità, altrimen-
+ti il gioco perde interesse e diventa un'awentura nella pubblica ammini-
+strazione. Ma non divaghiamo: dunque il comandante è solo ed i 
+passeggeri sono, poniamo, beatamente addormentati. 
+Va bene che le moderne astronavi richiedono poco personale, ma è 
+poco plausibile che basti una sola persona. Se poi stabiliamo che il co-
+mandante non è capace a fermare il reattore, occorre che qualcun altro 
+lo sappia fare. D'altra parte, questo qualcun altro non dev'essere a 
+portata di mano, altrimenti sarebbe in grado di risolvere il problema. In-
+troduciamo allora un secondo pilota con mansioni tecniche, ma faccia-
+mo in modo che non sia accessibile. Potrebbe essersi suicidato (tipica 
+sindrome da depressione spaziale), oppure essere stato vittima di un'in-
+cidente, magari a causa del reattore stesso. 
+In un'awentura spaziale che si rispetti, non può mancare un'uscita nel 
+vuoto. Dobbiamo però motivarla in qualche modo. Ecco: il secondo 
+pilota si trova all'esterno dell'astronave, e solo recuperandolo si può 
+ottenere un'informazione essenziale. A questo punto, può essere ancora 
+vivo: così il suo salvataggio fa parte della missione. Una volta salvato, ri-
+prende conoscenza (ma solo per un'attimo) e ci consegna qualcosa di 
+fondamentale. Cosa? Vediamo ... Il manuale di istruzioni che serve per di-
+sattivare il reattore. No, aggiungiamo un passaggio: la chiave del suo ar-
+madietto che contiene il manuale in questione e un camice anti-
+radiazioni necessario per lavorare sul reattore. 
+A proposito, perché il secondo pilota stava all'esterno? Prendiamo a 
+prestito un'idea da "2001 ": stava riparando l'antenna di comunicazione 
+(così la nave è anche isolata dal resto dell'universo). 
+E con questo la trama è completa nelle sue linee essenziali: occorre 
+equipaggiarsi per uscire nel vuoto (tuta e casco), uscire all'esterno, 
+salvare il secondo pilota e procurarsi così la chiave, aprire il suo armadi et-
+20 
+
+
+===== PAGE 29 =====
+to e prendere camice e manuale, leggere quest'ultimo e disattivare il 
+reattore. 
+Può andare, i dettagli li aggiungeremo in seguito. 
+La mappa 
+Ci resta da stabilire la disposizione dei vari locali che compongono l'a-
+stronave. Disegnamo una piantina di massima con lo stesso sistema che 
+esterno 
+cabina 
+prua 
+5e(()ndo 
+estMno 
+cabina 
+comand. 
+esterno 
+compart. 
+poppa 
+stagno 
+sata 
+controllo 
+cabina 
+pilotaggio 
+corridoio 
+nord 
+corridoio 
+corridoio 
+sud 
+Fig. 1 -
+Disposizione dei locali ne "L'astrona11e condannata". 
+21 
+-"' i 
+I;/) 
+I;/) 
+~ 
+s 
+t: s 
+t! 
+~ 
+a 
+o 
+u 
+
+
+===== PAGE 30 =====
+usiamo per mappare le awenture da risolvere: quadrati congiunti da 
+linee che indicano le possibili direzioni. Per convenzione, il Nord è in alto, 
+l'Est a destra (come nelle cartine geografiche}. Per indicare un movimen-
+~!--! 
+~ 
+I 
+I 
+! 
+I 
+I 
+i 
+o 
+i 
+! E i 
+i $ 
+! 
+: 
+: 
+I 
+I 
+I 
+' 
+' 
+' 
+I 
+! 
+I 
+1---i t---l 
+i 
+i 
+i o 
+i 
+j 
+s:: 
+i 
+i
+~ l 
+I 4> I 
+' 
+! 
+. 
+' 
+! 
+i 
+i-t ......... 
+I 
+! 
+' o 
+! 
+i d 
+i 
+I 3 . 
+! : 
+' 
+I L___; 
+cabina di 
+pilotaggio 
+~ 
+~ 
+E 
+o 
+o 
+.,___ ___ 
+__. _ 
+___, 1----· 
+~ 
+o 
+~ -
+'"' '"' 
+o 
+V 
+sala controllo reattore 
+Fig. 2 -
+Pianta dell'astronave passeggeri "Neutronia". 
+22 
+
+
+===== PAGE 31 =====
+to verso l'alto, facciamo partire la linea dall'angolo superiore destro, per il 
+basso dall'angolo inferiore sinistro. 
+La Figura 1 mostra la disposizione dei locali, disegnata con questo 
+sistema. Notate il compartimento stagno, necessario per recarsi ali' ester-
+no senza far uscire l'aria dall'astronave. 
+Sembra che vada bene, possiamo disegnarla in bella. La Figura 2 mostra 
+la versione definitiva della stessa piantina. Le proporzioni reali non sono 
+rispettate, ed abbiamo tralasciato vari locali di minor interesse, ma le 
+severe Norme Di Sicurezza Galattica del 2313 ci proibiscono di fornire 
+ulteriori particolari, sia pure di un'astronave civile. 
+A parte i dettagli, il progetto dell'awentura è fil}ito: non resta che realiz-
+zarla. Per la cronaca, abbiamo impiegato (a parte il disegno in bella) poco 
+più di un'ora. 
+23 
+
+
+===== PAGE 32 =====
+
+
+===== PAGE 33 =====
+CAPITOLO 4 
+COME 
+NON SI SCRIVE 
+UN'AWENTURA 
+' 
+Dall'idea al programma 
+Ora che disponiamo di una trama, possiamo cominciare a scrivere il 
+programma. Come si scrive un programma di questo genere? È lo stesso 
+problema che mi trovai a fronteggiare nel 1981 quando, dopo aver 
+giocato ad "Appie Adventure", decisi di scrivere un'avventura per conto 
+mio (che poi divenne "Avventura nel castello"). A quei tempi ero total-
+mente disinformato, e non leggevo Byte (la principale rivista americana 
+del settore), anzi ne conoscevo a malapena lesistenza, per non dire di al-
+tre pubblicazioni meno note ma altrettanto interessanti (come il "Doctor 
+Dobb's Joumal Of Computer, Calisthenics & Orthodonthia", sì, proprio 
+così) delle quali sfogliavo casualmente un numero ogni tanto. Un pecca-
+to, perché avrei potuto almeno conoscere quello che altri avevano fatto 
+o stavano facendo, Scott Adams in testa. Dirò a mia parziale discolpa che 
+ero soltanto un dilettante e che tali pubblicazioni non circolavano nem-
+meno in ambienti più qualificati, o che avrebbero dovuto essere tali (es. 
+università), dove vigeva ancora intatto il culto del computer-dinosauro (a 
+schede perforate, con lunghe code per poterlo usare). . 
+Comunque, dovetti arrangiarmi. Per fortuna, avevo una discreta pratica 
+di programmazione) e riuscii a tirar fuori, in un anno di lavoro nei mo-
+menti liberi, un programma che oggi, da professionista, posso ancora 
+guardare senza vergognarmi. Date le premesse, è una bella soddisfazione. 
+~ 
+li programma usato per scrivere "L'astronave condannata" deriva 
+direttamente da quello di "Avventura nel castello", con molte semplifica-
+zioni ma anche con varie migliorie derivate da uno studio che ho com-
+piuto nel 1984, e del quale avremo occasione di riparlare. La miglioria 
+fondamentale, almeno dal vostro punto di vista, consiste nel linguaggio 
+25 
+
+
+===== PAGE 34 =====
+usato: il programma di "Awentura nel castello" (nella sua prima versio-
+ne) era scritto parte in Basic e parte in Assembly 6502 (il linguaggio 
+macchina dell'Apple), con tutti i trucchi possibili per risparmiare memo-
+ria ed aumentare la velocità di esecuzione. Questo significa che era 
+indissolubilmente legato allo specifico modello di computer sul quale era 
+stato progettato. Il programma de "L'astronave condannata", invece, è 
+tutto in Basic, ed in Basic "pulito". Quindi è facUmente portatile, cioè può 
+funzionare con minime modifiche su macchine tra loro diverse come un 
+PC IBM ed un Commodore 64. In compenso, non si presta particolar-
+mente bene alla realizzazione di awenture di grandi dimensioni: d'al-
+tronde non si può avere tutto. Le semplificazioni che ho introdotto (e che 
+riducono un poco l' "intelligenza" del programma) sono in gran parte vo-
+lute, per concentrare la spiegazione sugli aspetti essenziali senza farsi 
+distrarre dalle rifiniture. 
+Impostazioni sbagliate 
+Dicevo, poc'anzi, che sono tuttora soddisfatto dell'impostazione del mio 
+primo programma di awentura. Lo sono perché, guardandomi in giro, 
+vedo che la grande maggioranza delle awenture in circolazione sono 
+costruite con tecniche molto più primitive e laboriose (l'unica eccezione 
+che ho finora trovata sta nei giochi della Infocom, "Zork" in testa, al cui 
+confronto il mio programma può andare a nascondersi). Anche in vari 
+libri che insegnano "come scrivere un'awentura" vi sono impostazioni 
+che obbligano il programmatore ad un lavoro da certosino, gran parte del 
+quale potrebbe tranquillamente essere svolto da un programma scritto 
+una sola volta per tutte. Perché questa è l'essenza stessa della program-
+mazione dei calcolatori: scrivere un programma che risolva non un sin-
+golo problema, ma un'intera classe di problemi simili, al variare dei dati 
+introdotti. Non avrebbe senso scrivere un Oroqrall!ma per sç>mmare 1+1, 
+un altro per sommare 1 +2, uno diverso per sommare 2+2, e così via: un 
+solo programma può risolvere tutti questi problemi. Sembra ovvio, ma 
+con l'aumentare della compleSsità e variabilità del problema la cosa di-
+venta sempre meno facile, e richiede uno studio molto accurato. La 
+tentazione di scrivere un programma che risolva solo il problema 
+contingente diventa sempre più forte. Ad esempio, ho visto un gioco di 
+· awentura scritto più o meno in questo modo: 
+500 REM STAH2A BIAHCA 
+510 PRIHT •sEI HELLA STAHZA BIAHCA. C'E' UH ARMADIO• 
+520 IHPUT A$ 
+26 
+
+
+===== PAGE 35 =====
+530 IF A$="H• OR A$="HORO" GOTO 610:REM ROSSA 
+5i0 IF A$="E" OR A$~ " EST " GOTO 710:REM UERDE 
+550 PRIHT "HOH CAPISCO":GOTO 510 
+600 REM STAHZA ROSSA 
+610 PRIHT "SEI NELLA STANZA ROSSA. C'E' UH ARMADIO" 
+620 INPUT A$ 
+630 IF A$•"S" OR A$=·suD" GOTO 510:REM BIANCA 
+640 IF A$="APRI L'ARMADIO" THEN PRINT "E' UUOTO. :GOTO 610 
+650 PRINT "NON CAPISCO" :GOTO 610 
+Avete capito come funziona? Per ogni luogo c'è un apposito gruppo di 
+istruzioni, entro le quali il programma continua a girare fino a che l'av-
+venturiero non decide di cambiare luogo. Ad esempio, le linee dalla 500 
+alla 550 si riferiscono al luogo chiamato "Stanza bianca". La linea 510 
+descrive il luogo, e la 520 attende il comando del giocatore (tipicamente 
+ci sarà una subroutine invece di un'istruzione INPUT, ma il concetto è lo 
+stesso). Se il giocatore ha scritto "N" o "NORD", parole entrambe valide 
+per indicare uno spostamento verso nord, il programma salta al gruppo 
+di istruzioni relative al luogo che si trova a nord della stanza bianca, 
+nell'esempio un'ipotetica Stanza rossa Oinea 610). Se ha scritto "E" 
+oppure "EST', salta alle istruzioni relative alla "Stanza verde", e così via. 
+Se il comando non è tra quelli previsti in quella stanza, la linea 550 
+ritorna all'inizio del ciclo (510). 
+Ogni stanza (luogo) ha il proprio ciclo di istruzioni, entro il quale sono 
+ammesse soltanto certe parole o frasi. Per esempio, nel ciclo della stanza 
+rossa (linee 610-650) sono ammesse "N" (o "NORD'}, che torna al ciclo 
+della stanza bianca, e "APRI L'ARMADIO", che stampa "È VUOTO" e 
+torna all'inizio del ciclo. Lo stesso discorso vale per tutti i luoghi in cui il 
+protagonista può muoversi. È una tecnica semplice e comprensibile. 
+Un'impostazione di questo tipo va evitata come la peste, e vi fornisco un 
+elenco di buoni motivi: 
+• 
+Il controllo delle direzioni possibili (IF A$="N" or A$="NORD" ... ) va 
+ripetuto in ogni ciclo di luogo. 
+e Le frasi valide vanno scritte esattamente come sono previste dal pro-
+gramma. Se la frase "APRI L'ARMADIO" viene scritta con uno spa-
+zio in testa, in coda, o tra "APRI e L'ARMADIO", si ottiene un "NON 
+CAPISCO". Lo stesso succede se viene trascurato l'articolo o manca 
+l'apostrofo. 
+27 
+
+
+===== PAGE 36 =====
+• Ci sono notevoli problemi con le frasi valide in tutti i luoghi, ad esem-
+pio le azioni su un oggetto trasportabile. 
+• Dovendo scrivere un'altra awentura, il programma va riscritto da ci-
+ma a fondo. 
+Potrei continuare, ma mi sembra sufficiente. In sostanza, occorre un 
+grande lavoro per ottenere un programma non troppo soddisfacente e 
+che occupa inutilmente molta memoria. Peggio ancora, il gioco si 
+presenta con un comportamento decisamente "stupido", nel senso che 
+accetta solo ed esclusivamente le frasi previste nel luogo in cui si trova 
+l'awenturiero (che corrisponde ad un "luogo" fisico del programma, 
+inteso come gruppo di istruzioni). Come magra consolazione, gira 
+velocemente. 
+Quello che vi ho presentato è un esempio limite (reale, purtroppo), ma 
+gran parte delle awenture in circolazione presentano problemi dovuti 
+ad un cattivo progetto del programma, che si traduce poi in una perdita 
+di realismo, e dunque di interesse del giocatore. Tipico commento: - Ma 
+non capisce un accidente, questa stupida macchina? - Dove già l'illusio-
+ne di vivere un'awentura in un mondo fantastico è andata a farsi 
+benedire, con buona pace degli sforzi dell'autore. 
+È chiaro che la qualità di un'awentura dipende da chi l'ha scritta, ma è 
+altrettanto chiaro che la fantasia non basta: senza tecniche adeguate è 
+difficile realizzare un gioco di questo genere che sia capace di" catturare" 
+i giocatori fornendo un livello accettabile di simulazione. I prossimi 
+capitoli dimostrano come sia possibile ottenere questo con una struttu-
+ra cbmpatta, facile da usare e riutilizzabile per diverse avventure. 
+28 
+
+
+===== PAGE 37 =====
+CAPITOLO 5 
+UNA MACCHINA 
+ASTATI 
+Una routine universale 
+La soluzione migliore non è quella di un programma che esegue 
+istruzioni diverse a seconda del luogo mostrata come esempio negativo 
+nel precedente capitolo), ma consiste in un programma che esegua 
+sempre lo stesso ciclo fondamentale, cambiando soltanto il valore di 
+alcune variabili e, di conseguenza, i messaggi stampati su video. Un 
+esempio di questa impostazione è stato presentato da Gianni Giaccagli-
+ni nel volume "Stendere un programma come si deve", pubblicato in 
+questa stessa collana. 
+VERIFICARE 
+Per chi non l'avesse letto (male!), ed anche per gli altri, propongo un 
+esempio simile: un mini-programma (o meglio: una routine, cioè una 
+parte di programma) che stampa la descrizione della stanza in cui si trova 
+l'awenturiero e gli consente di muoversi con il solito sistema, cioè 
+scrivendo la direzione in cui vuole andare. Ecco la routine: · 
+100 REM INIZIALIZZA UARIABILI 
+200 REM CICLO 
+210 PRIHT OE$(LU):REM DESCRIZIONE 
+220 INPUT A$:0=0 
+230 IF A$="H" OR A$="HORO" THEH 0=1 
+240 IF A$="S" OR A$="SUO" THEH 0=2 
+250 IF A$·"E" OR A$•"EST" THEH 0=3 
+260 IF A$="0" OR A$="U" OR A$="0UEST" THEH 0=4 
+29 
+
+
+===== PAGE 38 =====
+270 IF A$="A" OR A$="ALTO" OR A$=.SALI" THEH 0=5 
+280 IF A$="B" OR A$="BASSO" OR A$="SCEHOI" THEH 0=6 
+290 IF O=O THEH PRIHT"HOH CAPISCO":GOTO 210 
+300 HL=MA(LU,O):REM HUOUO LUOGO 
+310 IF HL=O THEH PRIHT "HOH PUOl":GOTO 210 
+320 LU·Hl:GOTO 210:REM MUOUE 
+Tutto qui. Se all'inizio (tra la linea 100 e la 200) introduciamo gli 
+opportuni dati negli elementi degli array DE$() e MAQ, questa routine di 
+13 linee fa tutto il lavoro necessario per tener conto degli spostamenti 
+dell'awenturiero su una mappa comunque complessa e di qualunque 
+dimensione. Non ci credete? Passiamo subito ad una dimostrazione 
+pratica. 
+Supponiamo che la nostra mappa sia composta di tre luoghi, chiamati 
+"Stanza rossa'', "Stanza bianca" e "Stanza verde", disposti come in 
+Figura 1.1..a Figura 2 mostra quale dev'essere il contenuto dei due array 
+CD 
+stanza 
+rossa 
+stanza 
+bianca 
+stanza 
+verde 
+Fig. 1 -
+Esempio minimo di mappa per avventura. 
+DE$() e MA(). Il primo, di tipo alfanumerico (stringa), contiene semplice· 
+mente le descrizioni dei luoghi, in ordine di numero. Quindi, DE$(1) è la 
+descrizione del luogo 1, DE$(2) è la descrizione del luogo 2 e DE$(3) è la 
+descrizione del luogo 3. Come avete brillantemente dedotto, i luoghi 
+vanno numerati a partire da 1. 
+Torniamo per un attimo al programmino, e precisamente alla linea 21 O. 
+Questa stampa il contenuto di DE$(LU), cioè la descrizione del luogo 
+30 
+
+
+===== PAGE 39 =====
+DE$(1) 
+(descrizi one I) 
+DE$(3) 
+(descrizione 3) 
+MA(l,I) 
+(a Nord da 
+MA(3,I) 
+(a Nord da 
+MA(3,2) 
+1 )· 
+3) 
+(a SUd da 3) 
+-
+-
+-
+9 
+-
+Contenuto degli elementi dell'array stringa DE$() 
+"Sei nella stanza rossa" 
+"Sei nella stanza bianca· 
+"Sei nella stanza verde· 
+Contenuto degli elementi dell'array numerico MAO 
+o 
+2 
+3 
+o 
+o 
+o 
+1 
+o 
+3 
+o 
+o 
+o 
+1 
+,, o 
+o 
+2 
+o 
+,, o 
+7 
+MA 6 
+(3, ) 
+I 
+(in Basso da 3) 
+Fig. 2 -
+Array di mappa e loro contenuto. 
+numero LU. LU contiene quindi il numero del luogo corrente (cioè 
+quello in cui si trova l'awenturiero). Supponiamo di aver messo LU= 1 
+all'inizio del programma: significa che il personaggio si trova nel luogo 1, 
+e quindi la linea 210 stampa DE$(1), cioè "Sei nella stanza rossa", che è 
+appunto la descrizione del luogo 1 (DE sta per "descrizione", è sempre 
+meglio usare per le variabili nomi che aiutino a ricordarne il significato). 
+A questo punto dovreste aver capito che per spostare l'avventuriero, 
+cioè per cambiare luogo, è sufficiente cambiare il valore di LU. Se infatti 
+LU vale 2, la linea 210 stampa "Sei nella stanza bianca", e se vale 3 
+stampa "Sei nella stanza verde". Il giocatore ha l'illusione di cambiare 
+luogo, ma per il programma cambia semplicemente il valore di una 
+variabile, e precisamente LU. Le istruzioni eseguite rimangono sempre le 
+stesse. 
+D'accordo, ma come facciamo a cambiare LU a seconda della parola 
+scritta dal giocatqre, in modo che gli spostamenti siano coerenti con la 
+nostra mappa? E molto semplice: ad ogni luogo sono associati sei 
+numeri, corrispondenti alle sei direzioni, nell'ordine da noi stabilito 
+(stabiliamo, ad esempio, l'ordine Nord, Sud, Est, Ovest, Alto, Basso). 
+31 
+
+
+===== PAGE 40 =====
+Questi numeri sono contenuti in una riga della matrice, o array a due di· 
+mensioni, MAO (MA sta per "mappa"). 
+Sempre con riferimento alla Figura 2, i sei numeri contenuti in MA(l,1), 
+MA(l,2) MA(l,3), MA(l,4) MA(l,5), MA(l,6) sono i numeri dei luoghi in 
+cui si va a finire spostandosi dal luogo 1 verso la direzione indicata. 
+Numeriamo le direzioni: 
+e Nord=l 
+e Sud=2 
+e Est=3 
+• Ovest=4 
+• Alto=5 
+• Basso=6 
+Se dal luogo 1 il giocatore decide di muoversi nella direzione 3 (cioè ad 
+est), l'elemento MA(luogo,direzione), cioè MA(l,3) contiene il numero 
+del nuovo luogo, in questo caso 3. Sè poniamo LU uguale a questo nu-
+mero, abbiamo spostato il personaggio nel nuovo luogo. 
+Non sempre lo spostamento è possibile. Per indicare l'impossibilità di 
+movimento in una certa direzione da un certo luogo, mettiamo uno zero 
+nell'elemento corrispondente. Ad esempio, dal luogo 1 non si può 
+andare ad ovest, perciò MA(l,4) contiene zero. 
+Riassumendo, ogni riga della matrice corrisponde ad un luogo, ed ogni 
+colonna ad una direzione. L'incrocio di riga e colonna indica se è possibi· 
+le lo spostamento da quel luogo in quella direzione e, in caso 
+affermativo, il numero del luogo in cui si va a finire. Se LU è il luogo 
+attuale, e D il numero corrispondente alla direzione scelta, MA(LU,D) è il 
+nuovo luogo, o zero se il movimento non è possibile. 
+Torniamo ad esaminare il programma. La linea 220 attende il comando 
+del giocatore e pone D a zero (nessuna direzione introdotta). Le linee 
+dalla 230 alla 280 servono per mettere in D il codice (numero) della dire· 
+zione scritta, senza alcuna pretesa (per ora) di impiegare il metodo più 
+efficiente. Ad esempio, se il giocatore ha scritto "EST' la linea 250 
+esegue un 0=3 (codice di "Est"). Se la parola introdotta non corrisponde 
+ad alcuna direzione, D rimane zero. 
+La linea 290 controlla se è stata introdotta una direzione valida. In caso 
+contrario (e lo si vede dal fatto che D vale zero), stampa "NON 
+CAPISCO" e rimanda all'inizio del ciclo. 
+La linea 300 consulta la mappa contenuta nella matrice MAO per cono· 
+scere il luogo adiacente al luogo corrente (LU) nella direzione indicata 
+(D), e mette in NL il numero del nuovo luogo. Non lo mette subito in LU, 
+32 
+
+
+===== PAGE 41 =====
+perché potrebbe essere zero (spostamento impossibile), ed in questo 
+caso andrebbe perso il valore di LU. 
+Se lo spostamento non è valido, la linea 310 stampa "NON PUOI" e 
+torna all'inizio del ciclo (LU non è cambiato), altrimenti la linea 320 
+cambia il valore di LU, spostando così il personaggio nel nuovo luogo. 
+Programma e dati 
+Il concetto fondamentale, che sta alla base di tutto il meccanismo, è 
+questo: cambiano i dati, ma non cambia il programma. Volendo infatti 
+rappresentare una mappa del tutto diversa, basta cambiare il contenuto 
+dell'array di descrizioni DE$() e della matrice di collegamenti MA(). Il 
+programma rimane identico: il lavoro è stato fatto una volta sola. Come 
+vantaggio secondario, ma non trascurabile, il programma occupa molto 
+meno spazio. 
+Un programma di questo tipo è detto table driven, cioè "pilotato da una 
+tavola", in quanto il suo comportamento dipende esclusivamente dai 
+dati contenuti in un'apposita tabella, cioè la matrice MAO. È anche detto 
+macchina a stati, in quanto la differenza tra una situazione e l'altra (tra 
+un luogo e l'altro) dipende esclusivamente dallo stato (valore) di una o 
+più variabili, nel nostro caso soltanto da LU (i puristi mi perdonino la 
+descrizione non troppo formale). li programma gira sempre nello stesso 
+ciclo, dovunque si trovi l'awenturiero. 
+Rimane il problema di come introdurre i valori nelle tavole, cioè negli ar-
+ray DE$0 e MA(). 
+Si potrebbe fare in questo modo: 
+110 DE$(1)="Sei nella stanza rossa" 
+120 DE$(2)="Sei nella stanza bianca" 
+130 DE$(3)="Sei nella stanza verde" 
+140 MA(l,l)=O 
+150 MA(l,2)=2 
+160 MA(l,3)=3 
+Si vede subito che questa non è la soluzione più pratica: è un enorme 
+spreco di memoria per eseguire istruzioni ripetitive (pensate ad una 
+mappa con un centinaio di stanze). C'è una tecnica decisamente 
+migliore, basata su una comodissima istruzione del Basic, che tra l'altro 
+manca in alcuni linguaggi "più evoluti": l'istruzione DATA, che consente 
+di introdurre nel programma un elenco di dati numerici o di stringhe. 
+33 
+
+
+===== PAGE 42 =====
+Possiamo dunque scrivere le nostre due tavole in questo modo: 
+300 DATA "Sei nella stanza rossa" 
+310 DATA 0,2,3,0,0,0 
+320 DATA "Sei nella stanza bianca" 
+330 DATA 1,0,3,0,0,0 
+340 DATA "Sei nella stanza verde" 
+350 DATA 1,0,0,2,0,0 
+Alla descrizione di ogni luogo, fanno immediatamente seguito i passaggi 
+possibili nelle sei direzioni. Per leggere questi dati, facciamo uso dell'i-
+struzione READ. Questa equivale alla INPUT, ma legge dalla lista di 
+DATA invece che dalla tastiera (partendo dal punto a cui era arrivata la 
+READ precedente). Ecco come si riduce l'inizializzazione (preparazione 
+iniziale) delle variabili per il programma mostrato in precedenza: 
+110 HL=3:REM NUMERO LUOGHI 
+120 OIM OE$(NL),MA(Nl,6) 
+130 FOR LU•I TO Hl 
+110 REAO OE$(LU) 
+150 FOR 0•1 TO 6:REAO MA(LU,O):HEXT O 
+160 HEXT LU 
+170 LU=l 
+Notate che la linea 11 O specifica il numero di luoghi, che è un valore fis-
+so, cioè una costante. È buona regola indicare le costanti una sola volta 
+all'inizio del programma, invece che disperderle nel programma stesso. 
+Così le eventuali (in realtà sicure) modifiche sono molto più semplici ed è 
+meno facile commettere errori. Ancora più intelligente sarebbe far legge-
+re il numero di luoghi dai DATA con un READ NL il programma reste-
+rebbe inalterato al variare del numero di luoghi. 
+La linea 120 stabilisce le dimensioni delle nostre tavole, cioè i due array 
+DE$0 e MAO. In molti Basic questo non è necessario se le dimensioni 
+non superano il 1 O, come è il nostro caso, ma indicarlo comunque non fa 
+male. Il ciclo aperto alla linea 130 e chiuso alla 160 si ripete per ogni 
+luogo, quindi tre volte nell'esempio. La linea 140 legge la descrizione del 
+luogo nell'elemento corrispondente dell'array stringa DE$0, mentre il 
+ciclo alla 150 legge la mappa delle direzioni nell'array bidimensionale, o 
+matrice, MA. La linea 160, infine, stabilisce che il personaggio inizia il 
+gioco nel luogo 1. 
+34 
+
+
+===== PAGE 43 =====
+CAPITOLO 6 
+IL COMPUTER 
+CAPISCE 
+L'ITALIANO 
+(( 
+Intelligenza artificiale (o quasi) 
+)) 
+Molti giocatori di adventure si chiedono con stupore come diavolo fac-
+cia il computer a capire le frasi scritte dal giocatore. Altri non ci badano 
+nemmeno, come fosse owio che il computer sia dotato di una certa fa-
+coltà di comprensione. È o non è una macchina intelligente? 
+La risposta è: NO, il computer non è una macchina intelligente. Il 
+computer è stupido come una vacca Anzi, ripensandoc~ è ben più 
+stupido di una vacca: mi scusino le pacifiche frequentatrici dei pascoli 
+d'alta quota per questo inappropriato ed offensivo paragone. Il compu-
+ter è invece il soldato perfetto, eterno sogno dei generali di tutte le 
+epoche: dotato di notevoli poteri, obbedisce ciecamente e senza emo-
+zioni a qualunque ordine ricevuto, senza chiedersene i motivi e senza 
+prevederne le conseguenze. Esegue tutto alla lettera, senza minimamen-
+te comprendere quello che sta facendo e senza chiedersi se il significato 
+letterale delle istruzioni ricevute corrisponde realmente a quello voluto 
+dal programmatore (caso assai raro). L'intelligenza non è nel computer, 
+ma nel programma. Quest'ultimo, è il caso di ricordarlo, è soltanto una 
+sequenza di istruzioni per la macchina stupida, scritte da un programma-
+tore più o meno sveglio. L'intelligenza che il calcolatore dimostra, 
+insomma, è ancora quella di chi ha scritto il programma. Il vantaggio del 
+computer è che, con un po' di tecnica, è possibile scrivere un programma 
+adatto a risolvere non solo uno specifico problema, ma tutti i problemi 
+dello stesso tipo, risparmiandosi così parecchio lavoro. Nel capitolo 
+precedente ho fornito un esempio di questa possibilità, mostrandovi un 
+programma che "capisce" il concetto di direzione. Se avete letto bene, vi 
+sarà chiaro che il programma non capisce un accidente, ma si limita a 
+35 
+
+
+===== PAGE 44 =====
+spostare numeri e riprodurre scritte secondo regole ben definite (la 
+sequenza di istruzioni che forma il programma). La definizione di queste 
+regole è, appunto, il compito del programmatore che vuole dare aJla 
+macchina un'apparenza di comportamento intelligente. 
+Il parser 
+Bisogna dunque scrivere un programma capace di simulare la compren-
+sione dei concetti che stanno alla base dei giochi di awentura, e che 
+fondamentalmente riguardano: 
+e Mappa, luoghi e spostamenti. 
+e Oggetti fissi ed oggetti trasportabili. 
+e Comprensione ed esecuzione delle azioni dell'avventuriero. 
+Il primo problema (mappa e spostamenti) è già risolto. Il secondo si può 
+facilmente affrontare associando ad ogni oggetto una stringa (la sua de-
+scrizione) ed un numero (il luogo in cui si trova). Tornerò più avanti sui 
+dettagli. Il problema più complesso è decisamente il terzo: capire la frase 
+scritta alla tastiera e modificare di conseguenza lo stato del gioco. 
+Un programma che effettua l'analisi di una frase (o, più in generale, di 
+una sequenza di simboli) sulla base di un insieme di regole (o sintassi) è 
+detto parser, o analizzatore sintattico. Un gioco di awentura consiste 
+sostanzialmente in un parser che, sulla bQse delle parole introdotte e del-
+le loro associazioni, decide il successivo comportamento del program-
+ma. Per scrivere questo programma, occorre prima definire le regole che 
+ne governano il comportamento. Per fare questo, cerchiamo di classifi-
+care le possibili frasi scritte dal giocatore: 
+• Una direzione (spostamento), es. "NORD". 
+• Un'azione espressa con una sola parola, es. "INVENTARIO". 
+• Un'azione su un oggetto, es. "PREMI IL BOTTONE". 
+Per ora non entro in ulteriori dettagli, rimandandoli al capitolo dedicato 
+alle azioni. Noto soltanto che una stessa azione può avere effetti diversi 
+in luoghi diversi (es. "Leggi il cartello'}, e che l'oggetto citato può essere 
+anche assente. Occorre tener conto di queste ed aJtre possibilità, se si 
+vuole realizzare un gioco con un buon livello di simulazione. 
+36 
+
+
+===== PAGE 45 =====
+Analisi lessicale 
+Per facilitare il lavoro al parser (o analizzatore sintattico), occorre separa-
+re le parole che compongono la frase (trascurando eventuali spazi). 
+Inoltre, la manipolazione delle parole come stringhe costa parecchio 
+spazio: è più pratico assegnare un numero (codice) ad ogni vocabolo e 
+passare al parser soltanto i codici delle parole che compongono la frase. 
+Bisogna anche scartare le parole errate o comunque non riconosciute 
+(es. "Prindi"). Questi lavori di bassa manovalanza sono compito del-
+l'analizzatore lessicale, la routine che riceve una stringa contenente la 
+frase introdotta dal giocatore, la separa in vocaboli distinti e restituisce i 
+codici dei vocaboli costituenti la frase. A volte l'analizzatore lessicale 
+svolge anche un lavoro che, strettamente parlando, sarebbe di compe-
+tenza del parser: riconosce e tralascia gli articoli, dato che non alterano il 
+significato della frase e caricherebbero il parser di un lavoro inutile. Ad 
+esempio, se il giocatore ha scritto: 
+"RIPARA L'ANTENNA" 
+la routine di analisi lessicale separa le tre parole "RIPARA'', "L" 
+(l'apostrofo viene considerato come uno spazio separatore), e "AN-
+TENNA". L'articolo "L" viene scartato, e vengono restituiti i codici 
+numerici corrispondenti a "RIPARA" (27) e "ANTENNA" (69). Sarà poi 
+compito del parser decidere se questa coppia di codici corrisponde ad 
+una frase valida nel luogo e nella situazione corrente dell'awenturiero. 
+Dato che il nostro parser è alquanto semplice, ogni parola successiva alla 
+seconda (esclusi articoli) viene semplicemente ignorata. Non sono quin-
+di possibili frasi come "Guarda dietro al cartello" e simili. 
+Interprete e dati 
+Siamo quasi pronti a partire, i dettagli possiamo esaminarli strada 
+facendo. Dal prossimo capitolo, si comincia a scrivere l'avventura. Vi rias-
+sumo come funziona la tecnica impiegata per "L'astronave condannata": 
+• 
+Il giocatore introduce una frase. 
+• L'analizzatore lessicale la separa in parole e ne ricava i codici. 
+• 
+Il parser decide se i codici (le parole) indicano un'azione valida. 
+• Se sì, viene chiamata la routine Basic che esegue l'azione corrispon-
+dente. 
+Non ho citato le direzioni: anche queste, in effetti, costituiscono 
+37 
+
+
+===== PAGE 46 =====
+un'azione come tutte le altre, e non c'è alcuna convenienza nel trattarle 
+diversamente. 
+Il programma finale è composto da una collezione di dati, da una parte 
+variabile (le azioni Basic) e da una parte fissa (analizzatore lessicale, 
+parser e routine connesse). Questa parte fissa è perfettamente reimpie· 
+gabile per altre awenture, senza necessità di modifica. Dato che inter-
+preta una serie di dati fomiti dal programmatore, ho chiamato interprete 
+questa sezione riutilizzabile del programma. Anche alcune delle routine 
+Basic fondamentali (es. quelle usate per direzioni, "Save", "Prendi",ecc.) 
+sono riutilizzabili tali e quali o con poche modifiche. 
+Il programma si compone dunque di tre parti: 
+e L'interprete, riusabile senza modifiche per altre awenture. 
+e I dati dell'awentura (vocaboli, mappa, descrizioni, ecc.). 
+e Le routine Basic delle azioni (alcune delle quali riutilizzabili). 
+Una buona notizia: per scrivere un'awentura non c'è bisogno di 
+comprendere il funzionamento dell'interprete, che costituisce la parte 
+decisamente più complessa del programma. Per chi fosse interessato 
+darò comunque, nell'ultima parte del libro, una dettagliata descrizione 
+tecnica del suo funzionamento. 
+38 
+
+
+===== PAGE 47 =====
+CAPITOLO 7 
+MAPPA, 
+DIZIONARIO 
+E OGGETII 
+La vostra awentura 
+Scopo di questo libro, è di mettervi in grado di scrivere una vostra awen-
+tura. Riferendomi al programma de l'astronave condannata, ricordo che 
+l'interprete, costituito dalle linee fino alla 1160, può essere riutilizzato 
+senza modifiche {a parte l'aggiustamento di qualche GOSUB che 
+chiama vostre routine). 
+I),\ qu(>sto capitolo, inizio a descrivere le varie fasi della costruzione di 
+un'cwwntura, usando come esempio quella che avete giocato. Al 
+t('rmitH!, rwr Hli interessati, descriverò anche il funzionamento dell'inter-
+prel<!. 
+La mappa 
+lJ1t.1 volt.1 st,1bilìt,1 lcl disposizione dei luoghi in cui si svolge l'avventura 
+(•cl I rt•l,1tlvi collegamenti, non resta che introdurre questi dati nel pro-
+!1r,1mnM. Come ho detto nel precedente capitolo, si tratta soltanto di 
+scrivere una lista di istruzioni DATA 
+Lcl piantina dei luoghi in cui si svolge "L'astronave condannata" è 
+riportata in Figura 1, con l'aggiunta dei numeri che identificano ciascun 
+luogo. Ci sono 11 luoghi, numerati da 1 a 11. 
+Per ciascun luogo, occorre fornire al programma una descrizione del 
+luogo stesso ed i numeri dei sei luoghi confinanti {vedi Capitolo 5). Con 
+riferimento al listato {riprodotto nel Capitolo 2), le linee dalla 4130 alla 
+4230 contengono queste informazioni, in ordine di luogo (il luogo 1 alla 
+linea 4130, e via di seguito). 
+39 
+
+
+===== PAGE 48 =====
+Notate che le descrizioni sono incomplete: per risparmiare memoria, ho 
+omesso il punto finale ed il "Sei" iniziale, che viene aggiunto automatica-
+r--....... 1 
+i t9' i 
+i \V ~ 
+! 8 
+! 
+! 
+' I I 
+;.-.i ~ 
+@ I 
+I 1---. t-4 
+i@ 
+i I g 
+l t I 
+:, __ 
+; 
+cabina di 
+pilotaggio 
+o o 
+'O -e ... 
+o 
+V 
+o o 
+:2 ... ... o 
+V 
+© sala controllo reattore 
+Fig. 1 -
+Pianta dell'astronave passeggeri "Neutronia". 
+40 
+
+
+===== PAGE 49 =====
+mente dall'interprete al momento di stampare la descrizione del luogo 
+(linea 760, se ci tenete a saperlo). 
+Inoltre, i numeri che rappresentano i luoghi adiacenti nelle sei direzioni 
+non sono scritti separatamente, ma raccolti in una sola stringa di 12 ca-
+ratteri (sempre per risRarrniare memoria). I primi due caratteri indicano il 
+luogo adiacente a Nord, i due successivi quello a Sud, e di seguito Est, 
+Ovest, Alto e Basso. 
+Dato che occorre indicare sempre due caratteri, i numeri di una sola 
+cifra vanno preceduti da uno zero. 
+Al termine delle linee di DATA, un FM indica la fine delle mappa (in 
+fondo alla linea 4230). 
+Riassumendo, per introdurre una vostra mappa: 
+e Disegnate accuratamente la piantina, con tutti i collegamenti. 
+• Numerate i luoghi con numeri progressivi. 
+• 
+Per ogni luogo, scrivetevi una descrizione ed i numeri dei luoghi a-
+diacenti nelle sei direzioni, nell'ordine N,S,E,O,A,B. Ad esempio: 
+(Sei ) nel corridoio,2,4,0,6,0,0 
+Ricordo che lo zero indica una direzione non ammessa. Poi riscrivete i 
+sei numeri di seguito, estendendoli a due cifre se necessario: 
+02 04 00 06 00 00 
+E, togliendo gli spazi, ottenete la stringa: 
+"020400060000" 
+La descrizione e questa stringa, separate da una virgola, formano la linea 
+di DATA che serve all'interprete (confrontare con la linea 4150). 
+• Infine, non dimenticate la stringa "FM" che indica all'interprete la fine 
+della mappa. Potete scriverla su una riga di DATA isolata o, più 
+convenientemente, alla fine dei DATA dell'ultimo luogo (linea 4230). Se 
+la dimenticate, otterrete errori strani alla partenza del programma 
+(magari su tutt'altra linea, quando l'interprete perde il filo nel leggere i 
+DATA). 
+Il dizionario 
+Definita la mappa, occorre scrivere tutti i vocaboli che dovranno essere 
+"capiti" dall'interprete. Tanto più ricco il vocabolario, tanto più sarà facile 
+simulare un comportamento "intelligente" del gioco. Per fare un 
+41 
+
+
+===== PAGE 50 =====
+confronto, "L'astronave condannata" usa una cinquantina di vocaboli, 
+mentre "Awentura nel castello" ne accetta circa 400. 
+Il lavoro risulta semplificato se si definisce fin dall'inizio il maggior 
+numero possibile di vocaboli, aggiungendo poi soltanto quelli relativi a 
+varianti o piccole migliorie del gioco. Cominciamo dunque ad elencare i 
+termini necessari, associando a ciascuno un numero (a nostro piacimen-
+to) che l'interprete userà al posto del vocabolo (con grande risparmio di 
+spazio). 
+Per una migliore organizzazione, è comodo suddividere le parole in 
+quattro gruppi: 
+e Direzioni e comandi generali, usabili in più awenture (es. "Nord", 
+"P 
+d"" "Sa ") 
+ren 1 , 
+ve . 
+• Verbi intransitivi e transitivi (es. "Salta", "Apri"). 
+• Oggetti trasportabili (es. "Chiave"). 
+• Oggetti fissi e di arredamento (es. "Armadietto"). 
+La Figura 2 mostra i vocaboli usati nell'awentura spaziale, con i relativi 
+L ·asvooave cOlldauata: dizionario 
+Codice Parola 
+Codice 
+Parola 
+Codice 
+Parola 
+1 
+N,Nord 
+2 
+S,Sud 
+3 
+E ,Est 
+4 
+o,ovest,w 
+5 
+A,Alto,Sali 
+6 
+B ,Basso,Scendi 
+7 
+11,Lo,La,L 
+a 
+Prendi 
+9 
+Lascia 
+10 Guarda 
+11 
+San 
+12 
+Load 
+13 Cosa,Inventario 
+20 
+Indossa,Metti 
+21 
+Togli 
+22 
+Apri 
+23 Tira 
+24 
+Spingi 
+25 
+Leggi 
+26 
+Premi, Schiaccia 
+27 
+Ripara,Aggiusta 
+50 casco 
+51 
+Tuta 
+52 
+camice 
+53 
+Secondo 
+54 
+Chiave 
+55 
+Manuale 
+60 cartello 
+61 
+Pulsante,Bottone 
+62 
+Verde 
+63 Giallo 
+64 
+Rosso 
+65 
+Leva 
+66 
+Indicatore 
+67 
+Armadietto 
+6a 
+Letto 
+69 Antenna 
+70 
+Etichetta 
+Fig. 2 -
+Vocaboli del dizionario, in ordine di codice. 
+42 
+
+
+===== PAGE 51 =====
+codici. Ho riservato i codici inferiori a 20 per i termini di uso generale (se 
+non cambiate questi codici, vi facilitate parecchio la vita). Ho poi suddivi-
+so le restanti tre categorie, facendo partire i codici da numeri arbitrari (20, 
+50 e 60). I colori (codici 62, 63, 64) servono perfrasi tipo "Premi il verde" 
+o "Premi il rosso", e sono dunque trattati come oggetti fissi, in analogia 
+con "Premi il bottone". Gli articoli (da ignorare) sono raccolti sotto lo 
+stesso codice (7). I sinonimi (che hanno lo stesso codice) sono scritti sulla 
+stessa riga (es. "O" ed "Ovest"). 
+I codici sono semplicemente numeri arbitrari compresi tra 1 e 98, senza 
+alcuna implicazione di ordine o spazio occupato. Una suddivisione 
+come quella mostrata è comunque comoda, per distinguere i vari tipi di 
+parole. 
+Sorge ora un problema tecnico: la ricerca nel dizionario è troppo lenta. 
+Quando l'analizzatore lessicale ha isolato una parola (es. "ANTENNA") 
+e chiama la routine che consulta il dizionario per trovarne il codice (il nu-
+mero che abbiamo appena assegnato), questa routine deve far passare 
+tutti i vocaboli fino a trovare la parola cercata. Se questa è in fondo alla 
+lista, o non c'è, può passare un tempo relativamente lungo, e comunque 
+fastidioso per chi gioca. 
+La migliore soluzione consiste nel tenere il dizionario in ordine 
+alfabetico, in modo da poter usare una veloce routine di ricerca binaria 
+(dr. ABC, capitolo 20). Dato che l'ordinamento impiega un certo tempo, 
+è meglio inserire i vocaboli già in ordine alfabetico. Questo vuol dire che 
+il tempo risparmiato dal giocatore si paga con un po' di lavoro in più del 
+programmatore (di solito conviene: dopotutto, si fa una volta sola). ' 
+Quindi, al lavoro: il risultato finale si vede in Figura 3. Naturalmente, i 
+sinonimi sono ora sparsi in vari punti della lista. Quando mettete in ordi-
+ne il dizionario, verificate bene!: il corretto ordinamento alfabetico è 
+fondamentale. Altrimenti, qualche vocabolo potrebbe non essere 
+riconosciuto. Se avete dei dubbi... consultate un dizionario! 
+Tornando al programma, le linee di DATA dalla 3990 alla 4090 
+contengono il dizionario, in ordine alfabetico. Ogni parola è seguita dal 
+suo codice, ed un "FD" finale indica all'interprete la fine del dizionario. 
+Riassumendo: 
+• Elencate i vocaboli, suddivisi per gruppi. 
+• Assegnate un codice ad ogni vocabolo o gruppo di sinonimi. 
+e Riordinate i vocaboli in ordine alfabetico, mantenendo vicino a cia-
+scuno il suo codice. 
+• Riportate il tutto sotto forma ài DATA nel programma. 
+43 
+
+
+===== PAGE 52 =====
+In ordine alfabetico: 
+Parola 
+Codice 
+Parola 
+Codice 
+Parola 
+Codice 
+A 
+5 
+Aggiusta 
+27 
+Alto 
+5 
+Antenna 
+69 
+Apri 
+22 
+Armadietto 67 
+B 
+6 
+Basso 
+6 
+Bottone 
+61 
+Camice 
+52 
+cartello 
+60 
+casco 
+50 
+Chiave 
+54 
+Cosa 
+13 
+E 
+3 
+Est 
+3 
+Etichetta 
+70 
+Giallo 
+63 
+Guarda 
+10 
+Il 
+7 
+Indicatore 66 
+Indossa 
+20 
+Inventario 
+13 
+L 
+7 
+La 
+7 
+Lascia 
+9 
+Leggi 
+25 
+Letto 
+68 
+Leva 
+65 
+Lo 
+7 
+Load 
+12 
+Manuale 
+55 
+Metti 
+20 
+N 
+Nord 
+l 
+o 
+4 
+Ovest 
+4 
+Premi 
+26 
+Prendi 
+8 
+Pulsante 
+61 
+Ripara 
+27 
+Rosso 
+64 
+s 
+2 
+Sali 
+5 
+Sa ve 
+11 
+Scendi 
+6 
+Schiaccia 
+26 
+Secondo 
+53 
+Spingi 
+24 
+Sud 
+2 
+Tira 
+23 
+Togli 
+21 
+Tuta 
+51 
+Verde 
+62 
+w 
+4 
+Fig. 3 -
+Vocaboli del dizionario, in ordine alfabetico. 
+Gli oggetti 
+L'avventuriero incontra oggetti di vario genere. Alcuni di questi posso· 
+no essere presi e trasportati (come una chiave), altri fanno semplicemen-
+te parte dell'arredamento (come un letto). Tutti possono essere riferiti o 
+manipolati (almeno con "Guarda"). Gli oggetti trasportabili possono tro-
+varsi in vari luoghi, o in possesso dell'avventuriero, o provvisoriamente 
+fuori del gioco. 
+L'interprete richiede una lista degli oggetti, con indicate le varie caratteri-
+stiche. Gli oggetti vanno numerati, associando a ciascuno di essi un nu-
+mero in ordine progressivo a partire da 1. Questo numero non ha alcun 
+rapporto con il codice nel dizionario del nome dell'oggetto, ma serve al-
+l'interprete (ed al programmatore) per riferirsi all'oggetto in questione. 
+L'ordine è arbitrario, ma va tenuto presente che gli oggetti vengono de-
+scritti al giocatore (vedo ... ) in ordine di numero. 
+44 
+
+
+===== PAGE 53 =====
+Ad ogni oggetto vanno associati una smnga (la sua descrizione) ed alm 
+due numeri: il codice nel dizionario della parola che lo descrive, ed il 
+luogo in cui si trova. La Agura 4 mostra lelenco degli oggetti usati ne 
+"L'astronave condannata". 
+L ·astronave condaggata: oggeW 
+Num 
+Oggetto 
+Codice 
+Luogo 
+1 
+un indicat.ore 
+66 
+-1 
+2 
+un putsanre 
+61 
+-1 
+3 
+un 'etichetta 
+70 
+-1 
+4 
+una tuta 
+51 
+1 
+5 
+un cartello bianco 
+60 
+-2 
+6 
+un cartello giallo 
+60 
+-4 
+7 
+un tetto 
+68 
+-5 
+8 
+un armadietto 
+67 
+-5 
+9 
+un letto 
+68 
+-6 
+10 
+un armadietto 
+67 
+-6 
+11 
+un casco 
+so 
+6 
+12 
+un putsanre rosso 
+61 
+-7 
+13 
+un putsanre verde 
+61 
+-7 
+14 
+un indicatore 
+66 
+-8 
+15 
+una leva 
+65 
+-8 
+16 
+un pulsanre rosso 
+61 
+-8 
+17 
+un pulsanre verde 
+61 
+-8 
+18 
+un cartello rosso 
+60 
+-8 
+19 
+un putsanre giallo 
+61 
+-8 
+20 
+il secondo pilota 
+53 
+9 
+21 
+un 'anrenna parabolica 69 
+-9 
+22 
+un camice 
+52 
+-99 
+23 
+una chiave 
+54 
+-99 
+24 
+un manuale 
+55 
+-99 
+Fig. 4 -
+Gli oggetti dell'auuentura. 
+Il luogo contiene anche ulteriori informazioni: 
+• Se il luogo è zero, l'oggetto è trasportato dall'avventuriero. 
+e Se il luogo è negativo, l'oggetto non è prendibile (es. il letto). Questo è 
+un tipico trucco per tenere due informazioni diverse (luogo e prendi-
+bilità) nello stesso numero. 
+• Se il luogo è -99, l'oggetto è nel "limbo", cioè fuori gioco. 
+45 
+
+
+===== PAGE 54 =====
+Ad esempio, l'oggetto numero 6 è descritto come un cartello giallo, nel 
+dizionario ha codice 60 ("Cartello"), si trova nel luogo 4 (fine corridoio 
+sud) e non è prendibile (il numero di luogo è negativo). Possono esserci 
+più oggetti con lo stesso nome (e quindi con lo stesso codice di 
+dizionario), ma devono essere tutti non prendibili (es. i letti 7 e 9, ed i pul-
+santi 2, 12, 13, 16, 17, 19), in modo che non possano mai trovarsi nello 
+stesso luogo (il programma non si confonde troppo, ma il giocatore sì). 
+Nella lista di DATA, gli oggetti sono elencati nello stesso modo, in ordine 
+di numero e terminando con "FO". Il numero in sè non è indicato: il 
+primo oggetto elencato ha numero 1, il secondo ha numero 2, e così via. 
+Le linee dalla 4400 alla 4510 contengono l'elenco degli oggetti usati 
+nell'.awentura (identico a quello di Figura 4). Riassumendo: 
+• Elencare gli oggetti usati, ed assegnare a ciascuno un numero pro-
+gressivo. 
+e Stabilire la descrizione di ciascun oggetto (es. un' "antenna paraboli-
+") 
+ca . 
+e Scrivere il codice della parola nel dizionario (es. il codice di Antenna, 
+cioè 69). 
+e Scrivere il luogo in cui l'oggetto si trova all'inizio del gioco (es. 9 per 
+l'antenna), o -99 se è fuori gioco, o zero se è trasportato. Mettere il 
+segno meno se l'oggetto non è prendibile (come nel caso dell'anten-
+na, il cui luogo diventa dunque -9). 
+e Riportare il tutto nei DATA 
+È importante tenere ben segnato l'elenco degli oggetti, con il relativo 
+numero progressivo. Infatti, l'interprete crea un array LO%Q contenente 
+il luogo di ciascun oggetto, in ordine di numero. Ricordo che il simbolo%, 
+percento, indica che si tratta di un array di numeri interi: serve soltanto a 
+risparmiare spazio (e, in alcuni Basic, anche tempo nei calcoli). Questo 
+array LO%() contiene quasi tutto lo stato delrawentura, se si eccet· 
+tuano la posizione dell'awenturiero (contenuta nella variabile LU) ed al-
+cune informazioni accessorie. Tutti gli altri dati sono infatti costanti (non 
+cambiano nel corso del gioco). Agendo su LO%Q, il programmatore può 
+muovere gli oggetti, o trasformarli. Ad esempio, l'istruzione: 
+L0%(23)=7 
+muove l'oggetto 23 (la chiave) nel luogo 7 (il compartimento stagno). 
+Dato che la descrizione degli oggetti visibili è automatica, l'istruzione 
+citata· fa "apparire" la chiave, che può successivamente essere presa, 
+guardata, ecc. Con la stessa tecnica si può trasformare un oggetto, ad e· 
+sempio facendo sparire una spia verde (mettendola nel luogo -99) ed 
+46 
+
+
+===== PAGE 55 =====
+apparire una spia rossa (mettendola nel luogo corrente, LU, o meglio 
+-
+LU, dato che si tratta di un oggetto non prendibile). Dal punto di vista 
+del giocatore è sempre lo stesso oggetto, ma il programmatore lavora in 
+realtà con due oggetti distinti. 
+La manipolazione del luogo degli oggetti attraverso LO%() è lo strumen-
+to principale a disposizione del programmatore. 
+Altri esempi: 
+L0%(6)=0 
+porta l'oggetto 6 (il casco) in possesso dell'avventuriero, mentre: 
+L0%(24)=LU 
+mette l'oggetto 24 {il manuale) nel luogo corrente. Se era in un'altra 
+stanza, "appare"; se era in possesso del personaggio, viene "lasciato" per 
+terra. Infine, l'istruzione: 
+IF L0%(23)=0 THEN ... 
+significa: se l'oggetto 23 (la chiave) è nel luogo zero (trasportato), 
+cioè se l'avventuriero possiede la chiave ... (segue la conseguenza, 
+ad esempio si PuP aprire l'armadietto). 
+47 
+
+
+===== PAGE 56 =====
+
+
+===== PAGE 57 =====
+CAPITOLO 8 
+Eseguire un'azione 
+Siamo arrivati al punto più delicato dell'intero meccanismo: l'esecuzio-
+ne degli ordini dati alla tastiera. È qui che si vede la "intelligenza" del 
+programma (o la sua stupidità): vediamo dunque il problema in detta-
+glio. Il giocatore scrive una frase composta da una o due parole significa-
+tive (esclusi quindi gli articoli), che chiamiamo "prima parola" (o "verbo") 
+e, se esiste, "seconda parola" (o "nome"). Il parser deve, sulla base dei 
+codici di queste parole, chiamare la routine che esegue l'azione deside-
+rata. 
+Dovrebbe essere ormai abbastanza chiaro cosa significhi eseguire 
+un'azione: si tratta di stampare un messaggio e/o modificare lo stato di 
+alcune variabili, tipicamente LU (il luogo dell'awenturiero) e LO%() (il 
+luogo di uno o più oggetti). Per esempio, la frase "Prendi il manuale" de-
+ve far partire una routine Basic che controlla se il manuale è presente (e 
+quindi prendibile) e, in caso affermativo, sposta il manuale stesso nel 
+luogo zero (trasportato) e stampa il messaggio "Fatto". 
+Non è però conveniente scrivere routine Basic distinte per "Prendi il 
+manuale", "Prendi la tuta", "Prendi il camice'', ecc. Una sola routine può 
+occuparsi del verbo "Prendi" in generale. 
+Questa è in genere la tecnica usata per scrivere giochi di awentura, tecni-
+ca che è anche illustrata in vari libri sull'argomento: il parser chiama la 
+routine Basic corrispondente alla prima parola della frase (il verbo), 
+lasciando a questa routine il compito di distinguere tra i vari casi partico-
+lari. li "selettore" della routine da eseguire funziona più o meno in que-
+sta maniera: 
+49 
+
+
+===== PAGE 58 =====
+500 IF Cl = 1 THEN GO SUB 1000 
+510 IF Cl= 2 THEN GOSUB 1010 
+520 IF Cl= 3 THEN GOSUB 1020 
+Se Cl è il codice della prima parola della frase, il funzionamento è 
+chiaro: la subroutine che inizia alla linea 1000 esegue le azioni relative al 
+verbo con codice 1 (ad esempio "Prendi"), la 1010 quelle relative al 
+verbo con codice 2, e così di seguito. Se i codici partono da 1 e sono 
+progressivi, si usa un sistema molto più semplice ed efficiente: 
+500 ON Cl GOSUB 1000,1010,1020, ... 
+che ha esattamente lo stesso effetto. Se Cl vale 1, viene eseguita la 
+subroutine numerol, cioè la prima dell'elenco (equivale ad un GOSUB 
+1000), e così via. 
+Problemi di comprensione 
+Come dicevo, quello illustrato è il sistema di gran lunga più usato. 
+Probabilmente il motivo sta nella sua semplicità: il parser non deve 
+prendere decisioni, ma lascia tutto il lavoro alle routine chiamate. Come 
+spesso capita, si tratta di un'impostazione sbagliata. La semplicità del 
+parser si paga con una maggiore complicazione delle routine chiamate 
+(che sono tante, mentre il parser è uno solo) oppure, a scelta, con un 
+comportamento più stupido del programma. Consideriamo, ad esem-
+pio, la frase "Premi il manuale". Ci sono varie possibilità: 
+e Il manuale è presente nello stesso luogo del personaggio. 
+e Il manuale si trova in un altro luogo, o fuori gioco. 
+e Il manuale è già in possesso dell'awenturiero. 
+e Il manuale non è un oggetto prendibile. 
+Se consideriamo queste possibilità nella routine di "Prendi", dobbiamo 
+fare un lavoro analogo in molte altre routine ("Lascia", "Guarda", ecc.). 
+Se non le consideriamo, la simulazione ed il realismo vanno a farsi 
+benedire. Di solito, viene usata una soluzione di questo tipo: si considera 
+che la seconda parola sia un oggetto, e si verifica che questo sia presen-
+te. Ma anche questa "soluzione" presenta i suoi problemi. Consideriamo 
+la frase "Cerca il manuale": ovviamente il manuale non è presente, 
+dunque il parser risponde "Non capisco" (mentre si vorrebbe poter stam-
+50 
+
+
+===== PAGE 59 =====
+pare una frase appropriata, del tipo "Cercatelo da te, io non ne ho 
+voglia"). In questo caso, il controllo di presenza è fastidioso. Una 
+situazione del genere si presenta, ne "L'astronave condannata", con i 
+pulsanti colorati: la frase "Prendi il verde" va eseguita anche se non esi-
+ste nella stanza l'oggetto "Verde", ma solo l'oggetto "Pulsante". D'altra 
+parte, l'azione "Leggi il manuale" va eseguita soltanto se il manuale è 
+presente. 
+Di conseguenza, molte awenture commerciali vanno in crisi già con frasi 
+relativamente semplici, come "Guarda l'albero" (ad esempio risponden-
+do "Non noto nulla di particolare" anche se l'albero non è presente), o in 
+altre situazioni analoghe (molte rispondono sistematicamente "Non ca-
+pisco"). 
+Potrei continuare con l'elenco dei problemi, delle soluzioni parziali e 
+delle relative trappole e complicazioni, ma preferisco fermarmi a questo 
+punto ed illustrare una soluzione più flessibile e che, a spese di una 
+leggera complicazione del parser (che ho scritto io, una volta per tutte) 
+risparmia lavoro e problemi ai programmatori (cioè a voi). 
+La tavola delle azioni 
+Il parser de "L'astronave condannata" non è particolarmente furbo, an-
+che se è già decisamente sopra la media di quelli contenuti nelle awenture 
+commerciali e di quelli presentati nei libri che insegnano "come scrivere 
+un'awentura". Un parser migliore è usato in" Avventura nel castello" (tra 
+l'altro, tratta diversamente i verbi transitivi dagli intransitivi), ed uno 
+ancora più evoluto è contenuto nel mio studio su un linguaggio specializ-
+zato per la scrittura di awenture (ADL-1 ). Un parser di altissimo livello si 
+trova invece nei giochi della lnfocom; ad esempio "Zork" riesce a 
+"capire", con un'eccellente illusione di realismo, frasi come "Prendi la 
+sfera di cristallo e mettila sul supporto di diamante" (naturalmente in pre~ 
+senza di più sfere e diversi supporti!). 
+Tornando al mio parser, funziona in questo modo: il programma 
+consulta una tavola delle azioni, che contiene informazioni sulle azioni 
+valide, e in base a questa decide se eseguire una routine Basic, e quale. 
+Le routine Basic sono numerate a partire da 1 e sono chiamate con 
+un'istruzione ON ... GOSUB, come già visto in precedenza. La tavola può 
+riconoscere quattro tipi di frasi composte da due parole: 
+1) Una coppia di parole (verbo+nome) in un dato luogo (es. "Premi il 
+pulsante" nella sala controllo reattore). 
+51 
+
+
+===== PAGE 60 =====
+2) Una parola specifica (verbo) seguita da una qualunque altra, in un da-
+to luogo (es. "Guarda XXX" in una stanza con illusioni ottiche). 
+3) Una coppia di parole (verbo+nome) in un luogo qualunque (es. "Leg-
+gi il manuale", dovunque). 
+4) Una parola specifica (verbo) seguita da una qualunque altra, in un 
+luogo qualunque (es. "Prendi XXX", dovunque). 
+In tutti questi casi, è possibile specificare se l'oggetto eventualmente 
+indicato dalla seconda parola dev'essere presente perché la routine Ba-
+sic venga eseguita, o se l'azione è valida comunque, anche in assenza 
+dell'oggetto. Sono riconosciuti anche due tipi di frasi composte da una 
+sola parola, che si riconducono in pratica ai tipi 1 e 2 con la seconda pa-
+rola assente: 
+5) Una parola (verbo) in un certo luogo (es. "Est" nel corridoio). 
+6) Una parola (verbo) in un luogo qualunque (es. "Inventario"). 
+Cosa molto importante, la ricerca nella tavola avviene nell'ordine in cui 
+ho elencato le varie possibilità. Se il giocatore ha scritto "EST', il parser 
+cerca se è prevista la parola "Est" nel luogo corrente dell'awenturiero 
+(caso 5). Se la trova, esegue l'azione indicata. Se non la trova, cerca se è 
+prevista la parola "Est" valida dovunque (caso 6). La trova e chiama la 
+routine indicata (quella di spostamento). Se non la trovasse, stampereb-
+be "Non capisco". Lo stesso succede nel caso di due parole: prima il 
+parser guarda se è previsto il caso 1 (quel verbo e quel nome in quel 
+luogo), e solo se non lo trova passa ai casi 2, 3, 4, e infine stampa "Non 
+capisco". La regola è che il caso particolare ha la precedenza su quello 
+generico. In altri termini: di solito la parola "Est" ha un certo effetto 
+(muove verso est), ma in un certo specifico luogo voglio che chiami una 
+routine particolare. 
+Non è tutto chiaro? Beh, me l'aspettavo. È ora di fare qualche esempio 
+che dissipi la fitta nebbia nella quale temo di avervi awolti. Facciamolb 
+subito. 
+Direzione: Nord 
+Cominciamo dal caso più semplice: le direzioni. Ho detto in precedenza 
+che le direzioni non richiedono alcun trattamento speciale: sono parole 
+come le altre, si tratta soltanto di far eseguire la routine adeguata. Questa 
+routine sarà unica per tutte le direzioni, e deciderà il da farsi in base al 
+codice della prima (ed unica) parola, codice contenuto nella variabile Cl 
+'52 
+
+
+===== PAGE 61 =====
+(con un po' di fantasia, potete indovinare che C2 contiene il codice della 
+seconda parola). 
+La tavola delle azioni deve dunque contenere queste informazioni: 
+e Se la frase contiene solo la parola No sinonimo (codice 1), esegui la 
+routine Basic numero 1 (che si occupa delle direzioni). 
+e Se la frase contiene solo la parola "S" o sinonimo (codice 2), esegui la 
+routine Basic numero 1 (sempre la stessa). 
+e Se la frase contiene solo la parola E o sinonimo (codice 3), esegui la 
+routine Basic numero 1 (idem, come sopra). 
+E così di seguito per le altre tre direzioni. Ci saranno dunque sei informa· 
+zioni nella tavola delle azioni. Ogni informazione consiste in due numeri: 
+la sintesi della frase ed il numero della routine da eseguire. La sintesi 
+della frase è un numero che si calcola in questo modo: 
+LU*lOOOO +Cl *100 + C2 
+Detto più alla buona: le prime due cifre indicano il luogo in cui la frase ha 
+effetto (zero se vale downque), le due successive sono il codice della pri-
+ma parola e le ultime due sono il codice della seconda parola (zero se 
+manca). Quindi la sintesi della frase "NORD", valida dovunque, si 
+costruisce così 
+Luogo: 
+OO(dovunque, si può tralasciare) 
+Codicel: Ol(codice di "NORD" o "N") 
+Codice2: OO(nessuna parola) 
+Il risultato, o sintesi della frase (ottenuto accostando i tre dati) è 000100. 
+Dato che si tratta di un numero e non di una stringa, è più banalmente 
+100. Nella tavola delle azioni, che il programma si legge all'inizio dalle li-
+nee di DATA, è inutile sprecare spazio con zeri non significativi, quindi 
+per far eseguire la routine numero 1 in risposta alla frase "NORD" basta 
+scrivere: 
+DATA 100,1 
+Allo stesso modo, la sintesi di SUD è 0200, quella di EST 0300, di 
+"OVEST" 0400, di "ALTO" 0500, di "BASSO" 0600. Dato che tutte 
+queste frasi devono far chiamare la routine numero 1, la tavola delle 
+azioni conterrà sei informazioni, ciascuna composta di sintesi frase e 
+numero della routine da eseguire: 
+DATA 100,1,200,1,300,1,400,1,500,1,600,l 
+Guardate la linea 4270 del programma: inizia esattamente con questi 
+53 
+
+
+===== PAGE 62 =====
+dati. Per accelerare la ricerca delle azioni, la tavola va scritta in ordine di 
+numero di sintesi frase. Per ora non ci sono problemi, ma è importante 
+non dimenticarlo. 
+Quindi, se il giocatore scrive la frase "NORD" nel luogo 14: 
+• L'analizzatore lessicale restituisce i codici delle due parole: Cl=l 
+(codice di "Nord") e C2=0 (codice di parola nulla). 
+• 
+Il parser compone la sintesi di LU, Cl e C2, cioè numero del luogo 
+corrente, codice della prima parola, codice della seconda parola. Ot-
+tiene 140100 e cerca questo numero nella tavola delle azioni. Sup-
+poniamo che non lo trovi. Vuol dire che l'azione "Nord" non è previ-
+sta nel luogo 14. 
+• 
+Il parsercompone allora la sintesi di Cl e C2, cioè 0100, cioè 100, e 
+la cerca nella tavola delle azioni. La trova: è un'azione prevista come 
+valida in tutti i luoghi. Legge il numero dell'azione da eseguire: 1. 
+• 
+Il parser chiama l'azione numero 1, usando il selettore delle azioni 
+Oinea 171 O}, che chiama la subroutine alla 1780, cioè la routine Ba-
+sic di direzione (finalmente!). 
+Per non lasciare misteri insoluti, andiamo a vedere cosa succede nella 
+famigerata routine che esegue gli spostamenti (linee 1780-1800). 
+Succede esattamente quello che vi ho già mostrato nel capitolo 5, con la 
+sola differenza che il numero del nuovo luogo non viene letto da una 
+matrice numerica ma da un array di stringhe. Dl$(LU) non è altro che la 
+stringa di 12 cifre che è stata introdotta di seguito alla descrizione del luo-
+go numero LU (vedi capitolo 7, mappa, e linee 4130-4230). Il MIO$ alla 
+linea 1780 isola le due cifre corrispondenti alla direzione scelta, 
+basandosi sul codice Cl (le prime due per "Nord", le due seguenti per 
+"Sud", ecc.), ed il V AL alla stessa linea le converte finalmente in un nu-
+mero: il numero del nuovo luogo, che va prowisoriamente in A Se la 
+direzione non è permessa, la 1790 lo fa notare, altrimenti la 1800 
+esegue lo spostamento. Noto che la linea 1780 funziona solo se i codici 
+di dizionario delle sei direzioni sono 1, 2, 3, 4, 5, 6. Quindi, non cambiate-
+1·1 
+I. 
+54 
+... 
+
+
+===== PAGE 63 =====
+CAPITOLO 9 
+UN PO' DI 
+BUONE AZIONI 
+PER DARE 
+L'ESEMPIO 
+Si salvi chi può 
+In Figura 1 potete vedere i miei appunti relativi alle azioni generiche de 
+"L'astronave condannata". Hanno un aspetto ordinato soltanto perché li 
+N 
+s 
+E 
+o 
+A 
+B 
+Prendi XXX 
+L 'astconave condapnata: azioni generiche 
+0100 
+0200 
+0300 
+0400 
+0500 
+0600 
+0899 
+muove 
+-2 
+if luogo(OG)·O 
+"Già fatto" 
+else if OG non prendibile 
+"Non è possibile" 
+else if OG·Tuta and luogo(camice)·O 
+-r og1i prima il camice· 
+else if OG-camice and tuogo(Tuta)•O 
+"Togli prima la tuta" 
+else 
+luogo(OG)·O 
+if OG-casco,Tuta o camice 
+"Ora l'hai addosso· 
+else 
+"Fatto" 
+55 
+
+
+===== PAGE 64 =====
+Lascia XXX 
+0999 
+3 
+i! OG·O or luogo(OG )<>O 
+"Non ce l'hai" 
+else i! LU>•9 {fuori} 
+luogo(OG )•-99 
+"Perso nello spazio· 
+else 
+luogo(OG)·LU 
+"Fatto· 
+Guarda XXX 
+1099 
+-4 
+"Nulla di particolare· 
+Save 
+1100 
+5 
+salva situazione 
+Load 
+1200 
+6 
+rilegge situazione 
+Cosa 
+1300 
+7 
+st.a.mpa inventario 
+Fig. 1 -
+L'astronave condannato: azioni generiche. 
+ho scritti con il Macintosh, anziché con carta e matita (è più comodo). Ho 
+pensato di proporveli senza ritoccar!~ anche se contengono qualche im-
+precisione e non sempre sono perfettamente coerenti, perché mi sem-
+brano adatti a mostrare il paziente lavoro che sta dietro le quinte di 
+un'awentura, anche una molto semplice come questa. 
+Gli appunti sono organizzati in questo modo: in prima colonna sono 
+scritte le frasi che il programma deve riconoscere (raggruppate se devo-
+no far eseguire la stessa routine, come le sei direzioni), in seconda 
+colonna c'e la sintesi numerica della frase (eventuale numero luogo, 
+codice prima parola, codice seconda parola), segue il numero dell'azio-
+ne (routine Basic) da eseguire, infine c'è una descrizione sintetica 
+dell'azione stessa. Le azioni di Figura 1 sono quelle generiche, cioè 
+valide in tutti i luoghi ed indipendenti dalla specifica awentura (salvo 
+alcune eccezioni, che vedremo). 
+Cominciamo con tre azioni semplici: "Save", "Load" e "Inventario", ri-
+spettivamente "registra la situazione corrente" (altamente consigliata 
+prima di intraprendere azioni awentate), "riprendi una situazione prece-
+dente" ed "elenca gli oggetti che possiedo" (con il comodo sin6nimo 
+"Cosa"). 
+Il meccanismo di chiamata di queste azioni funziona esattamente come 
+quello delle direzioni, facendo eseguire l'adatta routine Basic di azione 
+(rispettivamente 5, 6 e 7). Vi ricordo che i codici delle parole si trovano 
+nel dizionario preparato in precedenza (capitolo 7). Le routine Basic di 
+56 
+
+
+===== PAGE 65 =====
+"Save" e "Load" si trovano alle linee 2000 e 2060, e dipendono natural-
+mente dal computer usato. Sono molto primitive, nel senso che è 
+permesso il salvataggio di una sola situazione, con nome fisso ("A-
+STRO", definito alla linea 1010). Sono sicuro che sapete fare di meglio. 
+La routine di "Inventario" (linea 2120) fa invece uso di una subroutine 
+dell'interprete, quella che descrive gli oggetti presenti in un certo luogo. 
+Dato che gli oggetti posseduti dall'avventuriero sono nel luogo zero, tan-
+to vale riutilizzare la stessa routine. Vi conviene lasciare tale e quale 
+questa azione. Per inciso, il GOTO 590 al termine della linea 2120 è 
+concettualmente un GOSUB 590 seguito da un RETURN. L'effetto è 
+identico, e si risparmia tempo (in pratica la routine di inventario ritorna u-
+sando il RETURN che sta al termine della routine chiamata). 
+Guarda chi si vede 
+L'azione "Guarda XXX" è invece più complessa: dev'essere eseguita in 
+risposta ad una frase composta dalla parola "Guarda" seguita da una 
+qualunque parola valida, sempre in qualunque luogo. La sintesi della 
+frase si costruisce come prima: 
+Luogo: 
+00 (dovunque, si può tralasciare) 
+Codicel: 
+10 (codice di "GUARDA" 
+Codice2: 
+99 (una qualunque parola valida) 
+Una novità: indicando 99 come codice della seconda parola, si intende 
+"una qualunque parola valida, purché non nulla". La sintesi della frase è 
+dunque 1099 e, dato che dobbiamo eseguire l'azione 4, nella tavola do-
+vremmo scrivere: 
+DATA 1099,4 
+Invece, nella tavola si trova: 
+DATA 1099,-4 
+(circa a metà della linea 4290). Questa è un'ulteriore comodità: se il 
+numero della routine è negativo, significa che il parser deve controllare 
+che la seconda parola si riferisca ad un oggetto presente o trasportato, 
+cioè nel luogo corrente od in possesso dell'avventuriero. In caso contra-
+rio, stampa "Qui non c'è" e si rifiuta di chiamare la routine indicata. Dato 
+che per guardare un oggetto, quest'ultimo deve ovviamente essere 
+presente, mettiamo il segno meno e ci assicuriamo così che la routine nu-
+57 
+
+
+===== PAGE 66 =====
+mero 4 venga eseguita solo se il giocatore guarda un oggetto realmente 
+visibile. Come potete vedere alla linea 1970, la routine numero 4 si limit" 
+a stampare "Non noto nulla di particolare". Si tratta infatti della routine 
+generica di "Guarda ... ", che è in fondo alla lista di precedenza (caso 4 tra 
+quelli elencati nel capitolo 8) e serve a dare comunque una risposta, in 
+mancanza di azioni più interessanti (come "Guarda l'indicatore"). In 
+gergo tecnico, è una routine di default, cioè da eseguire in difetto (in 
+mancanza) di altre routine con pre.cedenza più alta. 
+Prendere o lasciare 
+E siamo arrivati a due azioni fondamentali nei giochi di awentura: pren-
+dere e lasciare gli oggetti. Cominciamo dalla prima. 
+Volendo un minimo di realismo, nell'azione "Prendi" bisogna considera-
+re che: 
+• L'oggetto citato dev'essere presente. 
+e L'oggetto non dev'essere già in possesso dell'awenturiero. 
+e L'oggetto dev'essere prendibile. 
+La prima condizione è automatica: basta mettere un segno meno 
+davanti al numero dell'azione (vedi infatti la figura 1: il numero dell'azio-
+ne da-eseguire è -2). Per soddisfare le altre due, la routine di "Prendi" va 
+impostata più o meno in questo modo: 
+e Se l'oggetto è già posseduto, stampare "Già fatto" e rientrare. 
+e Altrimenti, se l'oggetto è di tipo non prendibile (luogo negativo, vedi 
+capitolo 7), stampare "Non è possibile" e rientrare. 
+e Altrimenti, spostare l'oggetto nel luogo zero (trasportato), stampare 
+"Fatto" e rientrare. 
+Per riferirsi all'oggetto citato nella frase, si usa la variabile OG, nella qua-
+le l'interprete mette il numero dell'oggetto (non il codice di dizionario! 
+Vedi capitolo 7) citato come seconda parola. Attenzione: se l'oggetto 
+non è presente (nel luogo LU) o trasportato, OG contiene zero e non va 
+usata. Perciò, L03(0G) è il luogo dell'oggetto citato come seconda pà-
+rola. Io ho l'abitudine di tenere i miei appunti in una forma di "pseudoco-
+dice", cioé in una specie di linguaggio strutturato del quale vi fornisco su-
+bito un esempio riscrivendo la routine di "Prendi": 
+if luogo(OG)=O 
+"Già fatto" 
+58 
+
+
+===== PAGE 67 =====
+else if OG non prendibile 
+"Non è possibile" 
+else 
+ludgo(OG)=O 
+"Fatto" 
+Non c'è poi molta differenza rispetto a prima: è solo più sintetico. Per 
+prima cosa, le parole se e altrimenti sono sostituite dalle equivalenti 
+inglesi if ed else. Il vantaggio sta nella brevità e nella somiglianza con 
+istruzioni Basic, che semplifica poi il lavoro di traduzione in programma. 
+Inoltre, scrivo semplicemente tra virgolette un riassunto dei messaggi da 
+stampare e faccio ampio uso dell'indentazione, che consiste nello spo-
+stare verso destra (indentare) le operazioni (istruzioni) relative ad un 
+certo if, per vederle più chiaramente. Dato che questo libro non è un 
+corso di programmazione strutturata, mi fermo qui. Penso comunque 
+che i miei appunti siano abbastanza leggibili. 
+Tornando alla routine di "Prendi", si può tradurla in Basic in questo 
+modo: 
+1830 IF LOl(OG)=O THEH PRIHT •Gia' fatto":RETURH 
+1840 IF LOl(OG)<O THEH PRIHT 
+0 Hon e' po55ibile":RETURH 
+1870 LOl(OG)=O 
+1890 PRIHT "Fatto":RETURN 
+Notate come la routine corrisponda esattamente agli appunti. In 
+particolare, la linea 1840 verifica che l'oggetto citato sia prendibile con-
+trollando che il suo luogo non sia negativo (se è negativo, significa per 
+convenzione "non prendibile", vedi capitolo 7). 
+La routine di "Prendi" usata ne "L'astronave condannata"' è leggermente 
+più complessa, perché tiene conto di alcuni casi particolari: impedisce di 
+mettere la tuta se si ha già addosso il camice (e viceversa), e stampa "Ora 
+l'hai addosso" invece di "Fatto" se il personaggio prende il casco, la tuta o 
+il camice. Verificate queste differenze sugli appunti di Figura 1 e nelle 
+linee 1830-1890 (in pratica, sono state aggiunte le linee 1850, 1860 e 
+1880). In una vostra awentura, basta togliere queste linee aggiunte per 
+avere una routine generica di "Prendi". 
+Passiamo all'azione reciproca: quella di lasciare un oggetto. Qui il lavoro 
+è più semplice: se l'oggetto non è trasportato, non è lasciabile. Dato che 
+vogliamo stampare "Non ce l'hai" se l'oggetto non è trasportato (che sia 
+presente o meno), bisogna evitare il controllo preliminare dell'interprete 
+59 
+
+
+===== PAGE 68 =====
+(che stamperebbe "Qui non c'è" in caso di assenza). Per evitare il 
+controllo, basta usare un numero di azione positivo (infatti è 3, e non 
+-3). Ma c'è una trappola: a questo punto non basta guardare L0%(0G) 
+per sapere dove sta l'oggetto. Infatti, come ho detto prima, se l'oggetto 
+non è presente o trasportato OG vale zero e L0%(0G) è teoricamente, 
+un errore. In realtà, L0%(0) contiene zero (questo elemento non è mai 
+stato usato), ma ciò non significa affatto che l'oggetto sia trasportato, si· 
+gnifica solo che stiamo guardando una variabile priva di significato! 
+Insomma, occorre anche controllare che OG non valga zero, altrimenti 
+vuol dire che l'oggetto non è certamente lasciabile. L'azione di "Lascia" è 
+quindi: 
+if OG=O or luogo(OG)< >O 
+"Non l'hai" 
+else 
+luogo(OG)=LU 
+"Fatto" 
+Dovreste sapere che or significa oppure, altrimenti ristudiatevi il Basic. 
+Come per l'azione "Prendi", anche per la "Lascia" c'è un caso particola· 
+re che riguarda "L'astronave condannata": se il numero del luogo è mag· 
+giore o uguale a 9 (cioè 9, 1Oo11) ci si trova nello spazio esterno, e qua· 
+lunque oggetto lasciato viene perso (spostandolo nel luogo -99, il "lim· 
+bo"). Le linee di programma dalla 1920 alla 1940 sono la routine di 
+"Lascia". 
+Come in tutti i programmi, non c'è un modo solo per risolvere i problemi. 
+Si poteva anche tenere una routine più pulita per "Lascia" e prevedere la 
+frase "LASCIA XXX" nei luoghi 9, 1 O, 11. La mia soluzione è più corta, 
+ma forse meno consigliabile a chi ama le cose a tutti i costi ben ordinate 
+Lo stesso discorso vale per "PRENDI IL CASCO", "PRENDI LA TUTA" 
+e "PRENDI IL CAMICE" dove però, volendo separare le tre azioni 
+speciali, le cose si facevano un poco più complesse. Occorreva, in prati· 
+ca, ripetere quattro volte i controlli della routine di "Prendi". Probabil· 
+mente non ne valeva la pena. 
+60 
+
+
+===== PAGE 69 =====
+CAPITOLO 10 
+A BORDO 
+.DEL "NEU1RONIA" 
+Azioni su misura 
+Le azioni finora viste sono quelle di tipo generico, riutilizzabili per ogni 
+awentura. Si tratta ora di scrivere le azioni specifiche di una particolare 
+awentura, e precisamente de "L'astronave condannata". Dovreste avere 
+ormai ben chiaro che, a differenza di quanto accade in molti altri pro-
+grammi per awenture, queste azioni specifiche funzionano esattamen-
+te con lo stesso meccanismo di quelle generiche (es. "Prendi"), e cioè con 
+la tavola delle azioni. Anche la suddivisione che ne ho fatto negli appunti 
+è puramente di comodo. 
+Non vi descriverò in dettaglio tutte le azioni, limitandomi a commentare 
+le più significative e lasciandovi l'utile esercizio di esaminare le altre e 
+capire come funzionano. Comincio subito con le azioni valide in tutti i 
+luoghi dell'astronave, che potete vedere in Figura 1. 
+L'astronave condannata: azioni valide ovungue 
+Indossa Casco 
+2050 
+-2 
+got.o Prendi XXX 
+Indossa Tuta 
+2051 
+-2 
+goto Prendi XXX 
+Indossa Camice 
+2052 
+-2 
+goto Prendi XXX 
+I.ascia Casco 
+0950 
+I.ascia Tuta 
+0951 
+Togli Casco 
+2150 
+Leva Casco 
+6550 
+Flg. 1 -
+L'astronave condannata: azioni valide ovunque (segui!) 
+61 
+
+
+===== PAGE 70 =====
+Togli Tuta 
+2151 
+Leva Tuta 
+6551 
+-10 if luogo~OG)<>O 
+"Non ce l'hai· 
+if LU>=9 or (LU=7 & var2= 1) {fuori} 
+"Aaaagh" 
+Morto 
+else 
+goto Lascia XXX 
+Togli Camice 
+2152 
+Leva Camice 
+6552 
+-3 
+goto Lascia XXX 
+Guarda Tuta 
+1051 
+-11 "E' la tua tuta per attiv. xtraveic." 
+Guarda Secondo 
+1053 
+-12 "Ha il casco danneggiato ..... 
+Guarda~llo 
+1060 
+Guarda Manuale 
+1055 
+-13 "Non è meglio leggerlo?" 
+Guarda Camice 
+1052 
+-14 "Pesant.e, trattato al piombo" 
+Leggi Manuale 
+2555 
+Apri Manuale 
+2255 
+-15 if luogo(OG)·LU 
+"Prendilo in mano, prima" 
+else 
+"Istruzioni: per attivare .. ." 
+Ripara ant.enna 
+2769 
+-29 "Ci vorrebbe il secondo" 
+Fig. 1 -
+L'astronave condannata: azioni valide ovunque. 
+Casco, Tuta e Camice 
+Già le prime tre azioni (''Indossa Casco", "Indossa Tuta" e "Indossa 
+Camice"; tralascio gli articoli, come d'altronde fa il programma) merita-
+no attenzione. Per semplificare il gioco, ho stabilito che prendere uno di 
+questi tre oggetti equivale ad indossarlo (vedi infatti la routine di "Pren· 
+di" nel precedente capitolo). Sembrerebbe allora conveniente indicare 
+semplicemente "Indossa" come sinonimo di "Prendi" (stesso codice nel 
+dizionario): in questo modo, le frasi "Prendi Tuta" ed "Indossa Tuta" 
+avrebbero esattamente lo stesso effetto. Disgraziatamente, non sempre 
+62 
+
+
+===== PAGE 71 =====
+l.1 c.,('mplicità paga: con questo sistema, sarebbero accettate frasi come 
+"Indossa Manuale" o "Indossa Chiave". A questo proposito, ci sono due 
+1 nmti di vista: il primo è quello (tipico di molti autori) del "Chi se ne frega? 
+N11ssuno dirà mai una frase del genere". Io ritengo invece che il realismo 
+i• l'interesse di un'awentura si misurino anche e soprattutto sulla cura dei 
+dt•ttagli. Per fortuna, il parser e la tavola delle azioni rendono semplice 
+1'.1ggiunta di nuove possibilità, e così anche i pigri possono costruire 
+11n 'awentura ricca di dettagli senza troppa fatica. 
+/\cl esempio, è molto facile fare in modo che "Indossa Casco" abbia lo 
+sh•sso effetto di "Prendi Casco". Basta mettere nella tavola delle azioni la 
+sintesi di "Indossa Casco": 
+Luogo: 
+Indossa: 
+Casco: 
+00 (dovunque) 
+20 
+50 
+I ,, sintesi è dunque 2050, numero da inserire al debito posto nella tavola 
+(che, lo ricordo, va in ordine di numero di sintesi). Di seguito va messo il 
+numero dell'azione (routine Basic) da eseguire. Dato che la frase deve a· 
+wre lo stesso effetto di "Prendi Casco'', basta mettere lo stesso numero 
+della routine di "Prendi", cioè -2 (il segno meno, come sempre, vuol 
+dire che l'oggetto dev'essere presente). Ho commentato con "goto 
+I ,rendi XXX" per ricordare che questa azione ha lo stesso effetto di quel· 
+l'.1ltra. Lo stesso discorso vale owiamente per "Indossa Tuta" e "Indossa 
+<~.1mice". 
+I\ questo punto, la frase "Indossa Casco" ha lo stesso effetto di "Prendi 
+e .1sco", ma la frase "Indossa Chiave" non è riconosciuta da nessuna par· 
+11• e produce quindi la risposta "Non capisco". In un'awentura ben 
+c11rc1ta, sarebbe il caso di prevedere anche un default (cioè una risposta 
+.t.mdard) per il caso "Indossa XXX", cioè per tutti i tentativi di indossare 
+• 1qqetti non indossabili (ad esempio: "Non sapevo che tu potessi cambia· 
+1.-. forma. Puoi anche trasformarti in un verme?"). Meglio ancora: una 
+1bposta adatta dovrebbe essere prevista per ogni verbo, quando non sia 
+11• .. 11< >nel modo o sull'oggetto corretto. Altrimenti, la frase "Non capisco" 
+dlwnt.1 presto noiosa; la varietà mantiene invece l'interesse del giocato· 
+I•' S1•111pre a proposito di Casco e Tuta, osservate (in Figura 1) le frasi 
+'I 1 c1.1 C.1sco", "Leva Casco", ecc. Dato che è irrealistico consentire che 
+1111 1 .1to11.111ta si levi il casco o la tuta senza danni mentre si trova nel vuo· 
+te' hl oq11.1 considerare questa possibilità: se il personaggio compie 
+I 11111111' L1ll\~stcmo dell'astronave (luogo>=9), o nel compartimento 
+I 1•1n11 (11111q11 7) quando questo è aperto verso il vuoto (variabile 2, co· 
+1111• p111 wcl11•11111), ,1ccade l'inevitabile. Altrimenti, si esegue la normale 
+63 
+
+
+===== PAGE 72 =====
+routine di "Lascia XXX". Per farlo, basta eseguire un GOTO in Basic alla 
+routine in questione, come si può vedere alla linea 2220 del programma. 
+Le linee 2210-2230 costituiscono la routine di azione. 
+Una nota interessante: la parola "Leva" usata in queste frasi funziona 
+come verbo in questo caso, e come nome in altre situazioni (nella sala 
+reattore). Il parser non si pone problemi: gli basta trovare nella tavola 
+delle azioni la sintesi dei codici delle parole, la posizione non gli interes· 
+sa (si potrebbe fare anche un "Leva Leva"). 
+In un luogo e in tutti i luoghi 
+Anche se in questa awentura non ci sono esempi adeguati, vi ricordo 
+che una stessa azione può avere effetto diverso in un certo luogo piutto-
+sto che nel resto dei luoghi in generale. Ad esempio, la frase "Chiama 
+Aiuto" potrebbe funzionare soltanto vicino alla caverna degli orsi (a voi 
+immaginare l'effetto), e negli altri posti rispondere con un desolante 
+"Nessuno è in grado di sentirti". In questo caso, si può certamente scrive· 
+re una routine valida in tutti i luoghi (la cui sintesi comincerà quindi con 
+00) ed effettuare un confronto (IF LU= 4 7 THEN ... ) all'inizio della 
+routine per stabilire se ci si trova nel luogo speciale, ma è meglio usare 
+due routine distinte: una generica (valida in tutti i luoghi), che dà una ri· 
+sposta di default, ed una specifica (valida in un solo luogo), che realizza 
+l'effetto desiderato. Ci pensa il parser a dare la precedenza a quest'ultima 
+se I' awenturiero si trova nel 1 uogo indicato. Vi ricordo che l'ordine di pre· 
+cedenza delle varie azioni è descritto nel Capitolo 8. 
+Azioni specifiche 
+La Figura 2 mostra l'elenco delle azioni che hanno effetto soltanto se la 
+frase è pronunciata in uno specifico luogo. Se la frase viene pronunciata 
+in un luogo diverso da quello indicato, il parser non la trova, allora 
+guarda se la tavola contiene la stessa azione valida in tutti i luoghi. Se 
+proprio non c'è, stampa "Non capisco". 
+Notate che i numeri delle azioni (routine Basic) da eseguire sono tutti 
+positivi: dato che in nessuna di queste azioni la seconda parola indica un 
+oggetto mobile (potrebbe anche succedere, in un'altra awentura), e dato 
+che il luogo è noto (la sintesi della frase comincia col numero del luogo in 
+cui l'azione deve avere effetto), non c'è alcun bisogno di controllare la 
+presenza dell'oggetto citato (ad esempio l'armadietto). La frase "Ripara 
+64 
+
+
+===== PAGE 73 =====
+L ·asqonan çondallnata: azioni yatidt ia u singolo luogo 
+Cabina (1): 
+Guarda Indicatore 
+O 11066 
+16 
+"Temperatura.: 
+Leggi etichetta 
+O 12570 
+17 ·sos Galattico, solo per emergenza· 
+Premi pulsante 
+O 12661 
+18 
+"Antenna esterna difettosa· 
+Corridoio lford (2): 
+Leggi Cartello 
+A 
+E 
+Corridoio (3): 
+E 
+Corridoio Sud ( <t): 
+Leggi Cartello 
+E 
+02 2 560 
+19 
+"Scala: ingresso riservato .. : 
+020500 
+20 
+LU= 1 {cabina} 
+i.f luogo(Secondo)-9 {fuori} 
+. "Se solo fosse qui ... • 
+020300 
+21 
+"Meglio non svegliare i passeggeri" 
+030300 
+21 
+"Meglio non svegliare i passeggeri" 
+042560 
+22 ·o: Att.ne: st. depressurizzata .. : 
+040300 
+21 
+"Meglio non svegliare i passeggeri" 
+Cabina Secondo (5): 
+Apri armadietto 
+052267 
+23 
+i.f luogo(Manuale) <>-99 
+"Già fatto· 
+else if tuogo(Chiave)<>O 
+"Chiuso a chiave· 
+else 
+'"Fatto· 
+tuogo(Manuale)•LU 
+luogo(camice)·LU 
+65 
+
+
+===== PAGE 74 =====
+cabma capitano (6): 
+Apri armadietto 
+062267 24 
+'Vuot.o" 
+Compartimento stagno (7): 
+E 
+o 
+Premi Pulsante 
+Premi Rosso 
+Premi Verde 
+070300 37 if var2·0 {chiuso} 
+LU·4 {corridoio} 
+else 
+got.o 1 (Direzioni) 
+070400 38 if var2· 1 {apert.o} 
+LU• 11 {esterno} 
+else 
+got.o 1 (Direzioni) 
+072661 
+25 
+"Pr~mi Rosso o Premi Verde" 
+072664 26 if var2s 1 {apert.o} 
+"Click" 
+else 
+"Si apre .. : 
+var2• l 
+if luogo(Tut.a)oO or luogo(casco)<>O 
+"Aaaggh" 
+Mort.o 
+if oggetti mobili in LU 
+luogo(oggetti)•-99 
+"Persi nello spazio" 
+072662 
+27 if var2=0 {chiuso} 
+"Click" 
+else 
+"Si chiude .. ." 
+var2·0 
+if luogo(Secondo)·O 
+and luogo(Chiave)·-99 
+"Rinviene· 
+luogo(Chiave )•LU 
+Sala contro11o reattore (3): 
+Leggi carteuo 
+082560 
+28 "Emergenza in agguato: portate con voi.." 
+Guarda lndicat.ore 
+081066 
+16 
+"Temperatura . ." 
+66 
+
+
+===== PAGE 75 =====
+Premi Pulsante 
+Premi Rosso 
+Premi Giallo 
+Premi Ver~ 
+Spingi Leva 
+Tira Leva 
+Hsterno (9): 
+Guarda Antenna 
+082661 
+30 1>remi Rosso, Giallo o Verde" 
+082664 
+31 
+"Click" 
+iubatura che perde· 
+if var 1·0 
+var l• 1 
+else 
+varl·O 
+timer 1 ·timer 1 div 2 
+082663 
+32 
+"Click" 
+ifvarl·l 
+var 1·2 
+if luogo( camice )<>O 
+ii senti poco bene" 
+else 
+varl•O 
+timer 1 ·timer 1 div 2 
+082662 
+33 "Click" 
+if var1=2 
+var1·3 
+if luogo(camice)o O 
+"Eccesso di radiazioni· 
+Morto 
+else 
+varl·O 
+timer 1 •timer 1 div 2 
+082465 
+34 "Clank" 
+if var1·3 
+Fine! ·complimenti" 
+else 
+varl·O 
+timer 1 •timer 1 div 2 
+082365 
+35 
+"Clunk" 
+varl·O 
+timer 1·timer1 div 2 
+091069 
+36 
+"Sembra danneggiata· 
+I lq 2 -
+Azioni ua/ide soltanto in uno specifico luogo. 
+67 
+
+
+===== PAGE 76 =====
+Antenna" è stata messa tra quelle valide ovunque, perché deve 
+rispondere "Qui non c'è" {automaticamente, per effetto del segno 
+meno), facendo così intuire che da qualche parte l'antenna dev'esserci 
+{molti giocatori pronunciano questa frase in cabina di pilotaggio). 
+La prima frase interessante è "A" f'Alto") nel luogo 2 {corridoio). La sua 
+sintesi è composta nel solito modo, ma indicando un numero di luogo/ 
+Luogo: 
+02 
+Prima parola: 05 
+Seconda par.: 00 
+La sintesi è dunque 020500, cioè 20500. Dato che un'azione locale ha 
+la precedenza su una generale, quando il giocatore scrive "A" nel luogo 
+2 non viene eseguita la routine generica di movimento {routine 1 ), ma 
+quella specifica indicata in questo caso {routine 20). Nella tavola delle 
+azioni, si trova al penultimo posto nella linea 4320. Ricordo ancora che 
+le azioni della tavola sono in ordine di numero di sintesi. 
+La routine che esegue l'azione {linee 2800-2830) non solo prowede a 
+spostare l'awenturiero in cabina di pilotaggio {LU=l), ma stampa anche 
+un messaggio se il secondo pilota non è stato ancora salvato. Questa è la 
+tecnica normale per far accadere qualcosa durante lo spostamento da 
+un luogo ad un altro. 
+Una routine simile è la numero 21, che stampa un messaggio {"Meglio 
+non svegliare i passeggeri ... "), ma non consente lo spostamento {sempli· 
+cemente, non cambia LU). 
+Nell'azione "Apri Armadietto" nel luogo 5 {cabina del secondo), si con-
+trolla prima che il manuale non sia già apparso. Solo se è ancora nel "lim-
+bo" {luogo -99), si controlla se il personaggio possiede la chiave. Solo in 
+questo caso, appaiono il camice ed il manuale, perché non bisogna di-
+menticare il primo test, altrimenti se il giocatore ripete la frase "Apri Ar· 
+madietto" una seconda volta, il manuale ed il camice vengono magica-
+mente trasportati sul posto, dovunque essi fossero. La routine Basic è 
+alle linee 2960-2980, e da adesso smetto di indicarvi le linee. Trovate· 
+vele da soli, leggendo i REM. 
+Il compartimento stagno 
+Il compartimento stagno è un luogo interessante, anche se non pone 
+problemi ai giocatori appassionati di fantascienza. Dato che può essere 
+in due stati, cioè aperto verso il corridoio o verso lo spazio esterno, occor-
+re una variabile per ricordare in che stato si trova. La variabile, che ho 
+68 
+
+
+===== PAGE 77 =====
+chiamato var2 negli appunti, è in realtà la variabile Basic V2 (Sì, c'è 
+anche una Vl, come avete fatto a capirlo?). Se vale zero, il compartimen-
+to stagno è chiuso (nei confronti dello spazio esterno), se vale 1 è aperto. 
+Il pulsante rosso lo apre, il verde lo chiude. Sarebbe assolutamente 
+errato, e non solo inutile, indicare un numero di routine negativo per le 
+azioni "Premi rosso" e "Premi verde"; infatti, il parser cercherebbe gli 
+oggetti con codice in dizionario uguale alle parole "Rosso" e "Verde", 
+che non esistono: esistono solo due oggetti con codice "Pulsante", e 
+precisamente gli oggetti numero 12 e 13 (vedi capitolo 7, Figura 4). 
+All'apertura del compartimento stagno, il risucchio dell'aria nel vuoto 
+porta con sè tutti gli oggetti eventualmente lasciati per terra. Per bontà 
+degli autori, normalmente questo non capita. Sarebbe stato sadicamen-
+te facile congegnare l'awentura in modo da avere per terra qualche og-
+getto essenziale al momento dell'apertura del compartimento stagno. A 
+proposito, è owio che nel vuoto non è possibile soprawivere senza tuta 
+e casco. Mi rendo conto, nello scrivere queste righe, di aver trascurato 
+una possibilità: se l'awenturiero lascia per terra il secondo pilota prima di 
+richiudere il compartimento stagno, questi non rinviene. Nella risposta 
+alla frase "Premi Verde", bisogna prevedere un "if luogo(Secondo)=O or 
+luogo(Secondo)=LU .... " Nessuno dei collaudatori c'è inciampato, ma è 
+meglio prevederlo, altrimenti la risoluzione dell'awentura può diventare 
+impossibile. 
+Il reattore 
+La sala controllo reattore è probabilmente il luogo dell'astronave dove è 
+possibile la maggiore varietà di azioni. Come ben sapete, l'azione finale 
+dell'awentura consiste nel disattivare il reattore sulla base delle sole 
+informazioni ricavate da un manuale incompleto. 
+Naturalmente, voi avete capito benissimo che per disattivare il reattore 
+occorre eseguire esattamente a rovescio la sequenza di awiamento. 
+Dato che quest'ultima consiste nel tirare la leva, premere il pulsante 
+verde, premere il pulsante giallo, ed infine premere il pulsante rosso, la 
+sequenza opposta è: premere il pulsante rosso, premere il pulsante 
+~Jiallo, premere il pulsante verde e, owiamente, spingere la leva. Pare 
+che gli awenturieri non troppo esperti abbiano difficoltà ad immaginare 
+una tipica leva da quadro di controllo, del tipo di quelle usate per 
+comandare le gru o le scavatrici. 
+fomerò sull'argomento della difficoltà a proposito del collaudo e della 
+messa a punto. Per ora, mi interessa spiegare il meccanismo di funziona-
+mento del quadro di comando: 
+69 
+
+
+===== PAGE 78 =====
+• Se un comando è dato nella sequenza corretta, incrementa un conta-
+tore. 
+e Se un comando è dato fuori della sequenza corretta, azzera il c.onta-
+tore e dimezza il tempo a disposizione (surriscaldamento per errata 
+manovra). 
+Del fattore tempo parlerò nel prossimo capitolo: per ora vi basta sapere 
+che la variabile Tl (timer 1) viene decrementata automaticamente ad 
+ogni ciclo; quando arriva a zero, il tutto esplode silenziosamente (nel 
+vuoto). Dimezzando Tl si dimezza il tempo disponibile. Il "div" 
+nell'espressione "timer 1 =timer l" div "2" significa divisione intera, cioè 
+senza resto (come si fa in Basic? Guardate la linea 3830). 
+Tornando al meccanismo di controllo del reattore, la variabile Vl (varl 
+negli appunti) è il contatore di disattivazione, che all'inizio del gioco vale 
+zero. L'azione "Premi Rosso" (la prima della sequenza) mette Vl = 1 solo 
+se precedentemente valeva zero, cioè se non era stata eseguita alcun'al-
+tra manovra (o se una manovra errata aveva riportato tutto a zero), 
+l'azione "Premi Giallo" (la seconda) mette Vl =2 solo se valeva 1, cioè se 
+era stato premuto il rosso e solo i rosso, "Premi Verde" mette Vl =3 solo 
+se valeva 2 cioè dopo la sequenza rosso-giallo, e finalmente "Spingi 
+Leva" termina il gioco solo se Vl valeva 3, cioè solo dopo la sequenza 
+corretta rosso-giallo-verde. Ogni manovra fuori sequenza manda alla 
+linea 3830 del programma, che dimezza il timer Tl ed azzera Vl, co-
+stringendo a ricominciare daccapo la sequenza. 
+A proposito: il camice serve soltanto per impedire che un awenturiero 
+smaliziato riesca, osservando sull'indicatore di temperatura l'effetto delle 
+varie manovre (non ci avevate pensato, eh?), a disattivare il reattore sen-
+za aver prima salvato il secondo pilota: alla penultima manovra ("Premi 
+Verde"), il personaggio muore per eccesso di radiazioni (così impara ad 
+essere troppo furbo). 
+70 
+
+
+===== PAGE 79 =====
+CAPITOLO 11 
+MONTAGGIO 
+FINALE 
+Ultimi dettagli 
+2 
+Definita la trama, preparati il dizionario, la mappa, l'elenco degli oggetti, 
+la tavola delle azioni e le routine che le mettono in pratica, siamo quasi 
+pronti per il montaggio finale dell'awentura sotto forma di programma 
+Basic. Mancano soltanto le routine di introduzione, di fine gioco (in bene 
+ed in male), e di passaggio del tempo. Vediamole. 
+L'introduzione si trova nel programma alle linee 1540-1670. Può 
+naturalmente avere un diverso numero di linea iniziale, ma occorre 
+ricordarsi di modificare la chiamata dall'interprete alla linea 720. Per 
+prima cosa stampa i titoli ed un messaggio introduttivo all'awentura, poi 
+prepara alcune variabili che l'interprete deve conoscere, e precisamente 
+il luogo iniziale e le variabili speciali usate da questa avventura (fl, Vl e 
+V2, cioè il timer, il contatore del reattore e lo stato del compartimento 
+stagno). La linea 1670 fa appunto questo lavoro: LU=6 significa che 
+l'awenturiero inizia il gioco nel luogo 6 (la cabina del comandante), 
+Tl = 100 vuol dire che l'awentura va risolta entro 100 turni (salvo mano-
+vre errate, che accorciano il tempo disponibile). Vl =O e V2=0 sono 
+istruzioni superflue, dato che in Basic tutte le variabili numeriche conten-
+gono zero alla partenza del programma, ma non costa molto indicarlo 
+comunque in modo esplicito. Nella routine di "Save", occorre ricordarsi 
+<li registrare su disco o cassetta non solo LU e LO%(), ma anche queste 
+variabili Tl, Vl e V2. Lo stesso discorso vale per la routine di "Load" 
+(vedi linee 2000 e 2060, la sintassi dipende dal computer usato). 
+Il finale positivo (awentura risolta) non presenta problemi: basta stampa-
+n• l'adeguato messaggio di congratulazioni e terminare il programma 
+e 1 >Il l'istruzione END. Questo si può fare direttamente nella routine che 
+71 
+
+
+===== PAGE 80 =====
+esegue l'azione finale (nel nostro caso, "Spingi Leva"), come si vede alle 
+linee 3640-3770. Il GOSUB 1120 alla linea 3650 serve per evitare che 
+una serie troppo lunga di messaggi scorra fuori dallo schermo prima che 
+il giocatore abba avuto il tempo di leggerla. Usatela pure tutte le volte che 
+lo ritenete opportuno. 
+Il finale negativo (morto) stampa anch'esso un adeguato messaggio 
+(linee 1200-1320), poi chiede se si vuole ricominciare la partita da capo. 
+In caso affermativo, un semplice "RUN" fa ricominciare il programma, al-
+trimenti un "END" lo termina. Le linee 1330-1360 sono riutilizzabili tali 
+e quali. Notare che la 1340 estrae il primo carattere della risposta, in mo-
+do da accettare "S", "SI", "N" e "NO"; altri caratteri iniziali non sono 
+accettati e viene riproposta la domanda. 
+La routine di "morto" è chiamata soltanto da altre routine del program-
+matore (es. linea 3130}, non dall'interprete. Non ci sono dunque proble-
+mi a cambiare i numeri di linea, basta tenerne conto nelle chiamate. 
+Inoltre, dato che la routine termina con "END" o con "RUN", può essere 
+chiamata tranquillamente con un GOTO da qualunque livello di subrou-
+tine (non ci sono problemi di RETURN). 
+Vediamo infine il meccanismo di passaggio del tempo, che trovate alle 
+linee 1400-1500. In caso di modifica dei numero di linea, occorre cam-
+biare anche la chiamata alla linea 780 del parser. 
+Il timer è stato realizzato su misura per questa awentura, ma il principio è 
+valido per tutti i casi in cui vi sia passaggio del tempo (es. una candela che 
+si consuma). Il parser chiama la routine di tempo ad ogni frase introdotta 
+dal giocatore. La routine decrementa il tempo restante (linea 1400) e poi 
+verifica se è il momento di far awenire uno degli eventi predisposti, che 
+in questo caso sono alcuni messaggi da stampare (linee 1410-1430) ed 
+il messaggio finale di distruzione quando il tempo è definitivamente sca-
+duto. A parte quest'ultimo caso, la linea 1440 ritorna normalmente al 
+parser. 
+Montaggio 
+Ora che ci sono tutti gli elementi, si può procedere alla costruzione del 
+programma completo. Yi suggerisco una procedura per il montaggio di 
+una vostra awentura. E sottinteso che vi conviene fare un "SAVE" ogni 
+tanto, altrimenti mancherà di sicuro la corrente, per la prima legge di 
+Murphy ("Se qualcosa può andare storto, ci va"}. Per lo stesso motivo, 
+non salvate sempre con lo stesso nome, ma con nomi e numeri 
+progressivi (es. CAVERNEl, CAVERNE2, ecc.). Se avete la cassetta, re-
+72 
+
+
+===== PAGE 81 =====
+gistrate alternativamente sulle due facce. Ogni cinque o sei salvataggi, 
+fate una copia su un altro disco o cassetta. Pronti? Via: 
+1) Caricate in mem~ria l'interprete, cioè le linee dalla 100 alla 1160. 
+2) Introducete le linee con i DATA del dizionario, verificando ancora 
+una volta che i vocaboli siano in ordine alfabetico, seguito ciascuno 
+dal proprio codice, e che non manchi "FD" alla fine. Vi conviene usa-
+re un numero di linea piuttosto alto, diciamo 8000, per non intralcia-
+re poi la scrittura delle azioni. 
+3) Introducete le linee con i DATA della mappa, verificando che siano 
+nell'ordine giusto (a partire dal luogo 1), che ogni descrizione sia se-
+guita dall'elenco dei passaggi e, soprattutto, che quest'ultimo sia cor-
+retto (è facile sbagliare con sequenze di 12 cifre). Non dimenticate 
+"FM" alla fine. Usate numeri di linea successivi a quelli del dizionario, 
+lasciando un certo stacco (diciamo 300) per eventuali (cioè sicure) 
+aggiunte successive. 
+4) Introducete le linee con i DATA delle azioni (la tavola delle azioni), 
+controllando che ciascuna comprenda numero di sintesi e numero 
+azione. Verificate molto accuratamente che i numeri di sintesi siano 
+in ordine progressivo, e non dimenticate "FA" alla fine. I numeri di li-
+nea devono essere successivi a quelli della mappa, con il solito stacco. 
+5) Introducete le linee con i DATA degli oggetti, verificando che siano 
+nell'ordine voluto (che avete scritto da qualche parte), che siano a 
+gruppi di tre (descrizione, codice nel dizionario, luogo iniziale), e che 
+alla fine non manchi "FO". Vale il consueto discorso per i numeri di li-
+nea. 
+6) Scrivete, di seguito all'interprete (quindi prima dei DATA) le routine 
+di morto, di tempo e di introduzione, lasciando spazio per modifi-
+che. Anche se avete il RENUMBER, vi conviene usarlo il meno possi-
+bile, perché vi fa perdere i riferimenti a cui vi siete abituati scrivendo le 
+varie routine. Lo userete alla fine per riordinare il tutto. (Se siete tra i 
+fortunati utenti del Microsoft Basic 2.0 sul Macintosh, non avete il pro-
+blema dei numeri di linea tra i piedi. Tanto meglio). Sistemate le chia-
+mate del parser alle linee 720 e 780, rispettivamente alla routine di 
+introduzione ed a quella di tempo. Se non usate il tempo, scrivete una 
+routine costituita da un semplice RETURN (meglio non alterare il par-
+ser). Non dimenticate, nell'introduzione, di mettere in LU il numero del 
+luogo iniziale. 
+'/) Scrivete il commutatore di azion~ sul modello delle linee 1710-1 750. 
+I .a prima linea (ON A GOTO ... ) indica i numeri di linea delle prime die-
+73 
+
+
+===== PAGE 82 =====
+ci azioni, la seconda (ON A-1 O GOTO ... ) quelli delle dieci successive, 
+e così di seguito. La linea 1750 è una trappola utile durante la messa 
+~punto del programma: se il numero dell'azione da eseguire è mag-
+giore del numero di linee previste nel commutatore, stampa un mes-
+saggio del tipo "AZIONE 25" e ritorna. Per comodità, è utile indicare i 
+numeri di linea delle azioni a passo 50 o giù di lì, in modo da lasciare 
+un certo spazio tra l'uno e l'altro. 
+8) Scrivete le subroutine che eseguono le azioni generiche, che potete 
+copiare dalle mie (azioni 1-7, linee 1770-2120). Dovete modificare 
+"Prendi" (2) e "Lascia" (3), togliendo le aggiunte che riguardano l'a-
+stronave. Dovete anche modificare "Save" (5) e "Load" (6) per il vo-
+stro computer,' se non è un Appie Il; non dimenticate di salvare e ri-
+leggere anche gli eventuali timer e/o variabili speciali. Naturalmente, 
+potete aggiungere le altre routine generiche da voi previste (es. "Muo-
+vi XXX", "Apri XXX", ecc.): più ce ne sono, più l'awentura sembrerà 
+"intelligente" al giocatore. Importante: verificate, e se necessario 
+modificate, i numeri di linea indicati nel commutatore. Ciascuno di 
+essi deve corrispondere alla prima linea della routine corrispondente 
+(e non a un REM). Nel mio programma, le azioni 8 e 9 non sono usate, 
+al solo scopo di mantenere raggruppate le azioni generiche, lascian-
+do spazio per eventuali aggiunte. Voi organizzatevi come vi pare. 
+9) Scrivete le subroutine che eseguono le azioni specifiche della vostra 
+awentura, ricordando sempre che devono iniziare al numero di linea 
+indicato nel commutatore alla posizione corrispondente al numero 
+della routine (il primo numero indica dove comincia la prima routine, 
+ecc.). 
+1 O) Verificate ancora una volta che tutte le chiamate del commutatore 
+ON ... GOTO vadano alla prima linea della routine corrispondente, e 
+che ogni routine finisca in ogni caso con RETURN o con GOTO ad 
+un'altra routine. L'awentura è finita: non resta che collaudarla. 
+De bug 
+Illusi! Credevate di aver finito, ma non siete che a metà del lavoro (beh, 
+un poco più oltre, ma solo un poco). Rimangono da fare due operazioni 
+che portano via parecchio tempo, ma sono fondamentali per la buona 
+riuscita di un gioco di awentura: il debug ed il collaudo. 
+Il debug, come sapete, è soltanto la ricerca degli errori. Nel caso di 
+un'awentura in Basic, ce ne sono di due possibili tipi: errori di program-
+74 
+
+
+===== PAGE 83 =====
+nM ed errori di gioco. I primi sono quelli ben noti, che si manifestano con 
+Il famigerato "SINTAX ERROR" (o con altri messaggi più stravaganti) o 
+< he causano effetti strani, come può causarne la mancanza di un 
+HETURN in fondo ad una subroutine. A proposito, se doÌ><> aver 
+ldmpato "Un attimo di pazienza ... " il programma si blocca segnalando 
+1•rrore, può darsi che il numero indicato nel messaggio di errore non sia 
+quello effettivo della linea che lo contiene. Infatti, un errore nei DATA 
+può essere segnalato, a seconda dei casi, nella linea effettiva di DATA 
+dove c'è l'errore, in una linea di DATA successiva, o in una linea della 
+routine di lettura (1040-1070). Un motivo in più per controllare bene i 
+DATA Un altro errore tipico è il riferimento ad un elemento inesistente 
+dì un array. Se la vostra awentura prevede più di 100 vocaboli in dizio· 
+nario, 30 luoghi, 150 azioni o 50 oggetti, dovete modificare le linee 970-
+1000 che stabiliscono la dimensione massima di ciascun array. Dato che 
+questo non è un corso di Basic, gli altri errori di programma ve li trovate 
+1lc1 soli. 
+Per trovare gli errori di gioco, c'è un solo modo: giocare l'awentura 
+provando, nei limiti del possibile, tutte le combinazioni di eventi e 
+ttuazioni. La prima cosa da fare è il controllo della mappa: provate tutte 
+I • direzioni da ogni luogo, comprese quelle non ammesse, controllando 
+che coincidano con quelle previste nel vostro disegno. 
+Quando siete sicuri che la mappa è corretta, controllate il dizionario: 
+l'.1wentura deve riconoscere tutte le parole che avete inserito. Questo 
+s1•rve anche a controllare che abbiate rispettato il corretto ordine alfabe-
+tico nei DATA 
+Verificate poi che gli oggetti si trovino nei luoghi dove aovrebbero 
+rossere, e controllate che siano prendibili soltanto quelli che devono 
+('sserlo. Nel fare questo, state anche controllando la routine di "Prendi". 
+I siamo al passo più importante: il controllo delle azioni. Prendete i vostri 
+.1ppunti e, partendo dalla prima azione, provate tutte le possibili varianti 
+eh ogni azione prevista. Non tralasciate alcun particolare ("che, tanto, 
+f 11nziona di sicuro"). Provate proprio tutto. In particolare, collaudate a 
+le 111do la "sequenza principale", cioè la catena di azioni che porta alla 
+,, 1luzione dell'awentura. Una famosa software house statunitense ha 
+rtll'~so in circolazione un'awentura non risolubile a causa di un errore 
+1li·I genere (ed ha dovuto sostituire parecchi dischetti): capita anche 
+111•11 ·migliori famiglie. Per alleggerire il lavoro di controllo, vi do un aiu-
+to potete fermare il programma (con CTRL-C, STOP, BREAK o come 
+H.1volo si chiama sul vostro computer), cambiare il valore delle variabili 
+(111 pMticolare LU, ad esempio LU=5} e fare CONT. In questo modo 
+poti'!<• cambiare lo stato del gioco senza dover fare sequenze complesse 
+cli 11oni. Questo è specialmente comodo nel caso di awenture di medie 
+75 
+
+
+===== PAGE 84 =====
+dimensioni, dove occorre molto tempo per procurarsi un certo oggetto o 
+raggiungere un certo posto. Usate estensivamente anche il "Save" per 
+salvare la situazione prima di provare tutte le varianti in un certo luogo (e 
+così collaudate anche "Save" e "Load"). Una nota: se fermate il 
+programma durante la INPUT (linea 800), in alcuni computer non è più 
+possibile ripartire con CONT. Dovete invece scrivere GOTO 800 per ri· 
+partire correttamente. 
+Quando siete sicuri che tutto funziona correttamente, siete pronti per 
+passare alla seconda fase. 
+Collaudo 
+Il collaudo è un lavoro che non siete in grado di fare. Non sto 
+sottovalutando la vostra abilità, ma intendo dire che il collaudo di 
+un'awentura (come di qualunque gioco) non può essere fatto dall'auto-
+re stesso. li collaudo serve infatti a stabilire come il gioco viene accolto 
+dai suoi destinatari: i giocatori. Troppi autori tralasciano questo passag-
+gio fondamentale, e mandano in commercio giochi tecnicamente 
+perfetti ma noiosi o ingiocabili (e non solo awenture). 
+· 
+Per il collaudo avete bisogno di uno o più amici, possibilmente non 
+programmatori (o che comunque non hanno seguito il vostro lavoro). 
+Metteteli (uno alla volta) davanti alla tastiera, fate partire il programma e 
+guardate come se la cavano. Regola fondamentale: non dite nulla! 
+Non dovete aiutarli a risolvere il gioco, dovete invece prendere appunti e 
+segnarvi tutte le frasi che non avete previsto ma meritano una risposta, le 
+situazioni troppo difficili, quelle troppo facili, quelle "Uffa, che barba", 
+ecc. Scoprirete che quel problema non era facile come sembrava, che 
+quella battuta non era poi così divertente, che la linea di comoortamento 
+owia era ovvia solo per voi, e tante cose del genere. Scoprirete anche 
+che alcuni risolvono subito il problema A e si piantano sul problema B, 
+mentre altri fanno esattamente il contrario. Se troppi si piantano sul 
+problema e, è il caso di fare qualche aggiustamento. 
+Soprattutto, ricordate che lo scopo di un'awentura è il divertimento del 
+giocatore, e non il gusto di dire "Nessuno l'ha mai risolta (he, he, he ... )". 
+'D'altra parte, il superamento di ostacoli troppo facili non dà sddisfazione 
+a chi gioca. L'unico modo per trovare il giusto equilibrio è far giocare più 
+persone possibile, e calibrare accuratamente la difficoltà e gli aiuti. 
+A titolo di esempio, ecco le principali varianti che il collaudo ha 
+dimostrato necessarie per "L'astronave condannata": 
+e Accettare anche "Leggi indicatore", non solo "Guarda indicatore". 
+76 
+
+
+===== PAGE 85 =====
+L'indicatore non ha effetto sulle azioni, ma è fondamentale per la 
+comprensione della trama e per la suspence: deve essere visto {per 
+questo ce ne sono due, tra l'altro). 
+• Aggiungere un oggetto "Scaletta che scende" nel luogo 4 (fine corri-
+doio S), owiamente non prendibile. Molti giocatori, infatti, non han-
+no l'abitudine di esplorare tutto e non trovano subito il reattore (che 
+deve far comprendere il pericolo e costituire un rompicapo). 
+• L'azione finale "Spingi Leva" è troppo difficile per la media degli av-
+venturieri principianti. Alcuni, poi, immaginano una leva tipo freno a 
+mano e dicono "Abbassa leva" od altre frasi del genere. D'altra parte, 
+non bisogna facilitare troppo la soluzione per non togliere la soddi-
+sfazione di averla trovata. Un possibile compromesso può consistere 
+nel prevedere l'azione "Guarda Leva" e la relativa risposta: "È una ti-
+pica leva da quadro di comando, che può essere mossa in due dire-
+zioni". Se il giocatore non guarda la leva, peggio per lui. C'è scritto 
+nelle istruzioni che "Guarda" è un'operazione fondamentale. A pro-
+posito: se volete pubblicare un'awentura, scrivete tre o quattro pagi-
+ne di istruzioni semplici e chiare, dirette ad un lettore che non ha mai 
+visto un gioco del genere in vita sua. 
+Nel fare aggiunte e modifiche al programma, ricordatevi di rispettare 
+l'ordine alfabetico nel dizionario, e quello numerico nelle sintesi delle 
+Mioni. Nuovi luoghi ed oggetti, invece, possono tranquillamente essere 
+,,ggiunti in coda a quelli già esistenti (non in mezzo, altrimenti cambiano i 
+11umeri). 
+Finalmente 
+< )ra siete in grado di scrivere la vostra awentura. Se qualcosa non vi è 
+e hiaro, rileggete con calma il capitolo incriminato, consultate le tabelle ri-
+portate in appendice e studiatevi il programma de "L'astronave condan-
+11.11,i". li prossimo capitolo descrive il funzionamento dell'interprete, ed il 
+.uccessivo illustra possibili aggiunte e migliorie per le vostre awenture, 
+''I esempio grafica e suono. 
+77 
+r 
+
+
+===== PAGE 86 =====
+. 1
+
+
+===== PAGE 87 =====
+CAPITOLO 12 
+L'INTERPREIE 
+Tanto per cominciare 
+Finora vi ho detto: usate l'interprete senza preoccuparvi di come funzio-
+na. Ma spero siate abbastanza curiosi da volerne osservare nei dettagli il 
+meccanismo. È un programma Basic piuttosto breve (circa 150 linee, 
+inclusi i commenti), ma discretamente sofisticato: alcune sue caratteristi-
+che discendono dal programma originale di "Awentura nel castello", 
+altre provengqno dal mio studio per il linguaggio ADL-1 (ADventure 
+Language 1). È, o almeno vorrebbe essere, anche un esempio di buona 
+programmazione: routine brevi, ciascuna delle quali svolge un compito 
+ben delimitato. Non è commentato come dovrebbe, ma vediamo subito 
+di rimediare. 
+Se avete un computer con un Basic decente, scoprirete che molte 
+routine possono essere semplificate. D'altra parte, questo programma è 
+stato scritto per essere portatile, cioè per funzionare anche con i Basic 
+più scalcinati (come quello del Commodore 64, un vero fossile vivente). 
+In particolare, la limitazione di 80 caratteri per linea è parecchio fastidio-
+sa. 
+Descriverò il programma partendo dall'inizio e seguendone il flusso logi-
+co, con digressioni di tanto in tanto per descrivere le varie routine. 
+Pronti? RUNl 
+La linea 140 rimanda alla 710, cioè al programma principale (main 
+program, main per gli amici). Perché il programma principale sta in fon-
+do? Per un motivo pratico: nella maggior parte dei Basic, il tempo 
+necessario per trovare la linea indicata in un'istruzione GOTO o 
+GOSUB è tanto più lungo quanto più la linea è avanti nel programma (la 
+ricerca awiene sequenzialmente, partendo dall'inizio). Se ne deduce 
+79 
+
+
+===== PAGE 88 =====
+che per aumentare la velocità di esecuzione conviene mettere le routine 
+più usate all'inizio del programma. Il programma principale, che non è 
+chiamato da nessuno, può stare tranquillamente in fondo o quasi. In 
+realtà, le mie routine non sono disposte proprio nell'ordine più conve· 
+niente, ma anche la chiarezza vuole la sua parte. 
+Il main (linea 710) chiama per prima cosa la routine di inizializzazione, o 
+preparazione delle variabili, alla linea 970. Questa comincia col dimen· 
+sionare gli array usati per contenere il dizionario, la mappa, la tavola 
+delle azioni ed i dati degli oggetti (970-1000). Se una o più dimensioni 
+sono insufficienti per l'awentura che volete scrivere, potete tranquilla· 
+mente aumentarle (compatibilmente con la memoria disponibile). Era 
+senz'altro possibile leggere dai DATA anche il numero di elementi 
+contenuti in ciascun array (es. READ FD), ma ho preferito non farlo e 
+specificare la dimensione con un numero fisso (es. 100 per il dizionario). 
+Questo perché la maggioranza dei compilatori Basic non accettano va· 
+riabili nei DIM, ma vogliono un numero (che diavolo è un compilatore 
+Basic? E a che serve? Ne riparliamo nel prossimi capitolo). 
+Gli array numerici sono tutti di tipo intero (come indica il simbolo% che 
+ne segue il nome) per risparmiare spazio, eccetto CAQ. Infatti, ogni ele· 
+mento di array intero occupa di solito 2 byte di memoria, contro i 4-5 di 
+una normale variabile numerica. CA() non può essere di tipo intero, 
+perché deve poter contenere anche numeri di sei cifre, ed il contenuto di 
+una variabile intera è di solito limitato a 32767. Attenzione: non è detto 
+che ci sia convenienza in termini di velocità nell'uso delle variabili intere. 
+Ad esempio, su Appie II e C-64 le operazioni sulle variabili intere sono in 
+realtà più lente delle altre (il valore viene convertito in formato normale, 
+viene eseguita l'operazione, ed il risultato viene convertito all'indietro). 
+La linea 1010 stabilisce il nome del file da usare per la registrazione 
+("Save") della situazione corrente. La 1020 non ha alcun effetto, mari· 
+corda semplicemente che le quattro variabili indicate valgono zero alla 
+partenza del programma (utile in caso di rilettura dopo qualche mese). 
+Le linee 1040-1070 leggono le informazioni dalle linee di DATA e le 
+mettono negli array appena dimensionati. Dato che sono sostanzial-
+mente identiche, ne descrivo una: la 1040. Per prima cosa, viene letto un 
+dato nella variabile alfanumerica A$; se il dato è "FD", il dizionario è 
+finito ed il programma può proseguire. Altrimenti, cioè se il dato è diver· 
+so da FD, la variabile "FD" (numero di dati in dizionario) viene 
+incrementata (c'è 1 dato). L'elemento numero FD (numero 1) dell'array 
+DZ$0, cioè il primo vocabolo, non è altro che il dato appena letto (A$), 
+mentre il dato successivo, cioè il suo codice, può essere letto direttamen· 
+te dai DATA (con una READ) nel corrispondente elemento dell'array 
+DZO. Avendo così letto un vocabolo ed il suo codice, il GOTO 1040 
+80 
+' \ 
+
+
+===== PAGE 89 =====
+ripete il ciclo daccapo (termina solo quando incontra la fine del diziona-
+rio, indicata dal dato "FD"). 
+Lo stesso sistema è usato nelle linee 1050, 1060 e 1070, con una 
+particolarità nella 1060: avendo letto in A$ un dato alfanumerico 
+(stringa), ed avendo appurato che non è FA, occorre mettere nell'array 
+CAO non una stringa ma un numero. Dato che in A$ è stata ormai letta 
+una stringa, questa va ritrasformata in numero con la funzione V AL(). 
+L'inizializzazione è finita; la 1080 torna al programma principale, e ci 
+tomo anch'io. 
+La 720 chiama una subroutine (già vista) scritta dall'autore dell'awentu-
+ra, che stampa i titoli, stabilisce il luogo iniziale (LU), prepara eventuali 
+timer e variabili speciali, e ritorna. La 730 chiama la comoda subroutine 
+alla 1120 (Premi <spazio> per continuare), che serve ad evitare che le 
+informazioni su video "scrollino" fuori vista prima che il giocatore abbia 
+avuto il tempo di leggerle. La linea 1130, che aspetta la pressione della 
+barra spaziatrice, dipende dalla versione di Basic, come già visto nel se-
+condo capitolo. Così com'è, va bene per Appie Il e Commodore. 
+Il parser 
+Le linee 760-930 costituiscono il ciclo di gioco, occupato in gran parte 
+dal parser (o analizzatore sintattico), che forma insieme alle sue 
+subroutine la parte più complessa del programma (qui abita la "intelli-
+genza"). La Figura 1 ne mostra il diagramma di flusso semplificato. 
+Vediamo di seguirlo a grandi linee, prima di analizzare i particolari più in-
+teressanti. Per prima cosa, si stampa la descrizione del luogo in cui si 
+trova l'awenturiero (760) e degli oggetti eventualmente presenti (770), 
+poi è chiamata la routine di passaggio del tempo (780), già vista nel 
+capitolo 11. 
+La linea 800 effettua l'input della frase del giocatore, e la 810 chiama 
+l'analizzatore lessicale che ne ricava il codice della prima parola (verbo). 
+Previo controllo (820) che sia stata effettivamente scritta una parola (e 
+non solo articoli, spazi o apostrofi), la 830 si arrabbia se la parola finisce 
+per "re" (probabilmente è un verbo all'infinito, come "Prendere"), la 840 
+verifica che la parola sia tra quelle in dizionario e la 850 chiama 
+nuovamente l'analizzatore lessicale per conoscere il codice della secon-
+da parola. Anche questa viene controllata (860), ricordando che può es-
+sere nulla (codice zero} se la frase è formata da una parola sola. 
+Se la seconda parola non è nulla, può essere un oggetto: la 870 ne cerca 
+8t 
+
+
+===== PAGE 90 =====
+stampa descrizione e oggeW 
+Passa una unit.a' di tempo 
+Input frase del giocatore 
+Estrae prima parola da frase 
+Prima parola (P 1$) valida?· 
+sì 
+Estrae seconda parola da frase 
+~-~ Setonda parola (P2S) valida o nulla? 
+SÌ 
+Esiste azione P l $+P2 S in luogo LU? 
+no 
+Esiste aZione P 1 S+ -x· in luogo LU? 
+no 
+Esiste az. P 1$+P2S valida ovunque? 
+no 
+Esiste az. P 1$+ "I" valida ovunque? 
+no 
+Stampa "Non capisco· 
+sì 
+si 
+sì 
+si 
+Fig. 1 -
+Diagramma di flusso semplificato del parser. 
+Esegue azione 
+l'eventuale indice nell'elenco degli oggetti e lo mette in OG, ad uso sia 
+dell'interprete che del programmatore. 
+Tutto è pronto: non resta che consultare la tavola delle azioni per vedere 
+se l'azione indicata è stata prevista. La linea 880 prepara i primi due terzi 
+della sintesi di azione, per eseguire le moltiplicazioni una sola volta inve· 
+ce di quattro. Le linee 890-920 cercano nella tavola i quattro possibili tipi 
+82 
+
+
+===== PAGE 91 =====
+di frase prevista, in ordine di precedenza (leggetevi i REM). Nel caso di 
+frase composta da una sola parola, il codice del nome (C2) è zero e sono 
+eseguite soltanto la 890 e la 91 O (le altre non avrebbero senso). 
+Il test (IFA GOTO 760) al termine di ciascuna linea torna all'inizio del 
+ciclo nel caso in cui la routine 500 abbia riconosciuto un'azione valida e 
+l'abbia di conseguenza eseguita (segnalandolo con A diverso da zero). 
+Se nessuna azione è stata riconosciuta, la 930 stampa "Non capisco" e 
+torna comunque all'inizio del ciclo. 
+Analisi lessicale 
+Vediamo un pò di dettagli, cominciando dalla routine alla linea 280, 
+chiamata alla 81 O ed alla 840. Questa analizza la frase IN$ introdotta dal 
+giocatore (lunga LI caratteri, vedi linea 810), a partire dal carattere 
+numero IN, ne estrae una parola e consulta il dizionario per stabilirne il 
+codice corrispondente. Notate che il titolo della routine (260) ne riassu-
+me il lavoro: la parola viene restituita in P$ ed il codice in C. 
+La linea 290 salta gli eventuali spazi o apostrofi iniziali, fino ad arrivare 
+all'inizio della parola od alla fine della frase (in questo caso MIO$ restitui· 
+sce una stringa nulla). Se a questo punto il carattere in esame (il carattere 
+numero IN) si trova oltre la fine della frase, non c'era alcuna parola. In tal 
+caso, la 300 prowede a restituire una stringa nulla in P$. Trattandosi di 
+una routine non troppo semplice, ho preferito saltare al RETURN alla 
+360 invece che metterere un RETURN in mezzo alla routine, che 
+sarebbe senz'altro causa di guai in caso di successive modifiche (dice il 
+saggio: guardatevi dalle subroutine con più punti di uscita e, peggio an-
+cora, da quelle con più punti di ingresso). 
+· 
+La linea 310 segna (in A) il punto d'inizio della parola, le linee 320-330 
+la scandiscono, un carattere alla volta, fino a trovare un separatore, cioè 
+uno spazio, un' apostrofo, o la fine delle frase. A questo punto, A indica il 
+(punta al) primo carattere della parola, e IN punta al separatore) che 
+termina la parola. La 340 mette la parola in P$ e consulta il dizionario 
+per determinarne il codice, la 350 scarta con disdegno gli articoli (codice 
+7) e fa ricominciare la ricerca dalla parola successiva, come se l'articolo 
+non esistesse. 
+La routine di ricerca nel dizionario (180-240) non è altro che la routine 
+di ricerca binaria descritta nel capitolo 20 di ABC personal computer. 
+Per i disinformati, il dizionario viene "aperto a metà" e sfogliato scartan-
+do la metà che non può contenere la parola (ricordo che sono in ordine 
+alfabetico) e dimezzando ogni volta la parte che può contenerla. In pochi 
+83 
+
+
+===== PAGE 92 =====
+passaggi, o la parola viene trovata e la linea 190 ne restituisce il codice 
+leggendolo dall'apposito array DZQ, oppure non è in dizionario e la 230 
+restituisce codice zero. I ed F segnano l'inizio e la fine della zona del 
+dizionario nella quale awiene la ricerca. La linea 180 li pone ai limiti del 
+dizionario, poi la zona viene man mano ristretta. Con 100 parole, il 
+vocabolo viene trovato (o non trovato) entro 7 cicli della routine. 
+Azioni e oggetti 
+Quando il parser ha preparato una sintesi di frase e vuole sapere se esiste 
+(ed eventualmente eseguire) l'azione corrispondente, chiama la subrou-
+tine 500-550 (le chiamate sono alle linee 890-920). Questa routine 
+cerca nella tavola delle azioni, usando la subroutine 400-460 (che fa una 
+ricerca binaria identica a quella del dizionario, ricordate che le azioni 
+sono ordinate per numero di sintesi?). Se l'azione non è stata trovata, la 
+500 ritorna con A=O, ed il parser passerà ad esaminare la prossima 
+possibilità in ordine di precedenza, o stamperà "Non capisco" se le ha già 
+esaminate tutte. Se invece l'azione esiste nella tavola, A ne contiene il nu-
+mero. A questo punto, può darsi che occorra controllare l'eventuale 
+presenza dell'oggetto citato (OG): se il codice di azione (A) è positivo, 
+oppure se non c'è una seconda parola, la 510 salta questo controllo. Nel 
+caso contrario (quindi c'è una seconda parola ed il codice di azione è ne-
+gativo, la 500 mostra che non può essere zero), la 520 controlla che 
+loggetto sia presente. Se OG vale zerQ, non c'è alcun oggetto e la routine 
+ritorna con A=l, cioè come se fosse stata correttamente eseguita un'a-
+zione. Infatti, è stata stampata la frase "Qui non c'è", ed il parsernon deve 
+fare ulteriori ricerche nella tavola. 
+La sospirata linea 530, che esegue l'azione, viene raggiunta solo in due 
+casi: 
+e L'azione è stata trovata nella tavola ed ha codice positivo. 
+e L'azione è stata trovata nella tavola ed ha codice negativo, e la se-
+conda parola si riferisce ad un oggetto presente. 
+Nel secondo caso, la linea 520 ha cambiato segno al codice, che è quindi 
+in ogni caso positivo. La 530 esegue l'azione A chiamando il commuta-
+tore alla 1710, e poi torna indicando missione compiuta (A=l). 
+La routine 590-610 stampa l'elenco degli oggetti presenti nel luogo L, 
+ciascuno preceduto dalla frase contenuta in P$. Viene usata dal main 
+(770) per elencare gli oggetti presenti insieme all'awenturiero, precedu-
+ti da 'Vedo" (es. Vedo un pulsante rosso), e dalla routine di inventario 
+(2120) per elencare gli oggetti presenti nel luogo zero, cioè posseduti 
+84 
+
+
+===== PAGE 93 =====
+dall'awenturiero. La routine si limita a scandire l'elenco degli oggetti per 
+controllare se il luogo dove ciascuno di essi si trova coincide con L La 
+funzione ABSQ serve per ignorare l'eventuale segno meno davanti al 
+numero di luogo, che significa "non prendibile" (es. il letto). 
+La breve ma importante routine 650-670, chiamata dal parser alla 870, 
+è quella che mette in OG il numero (indice nell'array) dell'oggetto citato 
+come seconda parola, ma solo se questo è presente o trasportato (altri-
+menti mette OG=O). Funziona in modo simile alla precedente, scanden-
+do lelenco degli oggetti per cercare se ne trova uno rispondente alle 
+condizioni richieste: codice in dizionario uguale a C2 e luogo uguale ad 
+LU o a zero. Senza questa routine, sarebbe impossibile riferirsi ad un 
+oggetto nell'ormai nota maniera IF L0%(0G) ... 
+85 
+
+
+===== PAGE 94 =====
+
+
+===== PAGE 95 =====
+CAPITOLO 13 
+VARIAZIONI 
+SUL TEMA 
+Compilare 
+Quest'ultimo capitolo è dedicato alle possibili variazion~ aggiunte e 
+migliorie che si possono fare ad un programma di awentura. La prima e 
+più semplice operazione consiste nel compilare il programma Basic, cioè 
+nel trasformarlo in un programma equivalente in codice macchina, o co-
+munque in una forma più efficiente. Questo lavoro viene svolto automa· 
+ticamente da appositi programmi chiamati, per l'appunto, compilatori 
+Baslc. Sono programmi complessi, che richiedono quasi certamente 
+l'uso di un'unità a dischetto (disk drive). Per ogni computer di grande 
+diffusione esiste almeno un compilatore Basic, e per alcuni c'è un'ampia 
+scelta (per I' Appie II ce ne sono parecchi). Ad esempio, per l'IBM/Olivetti 
+potete usare il BASCOM, per I' Appie II il migliore rimane tutto som· 
+mato il vecchio TASC, e per il Commodore 64 c'è il discreto PETSPEED. 
+I vantaggi fomiti da un compilatore sono sostanzialmente due: 
+• La velocità di esecuzione aumenta notevolmente (anche più di 1 O 
+volte). 
+e Il programma originale (o "sorgente") non è più leggibile. 
+Il primo vantaggio inizia a farsi sentire con awenture di una certa 
+dimensione, e soprattutto con molti oggetti. Il secondo è forse più 
+importante: il programma non può più essere letto e modificato da 
+chiunque, ed il vostro lavoro rimane protetto (non dalla copiatura, 
+ovviamente). Inoltre, tutti i commenti sono rimossi dal programma e non 
+occupano spazio nel compilato (cioè nel risultato finale). In compenso, 
+quasi tutti i compilatori aumentano considerevolmente le dimensioni del 
+programma: se avete problemi di memoria, siete probabilmente nei guai. 
+87 
+/ 
+
+
+===== PAGE 96 =====
+Considerando che i compilatori sono profondamente diversi l'uno 
+dall'altro, vi fornisco una regola empirica: per un programma di media 
+grandezza, le dimensioni del codice compilato sono più o meno uguali a 
+quelle del programma originale ampiamente commentato. Partendo da 
+un programma senza REM (cioè scritto da cani), le dimensioni 
+aumentano in genere da un minimo del 20-30% fino ad oltre il doppio 
+dell'originale. Se non volete o non potete compilare il programma, 
+potete almeno usare una utility di "crunch" (compattazione, compressio-
+ne). Si tratta di un programma che, come minimo, toglie tutti i REM ed 
+unisce quante più linee possibile in una sola linea Basic. Il programma di-
+venta così molto più piccolo, leggermente più veloce in esecuzione e, 
+soprattutto, di difficile lettura. 
+In ogni caso, compilazione o compressione, commentate ampiamente 
+la versione iniziale del programma. Dato che poi i commenti verranno 
+tolti, non vi costa quasi nulla e semplifica molto il lavoro, specie in sede 
+di modifica. 
+Migliorie all'interprete 
+Il programma può essere migliorato in molti modi. Ad esempio, per 
+consentire di salvare (su disco o su nastro) più situazioni con nomi 
+diversi. Basta modificare adeguatamente le routine di "Save" e di 
+"Load". Inoltre, sarebbe il caso di tener conto dei possibili errori durante 
+salvataqqio e rilettura (es. disco pieno, disco protetto dalla scrittura, disco 
+leccato dal gatto, ecc.), evitando fastidiose inchiodature del programma. 
+Una nota per chi usa Appie II con Prodos: non usate il comando STO RE 
+per salvare le variabili. Gli array stringa non letti dai DATA introducono 
+periodiche, antipatiche, pause nel programma (garbage collection). 
+Lasciate le cose come stanno. 
+Se vi sentite esperti programmatori, provate ad aggiungere un controllo 
+del numero massimo di oggetti trasportabili. Sembra facile, ma non basta 
+contare gli oggetti presi con "Prendi" e quelli lasciati con "Lascia". 
+Bisogna anche tener conto di tutti i cambiamenti di luogo, sparizioni, ecc. 
+Naturalmente, non vorrete fare questo controllo ogni volta che un 
+oggetto viene spostato in una routine di azione (es. L0%(7)= 13). Vedete 
+un po' di inventare qualcosa di meglio. 
+Alcuni giocatori preferiscono scrivere in prima persona (es. "Premo il 
+bottone"). lo trovo più simpatica la seconda persona, anche perché intro-
+duce quel tanto di schizofrenia (dissociazione mentale) e conseguenti 
+conflitti psichici tra "la mente" (il giocatore) e "il braccio" (il personaggio) 
+88 
+
+
+===== PAGE 97 =====
+che contribuisce al divertimento. Se proprio volete la prima persona, non 
+avete che da cambiare i verbi nel dizionario. Attenzione ai riflessivi ("Mi 
+Butto"): occorre ignorare il "Mi". Potete anche tagliare la testa al toro 
+ignorando l'ultima lettera del verbo, ma attenti agli irregolari (es. "Fai", 
+"Faccio"). 
+Infine, una possibilità interessante: leffetto di alcune azioni può dipende· 
+re anche dal caso (grazie alla funzione RNDO). Come sempre, si tratta di 
+un'arma a doppio taglio: se la cosa non è ben studiata, si ottengono com· 
+portamenti del tutto idioti, come quelli dei personaggi in "The Hobbit" 
+(il gioco, non il libro!). Se usata con parsimonia, può invece contribuire a 
+vivacizzare il gioco. 
+Colore e suono 
+Se il vostro computer può scrivere a colori sul video, avete loccasione di 
+aggiungere un poco di varietà e vivacità ai messaggi stampati dal 
+programma. Potete usare un colore per le descrizioni, uno per gli oggetti, 
+uno per l'input ed uno per i messaggi, riservandovi improwisi cambia· 
+menti di colore o di sfondo per situazioni speciali (ad esempio, sfondo 
+nero nello spazio). È facile modificare il programma a questo scopo, 
+basta inserire le istruzioni di cambiamento del colore di carattere (che 
+sono regolarmente diverse tra un computer e l'altro) nei punti appropria· 
+ti: 
+• Per le descrizioni, all'inizio della linea 760. 
+• Per gli oggetti, all'inizio della linea 590. 
+• Per l'input, all'inizio della linea 800. 
+Visto il vantaggio di svolgere un determinato lavoro in un solo punto del 
+programma? Le modifiche sono molto più semplici. Per i messaggi, 
+potete cambiare il colore dopo la 800 o rimetterlo sempre a posto dopo 
+averlo modificato nei tre casi precedenti. Potete anche distinguere i 
+messaggi del parser (tipo "Non capisco", "Non ce l'hai", ecc.) da quelli di 
+gioco, cambiando ulteriormente il colore all'inizio del commutatore di a· 
+zioni (1710), ma penso che il risultato non sia dei migliori, dal punto di 
+vista del gioco. 
+Oltre al colore, potete mettere qualche effetto sonoro nei punti più 
+significativi dell'awentura, ad esempio il sibilo dell'aria nel comparti· 
+mento stagno o la sirena di allarme del reattore. Non riempite l'awentura 
+di suoni e rumori, fanno molto più effetto se arrivano inaspettati. 
+89 
+
+
+===== PAGE 98 =====
+_j 
+Grafica 
+Dal punto di vista del programma, un'awentura grafica è identica ad una 
+di tipo testo, come quella descritta in questo libro. L'unica differenza è 
+che le descrizioni dei luoghi sono sostituite da disegni, come pure lo sono 
+{nelle awenture ben fatte) le descrizioni degli oggetti. In compenso, i 
+messaggi di risposta sono in genere molto brevi, dovendo stare nella 
+parte di schermo non occupata dalle figure. 
+Se ci sono in circolazione molte awenture di tipo testo scritte male, di 
+quelle grafiche mal realizzate c'è una vera inflazione, specialmente sugli 
+home computer più diffusi. Molti credono che qualche disegno {spesso 
+approssimativo) basti a coprire una sostanziale carenza di intelligenza 
+del programma e di fantasia dell'autore. Particolarmente fastidiose sono 
+le awenture in cui i problemi vanno risolti con una sola frase, scritta con 
+le due sole parole ammesse (nessun sinonimo funziona). Ne ho già 
+parlato, ma l'impressione è che molti autori usino la grafica come sempli-
+ce copertura per lavori scadenti di questo genere. Morale: se non ve la 
+sentite di scrivere una buona awentura grafica, rinunciate ai disegni e 
+fate invece in modo che i giocatori si divertano. Se invece ve la sentite, vi 
+regalo qualche spunto su cui lavorare: 
+e Per prima cosa, considerate che in quasi tutti i computer l'uso della 
+grafica toglie memoria al Basic. Tenetene conto in modo adeguato. 
+e Un modo poco impegnativo, ma discretamente efficace, per inserire 
+della grafica nelle vostre awenture consiste nel far apparire, di tanto 
+in tanto, immagini a pieno schermo delle scene più significative {ad e-
+sempio, la sala reattore dell'astronave). Si tratta semplicemente di ca-
+ricare l'immagine da disco quando è richiesta; se non avete il disk dri-
+ve, o questo è lento come la fame, lasciate perdere {se siete esperti, 
+potete lavorare in linguaggio macchina e tenere qualche immagine 
+nei "buchi nascosti" della memoria). La quantità di immagini può es-
+sere aumentata se avete a disposizione un programma di utility che 
+vi permette di tenere le immagini in formato compresso {cioè usan-
+do meno memoria). 
+e Un metodo più sofisticato, usato in gran parte delle migliori awentu-
+re consiste nell'utilizzare un "linguaggio grafico", nel quale la figura è 
+descritta come insieme di punti, linee, aree, e così via. Ad esempio, un 
+rettangolo viene memorizzato semplicemente con le coordinate di 
+due vertici opposti. Un simile linguaggio, che consente di tenere mol-
+te immagini in poca memoria, può essere già disponibile nel compu-
+ter, in forma più (Macintosh} o meno (IBM, MSX) evoluta, può essere 
+acquistabile su dischetto (es. Graphics Magician per Appie II) o può 
+90 
+
+
+===== PAGE 99 =====
+essere scritto da voi stessi, se avete la pazienza e la conoscenza per 
+farlo. Si richiede, come minimo, che il computer abbia le istruzioni 
+per disegnaré punti e tirare linee. Se non le ha, occorre procurarsi 
+un'adatta estensione di Basic, come il Simon's Basic per il C-64 (len-
+to, impreciso e scritto male, ma almeno si.può usare la grafica senza 
+complicati e lentissimi POKE). 
+• Nelle awenture grafiche, il problema principale è costituito dagli og-
+getti: è antipatico disegnare un luogo senza far vedere gli oggetti pre-
+senti. O affrontate l'ardua strada di sovrapporre gli oggetti al disegno 
+senza pasticci o assurdità prospettiche, o ripiegate su un disegno de-
+gli oggetti presenti fuori della figura principale. Per l'inventario, la fi-
+gura grande può essere sostituita da tante figurine rappresentanti gli 
+oggetti attualmente posseputi. 
+Qui mi fermo. Ho appena scalfito la superficie del problema, e mi ci 
+vorrebbe un altro libro per trattarlo in maniera adeguata (potrei anche 
+scriverlo, prima o poi...). In sostanza, la strada delle awenture grafiche 
+può dare grandi soddisfazioni e grandi delusioni. Se la volete percorrere, 
+fate prima un pò di sana pratica con classiche awenture di tipo testo. 
+Ricordate che la grafica non può comunque salvare un'awentura 
+scadente. 
+Conclusione 
+Qui finisce l'avventura (del signor Bonaventura, per gli antichi lettori 
+del Corrierino). Ho cercato di passarvi una parte della mia esperien-
+za, ora tocca a voi. Da parte mia, ho ancora molto da raccontare e 
+spero di avere presto loccasione per farlo. Oao a tutti e buon divertimento! 
+Enrico Colombini 
+91 
+
+
+===== PAGE 100 =====
+
+
+===== PAGE 101 =====
+TAVOIA 1: 
+VARIABILI 
+PRINCIPALI 
+DELL'INTERPRETE 
+Dizionario: 
+FD 
+02$(1 .. FD) 
+02$(1 .. FD) 
+Mappa: 
+FM 
+DE$(1 .. FM) 
+D1$(1 .. FM) 
+Azioni: 
+FA 
+CA(l..FA) 
+A2%(1 .. FA) 
+Oggetti: 
+FO 
+OG$(1 .. FO) 
+C0%(1..FO) 
+L0%(1 .. FO) 
+Numero vocaboli in dizionario. 
+Vocaboli, in ordine alfabetico. 
+Codici dei vocaboli corrispondenti in 02$( ). 
+Numero luoghi in mappa. 
+Descrizioni luoghi, in ordine di numero. 
+Collegamenti del luogo descritto nel corrispondente 
+elemento di DE$( ) con i sei luoghi adiacenti 
+(N/S/E/O/ NB). 
+Numero azioni nella tavola. 
+Codici (sintesi) di azione, in ordine numerico. 
+Numero azione corrispondente da eseguire, negativo 
+se è richiesta la presenza dell'oggetto citato. 
+Numero oggetti. 
+Descrizioni oggetti, in ordine "di numero oggetto 
+Codice nel dizionario del!' oggetto descritto nel 
+corrispondente elemento di OG$( ). 
+Luogo dell'oggetto corrispondente: 
+l .. FM 
+luogo indicato, prendibile. 
+-1..-FM luogo indicato, non prendibile. 
+O 
+trasportato dall'awenturiero. 
+-99 
+limbo (fuori gioco). 
+93 
+
+
+===== PAGE 102 =====
+Varie: 
+LU 
+OG 
+P1$,P2$ 
+Cl,C2 
+Luogo corrente dell'awenturiero (variabile). 
+Numero oggetto citato come seconda parola, 
+zero se non presente o trasportato. 
+Prima e seconda parola valida della frase. 
+Codici nel dizionario di P1$ e P2$ 
+94 
+
+
+===== PAGE 103 =====
+TAVOIA 2: 
+SINTESI AZIONE 
+ED ORDINE 
+DI RICERCA 
+Sintesi di azione = numero di 6 cifre (llPPSS): 
+Codice luogo (2) + Codice prima parola (2) + Codice seconda parola (2) 
+es. 034709: 
+l'azione viene eseguita se la frase composta dalla due parole con codici di di-
+zionario 4 7 e 9 è pronunciata nel luogo 3. 
+Prime due cifre (codice luogo): 
+00 
+Azione valida ovunque. 
+01..FM 
+Azione valida solo nel luogo indicato. 
+Cifre centrali (codice prima parola): 
+01..FD 
+Codice nel dizionario della prima parola. 
+Ultime due cifre (codice seconda parola): 
+00 
+Seconda parola nulla, frase di una sola parola. 
+01..FD 
+Codice nel dizionario della seconda parola 
+99 
+X: qualunque parola va bene, purché valida, cioè 
+presente nel dizionario e non ignorata (es. articoli). 
+Ordine di ricerca azioni (precedenza) con frasi di una parola: 
+LIJ>POO 
+La parola .Pronunciata nel luogo lL 
+1 
+OOPPOO 
+La parola pronunciata in luogo qualunque. 
+95 
+
+
+===== PAGE 104 =====
+Ordine di ricerca azioni (precedenza) con frasi di due parole: 
+Ll..PPSS 
+La coppia di parole pronunciata nel luogo LI... 
+Ll..PP99 
+La prima parola, seguita da una qualunque 
+OOPPSS 
+OOPP99 
+parola valida, pronunciata nel luogo LI... 
+La coppia di parole pronunciata in un luogo qualunque; 
+La prima parola, seguita da una qualunque 
+parola valida, pronunciata in un luogo qualunque. 
+96 
+
+
+===== PAGE 105 =====
+
+
+===== PAGE 106 =====
+
+
+===== PAGE 107 =====
+
+
+===== PAGE 108 =====
+
+
+===== PAGE 109 =====
+
+
+===== PAGE 110 =====
+
+
+===== PAGE 111 =====
+
+
+===== PAGE 112 =====
+
+
+===== PAGE 113 =====
+
+
+===== PAGE 114 =====
+
+
+===== PAGE 115 =====
+
+
+===== PAGE 116 =====
+Questo libro ha tre facce: 
+•Un'avventura completa da giocare per puro divertimento. 
+• Una tecnica per costruire giochi di avventura con poca fatica. 
+• Una lezione di Basic di buon livello. 
+· 
+Dopo aver giocato "L'astronave condannata" (per chi non vuc:e 
+trasciversi il listato, il programma è incluso in JACKSON SOFTM 
+AVVENTURE per i principali home e persona! computer), il letto-
+re viene guidato dietro le quinte del gioco, dove apprende i truc-
+chi del mestiere di un riconosciuto maestro del genere avventu-
+roso. Una minima conoscenza di Basic è sufficiente per costruire 
+le proprie avventure, sfruttando un programma universale pre-
+disposto dall'autore. Per i più esperti, una descrizione completa 
+del funzionamento del programma apre la strada alla costruzio-
+ne di giochi più complessi e sofisticati. 
+Cod. 066D ISBN 88-7056-311-1

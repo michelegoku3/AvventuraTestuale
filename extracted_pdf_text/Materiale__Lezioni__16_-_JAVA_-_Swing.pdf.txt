@@ -1,0 +1,701 @@
+SOURCE: /home/user/AvventuraTestuale/Materiale/Lezioni/16 - JAVA - Swing.pdf
+PAGES: 84
+
+===== PAGE 1 =====
+JAVA Swing
+Metodi Avanzati di Programmazione
+Laurea Triennale in Informatica
+Università degli Studi di Bari Aldo Moro
+Docente: Pierpaolo Basile
+
+
+===== PAGE 2 =====
+SWING
+• E’ il framework di JAVA che permette la 
+realizzazione di interfacce grafiche (GUI)
+– Finestre, Form, Dialog
+– Menu, Pulsanti, Check-box, Combo-box
+– Alberi, Tabelle
+– Layout, Look&Feel
+• Package di riferimento
+– javax.swing, javax.swing.event
+
+
+===== PAGE 3 =====
+NetBeans & SWING
+• NetBeans mette a disposizione degli strumenti 
+che facilitano la creazione delle GUI
+– drag and drop dei componenti
+– auto-generazione del codice
+– strumenti per la gestione del layout dei 
+componenti
+
+
+===== PAGE 4 =====
+La prima applicazione SWING
+• Aggiungere un nuovo JFrame
+
+
+===== PAGE 5 =====
+La prima applicazione SWING
+Paletta di 
+componenti SWING
+Proprietà degli 
+oggetti
+Eventi
+
+
+===== PAGE 6 =====
+La prima applicazione SWING
+Area di disegno
+Navigazione tra gli 
+oggetti
+
+
+===== PAGE 7 =====
+La prima applicazione SWING
+Seleziona il JFrame
+tra i componenti
+Modifica la proprietà 
+titolo (title)
+
+
+===== PAGE 8 =====
+La prima applicazione SWING
+• Drag and drop delle componenti nell’area di 
+disegno
+• Selezionare le componenti dalla Palette
+– 2 JTextField per l’inserimento del testo (due 
+operandi)
+• jtfOperand1, jtfOperand2
+– 1 JLabel per la stampa del risultato
+• jlResult
+– 1 JButton per effettuare la somma
+• jbAdd
+
+
+===== PAGE 9 =====
+La prima applicazione SWING
+JTextField per gli 
+operandi
+•
+cambiare la dimensione
+•
+rimuovere il testo
+
+
+===== PAGE 10 =====
+La prima applicazione SWING
+Le componenti 
+presenti nel JForm
+
+
+===== PAGE 11 =====
+La prima applicazione SWING
+• La gestione degli eventi
+– quando il bottone (jbAdd) viene premuto 
+l’applicazione deve calcolare la somma
+• leggere i valori dai JTextField
+• sommare i valori
+• modificare il testo della JLabel con il risultato
+– selezionare il componente (jbAdd) e il tab
+«Events» dalle proprietà dell’oggetto
+
+
+===== PAGE 12 =====
+La prima applicazione SWING
+• Gestione dell’evento
+
+
+===== PAGE 13 =====
+La prima applicazione SWING
+• Lettura del testo dalle JTextField con il metodo getText
+• Conversione delle stringhe in interi
+• Stampa del risultato
+• Blocco try-catch per catturare eventuali errori di formato degli interi
+• visualizzazione di un messaggio di errore tramite JOptionPane
+
+
+===== PAGE 14 =====
+Eseguire l’applicazione
+
+
+===== PAGE 15 =====
+CONTENITORI DI ALTO LIVELLO
+
+
+===== PAGE 16 =====
+Contenitori
+• JAVA Swing mette a disposizione tre tipi di 
+contenitori JFrame, JDialog, JApplet
+– ogni componente deve far parte di una gerarchia di 
+componenti connessi ad un contenitore radice (top-
+level)
+– un componente può appartenere ad un solo 
+contenitore
+– ogni contenitore top-level è associato ad una vista
+• ovvero gli oggetti effettivamente visibili su schermo
+– è possibile aggiungere un menu ad un contenitore 
+top-level
+
+
+===== PAGE 17 =====
+Contenitori
+Gerarchia delle 
+componenti
+
+
+===== PAGE 18 =====
+Contenitori
+• Ogni programma SWING deve avere almeno 
+un contenitore top-level
+– questo contenitore è la radice della gerarchia delle 
+componenti (es. il JForm)
+• Generalmente un’applicazione SWING avrà un 
+JForm come contenitore top-level e radice
+
+
+===== PAGE 19 =====
+Aggiungere componenti
+• Attraverso il metodo add è possibile aggiungere 
+le componenti ad un contenitore
+– frame.getContentPane().add(yellowLabel, 
+BorderLayout.CENTER);
+– getContentPane() restituisce un oggetto JComponent
+• Aggiungere un menu
+– creare un oggetto di tipo JMenuBar
+– aggiungerlo al container 
+frame.setJMenuBar(greenMenuBar);
+
+
+===== PAGE 20 =====
+Root Pane
+Root Pane
+Gestisce il 
+Content Pane e 
+l’eventuale 
+Menu
+Layered Pane
+Gestisce la 
+disposizione dei 
+componenti
+Content Pane
+Contiene gli altri 
+oggetti disposti 
+secondo il layer
+Glass Pane
+Intercetta eventi 
+esterni (es. 
+mouse)
+
+
+===== PAGE 21 =====
+JComponent
+JComponent
+Container
+Component
+JComponent
+• eredita da Container che a sua volta eredita da Component
+• mette a disposizione una set di metodi per modificare l’aspetto e il 
+comportamento del componente
+
+
+===== PAGE 22 =====
+JComponent
+• Modifica dell’espetto del componente
+– colore, bordo, tipo cursore
+• Monitoraggio dello stato
+– gestione di un PopupMenu, cambiare nome, visibile/non 
+visibile, abilita/disabilita, modifica del ToolTip, nome
+• Gestione degli eventi
+• Disegno degli oggetti
+• Gestione delle gerarchia di oggetti: aggiungi, rimuovi
+• Modifica del Layout (disposizione degli oggetti)
+• Dimensione e posizione del componente
+
+
+===== PAGE 23 =====
+BUTTONS, CHECK BOXES, RADIO 
+BUTTONS
+
+
+===== PAGE 24 =====
+Buttons
+• Ereditano da AbstractButton
+– JButton: un classico pulsante
+– JCheckBox: una check box
+– JRadioButton: un singolo pulsante di un gruppo di 
+pulsanti di opzione
+– JMenuItem: una voce di un menu
+– JCheckBoxMenuItem: una voce di un menu che è una 
+check box
+– JRadioButtonMenuItem: una voce di un menu che è 
+un pulsante di opzione
+– JToggleButton: permette di creare un bottone a due 
+stati utilizzando due check box o due radio button
+
+
+===== PAGE 25 =====
+JButton
+Inserire due 
+bottoni
+Associare un’icona a jb2 e 
+cancellare il testo
+(copiare un file png in un package 
+del progetto)
+
+
+===== PAGE 26 =====
+JButton
+Associare un evento actionPerformed a jb2
+
+
+===== PAGE 27 =====
+JCheckBox…
+Inserire tre check box, cambiare nome 
+variabile (jcb1, …) e la proprietà text
+(Check Box 1, …)
+
+
+===== PAGE 28 =====
+…JCheckBox
+Visualizzare un messaggio quando la check box viene selezionata
+
+
+===== PAGE 29 =====
+JRadioButton
+Inserire tre radio button, cambiare 
+nome variabile (jrb1, …) e la proprietà 
+text (Peroni, Raffo, Dreher)
+
+
+===== PAGE 30 =====
+JRadioButton
+1.
+Creare un metodo init
+2.
+Creiamo un nuovo ActionListener e lo 
+associamo ai bottini
+3.
+I radio button vanno raggruppati in un Button 
+Group
+
+
+===== PAGE 31 =====
+COLOR CHOOSER
+
+
+===== PAGE 32 =====
+Color Chooser
+• Implementato dalla classe JColorChooser
+• Permette di selezionare un colore utilizzando 
+diverse modalità
+• ColorSelectionModel è il modello che contiene 
+le informazioni sul colore selezionato
+– ogni JColorChooser ha un’istanza del selection
+model
+• Implementare una classe ChangeListener per 
+intercettare la selezione di un nuovo colore
+
+
+===== PAGE 33 =====
+Color Chooser
+• Impostare il BorderLayout
+• Aggiungere una JLabel (jlColor) a nord e impostare la proprietà 
+text («COLOR!!!»), aumentare la dimensione del font
+• Aggiungere un JColorChooser (jColorChooser) al centro
+
+
+===== PAGE 34 =====
+Color Chooser
+Intercettiamo la selezione di un nuovo color e cambiamo il colore 
+della label (jlColor)
+
+
+===== PAGE 35 =====
+COMBO BOX
+
+
+===== PAGE 36 =====
+Combo Box
+• Una combo box permette di effettuare una 
+selezione tra diverse opzioni possibili
+– Editabile: permette di inserire un valore non 
+presente nella lista delle opzioni possibili
+– Non editabile: permette la selezione solo tra le 
+opzioni possibili
+• Queste funzionalità sono implementate nella 
+classe JComboBox
+
+
+===== PAGE 37 =====
+Combo Box
+
+
+===== PAGE 38 =====
+Combo Box
+
+
+===== PAGE 39 =====
+Combo Box
+Aggiungiamo un evento actionPerformed alla JComboBox
+
+
+===== PAGE 40 =====
+Combo Box Editabile
+Rendiamo la combo box editabile
+
+
+===== PAGE 41 =====
+Combo box Editabile
+
+
+===== PAGE 42 =====
+Combo box Render
+• Gli oggetti nella combo box vengono 
+visualizzati utilizzando un render di default
+– Visualizza stringhe e icone, per gli altri oggetti 
+chiama il metodo toString()
+• E’ possibile modificare il render realizzando 
+una classe che implementi
+– ListCellRender per le combo box non editabili
+– ComboBoxEditor per le combo box editabili
+
+
+===== PAGE 43 =====
+LIST
+
+
+===== PAGE 44 =====
+List
+• Permette di selezionare degli oggetti in una 
+lista, visualizzati anche su più colonne
+– Selezione singola
+– Selezione multipla
+– Selezione di intervalli multipli
+• In genere va inserita in uno ScrollPane
+• Implementata dalla class JList
+
+
+===== PAGE 45 =====
+List
+ScrollPane che contiene la JList
+Modello dei dati e modalità 
+di selezione
+
+
+===== PAGE 46 =====
+List (gestione eventi)
+Gestiamo l’evento di modifica della selezione
+
+
+===== PAGE 47 =====
+List (gestione eventi)
+
+
+===== PAGE 48 =====
+List
+• E’ possibile aggiungere e rimuovere elementi 
+dalla lista
+DefaultListModel m = (DefaultListModel) jlist.getModel();
+m.remove(0);
+m.removeElement(’’Item 10’’);
+m.addElement(’’Item 20’’);
+m.size();
+m.add(2, ’’Item 3’’);
+
+
+===== PAGE 49 =====
+DIALOG
+
+
+===== PAGE 50 =====
+Dialog
+• Una finestra di dialogo è una sottofinestra 
+temporanea che permette di notificare qualcosa
+• JOptionPane mette a disposizione delle finestre 
+per
+– Visualizzare messaggi
+– Fare delle scelte (YES/NO/CANCEL)
+– Inserire valori
+• E’ possibile realizzare delle finestre di dialogo 
+estendendo la classe JDialog
+
+
+===== PAGE 51 =====
+Dialog
+• Dipendono da un Frame component
+• Può essere modale
+– non è possibile interagire con altre finestre fino a 
+quando non viene chiusa la dialog
+• JFileChooser e JColorChooser sono degli 
+esempi di dialog
+
+
+===== PAGE 52 =====
+Dialog per l’inserimento di Person
+
+
+===== PAGE 53 =====
+Dialog per l’inserimento di Person
+
+
+===== PAGE 54 =====
+La classe Person
+
+
+===== PAGE 55 =====
+Dialog per Person
+
+
+===== PAGE 56 =====
+Dialog per Person
+
+
+===== PAGE 57 =====
+Uso della Dialog
+Aggiungiamo un evento 
+actionPerformed a jmiPerson
+
+
+===== PAGE 58 =====
+Uso della Dialog
+
+
+===== PAGE 59 =====
+COMPONENTI PER IL TESTO
+
+
+===== PAGE 60 =====
+Componenti per il testo
+• Permettono di visualizzare e modificare il testo
+
+
+===== PAGE 61 =====
+Componenti per il testo
+• Permettono di visualizzare e modificare il testo
+
+
+===== PAGE 62 =====
+Componenti per il testo
+Group
+Description
+Swing Classes
+Text Controls
+Also known simply as text fields, text controls can 
+display only one line of editable text. Like buttons, they 
+generate action events. Use them to get a small 
+amount of textual information from the user and 
+perform an action after the text entry is complete.
+JTextField and its 
+subclassesJPasswordField andJFormatte
+dTextField
+Plain Text Areas
+JTextArea can display multiple lines of editable text. 
+Although a text area can display text in any font, all of 
+the text is in the same font. Use a text area to allow the 
+user to enter unformatted text of any length or to 
+display unformatted help information.
+JTextArea
+Styled Text Areas
+A styled text component can display editable text using 
+more than one font. Some styled text components 
+allow embedded images and even embedded 
+components. Styled text components are powerful and 
+multi-faceted components suitable for high-end needs, 
+and offer more avenues for customization than the 
+other text components. Because they are so powerful 
+and flexible, styled text components typically require 
+more initial programming to set up and use. One 
+exception is that editor panes can be easily loaded with 
+formatted text from a URL, which makes them useful 
+for displaying uneditable help information.
+JEditorPane
+and its subclass
+JTextPane
+
+
+===== PAGE 63 =====
+JTextComponent
+• Un modello di dati, detto document, che 
+gestisce il contenuto
+• Una vista che si occupa della visualizzazione 
+del contenuto
+• Un controller, detto editor kit, che legge e 
+scrive il testo e permette le funzionalità di 
+editing
+• Un cursore che permette la navigazione nel 
+contenuto
+
+
+===== PAGE 64 =====
+Un semplice editor
+•
+Selezionare il BorderLayout
+•
+Aggiungere una menu bar
+•
+Aggiungere due menu (File, Edit)
+•
+Aggiungere un JScrollPane
+•
+aggiungere un JEditorPane
+•
+Aggiungere una toolbar a NORTH
+del frame
+
+
+===== PAGE 65 =====
+Un semplice editor (code)
+
+
+===== PAGE 66 =====
+Un semplice editor (code)
+• Creazione di una Map contenente le azioni di default dell’editor
+
+
+===== PAGE 67 =====
+Un semplice editor (code)
+• UndoManager gestisce le operazioni di undo/redo
+• UndoAction e RedoAction sono due nuove Action che andremo a definire
+• MyUndoableEventListener è il listener che gestisce gli eventi di undo/redo
+
+
+===== PAGE 68 =====
+Action
+•
+Quando la stessa funzionalità è accessibile da più controlli è utile creare 
+delle Action
+– Per esempio la funzione copy può avvenire: tramite un menu, tramite una 
+toolbar, tramite una combinazione di tasti. In questo caso è possibile creare 
+un’unica Action che può essere associata ad ognuno di questi controlli
+•
+Per creare un’azione è sufficiente estendere la classe astratta 
+AbstractAction
+•
+E’ necessario implementare il metodo actionPerformed con la logica 
+dell’azione, inoltre tramite una Action si possono modificare diverse 
+proprietà:
+– Il testo che deve essere visualizzato nell’eventuale voce di menu o come 
+tooltip
+– Le icone associate all’azione
+– Abilitare e disabilitare l’azione contemporaneamente su tutti i controlli a cui è 
+associata l’azione
+– L’azione può essere direttamente aggiunta a vari controlli
+
+
+===== PAGE 69 =====
+Un semplice editor (action)
+
+
+===== PAGE 70 =====
+
+
+===== PAGE 71 =====
+Un semplice editor (action)
+• Inizializzazione della tabella delle action di default dell’editor
+• Modifica delle proprietà delle action (SMALL/LARGE ICON)
+• Aggiungere le action ai menu e alla toolbar
+
+
+===== PAGE 72 =====
+Un semplice editor (action)
+• Modifica delle proprietà delle action (NAME, SMALL e LARGE ICON) 
+delle action di default dell’editor
+
+
+===== PAGE 73 =====
+Un semplice editor (key stroke)
+• Aggiunge delle nuove azioni collegate alla pressione di alcune 
+combinazioni di tasti
+• In questo caso colleghiamo la pressione di alcune combinazioni di tasti 
+ad eventi di default dell’editor
+
+
+===== PAGE 74 =====
+Un semplice editor (undo/redo…)
+• Aggiunge il listener per il undo/redo al Document dell’editor pane
+
+
+===== PAGE 75 =====
+Document
+• Il modello dei dati di un TextComponent è il 
+Document (interfaccia Document)
+– contiene il testo suddiviso in oggetti di tipo 
+Element
+– supporta l’editing del testo (aggiungi/rimuovi)
+– notifica degli eventi di modifica del testo
+– gestisci gli oggetti di tipo Position che tracciano 
+delle porzioni di testo anche se vengono 
+modificate
+– fornisce informazioni su testo (es. lunghezza)
+
+
+===== PAGE 76 =====
+Document
+StyledDocument è un Document con informazioni sullo stile del testo (utilizzato da 
+JTextPane)
+PlainDocument è il Document di default di JTextField, JTextArea, JPasswordField
+
+
+===== PAGE 77 =====
+DocumentListener
+• Document notifica tutti i DocumentListener
+associati ad esso
+– inserimenti
+– rimozioni
+– modifica dello stile
+• Aggiunta di un DocumentListener ad un 
+document
+– doc.addDocumentListener(new MyDocumentListener());
+• CaretListener permette di ricevere tutti gli eventi 
+di modifica del cursore, deve essere aggiunto ad 
+un JTextComponent
+
+
+===== PAGE 78 =====
+DocumentListener
+
+
+===== PAGE 79 =====
+DocumentListener
+
+
+===== PAGE 80 =====
+Un semplice editor (Open File)
+• Inserire un MenuItem nel Menu File e rinominarlo in jmiOpen
+• Aggiungere l’evento ActionPerformed a jmiOpen
+JFileChooser apre una finestra 
+di dialogo per la selezione di 
+file o directory
+
+
+===== PAGE 81 =====
+Un semplice editor (Open File)
+• Lettura del contenuto testuale dal file
+•
+BufferedReader+StringBuilder
+• Utilizzare il metodo setText di JEditorPane per impostare il testo
+
+
+===== PAGE 82 =====
+Implementare la funzione salva
+• Visualizzare un JFileChooser in modalità save
+• Usare un FileWriter e il metodo getText di JEditorPane
+
+
+===== PAGE 83 =====
+Esercizio…
+• Prima di creare un nuovo documento o aprire 
+un documento ricordare all’utente di salvare 
+solo nel caso in cui il documento sia stato 
+modificato dall’ultimo salvataggio 
+– Utilizzare un DocumentListener per tenere traccia 
+delle modifiche
+– Utilizzare JOptionPane.showConfirmDialog per 
+visualizzare una finestra di dialogo 
+YES_NO_CANCEL
+
+
+===== PAGE 84 =====
+…Esercizio

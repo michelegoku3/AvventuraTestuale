@@ -1,0 +1,56 @@
+SOURCE: /home/user/AvventuraTestuale/Materiale/Esercizi/Esercizio JDBC.pdf
+PAGES: 1
+
+===== PAGE 1 =====
+Esercizio JDBC – L’arena dei Robot
+Sei stato assunto come sviluppatore ufficiale dell’Arena dei Robot Ribelli. Il tuo compito è scrivere
+un'applicazione  Java  che  si  collega  a  un  database  H2  per  gestire  i  robot  che  partecipano  ai
+combattimenti.
+Requisiti del database
+Crea un database H2 chiamato arena con le seguente tabelle:
+CREATE TABLE robot (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    nome TEXT NOT NULL,
+    potenza INTEGER,
+    difesa INTEGER
+);
+CREATE TABLE battle (
+     id INTEGER PRIMARY KEY AUTOINCREMENT,
+     robot1 INTEGER,
+     robot2 INTEGER,
+     winner INTEGER
+)
+Classi e funzioni da implementare
+Scrivi una classe DatabaseManager che:
+•
+Si connette al database arena
+•
+Crea le tabelle robot e battle se non esistono
+Scrivi una classe RobotDAO con i seguenti metodi:
+•
+void aggiungiRobot(String nome, int potenza, int difesa)
+•
+List<Robot> getTuttiIRobot()
+•
+Robot getRobotPiuForte() – (in base a potenza + difesa)
+•
+void inserisciBattaglia(int robot1, int robot2, int winner)
+Simulazione di combattimento
+Crea una classe ArenaSimulator che:
+•
+Prende due robot casuali dal database
+•
+Simula un combattimento (vince chi ha il valore più alto di potenza + difesa + random(0-10))
+•
+Aggiorna la tabella battle
+Scrivi una classe Test con il metodo main che:
+•
+aggiunge 10 robot al DB
+•
+visualizza tutti i robot
+•
+simula 20 combattimenti
+•
+visualizza il robot con più vittorie
+•
+visualizza il robot con più sconfitte

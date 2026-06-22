@@ -1,5 +1,8 @@
 package com.mycompany.avventuratestuale.database;
 
+/**
+ * DTO immutabile per un punteggio salvato.
+ */
 public class Punteggio {
     private final int id;
     private final String nomeGiocatore;

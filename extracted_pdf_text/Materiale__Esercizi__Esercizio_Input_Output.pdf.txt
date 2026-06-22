@@ -1,0 +1,19 @@
+SOURCE: /home/user/AvventuraTestuale/Materiale/Esercizi/Esercizio Input Output.pdf
+PAGES: 1
+
+===== PAGE 1 =====
+Esercizio Java I/O – Metodi Avanzati di Programmazione (M-Z) – Laurea 
+Triennale in Informatica, Università degli Studi di Bari Aldo Moro
+Realizzare una classe dal nome TextProcessing. Inserire nella classe i seguenti tre metodi:
+1) public static Map<String, Integer> count(File file, boolean 
+toLowerCase) throws IOException
+Questo metodo deve leggere il contenuto di un file di testo (parametro file), suddividere il testo
+in parole e contare per ogni parola il numero di volte che compare nel testo. Il calcolo del conteggio
+deve essere restituito nella Map<String, Integer>. Il boolean toLowerCase indica se il
+testo deve essere processato applicando il lower case dei caratteri.
+2) public static void save(Map<String, Integer> count, File file) 
+throws IOException
+Questo metodo deve serializzare la Map su un file (parametro file).
+3) public static Map<String, Integer> load(File file) throws IOException, ClassNotFoundException
+Questo metodo deve deserializzare la Map e restituirla.
+Creare un metodo main per testare i metodi realizzati.

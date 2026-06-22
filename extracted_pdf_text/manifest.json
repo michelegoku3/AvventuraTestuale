@@ -1,0 +1,365 @@
+[
+  {
+    "pdf": "Materiale/Avventura Testuale/Avventure - Guida Pratica alla Creazione di Giochi di Avventura (C64).pdf",
+    "pages": 96,
+    "chars": 119678,
+    "output": "Materiale__Avventura_Testuale__Avventure_-_Guida_Pratica_alla_Creazione_di_Giochi_di_Avventura_C64_.pdf.txt",
+    "ocr": [
+      {
+        "warning": "tesseract binary non disponibile; OCR saltato"
+      }
+    ]
+  },
+  {
+    "pdf": "Materiale/Avventura Testuale/Lab 1 - Introduzione.pdf",
+    "pages": 41,
+    "chars": 12294,
+    "output": "Materiale__Avventura_Testuale__Lab_1_-_Introduzione.pdf.txt",
+    "ocr": [
+      {
+        "warning": "tesseract binary non disponibile; OCR saltato"
+      }
+    ]
+  },
+  {
+    "pdf": "Materiale/Avventura Testuale/MAP M-Z - Documentazione Progetto - Template.pdf",
+    "pages": 3,
+    "chars": 3146,
+    "output": "Materiale__Avventura_Testuale__MAP_M-Z_-_Documentazione_Progetto_-_Template.pdf.txt",
+    "ocr": [
+      {
+        "warning": "tesseract binary non disponibile; OCR saltato"
+      }
+    ]
+  },
+  {
+    "pdf": "Materiale/Avventura Testuale/Quaderni Jackson - Scrivere un Gioco di Avventura sul PC.pdf",
+    "pages": 116,
+    "chars": 169100,
+    "output": "Materiale__Avventura_Testuale__Quaderni_Jackson_-_Scrivere_un_Gioco_di_Avventura_sul_PC.pdf.txt",
+    "ocr": [
+      {
+        "warning": "tesseract binary non disponibile; OCR saltato"
+      }
+    ]
+  },
+  {
+    "pdf": "Materiale/Corso.pdf",
+    "pages": 10,
+    "chars": 23342,
+    "output": "Materiale__Corso.pdf.txt",
+    "ocr": [
+      {
+        "warning": "tesseract binary non disponibile; OCR saltato"
+      }
+    ]
+  },
+  {
+    "pdf": "Materiale/Esercizi/Esercizi Specifiche Algebriche.pdf",
+    "pages": 21,
+    "chars": 6198,
+    "output": "Materiale__Esercizi__Esercizi_Specifiche_Algebriche.pdf.txt",
+    "ocr": [
+      {
+        "warning": "tesseract binary non disponibile; OCR saltato"
+      }
+    ]
+  },
+  {
+    "pdf": "Materiale/Esercizi/Esercizio Input Output.pdf",
+    "pages": 1,
+    "chars": 1064,
+    "output": "Materiale__Esercizi__Esercizio_Input_Output.pdf.txt",
+    "ocr": [
+      {
+        "warning": "tesseract binary non disponibile; OCR saltato"
+      }
+    ]
+  },
+  {
+    "pdf": "Materiale/Esercizi/Esercizio JDBC.pdf",
+    "pages": 1,
+    "chars": 1467,
+    "output": "Materiale__Esercizi__Esercizio_JDBC.pdf.txt",
+    "ocr": [
+      {
+        "warning": "tesseract binary non disponibile; OCR saltato"
+      }
+    ]
+  },
+  {
+    "pdf": "Materiale/Esercizi/Esercizio Lab.pdf",
+    "pages": 5,
+    "chars": 2259,
+    "output": "Materiale__Esercizi__Esercizio_Lab.pdf.txt",
+    "ocr": [
+      {
+        "warning": "tesseract binary non disponibile; OCR saltato"
+      }
+    ]
+  },
+  {
+    "pdf": "Materiale/Esercizi/Esercizio Lambda Expressions.pdf",
+    "pages": 3,
+    "chars": 4226,
+    "output": "Materiale__Esercizi__Esercizio_Lambda_Expressions.pdf.txt",
+    "ocr": [
+      {
+        "warning": "tesseract binary non disponibile; OCR saltato"
+      }
+    ]
+  },
+  {
+    "pdf": "Materiale/Esercizi/Esercizio Socket.pdf",
+    "pages": 1,
+    "chars": 2042,
+    "output": "Materiale__Esercizi__Esercizio_Socket.pdf.txt",
+    "ocr": [
+      {
+        "warning": "tesseract binary non disponibile; OCR saltato"
+      }
+    ]
+  },
+  {
+    "pdf": "Materiale/Esercizi/Esercizio Thread.pdf",
+    "pages": 1,
+    "chars": 1312,
+    "output": "Materiale__Esercizi__Esercizio_Thread.pdf.txt",
+    "ocr": [
+      {
+        "warning": "tesseract binary non disponibile; OCR saltato"
+      }
+    ]
+  },
+  {
+    "pdf": "Materiale/Lezioni/1 - Paradigmi di Programmazione e Astrazione.pdf",
+    "pages": 141,
+    "chars": 58386,
+    "output": "Materiale__Lezioni__1_-_Paradigmi_di_Programmazione_e_Astrazione.pdf.txt",
+    "ocr": [
+      {
+        "warning": "tesseract binary non disponibile; OCR saltato"
+      }
+    ]
+  },
+  {
+    "pdf": "Materiale/Lezioni/10 - JAVA - Input Output.pdf",
+    "pages": 39,
+    "chars": 16463,
+    "output": "Materiale__Lezioni__10_-_JAVA_-_Input_Output.pdf.txt",
+    "ocr": [
+      {
+        "warning": "tesseract binary non disponibile; OCR saltato"
+      }
+    ]
+  },
+  {
+    "pdf": "Materiale/Lezioni/11 - JAVA - Generics.pdf",
+    "pages": 36,
+    "chars": 14680,
+    "output": "Materiale__Lezioni__11_-_JAVA_-_Generics.pdf.txt",
+    "ocr": [
+      {
+        "warning": "tesseract binary non disponibile; OCR saltato"
+      }
+    ]
+  },
+  {
+    "pdf": "Materiale/Lezioni/12 - JAVA - Identificazione di Tipo a Run-Time.pdf",
+    "pages": 22,
+    "chars": 10429,
+    "output": "Materiale__Lezioni__12_-_JAVA_-_Identificazione_di_Tipo_a_Run-Time.pdf.txt",
+    "ocr": [
+      {
+        "warning": "tesseract binary non disponibile; OCR saltato"
+      }
+    ]
+  },
+  {
+    "pdf": "Materiale/Lezioni/13 - JAVA - Database Connectivity (JDBC).pdf",
+    "pages": 18,
+    "chars": 7580,
+    "output": "Materiale__Lezioni__13_-_JAVA_-_Database_Connectivity_JDBC_.pdf.txt",
+    "ocr": [
+      {
+        "warning": "tesseract binary non disponibile; OCR saltato"
+      }
+    ]
+  },
+  {
+    "pdf": "Materiale/Lezioni/14 - JAVA - Programmazione Concorrente.pdf",
+    "pages": 31,
+    "chars": 10565,
+    "output": "Materiale__Lezioni__14_-_JAVA_-_Programmazione_Concorrente.pdf.txt",
+    "ocr": [
+      {
+        "warning": "tesseract binary non disponibile; OCR saltato"
+      }
+    ]
+  },
+  {
+    "pdf": "Materiale/Lezioni/14 - JAVA - Programmazione in Rete.pdf",
+    "pages": 15,
+    "chars": 6859,
+    "output": "Materiale__Lezioni__14_-_JAVA_-_Programmazione_in_Rete.pdf.txt",
+    "ocr": [
+      {
+        "warning": "tesseract binary non disponibile; OCR saltato"
+      }
+    ]
+  },
+  {
+    "pdf": "Materiale/Lezioni/15 - JAVA - Programmazione Concorrente.pdf",
+    "pages": 31,
+    "chars": 10565,
+    "output": "Materiale__Lezioni__15_-_JAVA_-_Programmazione_Concorrente.pdf.txt",
+    "ocr": [
+      {
+        "warning": "tesseract binary non disponibile; OCR saltato"
+      }
+    ]
+  },
+  {
+    "pdf": "Materiale/Lezioni/15 - JAVA - Programmazione in Rete.pdf",
+    "pages": 15,
+    "chars": 6859,
+    "output": "Materiale__Lezioni__15_-_JAVA_-_Programmazione_in_Rete.pdf.txt",
+    "ocr": [
+      {
+        "warning": "tesseract binary non disponibile; OCR saltato"
+      }
+    ]
+  },
+  {
+    "pdf": "Materiale/Lezioni/16 - JAVA - Lambda Expressions.pdf",
+    "pages": 51,
+    "chars": 20547,
+    "output": "Materiale__Lezioni__16_-_JAVA_-_Lambda_Expressions.pdf.txt",
+    "ocr": [
+      {
+        "warning": "tesseract binary non disponibile; OCR saltato"
+      }
+    ]
+  },
+  {
+    "pdf": "Materiale/Lezioni/16 - JAVA - Swing.pdf",
+    "pages": 84,
+    "chars": 15728,
+    "output": "Materiale__Lezioni__16_-_JAVA_-_Swing.pdf.txt",
+    "ocr": [
+      {
+        "warning": "tesseract binary non disponibile; OCR saltato"
+      }
+    ]
+  },
+  {
+    "pdf": "Materiale/Lezioni/17 - JAVA - Lambda Expressions.pdf",
+    "pages": 51,
+    "chars": 20547,
+    "output": "Materiale__Lezioni__17_-_JAVA_-_Lambda_Expressions.pdf.txt",
+    "ocr": [
+      {
+        "warning": "tesseract binary non disponibile; OCR saltato"
+      }
+    ]
+  },
+  {
+    "pdf": "Materiale/Lezioni/17 - JAVA RESTful.pdf",
+    "pages": 30,
+    "chars": 11985,
+    "output": "Materiale__Lezioni__17_-_JAVA_RESTful.pdf.txt",
+    "ocr": [
+      {
+        "warning": "tesseract binary non disponibile; OCR saltato"
+      }
+    ]
+  },
+  {
+    "pdf": "Materiale/Lezioni/18 - JAVA RESTful.pdf",
+    "pages": 30,
+    "chars": 11985,
+    "output": "Materiale__Lezioni__18_-_JAVA_RESTful.pdf.txt",
+    "ocr": [
+      {
+        "warning": "tesseract binary non disponibile; OCR saltato"
+      }
+    ]
+  },
+  {
+    "pdf": "Materiale/Lezioni/2 - Paradigma OO.pdf",
+    "pages": 167,
+    "chars": 89515,
+    "output": "Materiale__Lezioni__2_-_Paradigma_OO.pdf.txt",
+    "ocr": [
+      {
+        "warning": "tesseract binary non disponibile; OCR saltato"
+      }
+    ]
+  },
+  {
+    "pdf": "Materiale/Lezioni/3 - JAVA - Introduzione a JAVA.pdf",
+    "pages": 34,
+    "chars": 8329,
+    "output": "Materiale__Lezioni__3_-_JAVA_-_Introduzione_a_JAVA.pdf.txt",
+    "ocr": [
+      {
+        "warning": "tesseract binary non disponibile; OCR saltato"
+      }
+    ]
+  },
+  {
+    "pdf": "Materiale/Lezioni/4 - JAVA - Elementi del Linguaggio.pdf",
+    "pages": 52,
+    "chars": 14357,
+    "output": "Materiale__Lezioni__4_-_JAVA_-_Elementi_del_Linguaggio.pdf.txt",
+    "ocr": [
+      {
+        "warning": "tesseract binary non disponibile; OCR saltato"
+      }
+    ]
+  },
+  {
+    "pdf": "Materiale/Lezioni/5 - JAVA - Classi e Oggetti.pdf",
+    "pages": 68,
+    "chars": 20805,
+    "output": "Materiale__Lezioni__5_-_JAVA_-_Classi_e_Oggetti.pdf.txt",
+    "ocr": [
+      {
+        "warning": "tesseract binary non disponibile; OCR saltato"
+      }
+    ]
+  },
+  {
+    "pdf": "Materiale/Lezioni/6 - JAVA - Stringhe e Numeri.pdf",
+    "pages": 50,
+    "chars": 19223,
+    "output": "Materiale__Lezioni__6_-_JAVA_-_Stringhe_e_Numeri.pdf.txt",
+    "ocr": [
+      {
+        "warning": "tesseract binary non disponibile; OCR saltato"
+      }
+    ]
+  },
+  {
+    "pdf": "Materiale/Lezioni/7 - JAVA - Le Collection.pdf",
+    "pages": 73,
+    "chars": 24104,
+    "output": "Materiale__Lezioni__7_-_JAVA_-_Le_Collection.pdf.txt",
+    "ocr": [
+      {
+        "warning": "tesseract binary non disponibile; OCR saltato"
+      }
+    ]
+  },
+  {
+    "pdf": "Materiale/Lezioni/9 - JAVA - Eccezioni.pdf",
+    "pages": 16,
+    "chars": 4300,
+    "output": "Materiale__Lezioni__9_-_JAVA_-_Eccezioni.pdf.txt",
+    "ocr": [
+      {
+        "warning": "tesseract binary non disponibile; OCR saltato"
+      }
+    ]
+  }
+]

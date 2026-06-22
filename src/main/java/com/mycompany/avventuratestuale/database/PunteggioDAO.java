@@ -1,30 +1,39 @@
 package com.mycompany.avventuratestuale.database;
 
 import java.sql.*;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * DAO per salvare e leggere la classifica dei punteggi.
+ */
 public class PunteggioDAO {
 
-    // Inserimento con PreparedStatement (previene SQL Injection) [Lezioni/13 - Database Connectivity (JDBC).pdf, Slide 13]
+    private static final DateTimeFormatter FORMATO_DATA = DateTimeFormatter.ofPattern("dd-MM-yyyy 'alle' HH:mm");
+
+
     public void aggiungiPunteggio(String nomeGiocatore, int punti) {
+        DatabaseManager.inizializzaDatabase();
         String sql = "INSERT INTO punteggi(nome_giocatore, punti) VALUES (?, ?)";
 
         try (Connection conn = DatabaseManager.getConnessione();
              PreparedStatement pstm = conn.prepareStatement(sql)) {
-            
+
             pstm.setString(1, nomeGiocatore);
             pstm.setInt(2, punti);
-            
+
             pstm.executeUpdate();
-            
+
         } catch (SQLException e) {
             System.err.println("Errore inserimento punteggio: " + e.getMessage());
         }
     }
 
-    // Lettura con Statement e ResultSet [Lezioni/13 - Database Connectivity (JDBC).pdf, Slide 14-16]
+
     public List<Punteggio> getMiglioriPunteggi() {
+        DatabaseManager.inizializzaDatabase();
         List<Punteggio> classifica = new ArrayList<>();
         String sql = "SELECT id, nome_giocatore, punti, data_partita FROM punteggi ORDER BY punti DESC LIMIT 5";
 
@@ -33,14 +42,18 @@ public class PunteggioDAO {
              ResultSet rs = stm.executeQuery(sql)) {
 
             while (rs.next()) {
+                Timestamp ts = rs.getTimestamp("data_partita");
+                String dataFormattata = ts != null
+                        ? ts.toLocalDateTime().format(FORMATO_DATA)
+                        : LocalDateTime.now().format(FORMATO_DATA);
                 classifica.add(new Punteggio(
                         rs.getInt("id"),
                         rs.getString("nome_giocatore"),
                         rs.getInt("punti"),
-                        rs.getString("data_partita")
+                        dataFormattata
                 ));
             }
-            
+
         } catch (SQLException e) {
             System.err.println("Errore recupero classifica: " + e.getMessage());
         }

@@ -1,0 +1,563 @@
+SOURCE: /home/user/AvventuraTestuale/Materiale/Lezioni/17 - JAVA - Lambda Expressions.pdf
+PAGES: 51
+
+===== PAGE 1 =====
+Java
+Lambda Expressions
+Metodi Avanzati di Programmazione
+(Track M-Z)
+Dipartimento di Informatica
+Università degli Studi di Bari Aldo Moro
+docente: prof. Pierpaolo Basile
+
+
+===== PAGE 2 =====
+Note e riferimenti
+Note
+Gli esempi di queste slide sono riportati nel package 
+di.uniba.map.b.lab.lambda del repository github del corso
+Riferimenti
+https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html 
+
+
+===== PAGE 3 =====
+Lambda Expressions
+Per comprendere il funzionamento delle lambda expressions partiremo da un 
+esempio pratico legato all’utilizzo delle classi anonime.
+Supponiamo di avere una classe Person che memorizza delle informazioni relative 
+ad una persona
+
+
+===== PAGE 4 =====
+La classe Person
+La classe Person avrà i relativi metodi get e set per gli attributi privati.
+Inoltre ha un metodo (printPerson) che stampa a video le informazioni sulla 
+persona.
+
+
+===== PAGE 5 =====
+Ricerca
+Un’operazione comune potrebbe essere quella di ricercare delle istanze (persone) 
+della classe Person che rispettano alcune caratteristiche.
+Ad esempio, vogliamo tutte le persone che superano una certa età. Potremmo 
+definire un metodo di questo tipo:
+Questo tipo di codice è poco “elegante” poiché è fortemente connesso alle 
+caratteristiche della classe Person e al modo con cui l’età è memorizzata nella 
+classe. In caso di cambiamenti a Person dovremo riscrivere il codice.
+
+
+===== PAGE 6 =====
+Ricerca
+Una soluzione più generica potrebbe essere:
+Questo metodo è ancora legato a come l’età (attributo age) è memorizzato in 
+Person e soprattutto non è generico poiché mi permette di filtrare/cercare solo 
+sull’attributo età.
+
+
+===== PAGE 7 =====
+Ricerca con interfaccia
+Potremmo definire un’interfaccia CheckPerson che ha un unico metodo che 
+verifica se una istanza di Person è valida o meno
+e un metodo che utilizza questa interfaccia per verificare se una persona rispetta o 
+meno dei criteri che saranno definiti nell’implementazione del metodo test.
+
+
+===== PAGE 8 =====
+Ricerca, utilizzo interfaccia
+Forniamo un’implementazione dell’interfaccia CheckPerson
+Utilizzo della classe CheckPersonEligibleForSelectiveService
+In questo caso creiamo una nuova istanza e la passiamo 
+come parametro al metodo printPersons
+
+
+===== PAGE 9 =====
+Ricerca (classe anonima)
+Classe anonima: dichiarare e contemporaneamente istanziare una classe, per 
+questo motivo la classe è priva di un nome.
+Possono essere definite nel corpo di un metodo, come nell’esempio riportato nella 
+slide. Le abbiamo utilizzate spesso con SWING per creare le ActionListener.
+
+
+===== PAGE 10 =====
+Interfacce funzionali
+L'interfaccia CheckPerson è un'interfaccia funzionale. Un'interfaccia funzionale è 
+qualsiasi interfaccia che:
+●
+contiene solo un metodo astratto (un'interfaccia funzionale può contenere altri 
+metodi statici con implementazione)
+●
+poiché un'interfaccia funzionale contiene solo un metodo astratto, è possibile 
+omettere il nome di quel metodo quando lo si implementa
+Invece di utilizzare un'espressione di classe anonima, è possibile utilizzare 
+un'espressione lambda.
+
+
+===== PAGE 11 =====
+Espressioni lambda
+Predicate<T> è un’interfaccia funzionale definita in java.util.function e 
+funziona in modo simile a CheckPerson, ma è generica e prevede il solo metodo: 
+boolean test(T t). Poiché ha un solo metodo astratto non è necessario 
+specificare il suo nome e può essere utilizzata in un’espressione lambda nel 
+seguente modo:
+lambda expression
+
+
+===== PAGE 12 =====
+Sintassi delle espressioni lambda
+Un’espressione lambda è composta:
+●
+da una lista di parametri formali separati da virgole e racchiusi tra parentesi 
+tonde: nell’esempio precedente c’è un solo parametro formale p
+NB: è possibile omettere il tipo di dati dei parametri in un'espressione lambda. 
+Inoltre, è possibile omettere le parentesi se esiste un solo parametro
+●
+il token ->
+●
+un corpo che contiene una singola espressione o un blocco di istruzioni. Il 
+blocco di istruzioni è racchiuso nelle parentesi graffe {}, se il blocco di istruzioni 
+contiene un’invocazione ad un metodo che non restituisce nessun valore (void) 
+si possono omettere le parentesi 
+
+
+===== PAGE 13 =====
+Sintassi delle espressioni lambda
+p -> p.getGender() == Person.Sex.MALE 
+       && p.getAge() >= 18
+       && p.getAge() <= 25
+parametri formali
+espressione
+p -> {return p.getGender() == 
+Person.Sex.MALE
+     && p.getAge() >= 18
+     && p.getAge() <= 25;}
+Sintassi con blocco di istruzioni
+email -> System.out.println(email): nel caso venga invocato un 
+metodo che restituisce un valore void si può omettere il blocco di istruzioni {}
+
+
+===== PAGE 14 =====
+Sintassi delle espressioni lambda
+Come detto in precedenza possiamo avere più di un parametro formale
+
+
+===== PAGE 15 =====
+Perché espressioni lambda?
+Le espressioni lambda sono esempi di programmazione funzionale:
+●
+il flusso di esecuzione del programma assume la forma di una serie di 
+valutazioni di funzioni
+●
+mancanza di side-effect
+●
+la programmazione funzionale pone il focus sulla definizione di funzioni
+○
+contrariamente, i paradigmi procedurali e imperativi prediligono la specifica di una 
+sequenza di comandi da eseguire e i valori vengono calcolati cambiando lo stato del 
+programma attraverso l’operazione di assegnazione
+○
+un programma funzionale è immutabile: i valori non vengono calcolati cambiando lo 
+stato del programma, ma costruendo nuovi stati a partire dai precedenti
+●
+la programmazione funzionale ha le sue radici nel lambda calcolo
+○
+calcolo basato sulle funzioni composto da un linguaggio formale utilizzato per 
+esprimere le funzioni e un sistema di riscrittura per stabilire come i termini possano 
+essere ridotti e semplificati
+
+
+===== PAGE 16 =====
+Consumer
+Riprendiamo il metodo printPersonWithPredicate. Questo metodo filtra le 
+persone in base ad una funzione Predicate passata come parametro e chiama il 
+metodo printPerson di Person.
+E se volessimo generalizzare anche sull’operazione da applicare alle istanze per cui 
+test restituisce true? 
+
+
+===== PAGE 17 =====
+Consumer
+L’interfaccia Consumer<T> definita in java.util.function, funziona 
+esattamente come l’istruzione printPerson, ovvero esegue un’operazione 
+sull’istanza p di Person senza restituire alcun valore. Consumer ha un solo 
+metodo:
+void accept(T t)
+
+
+===== PAGE 18 =====
+Consumer
+E se prima di consumare un’istanza volessimo effettuare un’operazione su di essa, 
+ad esempio recuperare il cognome e stampare solo esso?
+
+
+===== PAGE 19 =====
+Function
+L’interfaccia Function<T, R> definita in java.util.function, esegue 
+un’operazione sull’istanza di tipo T restituendo un’istanza di tipo R.
+Function ha un solo metodo:
+R apply(T t)
+
+
+===== PAGE 20 =====
+Function
+
+
+===== PAGE 21 =====
+Visibilità delle variabili
+Un’espressione lambda 
+non introduce un nuovo 
+livello di scopo, infatti 
+sono lexically scoped. 
+Possono accedere a 
+variabili definite nello 
+scopo locale nel quale è 
+scritta l’espressione 
+lambda, esattamente 
+come avviene per le 
+classi anonime
+
+
+===== PAGE 22 =====
+Generalizziamo
+Possiamo rendere il metodo checkPersonsWithFunction generico, in modo da 
+poterlo applicare a qualsiasi tipo di classe e non solo a Person? E renderlo 
+contemporaneamente generico anche rispetto al tipo restituito dall’implementazione 
+di Function?
+
+
+===== PAGE 23 =====
+Generalizziamo
+Possiamo rendere il metodo checkPersonsWithFunction generico, in modo da 
+poterlo applicare a qualsiasi tipo di classe e non solo a Person? E renderlo 
+contemporaneamente gerico anche rispetto al tipo restituito dall’implementazione di 
+Function?
+●
+X è il generics che fa riferimento agli oggetti che voglio processare
+●
+Iterable<X> è il contenitore degli oggetti di tipo X sul quale posso effettuare 
+un’operazione di iterazione sugli oggetti contenuti
+●
+Y è il generics relativo al risultato della funzione mapper (di Function)
+
+
+===== PAGE 24 =====
+Generalizziamo
+
+
+===== PAGE 25 =====
+Generalizziamo
+Nel dettaglio il metodo processElements lavora in questo modo:
+●
+Ottiene una sorgente di oggetti da un iteratore. Nell’esempio gli oggetti sono di 
+tipo Person e la sorgente è una List che implementa l’interfaccia Iterable
+●
+Filtra gli oggetti in base all’oggetto Predicate. Nel nostro caso definito 
+dall’espressione lambda che controlla il genere e l’età
+●
+Mappa tutti gli oggetti filtrati su un altro valore definito da Function. In questo 
+caso un’altra espressione lambda che restituisce il cognome
+●
+Esegue un’azione sull’oggetto mappato definita dall’oggetto Consumer. In 
+questo caso stampa una stringa che è il cognome dell’oggetto restituito da 
+Function
+
+
+===== PAGE 26 =====
+Operazioni aggregate
+Quello che fa il metodo processElements si può ottenere attraverso l’utilizzo degli 
+stream e delle operazioni aggregate. 
+Le operazioni filter, map e forEach sono delle operazioni aggregate. Esse  
+processano degli elementi a partire da uno stream (che non è una collection). Uno 
+stream è una sequenza di elementi e diversamente dalle collection non è una 
+struttura dati che contiene elementi. Invece, uno stream preleva i valori da una 
+sorgente, come ad esempio una collection, attraverso una pipeline.
+Una pipeline è una sequenza di operazioni (es. filter-map-forEach), i 
+parametri di queste operazioni in genere sono espressioni lambda e ciò permette 
+facilmente di personalizzare il loro comportamento.
+
+
+===== PAGE 27 =====
+Pipeline e stream
+Una pipeline è una sequenza di operazioni aggregate applicate ad uno stream.
+In questo caso abbiamo due operazioni, una filtra (filter) gli oggetti, l’altra 
+esegue un’operazione su tutti gli elementi (forEach) dello stream. La pipeline in 
+questo caso equivale a:
+
+
+===== PAGE 28 =====
+Pipeline
+Una pipeline è composta da:
+●
+una sorgente: che potrebbe essere una collection, un array, una funzione 
+generatore o un canale di I/O
+●
+zero o più operazioni intermedie: ogni operazione intermedia crea un nuovo 
+stream, ad esempio filter
+●
+un’operazione terminale: produce un risultato (finale) che non è più uno stream. 
+Ad esempio, il forEach semplicemente esegue un’operazione su ogni 
+elemento dello stream
+
+
+===== PAGE 29 =====
+Esempi di pipeline
+Calcola la media delle persone di genere maschile. L’operazione average è 
+un’operazione terminale
+Conta il numero di persone maggiorenni, anche in questo caso count è 
+un’operazione terminale
+
+
+===== PAGE 30 =====
+Operazioni terminali
+La lista delle operazioni terminali è presente nella Javadoc dell’interfaccia Stream
+https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html 
+e nella Javadoc delle sue diverse implementazioni:
+●
+IntStream
+●
+LongStream
+●
+DoubleStream
+
+
+===== PAGE 31 =====
+Funzioni generatrici
+Stream ha un metodo generate che permette di generare uno stream infinito di 
+valori la cui generazione è regolata dal parametro di tipo Supplier.
+generate(Supplier<T> s)
+L’interfaccia Supplier ha un solo metodo get che restituisce un valore di tipo T.
+L’altro metodo di Stream che genera valori è iterate che genera valori infiniti a 
+partire da un seed al quale viene applicato iterativamente una funzione f:
+seed, f(seed), f(f(seed), f(f(f(seed), ...
+Ogni implementazione di Stream (IntStream, DoubleStream, …) ha altri 
+metodi che funzionano come generatori, ad esempio IntStream ha dei generatori 
+che creano interi all’interno di un intervallo specifico.
+
+
+===== PAGE 32 =====
+Funzioni generatrici (esempi)
+Stampa cento numeri pari a partire da 2.
+Stampa le prime 11 potenze di 2.
+Calcola e stampa la media dei numeri interi nell’intervallo [0, 10)
+
+
+===== PAGE 33 =====
+Funzioni generatrici (esempi)
+Crea uno stream infinito di numeri random nell’intervallo [0, 1), filtra i primi 100 
+maggiori o uguali a 0.5 e li stampa.
+Genera 100 numeri random nell’intervallo [0, 1), filtra quelli maggiori a 0.5 e conta 
+quanti sono. Il risultato finale viene stampato.
+La funzione Supplier è definita 
+attraverso un’espressione lambda senza 
+parametri che esegue un’istruzione che 
+genera un double, in questo caso il 
+metodo statico random di Math
+
+
+===== PAGE 34 =====
+Riduzione (reduction)
+●Le operazioni terminali come average e count si chiamano riduzioni. 
+Queste restituiscono un unico valore combinando gli oggetti presenti 
+nello stream
+●Esistono anche operazioni di riduzione che restituiscono una collezione 
+e non un singolo valore
+●Esempi di operazioni di riduzione che restituiscono un singolo valore 
+sono: average, sum, min, max e count
+●Oltre alle operazioni di riduzione predefinite è possibile definirne di 
+nuove utilizzando i metodi reduce e collect di Stream
+
+
+===== PAGE 35 =====
+Stream.reduce
+Nell’esempio precedente utilizziamo la funzione di riduzione sum per calcolare la 
+somma di tutte le età, la stessa funzione potrebbe essere espressa utilizzando il 
+metodo reduce di Stream
+
+
+===== PAGE 36 =====
+Stream.reduce
+reduce prende in input due parametri:
+1. identity: il valora iniziale della riduzione o il valore che viene restituito nel 
+caso non ci siano elementi nello stream
+2. accumulator: la funzione accumulatore accetta due parametri dello stesso 
+tipo e restituisce un risultato. In questo esempio, la funzione accumulatore è 
+un'espressione lambda che aggiunge due valori Integer e restituisce un valore 
+Integer. I due parametri della funzione accumulatore sono: il risultato parziale 
+della riduzione (in questo esempio, la somma di tutti gli interi elaborati finora) e 
+l'elemento successivo dello stream (in questo esempio, un numero intero, l’età)
+
+
+===== PAGE 37 =====
+Stream.collect
+●La funzione reduce restituisce ogni volta un nuovo valore. Ricordiamo 
+che la programmazione funzionale è priva di side-effect
+●Nel caso precedente il nuovo valore è di tipo Integer quindi non 
+abbiamo grossi problemi di performance, ma se la funzione reduce 
+lavorasse con oggetti più complessi, ad esempio Collection, ogni 
+volta che viene chiamata creerebbe una nuova Collection
+●In questi casi è opportuno utilizzare il metodo collect che effettua un 
+update dell’oggetto che si sta ottenendo dalla riduzione dello stream
+●Il metodo collect contrariamente al metodo reduce, modifica un 
+valore preesistente
+
+
+===== PAGE 38 =====
+Stream.collect
+Il metodo collect accetta tre parametri:
+1. supplier: è il costruttore dell’oggetto che verrà restituito dal metodo collect e 
+che si presuppone venga modificato durante l’operazione di riduzione
+2. accumulator: questa funzione serve ad inglobare il valore attuale dello 
+stream nell’oggetto che verrà restituito
+3. combiner: questa funzione combina due contenitori di risultati e unisce il loro 
+contenuto
+Supponiamo di voler implementare l’operatore terminale che calcola la 
+media attraverso il metodo collect. Abbiamo bisogno di definire una 
+classe Average che manterrà la somma corrente e il numero totale degli 
+elementi esaminati nello stream. Questa classe verrà poi utilizzata nel 
+metodo collect
+
+
+===== PAGE 39 =====
+Stream.collect
+La class Averager implementa 
+l’interfaccia IntConsumer che 
+prevede il solo metodo accept che 
+verrà utilizzato come accumulator. 
+Il costruttore sarà il metodo 
+utilizzato come supplier, invece il 
+metodo combine come combiner.
+Il metodo average ci restituirà il 
+risultato finale.
+
+
+===== PAGE 40 =====
+Stream.collect
+L'operatore (::) si chiama method reference operator e ci permette di chiamare 
+un metodo facendo riferimento ad esso direttamente con il nome della sua classe. 
+Sono equivalenti alle espressioni lambda che invocano direttamente il metodo, ma 
+più immediati nell’utilizzo perché basati solo sul nome del metodo.
+L’istruzione precedente corrisponde a:
+
+
+===== PAGE 41 =====
+Stream.collect
+●in collect il supplier è un'espressione lambda (o un riferimento al 
+metodo) al contrario in reduce è un valore (l'elemento identità 
+nell'operazione di riduzione)
+●le funzioni accumulator e combiner non restituiscono un valore
+●È possibile utilizzare le operazioni di collect con flussi paralleli (in 
+esecuzione concorrente): la JDK crea un nuovo thread ogni volta che 
+la funzione combinator crea un nuovo oggetto, come un oggetto 
+Averager nell’esempio precedente (non è necessario preoccuparsi 
+della sincronizzazione). Per maggiori dettagli: 
+https://docs.oracle.com/javase/tutorial/collections/streams/parallelism.h
+tml
+  
+
+
+===== PAGE 42 =====
+Stream.collect
+Esiste un’altra implementazione del metodo collect che prende come parametro 
+un Collector che è una classe che incapsula al suo interno supplier, accumulator 
+e combiner.
+La classe Collectors1 contiene numerosi metodi statici che restituiscono svariati 
+implementazioni di Collector.
+1 https://docs.oracle.com/javase/8/docs/api/java/util/stream/Collectors.html 
+Il Collector toList trasforma i risultati ottenuti dallo stream in una List. In 
+questo caso il tipo di oggetti contenuto in List è determinato dall’operazione map. 
+
+
+===== PAGE 43 =====
+Group by
+Il collector groupingBy mi permette di raggruppare gli oggetti in base ad una 
+funzione di classificazione. Nell’esempio seguente filtriamo tutte le persone con età 
+maggiore a 17 e li raggruppiamo in base al genere. Questo collector restituisce una 
+Map
+Esiste anche un’implementazione di groupingBy con due parametri: il primo è la 
+funzione di classificazione, il secondo detto downstream collector è un collector che 
+viene applicato al risultato di un altro collector
+
+
+===== PAGE 44 =====
+Group by con downstream collector
+Il Collector mapping che utilizziamo qui come downstream collector produce 
+una List dove il tipo degli elementi dipende dalla funzione passata come primo 
+argomento a mapping. In questo caso raggruppiamo per genere e inseriamo nella 
+lista solo il nome
+
+
+===== PAGE 45 =====
+Group by con downstream collector
+In questo caso il downstream collector è un’operazione di riduzione che effettua la 
+somma delle età, nell’esempio raggruppate per genere
+
+
+===== PAGE 46 =====
+Esecuzione parallela
+Verranno forniti alcuni esempi di esecuzione parallela sugli stream.
+Calcolo della media:
+Raggruppamento delle persone in base al genere:
+Per maggiori dettagli: https://docs.oracle.com/javase/tutorial/collections/streams/parallelism.html 
+
+
+===== PAGE 47 =====
+
+
+===== PAGE 48 =====
+Esercizi
+
+
+===== PAGE 49 =====
+Esercizi
+Negli esercizi successivi lavoreremo su un dataset chiamato Movielens 1M. Questo 
+dataset contiene le informazioni sulle preferenze espresse dagli utenti su un insieme 
+di film.
+Il dataset è contenuto nella cartella: resources/movielens1M, le classi per il 
+caricamento del dataset e per le relative strutture dati (User, Movie, Rating) sono 
+contenute nel package di.uniba.map.b.lab.dataset.movielens.
+Nello stesso package è contenuta la classe Movielens che si occupa di caricare i 
+dati del dataset in tre List: una degli utenti, una dei film e una delle preferenze.
+Nella cartella del dataset è contenuto anche un file README con le informazioni sul 
+contenuto dei dataset.
+Leggere attentamente il codice delle strutture dati per capire come gli attributi 
+sono memorizzati!!!
+
+
+===== PAGE 50 =====
+Esercizi
+Alcune note:
+●
+la classe Movielens si occupa di caricare i dati attraverso i tre metodi load 
+ognuno per ogni tipo di dato
+○
+in particolare il metodo loadRatings si occupa di caricare i dati da un file 
+compresso gzip, potete notare l’utilizzo della classe GZIPInputStream
+●
+l’età dell’utente è divisa in classi di età, guardare il file README
+●
+l’occupazione dell’utente è definita attraverso un codice intero, per ottenere la 
+stringa associata all’occupazione utilizzare il metodo statico di User 
+occupationToString (vedere README)
+●
+il rating (preferenza) è in una scala da 1 a 5
+●
+per ordinare uno stream si può utilizzare l’operazione (metodo) sorted di 
+Stream che restituisce un altro stream
+●
+cercare di non utilizzare gli aiuti dell’IDE per trasformare le iterazioni in 
+operazioni sugli stream e in caso di dubbi avvalersi della javadoc
+
+
+===== PAGE 51 =====
+Esercizi
+Effettuare le seguenti operazioni utilizzando il più possibile gli stream e le 
+espressioni lambda
+1. raggruppare tutti gli utenti di genere femminile con età maggiore o uguale a 25 
+anni in base all’occupazione
+2. raggruppare tutti gli utenti di genere maschile che hanno come occupazione 
+"unemployed" e raggrupparli in base allo zipcode
+3. raggruppare tutti gli utenti che hanno come occupazione "unemployed" e 
+contare quanti utenti ci sono per ogni classe di età
+4. contare quanti movie hanno un rating >3
+5. calcolare per ogni movie il rating medio dato dagli utenti
+6. calcolare il rating medio dei movie di genere “Comedy”
+7. calcolare il rating medio raggruppando per genere del movie

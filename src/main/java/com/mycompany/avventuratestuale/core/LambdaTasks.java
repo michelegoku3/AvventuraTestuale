@@ -12,14 +12,13 @@ import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
+
 /**
- * Dimostrazione completa di tutti gli 8 task dell'Esercizio Lambda
- * Expressions (Esercizi/Esercizio Lambda Expressions.pdf, p. 1-3),
- * adattati al dominio del progetto (Oggetto invece di Candidato).
+ * Raccolta di esempi su lambda, stream e pipeline applicati agli oggetti di gioco.
  */
 public class LambdaTasks {
 
-    // === Task 1: Predicate ===
+
     public static <T> List<T> filtra(List<T> lista, Predicate<T> criterio) {
         return lista.stream().filter(criterio).collect(Collectors.toList());
     }
@@ -28,13 +27,13 @@ public class LambdaTasks {
         return filtra(lista, o -> o.isPrendibile() && o.isVisibile());
     }
 
-    // === Task 2: Function ===
+
     public static double sommaValoriTassati(List<Oggetto> lista) {
         Function<Oggetto, Double> tassa = o -> o.isPrendibile() ? 1.0 : 1.5;
         return lista.stream().map(tassa).mapToDouble(Double::doubleValue).sum();
     }
 
-    // === Task 3: Consumer ===
+
     public static void gridoEco(List<Oggetto> lista) {
         Consumer<Oggetto> eco = o -> {
             String nome = o.getNome();
@@ -44,7 +43,7 @@ public class LambdaTasks {
         lista.forEach(eco);
     }
 
-    // === Task 4: Comparator multi-campo ===
+
     public static void ordinaPerIdPoiNome(List<Oggetto> lista) {
         lista.sort((a, b) -> {
             int compId = Integer.compare(b.getId(), a.getId());
@@ -53,7 +52,7 @@ public class LambdaTasks {
         });
     }
 
-    // === Task 5: Pipeline filter + map + limit ===
+
     public static List<String> primiTrePrendibili(List<Oggetto> lista) {
         return lista.stream()
                 .filter(Oggetto::isPrendibile)
@@ -62,7 +61,7 @@ public class LambdaTasks {
                 .collect(Collectors.toList());
     }
 
-    // === Task 6: Pipeline filter + map + collect ===
+
     public static List<String> nomiRaccoglibili(List<Oggetto> lista) {
         return lista.stream()
                 .filter(o -> o.getId() >= 100 && o.getId() < 200)
@@ -70,7 +69,7 @@ public class LambdaTasks {
                 .collect(Collectors.toList());
     }
 
-    // === Task 7: Reduction ===
+
     public static double sommaIdRaccoglibili(List<Oggetto> lista) {
         return lista.stream()
                 .filter(Oggetto::isPrendibile)
@@ -91,7 +90,7 @@ public class LambdaTasks {
                 .orElse(0.0);
     }
 
-    // === Task 8: Collectors.groupingBy ===
+
     public static <T> Map<String, List<T>> raggruppaPer(List<T> lista,
                                                        Function<T, String> criterio) {
         return lista.stream().collect(Collectors.groupingBy(criterio));
@@ -111,7 +110,7 @@ public class LambdaTasks {
                 .collect(Collectors.toMap(Map.Entry::getKey, e -> e.getValue().get()));
     }
 
-    // === Main di test ===
+
     public static void main(String[] args) {
         Random rnd = new Random(42);
         List<Oggetto> oggetti = new ArrayList<>();

@@ -3,23 +3,39 @@ package com.mycompany.avventuratestuale.database;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+/**
+ * Gestisce connessione H2, creazione tabelle e popolamento dei dialoghi.
+ */
 public class DatabaseManager {
 
-    // Connessione ad H2 Embedded localmente [Lezioni/13 - Database Connectivity (JDBC).pdf, Slide 4, 7-8]
+
     private static final String CONNECTION_URL = "jdbc:h2:./avventuradb";
     private static final String USER = "sa";
     private static final String PASSWORD = "";
+    private static boolean inizializzato = false;
 
+    /**
+     * Apre una connessione JDBC verso il database H2 embedded.
+     *
+     * @return connessione pronta per query e update
+     * @throws SQLException se la connessione fallisce
+     */
     public static Connection getConnessione() throws SQLException {
         return DriverManager.getConnection(CONNECTION_URL, USER, PASSWORD);
     }
 
-    public static void inizializzaDatabase() {
-        // Creazione tabelle relazionali [Esercizio JDBC.pdf]
+    /**
+     * Crea le tabelle necessarie e aggiorna i dialoghi iniziali di Prometeo.
+     */
+    public static synchronized void inizializzaDatabase() {
+        if (inizializzato) {
+            return;
+        }
+
+
         String sqlPunteggi = "CREATE TABLE IF NOT EXISTS punteggi (" +
                              "id INT AUTO_INCREMENT PRIMARY KEY, " +
                              "nome_giocatore VARCHAR(255) NOT NULL, " +
@@ -38,73 +54,86 @@ public class DatabaseManager {
 
         try (Connection conn = getConnessione();
              Statement stmt = conn.createStatement()) {
-            
+
             stmt.executeUpdate(sqlPunteggi);
             stmt.executeUpdate(sqlDialoghi);
             System.out.println("Tabelle database H2 create/verificate.");
 
-            // Popola i dialoghi dell'IA Prometeo se la tabella è vuota
-            ResultSet rs = stmt.executeQuery("SELECT COUNT(*) FROM dialoghi");
-            if (rs.next() && rs.getInt(1) == 0) {
-                popolaDialoghiIniziali(conn);
-            }
-            rs.close();
-            
+
+            popolaDialoghiIniziali(conn);
+            inizializzato = true;
+
         } catch (SQLException e) {
-            System.err.println("Errore d'inizializzazione database: " + e.getMessage() + " [Code: " + e.getErrorCode() + "]");
+            throw new IllegalStateException("Errore d'inizializzazione database: " + e.getMessage() + " [Code: " + e.getErrorCode() + "]", e);
         }
     }
 
     private static void popolaDialoghiIniziali(Connection conn) throws SQLException {
-        String insertSql = "INSERT INTO dialoghi(id, testo_ia, opzione1, dest1, opzione2, dest2) VALUES (?, ?, ?, ?, ?, ?)";
-        
-        try (PreparedStatement pstmt = conn.prepareStatement(insertSql)) {
-            // Nodo 1
-            pstmt.setInt(1, 1);
-            pstmt.setString(2, "Prometeo: 'Rilevato Soggetto #12. Non dovresti essere cosciente. Sei un innesto biologico portatore.'");
-            pstmt.setString(3, "Chi sono io realmente?");
-            pstmt.setInt(4, 2);
-            pstmt.setString(5, "Fammi uscire immediatamente da qui!");
-            pstmt.setInt(6, 3);
-            pstmt.executeUpdate();
+        String mergeSql = "MERGE INTO dialoghi (id, testo_ia, opzione1, dest1, opzione2, dest2) KEY(id) VALUES (?, ?, ?, ?, ?, ?)";
 
-            // Nodo 2
-            pstmt.setInt(1, 2);
-            pstmt.setString(2, "Prometeo: 'Sei un clone organico programmato per ospitare il genoma del virus Chimera, creato dal Dr. Moretti.'");
-            pstmt.setString(3, "Cosa è successo al vero Dr. Moretti?");
-            pstmt.setInt(4, 4);
-            pstmt.setString(5, "Non mi interessa del virus, esigo di uscire!");
-            pstmt.setInt(6, 3);
-            pstmt.executeUpdate();
+        try (PreparedStatement pstmt = conn.prepareStatement(mergeSql)) {
+            upsertDialogo(pstmt, 1,
+                    "Prometeo: 'Soggetto #12. Il tuo risveglio non era previsto. Il protocollo impone che tu rimanga confinato.'",
+                    "Chi sono io?", 2,
+                    "Perche' sono rinchiuso qui?", 3);
 
-            // Nodo 3
-            pstmt.setInt(1, 3);
-            pstmt.setString(2, "Prometeo: 'Il protocollo di biocontenimento lo vieta. Il contagio distruggerebbe l'ecosistema in superficie.'");
-            pstmt.setString(3, "Ci deve essere un modo per curarlo.");
-            pstmt.setInt(4, 5);
-            pstmt.setString(5, "Troverò comunque la via per andarmene.");
-            pstmt.setInt(6, 0); // 0 indica termine dialogo
-            pstmt.executeUpdate();
+            upsertDialogo(pstmt, 2,
+                    "Prometeo: 'Sei un organismo sintetico costruito con materiale genetico umano. Moretti ti chiamava esperimento. Io preferisco chiamarti rischio.'",
+                    "Sono umano?", 6,
+                    "Chi era Moretti?", 4);
 
-            // Nodo 4
-            pstmt.setInt(1, 4);
-            pstmt.setString(2, "Prometeo: 'Moretti ha tentato di asportare il virus violando il lockdown. È stato terminato dai reattori termici.'");
-            pstmt.setString(3, "Aiutami a rimediare al suo errore e a guarire.");
-            pstmt.setInt(4, 5);
-            pstmt.setString(5, "Che orrore...");
-            pstmt.setInt(6, 0);
-            pstmt.executeUpdate();
+            upsertDialogo(pstmt, 3,
+                    "Prometeo: 'Chimera-V4 non e' solo un virus. E' un vettore di riscrittura biologica. Tu sei l'unico portatore stabile conosciuto.'",
+                    "Posso curarlo?", 5,
+                    "Allora fammi uscire.", 7);
 
-            // Nodo 5
-            pstmt.setInt(1, 5);
-            pstmt.setString(2, "Prometeo: 'Il tuo sangue contiene cloni immunitari sani. Se unisci la FIALA al SANGUE nel sintetizzatore molecolare del laboratorio genetico, otterrai la cura.'");
-            pstmt.setString(3, "Grazie Prometeo. Ci proverò immediatamente.");
-            pstmt.setInt(4, 0);
-            pstmt.setString(5, "Interrompi collegamento.");
-            pstmt.setInt(6, 0);
-            pstmt.executeUpdate();
+            upsertDialogo(pstmt, 4,
+                    "Prometeo: 'Moretti voleva superare la morte. Ha creato copie biologiche capaci di ospitare memorie, patogeni e colpa.'",
+                    "Dove teneva i suoi segreti?", 8,
+                    "Perche' mi somiglia?", 6);
 
-            System.out.println("Dialoghi dell'IA Prometeo inseriti correttamente nella tabella relazionale.");
+            upsertDialogo(pstmt, 5,
+                    "Prometeo: 'Una cura teorica esiste: campione primario Chimera-V4 piu' sangue compatibile S12. Moretti ha nascosto il campione lontano dai miei protocolli.'",
+                    "Dove devo cercare?", 8,
+                    "Cosa succede se fallisco?", 7);
+
+            upsertDialogo(pstmt, 6,
+                    "Prometeo: 'La tua umanita' non e' una variabile binaria. Hai la firma genetica di Moretti, ma le tue scelte non sono ancora state scritte.'",
+                    "Cosa devo fare adesso?", 5,
+                    "Interrompi collegamento.", 0);
+
+            upsertDialogo(pstmt, 7,
+                    "Prometeo: 'Se esci contaminato, la superficie diventera' un'estensione del laboratorio. Il contenimento non e' crudelta': e' aritmetica della sopravvivenza.'",
+                    "Esiste un'alternativa?", 5,
+                    "Interrompi collegamento.", 0);
+
+            upsertDialogo(pstmt, 8,
+                    "Prometeo: 'Moretti concentrava tutto nel suo ufficio: potere, colpa e chiavi nello stesso luogo. Anche i suoi codici erano date, non password.'",
+                    "Che data dovrei ricordare?", 9,
+                    "Cosa mi aspetta nel Nucleo?", 10);
+
+            upsertDialogo(pstmt, 9,
+                    "Prometeo: '2041. L'anno in cui Chimera smise di essere ricerca e divenne peccato industriale.'",
+                    "Cosa mi aspetta nel Nucleo?", 10,
+                    "Interrompi collegamento.", 0);
+
+            upsertDialogo(pstmt, 10,
+                    "Prometeo: 'Quando arriverai al Nucleo, dovrai scegliere: contenere, distruggere, collaborare o fuggire. Tre scelte sono logiche. Una e' umana.'",
+                    "Interrompi collegamento.", 0,
+                    "Ripeti cosa devo cercare.", 5);
+
+            System.out.println("Dialoghi dell'IA Prometeo aggiornati correttamente nella tabella relazionale.");
         }
+    }
+
+    private static void upsertDialogo(PreparedStatement pstmt, int id, String testo, String opzione1, int dest1,
+                                      String opzione2, int dest2) throws SQLException {
+        pstmt.setInt(1, id);
+        pstmt.setString(2, testo);
+        pstmt.setString(3, opzione1);
+        pstmt.setInt(4, dest1);
+        pstmt.setString(5, opzione2);
+        pstmt.setInt(6, dest2);
+        pstmt.executeUpdate();
     }
 }

@@ -7,6 +7,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.List;
 
+/**
+ * Dialog Swing per cercare punteggi nella classifica.
+ */
 public class DialogRicerca extends JDialog {
 
     private JTextField txtCerca;
@@ -15,7 +18,7 @@ public class DialogRicerca extends JDialog {
     private DefaultListModel<String> modelRisultati;
 
     public DialogRicerca(JFrame parent) {
-        super(parent, "Cerca Giocatori", true); // JDialog Modale [Lezioni/16 - Swing.pdf, Slide 50-51]
+        super(parent, "Cerca Giocatori", true);
         initComponents();
     }
 
@@ -26,7 +29,7 @@ public class DialogRicerca extends JDialog {
 
         JPanel panelSuperiore = new JPanel(new BorderLayout(5, 5));
         panelSuperiore.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
-        
+
         txtCerca = new JTextField();
         btnAvviaRicerca = new JButton("Avvia Ricerca");
         btnAvviaRicerca.addActionListener(e -> eseguiRicerca());
@@ -36,7 +39,7 @@ public class DialogRicerca extends JDialog {
         panelSuperiore.add(btnAvviaRicerca, BorderLayout.EAST);
         add(panelSuperiore, BorderLayout.NORTH);
 
-        // List con scroll dei risultati della ricerca conforme a [Esercizi/Esercizio Lab.pdf, p. 5]
+
         modelRisultati = new DefaultListModel<>();
         listRisultati = new JList<>(modelRisultati);
         JScrollPane scrollRisultati = new JScrollPane(listRisultati);
@@ -51,10 +54,10 @@ public class DialogRicerca extends JDialog {
         PunteggioDAO dao = new PunteggioDAO();
         List<Punteggio> tutti = dao.getMiglioriPunteggi();
 
-        // Filtra la lista usando gli Stream e le Lambda [Lezioni/16 - JAVA - Lambda Expressions.pdf]
+
         tutti.stream()
                 .filter(p -> p.getNomeGiocatore().toLowerCase().contains(queryStr.toLowerCase()))
-                .map(p -> p.getNomeGiocatore() + " — " + p.getPunti() + " punti (" + p.getDataPartita() + ")")
+                .map(p -> p.getNomeGiocatore() + " - " + p.getPunti() + " punti (" + p.getDataPartita() + ")")
                 .forEach(modelRisultati::addElement);
 
         if (modelRisultati.isEmpty()) {

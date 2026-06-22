@@ -3,6 +3,9 @@ package com.mycompany.avventuratestuale.core;
 import java.io.Serializable;
 import java.util.Set;
 
+/**
+ * Rappresenta un comando del parser con tipo e sinonimi riconosciuti.
+ */
 public class Comando implements Serializable {
     private static final long serialVersionUID = 1L;
     private final TipoComando tipo;

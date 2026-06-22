@@ -9,22 +9,9 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+
 /**
- * ADT Inventario conforme alla specifica algebrica non assiomatica
- * descritta nella Guida del Progetto MAP (Cap. 7, Slide 104-108 di
- * Lezioni/1 - Paradigmi di Programmazione e Astrazione.pdf).
- *
- * sort: Inventario, Oggetto, Intero, Booleano
- *
- * Costruttori:
- *   creaInv()                         -> Inventario
- *   inserisci(Inventario, Oggetto)    -> Inventario
- *
- * Osservazioni:
- *   vuoto(Inventario)                 -> Booleano
- *   quanti(Inventario)                -> Intero
- *   contiene(Inventario, Oggetto)     -> Booleano
- *   rimuovi(Inventario, Oggetto)      -> Inventario
+ * ADT serializzabile dell'inventario, coerente con la specifica algebrica del progetto.
  */
 public class Inventario implements Serializable {
     private static final long serialVersionUID = 1L;

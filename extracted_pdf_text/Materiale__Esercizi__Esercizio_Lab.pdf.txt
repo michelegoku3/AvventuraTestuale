@@ -1,0 +1,70 @@
+SOURCE: /home/user/AvventuraTestuale/Materiale/Esercizi/Esercizio Lab.pdf
+PAGES: 5
+
+===== PAGE 1 =====
+Esercizi
+Java
+Metodi Avanzati di Programmazione
+(Corso B)
+Dipartimento di Informatica
+Università degli Studi di Bari Aldo Moro
+docente: dott. Pierpaolo Basile
+
+
+===== PAGE 2 =====
+Esercizio 1: Messenger
+Facendo riferimento al codice presente in di.uniba.map.b.lab.rete.esercizi
+Realizzare il Messenger client tramite un’applicazione Java SWING come indicato 
+nello schema.
+TextArea con scroll dove vengono stampati i 
+messaggi ricevuti
+TextField dove vengono inseriti i comandi 
+dell’utente
+Button per invio comandi utenti al server
+
+
+===== PAGE 3 =====
+Esercizio 1: Messenger
+Caratteristiche facoltative da implementare:
+1.
+i comandi vengono inviati direttamente alla pressione del tasto INVIO (la 
+funzionalità del bottone rimane comunque attiva).
+Gestire l’evento keyPressed associato al TextField dei comandi
+2.
+il server oltre ad inviare il messaggio al client invia anche il nome del mittente 
+che ha inviato il messaggio. Il nome del mittente viene visualizzato prima del 
+messaggio nella forma: “<mittente>: <messaggio>”
+
+
+===== PAGE 4 =====
+Esercizio 2: Inserimento DB
+Riprendendo l’esempio del negozio online realizzare un’applicazione SWING che
+●
+abbia tre menù: DB, Inserimento, Ricerca
+●
+il menu DB ha un’unica voce Connetti che effettua una connessione ad un DB
+●
+il menu Inserimento ha due voci:
+○
+Articolo: deve aprire una Dialog per permettere l’inserimento di un nuovo Articolo 
+che verrà memorizzato nel DB
+○
+Utente: deve aprire una Dialog per permettere l’aggiunta di un nuovo Utente e 
+salvataggio nel DB. Usare una CheckBox per indicare se l’utente è Prime o no
+●
+il menu Ricerca ha un’unica voce Cerca articolo che apre una Dialog nella 
+quale si inserisce una stringa attraverso un TextField e vengono cercati nel 
+DB tutti gli articoli la cui descrizione contiene la sottostringa cercata. Gli 
+articoli trovati vengono visualizzati in una List con scroll dei risultati. La List è 
+un componente della Dialog
+●
+I menù Inserimento e Ricerca devono essere disabilitati se non è stata 
+effettuata una connessione al DB
+
+
+===== PAGE 5 =====
+Esercizio 2: Inserimento DB
+Struttura della Dialog di Cerca Articolo
+TextField per la stringa di ricerca
+Bottone per avviare la ricerca
+List con scroll dei risultati della ricerca

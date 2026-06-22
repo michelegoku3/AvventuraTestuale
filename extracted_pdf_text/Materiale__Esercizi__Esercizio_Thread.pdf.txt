@@ -1,0 +1,32 @@
+SOURCE: /home/user/AvventuraTestuale/Materiale/Esercizi/Esercizio Thread.pdf
+PAGES: 1
+
+===== PAGE 1 =====
+ 
+Esercizio: sistema di monitoraggio ambientale 
+distribuito 
+ 
+Contesto 
+Si desidera simulare un sistema di monitoraggio ambientale composto da N sensori che 
+inviano periodicamente rilevazioni di temperatura a una centrale di controllo. La Centrale 
+deve aggregare i dati e calcolare una media in tempo reale. 
+Requisiti Tecnici 
+1.​ Classe Sensore (Thread): 
+○​ Ogni sensore ha un ID univoco. 
+○​ Genera una temperatura casuale compresa tra 18 e 30 gradi centigradi ogni 
+500-2000 ms (generare questo valore in modo casuale). 
+○​ Invia il dato alla Centrale chiamando il metodo registraDato(double temp). 
+○​ Ogni sensore deve arrestarsi dopo aver effettuato 50 rilevazioni. 
+2.​ Classe Centrale: 
+○​ Mantiene una variabile sommaTemperature e un contatore 
+numeroRilevazioni. 
+○​ Il metodo registraDato deve essere thread-safe. 
+○​ La centrale, per ogni 10 rilevazioni ricevute, deve salvare la temperatura 
+media attuale (sommaTemperature/numeroRilevazioni) in un file di testo, 
+inserendo ogni media su una riga separata.  
+3.​ Classe Main: 
+○​ Inizializza la Centrale. 
+○​ Avvia 10 thread Sensore. 
+○​ Usa il metodo join() per attendere che tutti i sensori abbiano terminato 
+l'esecuzione e chiama il metodo close() di Centrale, che calcola la media 
+finale e la salva nel file di testo.

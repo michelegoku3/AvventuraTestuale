@@ -1,0 +1,382 @@
+SOURCE: /home/user/AvventuraTestuale/Materiale/Lezioni/3 - JAVA - Introduzione a JAVA.pdf
+PAGES: 34
+
+===== PAGE 1 =====
+Introduzione a JAVA
+Metodi Avanzati di Programmazione
+Laurea Triennale in Informatica
+Università degli Studi di Bari Aldo Moro
+Docente: Pierpaolo Basile
+
+
+===== PAGE 2 =====
+Roadmap
+• Introduzione alla programmazione ad oggetti (RECAP)
+• Introduzione al linguaggio JAVA
+• Gestione degli errori e collezioni di dati
+• Generics
+• Il sistema di I/O
+• La programmazione concorrente
+• Programmazione in rete
+• Accesso a DBMS (JDBC)
+• Sviluppo di interfacce grafiche con SWING
+• Programmazione funzionale
+
+
+===== PAGE 3 =====
+JAVA un po’ di storia…
+• Creato a partire da ricerche effettuate alla 
+Stanford University
+• Nel 1992 Sun Microsystem pubblica la prima 
+versione che si chiama Oak (quercia)
+– cambia il nome in JAVA per motivi di copyright
+• Sintassi molto simile a C e C++ per facilitare la 
+migrazione dei «vecchi» sviluppatori
+• La storia di JAVA è legata allo sviluppo di 
+Internet…
+
+
+===== PAGE 4 =====
+JAVA un po’ di storia…
+• Netscape integra nel suo browser la JVM (Java 
+Virtual Machine)
+– per eseguire le applet
+• Nel 1996 la Sun annuncia ufficialmente JAVA
+• Nel 2006 viene pubblicato sotto licenza GPL
+– la sua versione completamente open-source è la 
+IcedTea
+– nel 2007 anche le librerie diventano GPL
+• Nel gennaio 2010 Sun viene acquisita dalla Oracle 
+Corporation
+
+
+===== PAGE 5 =====
+JAVA caratteristiche principali
+• JAVA è
+– un linguaggio orientato agli oggetti (object-
+oriented)
+– indipendente dalla piattaforma di esecuzione 
+(multipiattaforma)
+
+
+===== PAGE 6 =====
+Orientato agli oggetti
+• Il mondo procedurale
+– un sistema di processi
+– descritto tramite un flow-chart
+– usa procedure, funzioni, strutture
+– C, Basic, Pascal, Fortran, Cobol
+• Il mondo ad oggetti
+– un sistema di cose
+– descritto come gerarchie e dipendenze tra classi
+– usa dichiarazioni di classi e di metodi
+– Simula, Smalltalk, C++, JAVA
+
+
+===== PAGE 7 =====
+Indipendente dalla piattaforma
+• Non dipende dalla macchina fisica ne dal sistema 
+operativo
+• Il codice compilato (bytecode) può essere eseguito 
+su qualunque Virtual Machine
+
+
+===== PAGE 8 =====
+IL MONDO AD OGGETTI
+
+
+===== PAGE 9 =====
+Cosa sono gli oggetti?
+• Ogni cosa nel mondo reale è un oggetto
+• Ogni oggetto ha uno stato e un suo 
+funzionamento
+
+
+===== PAGE 10 =====
+Oggetti
+Stato
+•
+Marcia corrente
+•
+Velocità di marcia
+Funzionamento
+•
+Cambia marcia
+•
+Frena
+Stato
+• Accesa
+• Spenta
+Funzionamento
+• Accendi
+• Spegni
+
+
+===== PAGE 11 =====
+Oggetti Software
+Oggetti Reali
+Stato
+Funzionamento
+Oggetti Software
+Fields
+Methods
+•
+Gli oggetti software memorizzano il loro stato in Fields 
+(variabili/attributi)
+•
+Gli oggetti software espongono il loro funzionamento 
+attraverso Methods (funzioni/metodi)
+
+
+===== PAGE 12 =====
+Oggetti software
+• Lo stato è dato da i valori che assumono i suoi 
+attributi:
+– Bicicletta -> marcia corrente=5, velocità=30 km/h
+• Il funzionamento è dato dai suoi metodi
+– Bicicletta -> cambia marcia
+– I metodi modificano lo stato dell’oggetto agendo 
+sui suoi attributi
+
+
+===== PAGE 13 =====
+Oggetti: vantaggi
+• Modularità: ogni oggetto è indipendente dagli 
+altri, il suo codice può essere gestito 
+separatamente
+• Information-hiding: i dettagli implementativi di 
+ogni oggetto sono nascosti agli altri oggetti che 
+interagiscono solo con i suoi metodi
+• Riutilizzo del codice: oggetti scritti da altri 
+possono facilmente essere ri-utilizzati o estesi
+• Ogni oggetto può facilmente essere sostituito
+
+
+===== PAGE 14 =====
+Cosa è una classe?
+• Nel mondo reale molti oggetti condividono 
+delle caratteristiche
+• Raggruppiamo gli oggetti per caratteristiche e 
+funzionamento simile
+– ad esempio tutte le biciclette che abbiamo 
+posseduto sono delle biciclette
+
+
+===== PAGE 15 =====
+Cosa è una classe?
+classe
+istanze
+
+
+===== PAGE 16 =====
+Ereditarietà
+• Alcune classi di oggetti spesso hanno delle 
+caratteristiche in comune
+– diversi tipi di bici: BMX, Mountain Bike, City Bike
+• Tutti i tipi di bici hanno caratteristiche in 
+comune ad esempio la velocità corrente o la 
+capacità di frenare
+• L’ereditarietà permette ad una classe di 
+ereditare attributi e metodi di un’altra classe
+
+
+===== PAGE 17 =====
+Ereditarietà
+BMX
+Mountain Bike
+City Bike
+BMX, Mountain Bike e City Bike ereditato tutti  gli attributi e i metodi 
+di Bike, in più avranno altri metodi e attributi specifici 
+Bike
+
+
+===== PAGE 18 =====
+Ereditarietà
+• Le istanze di BMX saranno tutte le biciclette 
+del mondo reale che sono delle BMX
+– tutte le BMX saranno anche delle Biciclette
+• L’ereditarietà è un meccanismo potente per 
+rappresentare una gerarchia tra classi
+
+
+===== PAGE 19 =====
+I package
+• JAVA permette di organizzare le classi in 
+cartelle separate
+• Ogni cartella si chiama package
+• Anche i package hanno una gerarchia
+– sottocartelle
+• Il percorso completo dei package in cui si trova 
+una classe si chiama namespace
+
+
+===== PAGE 20 =====
+I package
+mondo
+oggetti
+inanimati
+Bicicletta
+Automobile
+Il namespace di Bicicletta è: mondo.oggetti.inanimati
+
+
+===== PAGE 21 =====
+HELLO WORLD
+
+
+===== PAGE 22 =====
+Installazione ambiente
+• Installare Java JDK 21 o 25
+– https://www.oracle.com/it/java/technologies/do
+wnloads/#java21
+– https://www.oracle.com/it/java/technologies/do
+wnloads/#java25
+– scegliere la versione per il proprio sistema 
+operativo
+• Installare Apache NetBeans
+– https://netbeans.apache.org/ 
+
+
+===== PAGE 23 =====
+Installazione ambiente (note)
+• Durante le esercitazioni verrà utilizzato 
+NetBeans come IDE, ma siete liberi di scegliere 
+altri IDE
+• I sorgenti che scriveremo saranno compatibili 
+con la JDK 8
+• Tutti i progetti saranno organizzati utilizzando 
+Maven: https://maven.apache.org/
+• Il repository del corso utilizzerà git:
+https://github.com/pippokill/mapB_2526   
+
+
+===== PAGE 24 =====
+Creare il primo progetto
+• Creare un nuovo progetto
+
+
+===== PAGE 25 =====
+Creare il primo progetto
+• Selezionare Java with Maven  -> Java Application
+
+
+===== PAGE 26 =====
+Creare il primo progetto
+• Compila i campi richiesti (Project Name e Location)
+
+
+===== PAGE 27 =====
+Creare la prima classe
+L’albero del progetto contiene 
+il nodo «Source Packages» che 
+contiene i relativi Package del 
+progetto con i vari sorgenti.
+•
+Creare un Package
+•
+Click destro sul Package
+•
+Selezionare New -> Java 
+Main Class
+•
+Nella finestra di dialogo 
+inserire il nome che si 
+vuole dare alla classe
+
+
+===== PAGE 28 =====
+Scrivere il primo programma
+
+
+===== PAGE 29 =====
+Hello World…in JAVA
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package helloworldapp;
+/**
+ * The HelloWorldApp class implements an application that
+ * simply prints "Hello World!" to standard output.
+ */
+public class HelloWorldApp {
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        System.out.println("Hello World!"); // Display the string.
+    }
+}
+Commenti
+
+
+===== PAGE 30 =====
+Commenti
+/* text */
+• Il compilatore ignora ogni cosa da /* a */.
+/** documentation */
+• Commenti per la documentazione. Il compilatore 
+ignora questi commenti ma sono utilizzati dal tool 
+javadoc per creare automaticamente la 
+documentazione del codice
+// text
+• Il compilatore ignora ogni cosa da // alla fine della 
+linea
+
+
+===== PAGE 31 =====
+Definizione di una classe
+class HelloWorldApp {
+    public static void main(String[] args) {
+        System.out.println("Hello World!");
+    }
+}
+class <name> {
+} 
+
+
+===== PAGE 32 =====
+Il metodo main…
+class HelloWorldApp {
+    public static void main(String[] args) {
+        System.out.println("Hello World!"); // 
+Display the string.
+    }
+}
+• Ogni applicazione deve 
+avere almeno una classe 
+con un metodo main
+• Il metodo main è l’entry 
+point di ogni applicazione
+• Dal main possiamo 
+richiamare altre classi e 
+metodi
+
+
+===== PAGE 33 =====
+Il metodo main
+class HelloWorldApp {
+    public static void main(String[] args) {
+        System.out.println("Hello World!"); // 
+Display the string.
+    }
+}
+String[] args  sono gli 
+argomenti che possiamo 
+passare al main dalla riga di 
+comando quando 
+invochiamo un’applicazione 
+JAVA
+
+
+===== PAGE 34 =====
+La prima istruzione
+System.out.println("Hello 
+World!");
+• System è una classe delle librerie «core» di 
+JAVA
+• out è un suo attributo (un oggetto 
+PrintStream)
+• println è un metodo della classe PrintStream 
+che permette di scrivere su un dispositivo di 
+output

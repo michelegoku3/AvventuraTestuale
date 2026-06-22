@@ -4,6 +4,9 @@ import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * Modello serializzabile di un oggetto o elemento scenico del gioco.
+ */
 public class Oggetto implements Serializable {
     private static final long serialVersionUID = 1L;
 
@@ -30,7 +33,7 @@ public class Oggetto implements Serializable {
         this.sinonimi = sinonimi;
     }
 
-    // Getter e Setter (Incapsulamento) [Lezioni/2 - Paradigma OO.pdf, Slide 37]
+
     public int getId() { return id; }
     public String getNome() { return nome; }
     public void setNome(String nome) { this.nome = nome; }

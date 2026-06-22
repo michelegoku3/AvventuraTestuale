@@ -6,26 +6,16 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+
 /**
- * Classe astratta che rappresenta il motore di gioco generico.
- * Conforme alla lezione sul Paradigma OO (Lezioni/2, Slide 50-53):
- * definisce la struttura comune a qualunque avventura testuale e delega
- * i dettagli specifici alle sottoclassi concrete.
- *
- * Lo stato del gioco (stanza corrente, inventario, comandi) e'
- * gestito qui per applicare l'information hiding (Incapsulamento).
- *
- * Aggiornamento 2026-06-17: l'inventario ora e' un'istanza dell'ADT
- * Inventario (cfr. specifica algebrica in Guida Cap. 7), non piu'
- * una List<Oggetto> nuda. Questo rende il codice conforme al
- * criterio 9 del template d'esame.
+ * Classe astratta che modella lo stato comune di un'avventura testuale.
  */
 public abstract class Gioco implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private Stanza stanzaCorrente;
 
-    /** ADT Inventario conforme alla specifica algebrica. */
+
     private Inventario inventario;
 
     private List<Comando> comandi = new ArrayList<>();

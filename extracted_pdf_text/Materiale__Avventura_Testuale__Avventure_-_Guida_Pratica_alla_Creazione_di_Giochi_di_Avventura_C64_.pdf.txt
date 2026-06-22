@@ -1,0 +1,2963 @@
+SOURCE: /home/user/AvventuraTestuale/Materiale/Avventura Testuale/Avventure - Guida Pratica alla Creazione di Giochi di Avventura (C64).pdf
+PAGES: 96
+
+===== PAGE 1 =====
+uida pratica alla creazion 
+di giochi di avventura 
+Enrico Colombini 
+U 
+GRUP 
+EDITORIAL 
+JACKSON 
+
+
+===== PAGE 2 =====
+
+
+===== PAGE 3 =====
+liv El\1TURE 
+Guida pratica alla creazione 
+di giochi di avventura 
+Enrico Colombini 
+GRUPPO 
+EDITORIALE 
+JACKSON 
+Via Rosellini, 12 
+20124 Milano 
+
+
+===== PAGE 4 =====
+© Copyright per l'edizione originale: Gruppo Editoriale Jackson 
+Novembre 1985 
+GRAFICA E IMPAGINAZIONE: Roberto Pessina 
+COPERTINA: Sergio Mazzali 
+STAMPA: Stabilimento grafico A. Matarelli - Milano 
+Tutti i diritti sono riservati. Stampato in Italia. Nessuna parte di questo libro 
+può essere riprodotta, memorizzata in sistemi di archivio, o trasmessa 
+in qualsiasi forma o mezzo, elettronico, meccanico, fotocopia, registra-
+zione o altri senza la preventiva autorizzazione scritta dell'editore. 
+
+
+===== PAGE 5 =====
+
+
+===== PAGE 6 =====
+
+
+===== PAGE 7 =====
+Capitolo 1: non è mai troppo presto 
+Non è mal troppo presto per salvare I vostri preziosi programmi 
+da un triste destino. Se saltate questo capitolo, non dite poi che 
+non vi avevo avvertito. 
+La cassetta allegata alla confezione contiene le due avventure da giocare 
+ed un programma per aiutarvi a scrivere le vostre avventure originali, il 
+tutto ripetuto sul retro. Non correte i I rischio di perdere o danneggiare I 
+programmi: fate subito una copia di sicurezza (altrimenti detta~). 
+Per fare la copia di backup, procuratevi tre cassette vergini, meglio se del 
+tipo per computer (da pochi minuti, senza ·coda" e con nastro adatto), 
+accendete il calcolatore, riavvolgete la cassetta originale, scrivete: 
+LOAD "BASE" 
+e fate partire il registratore In PLAY. Quando il caricamento è terminato 
+(il registratore si ferma e riappare 11 video), togliete la cassetta 
+originale, inserite la prima delle tre cassette vergini, riavvolgetela, 
+premete REC e PLAY e scrivete: 
+SAVE "BASE" 
+Quando ha finito, riavvolgete Il nastro, scrivete: 
+VERIFY 
+e fate partire il registratore in PLAY per verificare che la registrazione 
+sia correttamente riuscita. 
+Ripetete la registrazione e la verifica di "BASE" anche sul retro della 
+vostra cassetta, poi spezzate le due linguette di protezione poste sul 
+retro, in modo da escludere cancellazlonl accidentali. 
+Riprendete ora la cassetta originale e, senza riavvolgerla, ripetete altre 
+due volte il procedimento con · ASTRONAVE" e "LUCREZIA", così: 
+______________________ } __ 
+
+
+===== PAGE 8 =====
+LOAD. ASTRONAVE" (dal l'origina le) 
+SAVE ·ASTRONAVE" (sulla seconda cassetta vergine, sui due lati) 
+VERIFY 
+E lo stesso per "LUCREZIA". Alla fine, avrete registrato tre cassette, la 
+prima con "BASE", la seconda con ·ASTRONAVE" e la terza con "LUCREZIA. 
+Riavvolgete la cassetta originale e mettetela via in un luogo sicuro. 
+Lucrezia 
+Q\OX] 
+Se avete dei problemi a leggere i programmi originali, girate la cassetta e 
+provate con il retro. Se non riuscite ancora, fate pulire, verificare e 
+allineare il vostro registratore. Se proprio non c'è niente da fare, chiedete 
+la sostituzione della cassetta. 
+Non usate più l'originale, che servirà solo da copia di sicurezza in caso di 
+danneggiamento di una delle altre. cassette E' meglio usare cassette incise 
+sul vostro registratore, in modo da non avere problemi di allineamento 
+della testina. Inoltre, i tre programmi sono divisi e non rischiate di 
+danneggiarli tutti insieme, ad esempio per uno stiramento del nastro. 
+Note: 
+- Se avete il disk drive, usate un dischetto inizializzato invece delle 
+cassette ed aggiungete un ·,a· quando fate il save: SAVE "BASE",8 (e così 
+pure per gli altri due programmi). 
+- Sempre se avete I 1 disk drive, probabilmente preferite salvare la 
+situazione di gioco su disco, non su cassetta. In questo caso, modificate la 
+linea 1095 prima di registrare i programmi, cambiando di=O In di=1 . 
+- Se avete il "turbo tape·, o un programma del genere, potete usarlo per 
+registrare sulle vostre cassette. Tenete però presente che l'affidabi I ità, 
+già non eccezionale in partenza, si riduce ulterionnente: è più facile avere 
+problemi, specialmente se rileggete il programma con un registratore 
+diverso da quello su cui è stato registrato. 
+__ 2 ______________________ 
+_ 
+
+
+===== PAGE 9 =====
+Capitolo 2: all' A vventuraf 
+Raccogliete le vostre cose e salutate gli amici: è giunta l'ora di 
+partire per un mondo sconosciuto, dove vt aspettano gloria e 
+fortuna. Oppure una fine solitaria ed ingloriosa. A voi la scelta! 
+Il fascino dei giochi di avventura sta nel loro potere: quello di creare 
+un'illusione, facendo vivere il giocatore in un mondo immaginario, ma 
+quanto mai reale per chi vi è immerso. Intendiamoci, non tutte le ci ambe I le 
+riescono col buco: come ci sono romanzi avvincenti e polpettoni da quattro 
+soldi, così si trovano avventure affascinanti ed altre semplicemente 
+noiose. Riprenderò Il discorso nel capitoli dedicati alla creazione delle 
+vostre avventure. 
+L'avventura attrae anche per lo stesso motivo che rende interessanti rebus 
+ed enigmi: la soddisfazione che si prova quando si riesce a risolverli, e che 
+è tanto maggiore quanto più il problema era apparentemente insolubi le. 
+Anche qui, non basta che i l problema sia difficile: deve essere alla portata 
+del giocatore, altrimenti c'è solo frustrazione invece che divertimento. 
+Lo schema di un gioco di avventura è semplice: i l calcolatore descrive (o 
+disegna) i I luogo in cui l'avventuriero si trova in quel momento. 11 
+giocatore (che comanda l'avventur iero e si identifica con lui) può fare una 
+serie di azioni, scrivendo semplicemente un comando alla tastiera. Per 
+esempio: 
+APRI LA PORTA 
+e riceve in risposta la descrizione delle conseguenze. Ovviamente, la 
+libertà di azione non è i llimitata. Tutti i programmi di avventura 
+·capiscono· almeno le direzioni, ad esempio: 
+NORD (o semplicemente N) 
+significa "spostati nel luogo adiacente a Nord di quello in cui ti trovi", e 
+così pure per le altre direzioni (non dimenticando ALTO e BASSO). 
+Vagando per le stanze (o genericamente "luoghi"), capita di trovare degli ' 
+_______________________ 3 __ 
+
+
+===== PAGE 10 =====
+oggetti che possono essere utili. In questo caso, basta dire: 
+PRENDI IL PUGNALE 
+per appropriarsi dell'oggetto in questione, e: 
+LASCIA IL PUGNALE 
+per abbandonarlo nel luogo in cui ci si trova. 
+Un'altra azione di fondamentale importanza è GUARDA, che fornisce quasi 
+sempre utili informazioni: 
+GUARDA IL FORZIERE 
+potrebbe dare come risposta: T aperto e contiene un tesoro" (anche se è 
+molto improbabile che sia così facile ... ). 
+Se si incontrano altre persone, o comunque esseri più o meno intelligenti, 
+può essere utile anche una conversazione: 
+PARLA CON IL DIAVOLO 
+che, magari, ha giusto un contratto da proporre (io non mi fiderei troppo ... ). 
+C'è sempre modo di conoscere gli oggetti che si possiedono in un dato 
+momento, ad esempio scrivendo: 
+INVENTARIO 
+Di solito., è anche possibile registrare la situazione di gioco per 
+riprenderla in un momento successivo, o per ripartire da un punto noto in 
+caso di spiacevoli sorprese (ritrovarsi a cena con un drago, nel ruolo 
+dell'antipasto, o cose del genere), con appositi comandi del tipo: 
+SALVA 
+(per registrare) e 
+RIPRENDI (per ripartire dal punto dove avevate registrato) 
+Questi comandi, come dicevo, sono presenti in tutti i giochi di avventura 
+(le parole non sono necessariamente le stesse). Le altre azioni ammesse 
+sono lasciate alla fantasia dell'autore, ed alla qualità del programma. Le 
+avventure meno interessanti sono quelle che ammettono una sola azione 
+__ 4 ______________________ 
+_ 
+
+
+===== PAGE 11 =====
+per risolvere un certo problema, e rispondono ·non capisco" in tutti gli 
+altri casi. Le migliori sono ricche di risposte non direttamente utili alla 
+soluzione del problema, ma che contengono prese in giro, indizi, o 
+contributi al realismo dell'ambientazione. 
+Come si risolve un'avventura 
+La prima cosa da fare è tracciare una mappa quanto più possibile accurata, 
+provando in ciascun luogo le sei possibili direzioni. lo uso una tecnica di 
+questo genere: rappresento ogni luogo con un rettangolo, collegato ai luoghi 
+adiacenti con una linea, così: 
+N 
+Piazza 
+Parco 
+w+ 
+E 
+s 
+Scale 
+Vicolo 
+Bar 
+Viale 
+Monum. 
+t'\Jseo 
+Dove non è possibile andare, si può sbarrare la direzione con un trattino, in 
+modo da ricordarsi le direzioni provate, e non dimenticare di provarle 
+tutte. Le linee diagonali, che partono dagli spigoli superiori od inferiori, 
+indicano rispettivamente movimento verso l'alto e verso il basso (ad 
+esempio: dalle scale si scende verso il monumento). Le lettere nei 
+cerchiolini sono rinvii ad altri fogli dove prosegue la mappa, se non ci sta 
+su un fogl io solo. 
+E' fondamentale provare tutte le direzioni in tutti i luoghi, altrimenti si 
+rischia di restare bloccati in situazioni senza uscita, quando magari ad Est · 
+___ ___ _________________ 5 _
+_ 
+
+
+===== PAGE 12 =====
+si stende un vasto territorio inesplorato. In casi disperati, può valer la 
+pena di ricontrollare tutta la mappa alla ricerca di eventuali e; ror i. 
+Una volta determinata la geografia dei luoghi (o almeno di quelli 
+immediatamente raggiungibìll), conviene osservare per bene tutti gli 
+oggetti ed i dettagli che sembrano interessanti (con GUARDA). E' un'altra 
+operazione essenziale, se non si vuole correre il rischio di perdere 
+informazioni vitali. 
+Terminato questo lavoro preliminare, si può cominciare a raccogliere 
+oggetti (prendendo nota sul solito foglio) ed a provare azioni di ogni 
+genere. Ma attenzione: prima di comportarsi in modo sconsiderato, o 
+comunque di compiere operazioni rischiose (come UCCIDI IL DRAGO), 
+conviene registrare la situazione (con SALVA) per non dover ricominciare 
+daccapo in caso di (probabile) esito disastroso. 
+Qualche altro consiglio, in ordine sparso: 
+- Se possibile, non giocate da soli. In compagnia ci si diverte molto di più 
+ed è più facile avere buone idee. 
+- Leggete sempre le risposte con molta attenzione: spesso contengono 
+indizi o informazioni essenziali, che possono sfuggire ad un lettore 
+frettoloso. 
+- Provate tutto, ma proprio tutto quello che vi salta in mente, anche se vi 
+sembra del tutto stupido, inutile o assurdo. Non è mai detto. 
+- Cercate di entrare nello spirito del gioco: alcune avventure richiedono 
+forza bruta (ATTACCA IL DRAGO), altre giocano sull'astuzia o il 
+ragionamento (PARLA CON IL DRAGO), altre sono surreali od originali 
+(ACCAREZZA IL DRAGO). 
+- Tornate più volte negli stessi posti: la scena può essere cambiata (di 
+solito c'è qualche indizio che lo suggerisce). 
+- Se una parola non viene accettata (ad esempio ROMPI), provate qualche 
+sinonimo (come SPACCA, SPEZZA, FRANTUMA, DISTRUGGI) prima di 
+concludere che l'azione non è quella giusta. 
+Ed ora, è giunto il momento di affrontare la prima avventura! 
+__ & ___________ ___________ _ 
+
+
+===== PAGE 13 =====
+Capitolo 3: da11o spazio profondo 
+al borgo medievale 
+Due avventure da giocare. la prima ambientata su un'astronave di 
+linea che solo la vostra abilità pu6 salvare da una sicura 
+catastrofe. la seconda In pieno sedicesimo secolo, dove si 
+dimostrerà se siete degni del titolo di cavaliere che portate. 
+Le due avventure contenute nella cassetta sono alquanto diverse tra loro, e 
+non solo nell'ambientazione. L'astronave condannata è nata soprattutto per 
+Illustrare l'impiego del mio programma per la scrittura di semplici 
+avventure in BASIC. La costruzione dell'avventura e del programma è 
+descritta In dettaglio nel Quaderno Jackson ·come scrivere un'avventura·. 
+Anche se è di limitate dimensioni, si tratta comunque di lH'l'avventura 
+completa e ben giocabile. Gli avventurieri In erba vi troveranno la loro 
+prima sfida, gli esperti possono usarla per scaldare I muscoli In vista 
+della successiva (ma non è detto che anche loro la risolvano In dieci 
+minuti!). 
+Per far partire Il gioco, occorre Innanzitutto Inserire nel registratore la 
+tmlli della cassetta contenente "ASTRONAVE". Se non avete fatto la copia 
+come descritto nel Capitolo I, è ora di farlo. Se Infatti Inserite l'originale, 
+questa si auto-cancella (non è vero, ma ve lo meritereste ... ). 
+Per far partire il programma, scrivete: 
+LOAD ·ASTRONAVE" (,8 se avete Il disk drive) 
+e, quando ha finito di leggere dal registratore e torna Il video: 
+RUN 
+Dopo qualche secondo, sarete a bordo Ce nel guai). 
+Le azioni fondamentali sono quelle citate nel capitolo 2. Ve le riassumo, 
+usando le maiuscole per evidenziare quello che voi scrivete (anche se In 
+realtà lo scrivete In minuscolo): 
+______________________ 7 __ 
+
+
+===== PAGE 14 =====
+N/S/E/O/ A/B 
+PRENDI (qualcosa) 
+LASCIA (qualcosa) 
+GUARDA (qualcosa) 
+SALVA o SAVE 
+RIPRENDI o LOAD 
+INVENTARIO, COSA o 
+semplicemente'?' 
+sono le sei possibili direzioni. 
+e 
+servono per vari oggetti. 
+fornisce utili Indizi. 
+registra la situazione corrente (vedi nota). 
+riprende la situazione registrata (vedi nota). 
+elenca gli oggetti posseduti. 
+Il programma capisce varie altre parole, che vi appariranno (spero) ovvie 
+nelle varie situazioni. Se proprio non ne venite fuori, potete ammettere la 
+vostra Incapacità e dare una sbirciatina alle linee di programma dalla 
+40000 In poi. Chissà che non vi suggeriscano qualcosa. 
+La seconda avventura, L'anello di Lucrezia Borgia. è molto più complessa e 
+rifinita. Pur essendo ben lontana dal livello di dettaglio di ·Avventura nel 
+castello" (anche perchè, non facendo uso del disco, non c'è spazio per 
+lunghe descrizioni), sono pronto a scommettere che darà filo da torcere 
+anche agli avventurieri più smaliziati. Per farla partire, inserite la 
+cassetta con "LUCREZIA" e fate: 
+LOAD "LUCREZIA" (,8 se avete il disk drive) 
+RUN 
+Dato che incontrerete varie persone, ml sembra il caso di rivolgere loro la 
+parola: potrebbero darvi utili informazioni. Inoltre, ecco un prezioso 
+consiglio: provate tutte le strade, e non solo in senso geografico. Non è 
+detto che siano vicoli ciechi. Una volta capito lo spirito dell'avventura, le 
+cose dovrebbero essere molto più faclli. Se siete abbastanza svegli, 
+naturalmente. 
+Nota: 
+Per registrare la situazione (SALVA) e rileggerla (RIPRENDI), usate 
+un'altra cassetta vergine, altrimenti distruggete Il programma (ma voi 
+avete rotto le linguette di protezione, quindi non correte rischi, vero?). 
+-- 8 ----------------------
+
+
+===== PAGE 15 =====
+Capitolo 4: creare un'avventura 
+Non è necessario essere esperti programmatori per scrtvere un 
+gioco di avventura: con ratuto del Modulo Base. basta una 
+conoscenza elementare del BASIC. 
+Dopo aver giocato con "L'astronave condannata· e "L'anello di Lucrezia 
+Borgia", sono sicuro che vi sarà venuta voglia di scrivere una vostra 
+avventura. Come si fa? Da che parte si comincia? Aiuto! 
+Calma e gesso, come dicono i giocatori di bigliardo. 11 lavoro si divide in 
+due parti: 
+- Ideare la trama dell'avventura. 
+- Scrivere il programma che la realizza. 
+La prima è la parte creativa, la seconda richiede soltanto tecnica. E' un po' 
+come dipingere un quadro: non basta avere l'immagine In mente, bisogna 
+anche trasferirla sulla tela. 
+E' chiaro che le maggiori difficoltà vengono nella seconda parte: la 
+scrittura del programma. Ci sono in circolazione, è vero, programmi già 
+fatti che consentono di scrivere semplici avventure con poca fatica, ma 
+obbligano l'autore a restare tn uno schema predefinito. Inoltre, lasciano 
+completamente all'oscuro del funzionamento· interno del programma: 
+funziona, e non chiedetevi perchè. 
+' 
+Ho preferito, invece, lavorare per due obbiettivi: 
+- Sollevare l'autore di avventure dal lavoro tecnico e noioso. 
+- Mostrare come funziona un gioco di questo tipo. 
+Ne è venuto fuori un programma che ho chiamato "Modulo Base·, con il quale 
+è possibile scrivere avventure con un minimo di conoscenza di BASIC, e con 
+la massima libertà di introdurre varianti ed effetti speciali. Per mostrare 
+che non c'è nulla di magico o misterioso in un programma del genere, l'ho 
+scritto In BASIC "pulito", senza trucchi o routine in assembly. 
+Ovviamente, "L'astronave condannata· e "L'anello di Lucrezia Borgia" sono 
+scritte impiegando il Modulo Base. 
+_______________ ________ 
+9 __ 
+
+
+===== PAGE 16 =====
+Il progetto ed Il meccanismo di funzionamento del Modulo Base sono 
+descritti In dettaglio nel Ouademo Jacl<son "Scrivere un'avventura·. In 
+queste pagine, vi guiderò invece nella realizzazione di una semplice 
+avventura di esempio, per 1 llustrarvi come si usa il programma, 
+Progettare un'avventura 
+Il progetto di un'avventura richiede prima di tutto un'ispirazione, cioè 
+l'idea base della trama, l'ambientazione e lo schema generale della 
+vicenda. 
+Una volta che si ha ben chiaro in mente quello che si intende fare, bisogna 
+passare al dettaglio. Per poterla trasformare in un programma, la trama 
+dev'essere accuratamente definita in ogni particolare: 
+- La mappa del luoghi In cui si svolge l'avventura. 
+- Il dizionario, cioè l'elenco delle parole conosciute dal programma. 
+- Gli oggetti ed i personaggi che l'avventuriero può incontrare. 
+- Le azioni, cioè le frasi che hanno effetto sul gioco nelle varie situazioni. 
+Prima di Iniziare a scrivere un'avventura, bisogna preparare una cassetta 
+(o dischetto) di lavoro. Se usate un dischetto, formattatelo con OPEH 
+15,6, 15, "H0:AUUEHTURA,AU". 
+In ogni caso, copiate il Modulo Base dalla 
+vostra cassetta (o disco) su quella (quello) di lavoro: 
+LOAO "BASE" 
+SAUE "BASE" 
+(dal la cassetta o disco originale) 
+(sul la cassetta o disco di lavoro) 
+Alla fine, avrete una cassetta o dischetto che contiene solo il programma 
+t1)0ULO BASE. E' anche consigliabile preparare un'altra cassetta o 
+dischetto Inizializzato, da usare per le copie di sicurezza del lavoro In 
+corso. 
+
+
+===== PAGE 17 =====
+Capitolo S: Operazione Zanna Bianca 
+Prima di cominciare a lavorare sul programma BASIC, bisogna 
+Impostare, almeno nelle linee generali, la trama dell'avventura 
+che si vuol real lzzare. 
+Non commettete anche voi l'errore di mettervi a scrivere un'avventura 
+senza aver ben chiara in mente la trama ed i dettagli. Risparmiereste, sì, 
+un poco di lavoro all'inizio, ma finireste col pagarlo caro. Andando avanti 
+nella scrittura del gioco, finireste col trovarvi persi in una miriade di 
+dettagli che non collimano, come in un giallo scritto male. Meglio, dunque, 
+perdere qualche ora per progettare l'avventura nei minimi particolari. 
+Tanto per smentirmi subito, non seguirò il mio stesso consiglio, e 
+costruirò un esempio un passo alla volta, aggiungendo man mano nuovi 
+dettagli. Sia chiaro che lo faccio soltanto per non presentarvi le difficoltà 
+tutte Insieme. Inoltre, l'esempio è veramente molto semplice. E poi, me lo 
+sono preparato nel dettagli prima di iniziare a scrivere. 
+La micro-avventura che userò per illustrarvi come si lavora col Modulo 
+Base si chiama ·operazione Zanna Bianca·. E' la vicenda di un agente 
+segreto, che deve "prelevare· con destrezza dei microfilm riguardanti le 
+rotte polari dei sommergibili nucleari (non si dice di quale Potenza: 
+scegliete a vostro piacimento). 
+E' chiaro che non si tratta di una vera avventura, ma solo di un esempio 
+che, tuttavia, contiene quasi tutti gli elementi usabili per la costruzione 
+di avventure vere e proprie. Non scandalizzatevi, dunque, per la semplicità 
+e la mancanza di dettaglio. Anzi, se volete poi trasformare l'esempio in 
+una vera avventura, la strada è aperta per la vostra fantasia. 
+Prima di passare alla parte tecnica, due parole sulla creazione delle 
+avventure. Ci sono alcuni punti da tenere ben presenti, se non volete 
+semplicemente aggiungere un'altra avventura insulsa alle troppe che già 
+circolano. Cercherò di indicarvi i principali: 
+- La trama dev'essere coerente. Le incoerenze spezzano il filo della 
+vicenda, e rompono il fragile incantesimo che tiene avvinto il · 
+
+
+===== PAGE 18 =====
+lettore/ giocatore (ci sono molti punti in comune tra un'avventura ed Jn 
+racconto). Parole magiche non hanno senso a bordo di un'astronave, come •Jn 
+tesoro stona in un'avventura di spionaggio: fa cadere la tensione e distr;3e 
+il giocatore dallo scopo principale. 
+-
+L'atmosfera è importante, per fare in modo che il giocatore >i 
+immedesimi col personaggio. Anche se il sistema che vi propongo nm 
+permette lunghe descrizioni, basta spesso un aggettivo per stimolare ;a 
+fantasia del giocatore. ·una sala" è semplicemente una sala, ma ·una sala 
+silenziosa· è tutt'altra cosa: chi immagina la polvere dei secoli depositata 
+sugli antichi arredi, chi sospetta che qualcosa si celi dietro il silenzio 
+innaturale ... In ogni caso, non è un posto qualunque (anche se, magari, non 
+c'è proprio niente di utile). 
+- Lo scopo dell'avventura è il divertimento dei giocatori, non il sadico 
+compiacimento dell'autore che nessuno riesca a risolverla. I problemi 
+devono essere abbastanza difficili da dare soddisfazione quando li si 
+risolve, ma non impossibili: altrimenti nessuno si diverte. Bisogna 
+collaudare l'avventura, cioè farla giocare a vari amici: se troppo pochi 
+riescono a r isolvere un certo problema, è i I caso di fornire qualche indizio 
+in più. 
+- Evitare l'errore più grave: che le difficoltà siano risolubili con una sola 
+azione, descritta con una sola frase valida. I collaudi servono soprattutto a 
+questo. Se avete previsto l'azione "Rispondi al telefono·, troverete che 
+molti scrivono invece "Prendi il telefono" o "Alza la cornetta" o simili. Se 
+ottengono solo risposte del tipo "Non capisco· o, peggio, "Non succede 
+niente·, probabilmente dopo un po· lasciano perdere. 
+- Sono i dettagli che rendono interessante un'avventura, molto più che la 
+complessità della vicenda. Più risposte inutili o secondarie sono state 
+previste, più il gioco è appassionante ed i giocatori si divertono. Per 
+esempio, in risposta ad "Accendi il televisore·, una risposta tipo "Stanno 
+trasmettendo la 2572 puntata di Dallas· è·sentaltro meglio del solito "Non 
+capisco·. Anche qui, i collaudi sono molto importanti: prendete nota di 
+tutto quello che scrivono i vostri amici, ed aggiungete risposte adeguate. I 
+giocatori non riusciranno a staccarsi dal computer, e si chiederanno come 
+diavolo avete fatto a prevedere tutte quelle possibilità. 
+
+
+===== PAGE 19 =====
+Capitolo 6: la casa del l'ambasciatore 
+11 programma si occupa automaticamente degli spostamenti. 
+Tutto quello che c"è da fare è Introdurre le descrizioni del 
+luoghi ed I loro collegamenti nelle apposite linee di DATA del 
+Modulo Base. 
+Ovviamente, i microfilm si trovano nell'appartamento dell'ambasciatore. 
+Per semplicità, tralascio tutte le stanze accessorie (bagno, cucina, ecc.), e 
+considero soltanto quelle che hanno a che fare con l'avventura. Questa è la 
+mappa st 11 izzata de 1 l'appartamento: 
+N 
+Letto 
+W+E 
+(Uscita) · · 
+Atrio 
+Studio 
+s 
+Cantina 
+Come si vede, dall'atrio si può andare a Nord (camera da letto), ad Est 
+(Studio) ed In basso (cantina). SI potrà anche andare ad Ovest per uscire 
+dal gioco, ma per ora non cl interessa (non esiste, In effetti, un altro luogo 
+ad Ovest>. 
+Elenchiamo per esteso I vari luoghi posslbl 11, numerandol I a part Ire da uno 
+ed Indicando I vari collegamenti: 
+
+
+===== PAGE 20 =====
+~ 
+~ ~ E.fil 
+~ 
+AJ.1Q. 
+~ 
+I) Camera da letto 
+atrio 
+2) Atrio 
+letto 
+studio -
+cantina 
+3) Studio 
+atrio 
+4) Cantina 
+atrio 
+I numeri del luoghi sono importanti: nel programma sono l'unico modo per 
+distinguere un luogo dall'altro. La camera da letto è Il numero I , l'atrio è il 
+numero 2, e cosi via. Anzi, vale la pena di riscrivere la tabella mettendo in · 
+evidenza i numeri (anzichè i nomi) dei vari luoghi: 
+J..um 
+~ ~ fil 
+~ 
+Alto 
+.6mQ 
+I) Carnera da letto 
+2 
+2) Atrio 
+3 
+4 
+3) Studio 
+2 
+4) Cantina 
+2 
+Questa tabella rappresenta la mappa della nostra avventura. Ci sono Infatti 
+tutte le informazioni necessarie per determinare l'effetto di uno 
+spostamento. Ad esempio, muovendosi in alto dal luogo 4 (cantina) si 
+finisce nel luogo 2 (atrio), mentre uno spostamento in basso dal medesimo 
+luogo 4 (cantina) non è possibile. Ora che la tabella è pronta, non resta che 
+Introdurla nel Modulo Base. 
+Introdurre la mappa 
+Per lavorare sul Modulo Base, occorre caricarlo. Dunque, fate: 
+LOAD "BASE" (,8 se avete il disk dr ive, d'ora in poi è sottinteso) 
+Dato che l'avventura contiene messaggi da stampare, è meglio fare in modo 
+che li video del C64 possa mostrare maiuscole e minuscole. Se non l'avete 
+
+
+===== PAGE 21 =====
+già ratto, premete inleme SHIFT e C= In modo da vedere le minuscole. 
+E' il caso di cambiare subito le prime tre linee di REM: 
+100 re• 11 avventuro : interprete e •odulo base .. 
+110 re• .. 
+di enrico colo•bini 
+•• 
+120 re• 11 (c)1965 dinosoft e jackson editrice •• 
+sostituendole con Qualcosa del genere: 
+100 re• .. avventura: operazione zanna bianca .. 
+110 re• .. 
+di pinco poi I ino 
+.. 
+120 re• .. 
+diffidate del le i•i taz ioni! .. 
+Compiuta questa importante formalità, possiamo passare a qualcosa di più 
+sostanzioso. Osservate le linee: 
+44970 re• 
+44960 re• - •appa : 
+44990 re• 
+"(5000 data "f•": re• --- luoghi e •appa, dal luogo n.1 ---
+E' proprio qui, a partire dalla linea 45000, che vanno inserite le 
+caratteristiche del luoghi, in ordine di numero. Il primo elencato sarà Il 
+numero 1, Il secondo i I numero 2, e cosl via. Iniziamo dunque dal numero 1: 
+"(5000 data •in un'a•pia ca•era da letto", "000200000000" 
+Cosa significa tutto Questo? Procediamo con ordine. Ogni linea deve 
+iniziare con I I numero di I inea, seguito dal l'Istruzione DATA (nel testo, uso 
+il maiuscolo). Per comodità, conviene usare numeri di linea di IO in 10. La 
+prima linea di DATA della mappa deve essere la numero 45000. 
+Poi va messa la descrizione del luogo (tra virgolette), considerando che 
+verrà stampata preceduta da "Sei • e seguita da un punto. 11 luogo numero I 
+appena Introdotto verrà dunque stampato cosi: 
+Sei In un'a•pia ca•era da letto . 
+
+
+===== PAGE 22 =====
+Infine, va messo l'elenco dei luoghi adiacenti. Ricordate la tabella dei 
+collegamenti? Questa era la linea riguardante la camera da letto: 
+I) Camera da letto 
+2 
+Riscriviamola usando solo numeri di due cifre, dunque 02 invece di 2, ed 
+indicando con 00 le direzioni non ammesse (dove non si può andare): 
+I) Camera da letto 
+00 
+02 
+00 
+00 
+00 
+00 
+Scriviamo ora di seguito i sei gruppi di due cifre (riguardanti nell'ordine: 
+Nord, Sud, Est, Ovest, Alto, Basso), ottenendo una stringa di 12 cifre: 
+000200000000 
+Questa stringa va riportata (tra virgolette) dopo la descrizione del luogo, 
+separata da questa con una virgola, ottenendo per l'appunto: 
+45000 data "in un'a111pia ca111era da letto","000200000000" 
+A stretto rigore, le virgolette non sono obbligatorie. Se non le mettete, 
+fate però attenzione: non potete Introdurre caratteri come virgola, due 
+punti e punto e virgola nella descrizione del luogo, ed eventuali spazi in 
+più possono creare problemi. A scanso di guai, è meglio metterle. 
+La lunghezza massima della descrizione è limitata dalla lunghezza di una 
+linea di programma. Diciamo che potete arrivare a poco più di 50 caratteri, 
+a causa della limitazione ad 80 caratteri di una linea del Commodore 
+(volendo, potete mettere la stringa di 12 cifre in una linea di DATA a sè, 
+guadagnando quindici caratteri ed arrivando quasi a 70). 
+Sistemato Il primo luogo, ripetiamo il medesimo procedimento per i 
+successivi. Al la fine, questo è i I risultato: 
+45000 data "in un'a111pia camera da letto","000200000000" 
+45010 data "in un atrio arredato con stile","010003000004" 
+45020 data "ne 11 o studi o de I I 'A11basc i at ore", "000000020000" 
+45030 data "in una cantina am11uffita" 1 "000000000200" 
+45040 data "fm" 
+Queste linee comunicano al programma tutto quanto è necessario sapere 
+
+
+===== PAGE 23 =====
+C64 Avventure -
+17 
+
+
+===== PAGE 24 =====
+sul luoghi dove si svolge l'avventura e la loro disposizione. Fate molta 
+attenzione a non dimenticare la linea finale: 
+45040 doto • r.· 
+altrimenti il programma non sa quando I luoghi sono finiti e si ferma con 
+errore prima ancora di partire (Indicando un errore intorno alla linea 
+I I 00), o comunque si confonde parecchio. 
+A questo punto, è il caso di salvare Il programma prima di provarlo, 
+sull'altro lato della cassetta: 
+SAVE "ZANNA I" e poi VERIFY 
+Girando la cassetta ad ogni SAVE, si hanno sempre le ultime due versioni. 
+Verifica e collaudo della mappa: 
+Per controllare il lavoro fatto fino a questo momento, fate: 
+RUN 
+Apparirà la scritta "Un att i1110 di pazienza ... · (mentre il programma 
+si legge i DATA), poi lo schermo verrà cancellato ed apparirà·-
+Pre111i 
+<:spazio> per continuare - ·. Se invece vi capita un ?SYHTRH ERROR, 
+un ?OUT or 
+ORTA 
+ERROR o qualcosa del genere, significa che avete 
+sbagliato ad introdurre i luoghi: verificate bene che ogni linea inizi con 
+DATA (minuscolo nel programma), seguito dalla descrizione del luogo (tra 
+virgolette), poi una virgola e le 12 cifre del collegamenti (sempre tra 
+virgolette, e controllate che siano proprio 12); controllate infine che cl 
+sia ·rm· alla fine (minuscolo e tra virgolette). 
+Se va tutto bene, obbedite al programma e premete la barra spaziatrice. 
+Leggerete sul video: 
+Sei in un'oapia caaera da letto. 
+Cosa deuo fare? 
+
+
+===== PAGE 25 =====
+Già, cosa dovete fare? Per ora, dovete provare a spostarvi nelle varie 
+direzioni, per verificare che la mappa sia corretta. Rispondete dunque: 
+Coaa devo fare? nord 
+(o semplicemente n, comunque minuscolo). Il programma risponde: 
+- Di li' non puoi andare. 
+e questo corrisponde con la nostra mappa. Scrivendo Invece: 
+Coaa devo fare? sud 
+succede che: 
+Sei in un atrio arredato con stile. 
+Coaa devo fare? 
+Ora, c'è da fare un lavoro noioso ma necessario: provare tutte le sei 
+possibili direzioni (N/S/E/O/NB) In tutti I luoghi, per verificare che la 
+mappa sia corretta In ogni particolare. Se trovate qualche errore, 
+correggetelo nella corrispondente linea di DATA. 
+In alcune avventure, può darsi che vi siano luoghi non direttamente 
+collegati tra loro: ad esempio, luoghi in cui si arriva prendendo un aereo, o 
+trasportati da una parola magica. Come fare a controllare anche questi, se 
+non cl si può arrivare? VI Insegno un trucco. 
+Supponiamo che lo studio non sia direttamente raggiungibile dall'atrio, o 
+comunque dal luogo In cui vi trovate. Per andarci, quando Il programma 
+scrive: 
+Coaa devo fare? 
+tenete premuto Il tasto RUN/STOP e date un rapido colpetto al tasto 
+RESTORE. 11 programma, colpito alla schiena, si arresterà bruscamente 
+rimettendo il video nel colore originarlo (e cancellandolo). Rimettetelo 
+subito In modo minuscole con SHIFT-C= 
+Ora 11 programma è fermo. Se lo desiderate, potete anche listare (LIST) una 
+
+
+===== PAGE 26 =====
+o più linee, ma fate attenzione a non modificare alcuna linea, altrimenti 
+perdete tutte le variabili, cioè le Informazioni che Il programma si era 
+letto dai DATA o creato per i fatti suoi. 
+Per andare nello studio, che è Il luogo 3 (terza linea del DATA della 
+mappa), scrivete: 
+lu=3:goto 760 
+(la priaa lettera è una elle ainu:scola) 
+Otterrete: 
+Sei nel lo studio del l'ambasciatore. 
+Cosa deuo fare? 
+Siete arrivati direttamente alla vostra destinazione: il luogo 3, cioè lo 
+studio. Questo sistema, come vedremo, servirà molto nella messa a punto 
+del gioco. 
+Tecnicamente, 
+avete 
+fermato 
+Il 
+programma 
+(RUN/STOP-RESTORE), 
+cambiato 11 valore di una variabile ( I u"3), e fatto ripartire il programma 
+dall'inizio del ciclo di gioco (goto 760 ). Per gli esperti: non è possibile 
+usare l'Istruzione CONT per far ripartire Il programma, perchè non funziona 
+durante una INPUT, e perchè non è stato fermato con RUN/ STOP (che, 
+comunque, ha lo stesso problema). 
+Avete imparato che la variabile lu contiene Il numero del luogo 
+corrente, cioè quello in cui si trova l'avventuriero. Cambiando numero, si 
+cambia luogo. 
+A proposito, quando volete fermare il programma per lavorarci sopra, fate 
+RUN/STOP-RESTORE come prima (non dimenticando poi SHIFT-C=). 
+Introduzione alravventura 
+Avrete notato, nel collaudo, che Il gioco Inizia In camera da letto. Perchè 
+proprio li? Perchè la camera da letto è Il luogo numero I (Il primo 
+nell'elenco del DATA). Non è però obbligatorio partire dal luogo I, anzi è 
+possibile far Iniziare l'avventura nel luogo preferito. Nel nostro caso, direi 
+che li luogo più Indicato è l'atrio, cioè il luogo numero 2. 
+C'è anche un'altra cosa da fare: scrivere una breve presentazione ed 
+
+
+===== PAGE 27 =====
+Introduzione all'avventura, che viene stampata ogni volta che si inizia il 
+gioco. 
+Entrambe queste cose sono compito di un'apposita routine di introduzione 
+al gioco, che si trova alla linea 4500. Al momento, è alquanto scarna: 
+'4'460 re• -
+introduzione -
+'4'490 re• 
+'4500 print chr$( H7) :pr int : print : pr int 
+'4510 re• - -- •ellere qui introduz ione avventuro 
+'4520 re• --- ri cordarsi 
+lu• luogo iniziale ---
+'4950 lu=1:pr int :return 
+Notate che la linea 4950 contiene lua1 . E' questo che fa in modo che il 
+gioco inizi nel luogo I. Basta una piccola modifica: 
+'4950 lu•2:pr int:return 
+E, facendo RUN: 
+dopo 11 solito ·- Premi <spazio> per continuare -·, il gioco inizia con: 
+Sei in un atrio arredato con stile. 
+Risolto Il problema di far Iniziare ti gioco nel luogo voluto, possiamo 
+scrivere l'introduzione. SI tratta soltanto di mettere alcune istruzioni 
+PRINT, a partire dalla linea 4510: 
+'4510 print "*** Operazione Zanna Bianca ***" 
+'4520 pr i nt : pr i nt 
+'4530 print "Questa e' la tuo •iss ione:" 
+'45-40 pr i nt "Recuperare i 11 i ero f i I 1 
+o aor i re! • 
+Quello che 
+va 
+stampato 
+dev'essere tra virgolette, e preceduto 
+dall'istruzione PRINT. Le due PRINT a vuoto alla linea 4520 servono per 
+stampare due linee vuote di stacco. Nel complesso, la routine di 
+Introduzione deve presentarsi così: 
+'4'460 re11 -
+i nt roduz ione -
+'4'490 re• 
+
+
+===== PAGE 28 =====
+-4500 print chr$(H7):print :print :print 
+-4510 print "*** Operazione Zanna Bianca ***" 
+<4520 print :print 
+-4530 print "Questa e' la tua •issione:" 
+-45'40 pr i nt "Recuperare 
+•i ero f i I• o •or i re! • 
+-4950 lu:2:print :return 
+Gli esperti potranno notare che ci starebbe tutto In meno linee, separando 
+le varie Istruzioni con due punti. Ho preferito la chiarezza, anche se occupa 
+un poco di spazio in più. 
+Ora, salvate il programma, non dimenticando di girare la cassetta: 
+SAVE "ZANNA2" e VERIFY 
+Perchè "ZANNA2" e non "ZANNA I"? Perchè, se avete il disco, non conviene 
+salvare sempre con lo stesso nome, altrimenti un qualunque problema (ad 
+esempio una mancanza di corrente, o lo sportellino del drive chiuso male) 
+causa la perdita di tutto ti lavoro precedente. Inoltre, è possibile risalire 
+alle versioni precedenti In caso di modifiche errate. Se avete la cassetta, 
+non vi confondete su qual'è l'ultima versione 
+Ed ora, Il solito RUN di prova: 
+Un alt imo di pazienza ... 
+e poi: 
+••• Operazione Zanna 8 i anca ••• 
+Ouesta è la tua •issione: 
+Recuperare i •icrofil• o •oriret 
+- Pre•i <spazio> per continuare -
+Naturalmente, ci vorrebbe un'Introduzione più sostanziosa, ma questo è 
+solo un esempio. Potete scrivere tutto quello che vi pare. 
+I I • - Pre• i <spazi o> per conti nuore - • alla fine è automatico. Se volete 
+
+
+===== PAGE 29 =====
+Introdurne altri, ad esempio perchè l'Introduzione non ci sta In un solo 
+video, usate l'istruzione: 
+gosub 1500 
+per fermare la stampa tra una PRINT e la successiva. Non mettete pause 
+(ritardi) nell'introduzione, sono molto fastidiose (anzi, per ora non vi 
+spiego nemmeno come si fa). 
+E' tutto chiaro? 
+Spero di sl. Non vi conviene andare avanti senza aver assimilato, e provato 
+In pratica, Il contenuto di questo capitolo. 
+Un riassunto molto sintetico di quello che ho finora Illustrato, utile per 
+non dover cercare Informazioni diluite in varie pagine, è riportato 
+nell'Appendice B. 
+
+
+===== PAGE 30 =====
+24 _ _ __ 
+_ 
+
+
+===== PAGE 31 =====
+Capitolo 7: chiave. porta e microfilm 
+In un'avventura, si Incontrano oggetti di vario tipo. Per fare In 
+modo che siano trattati dal programma In modo automatico, 
+basta Introdurre Il 
+loro nome nel dizionario e le loro 
+caratteristiche In un apposito elenco. 
+Per avere un'avventura, non basta una mappa. Bisogna anche che ci siano 
+del problemi da risolvere. DI solito, si tratta di azioni da compiere su 
+oggetti, per esempio: 
+APRI LA PORTA 
+Perchè questo sta possibile, occorre che: 
+- 11 programma ·capisca· le parole APRI e PORTA 
+- Ci sia un oggetto PORTA su cui agire. 
+- L'azione APRI LA PORTA sta stata prevista. 
+Partiamo dal primo punto: se vogliamo che il programma riconosca le 
+parole che scriviamo, bisogna che in qualche modo le conosca. Prima 
+ancora, bisogna che noi ci prepariamo un elenco delle parole che potranno 
+servire nel corso dell'avventura. Anche se è possibile aggiungerle una alla 
+volta, è senz'altro più comodo pensarne quante più possibile ed introdurle 
+In un colpo solo. 
+Per decidere quali parole insegnare al programma, dobbiamo avere un'idea 
+di quello che può succedere durante il gioco. Per non complicare troppo le 
+cose, schematizziamo l'avventura In questo modo: 
+- I microfilm sono nello studio. 
+- La porta che dall'atrio dà nello studio è chiusa a chiave. 
+- La chiave si trova In cantina. 
+Ora, scriviamo la seauenza principale. cioè la serie di azioni che porta alla 
+soluzione del gioco, a partire dall'atrio: 
+-
+- --------------------
+25 --
+
+
+===== PAGE 32 =====
+-
+B 
+(o BASSO) 
+PRENDI LA CHIAVE 
+A 
+(o ALTO) 
+APRI LA PORTA 
+E 
+(o EST) 
+PRENDI I MICROFILM 
+<va In cantina) 
+(nessuna di fficoltà) 
+(va nell'atrio) 
+(solo se ha la chiave) 
+(va nello studio, solo se la porta è aperta) 
+(nessuna difficoltà) 
+Manca un finale, ma cl penseremo dopo. Queste sono dunque le parole che il 
+programma deve per forza conoscere, perchè si possa arrivare in fondo 
+all'avventura: 
+APRI, PRENDI 
+CHIAVE, PORTA, MICROFILM 
+(verbi) 
+(oggetti) 
+Le parole che Il programma conosce sono raccolte in un apposito 
+dizionario, nel quale ci sono già alcuni vocaboli fondamentali: 
+39970 re• 
+39960 re• - dizionario: 
+39990 re• 
+.. oooo data "?", 13, "a" ,5, "agi i•, 1, "al•, 1, "al I", 1 
+.. 0010 data "al la", 1, "al le", 1, "al lo", 1, "alto" ,5 
+.. 0020 data "b" '6, "bo550°. 6 
+.. 0030 data "col",7, "con",7,"co5a",13 
+.. oo..o data "e",3,"e5t",3 
+.. ooso data "gli",7,"guorda",10 
+.. 0060 data "i",7,"il",7,"inventario",13 
+.. 0010 data "l",7,"la",7,"la5cia",9 
+.. 0060 data "le",7,"lo",7,"load",12 
+.. 0090 dota "n", 1,"nard", 1 
+.. 0100 dota ·o•,,.,•ove5t"," 
+.. 0110 data "po50",9,"prendi",6 
+.. 0120 data "riprendi",12 
+.. 0130 data "5",2,"5oli ",5,"5alvo",11 
+.. o, .. o dato "sove",11 1 "5cendi ",6,"5Ud",2 
+.. 0150 data "un",7,"una",7,"uno",7 
+.. 0160 doto ...... 
+.(0110 data "fd" : re• --- ricordor5i l'ordine alfabetico!!! ---
+
+
+===== PAGE 33 =====
+Notiamo che il vocabolario contiene già: 
+- Le sei direzioni {infatti, il programma le capisce). 
+- Articoli e preposizioni (che vengono semplicemente ignorati). 
+- 11 verbo GUARDA 
+- I verbi PRENDI e LASCIA (o POSA). 
+- I comandi SALVA (o SAVE) e RIPRENDI (o LOAD). 
+- 11 comando COSA (o INVENTARIO, o '?'). 
+Dunque, PRENDI è già contenuto nel dizionario. Cl restano da inserire APRI, 
+CHIAVE, PORTA e MICROFILM. Per farlo, occorre assegnare un codice a 
+ciascuna parola. 
+Mi spiego: osservando il dizionario, potete vedere che ogni parola è seguita 
+da un numero: il suo codice, appunto. Per esempio, LASCIA (linea 40070) è 
+seguita dal numero 9: vuol dire che 9 è il codice di LASCIA In tutto il resto 
+del programma, non verrà mai usata la parola LASCIA, ma Il suo codice (9). 
+Questo permette un notevole risparmio di tempo e memoria, ed inoltre 
+rende semplice introdurre sinonimi, cioè parole con lo stesso significato. 
+Ad esempio, nella linea 40110 vedete che anche la parola POSA ha codice 
+9. Per dire che due parole sono equivalenti, basta dare il medesimo codice. 
+Dobbiamo dunque assegnare un codice a ciascuna delle nostre parole. Non 
+c'è motivo particolare di usare un numero piuttosto che un altro, ma ci 
+sono queste limitazioni: 
+- I codici ammessi vanno da I a 98. 
+- I codici da I a 13 sono già usati. 
+Inoltre, io ho trovato comodo (ma non è per niente obbligatorio) 
+raggruppare i vocaboli dello stesso tipo. Ad esempio, in "L'anello di 
+Lucrezia Borgia" ho usato i codici da 20 in poi per i verbi, quelli da 40 in 
+poi per gli oggetti prendibili (come l'anello) e quelli da 60 In poi per gli 
+oggetti non prendibili, o i personaggi (come la strega). Usando lo stesso 
+sistema, darei questi codici: 
+APRI 
+20 
+CHIAVE 
+40 
+MICROFILM 
+41 
+PORTA 
+60 
+
+
+===== PAGE 34 =====
+Stabiliti I codici, non resta che Introdurre in dizionario le nuove parole. C'è 
+una regola fondamentale da rispettare: l'ordine alfabetico. Cominciamo con 
+1,lnserire APRI al suo posto, tra virgolette e seguito dal suo codice (20): 
+40010 doto "al lo", 7, "al le", 7, "al lo", 7, "alto" ,5, 
+"oori " .20 
+40020 doto "b" ,6, "bosso" ,6 
+Dato che APRI sta (in ordine alfabetico) tra ALTO e B, va inserito in mezzo 
+tra questi due vocaboli. E' la stessa cosa separarlo dal precedente con una 
+virgola o metterlo in una linea tutta per sè: 
+40010 doto "ollo", 7, "olle",7,"ollo",7,"olto",5 
+40015 doto "apri• .20 
+40020 doto "b",6,"bosso",6 
+Quest'ultima soluzione è più comoda, la precedente era più compatta. Dato 
+che l'avventura è molto piccola e mi interessa la chiarezza, userò la 
+seconda. Occorre fare attenzione a non mettere virgole in fondo alle linee. 
+Le virgole servono solo per separare i dati tra loro, come se fossero su 
+linee distinte. Le parole vanno in minuscolo. 
+Se avessimo dovuto Inserire, che so, ALLEATO, sarebbe stato necessario 
+modificare la linea 400 I O (non fatelo, è solo un esempio): 
+40010 doto "ollo",7,"olle",7, "glleoto".66. "ollo",7,"olto",5 
+o spezzarla: 
+40010 doto "al lo", 7, "al le", 7, "ol legto" .66 
+40012 doto "allo", 7, "alto", 5 
+Una volta capito il meccanismo, è molto semplice. Per modificare il 
+programma, assicuratevi di averlo in memoria, o fate: 
+LOAD "ZANNA2" 
+ed inserite le nuove parole nel dizionario, che alla fine deve presentarsi in 
+questo modo: 
+
+
+===== PAGE 35 =====
+39970 re• 
+39980 re• - dizionario: 
+39990 re• 
+•40000 data "?",13,"a",5,"agli ",7,"al ",7,"all",7 
+of0010 data "al la", 7, "al le", 7, "al lo", 7, "alto" ,5 
+-f0015 d!.l1!! "ggri",20 
+'40020 data "b",6,"basso",6 
+-fOOZ5 d!!1!! "i;;h Ì!!li!~·, '40 
+of0030 data "col ",7, "con",7, "cosa",13 
+ofOO.fO data "e",3, "est ",3 
+of0050 data "gl i", 7, "guarda", 10 
+of0060 data •i•, 7, • i I", 7, " inventori o", 13 
+.f0070 data "l",7,"la",7, "lascia",9 
+of0080 data "le",7, "lo",7,"lood", 12 
+.fOOe5 d!!1!! "•ii;;rgf i 11" ,of1 
+.f0090 dota "n",1, "nord",1 
+of0100 dota "o",of, "ovest", '4 
+-f0105 dg1o 
+"r;igr1g " ,~O 
+of0110 data "posa",9,"prendi",8 
+'40120 data "riprendi ", 12 
+'40130 dota • s" , 2, •sa I i " , 5, •sa I va• , 11 
+'401'40 dota "save", 11, "scendi",6, "sud",2 
+of0150 dota "un",7, "uno",7, "uno",7 
+'40160 data ...... 
+of0170 dato • fd": re• --- ricordarsi l'ordine alfabetico! !! ---
+Ora salvate i I programma, con 
+SAVE "ZANNA3" e VERIFY 
+e date Il RUN. Dopo il solito inizio, scrivete: 
+Co:ta deuo fare 1 grunt 
+-
+Hon conosco i I uerbo 'grunt ' . 
+Questo vuol dire: la parola GRUNT non è nel mio dizionario. Se la parola 
+sconosciuta è al secondo posto (gli articoli non contano), la risposta è 
+Invece: 
+-------- ---------------- Z9 --
+
+
+===== PAGE 36 =====
+Cosa deuo fare ? guarda i I grunt 
+-
+Hon conosco I a paro I a 'grunt ' . 
+Il che, Implicitamente, significa che conosce la parola GUARDA (infatti, c'è 
+nel dizionario). Ora, scriviamo una frase sensata: 
+Cosa deuo fare ? apri I a porta 
+-
+Hon capisco. 
+Perchè non capisce? Perchè conosce le singole parole APRI e PORTA, ma 
+non l'azione descritta dalle due parole combinate. Dovremo insegnargliela, 
+ma più tardi. Per adesso, notate che cl sono alcune azioni già predisposte e 
+funzionanti (le ho introdotte io, per facilitarvi il lavoro), ad esempio: 
+Cosa deuo fare ? prendi la chiave 
+-
+Qui non ne uedo. 
+Ha ragione: non c'è nessuna chiave. Abbiamo infatti inserito la parola 
+CHIAVE, ma non l'oggetto corrispondente. Dobbiamo ancora farlo. 
+Prima di passare ad occuparci degli oggetti, fate un esperimento: inserite 
+un vocabolo fuori dell'ordine alfabetico e fate partire il programma. 
+Guardate cosa succede. 
+La tavola degli oggetti 
+Perchè CHIAVE non sia una semplice parola, ma un oggetto che fa parte 
+dell'avventura, dobbiam~ inserire le caratteristiche di questo oggetto 
+nell'apposita tavola, costituita da un'elenco di linee di DATA per ora, 
+l'elenco è vuoto: 
+5<{970 re• 
+51980 re11 - ogget t i : 
+54990 re• 
+55000 data "fo": re• --- descrizioni e dati oggetti, dal n.1 ---
+
+
+===== PAGE 37 =====
+E' molto simile alla mappa: una serie di linee di DATA, terminate da "fo". 
+Ogni I inea ha questo aspetto: 
+55000 data "una chiave di :sicurezza" ,40,4 
+Ci sono una descrizione e due numeri. La prima viene usata dal programma 
+per descrivere l'oggetto (Vedo ... ). Il primo numero è il codice (nel 
+dizionario) della parola che descrive l'oggetto (40 è il codice di CHIAVE), il 
+secondo è Il luogo in cui l'oggetto inizia il gioco. 
+Attenzione: la chiave è l'oggetto numero I, in quanto è i I primo 
+dell'elenco. Non fate confusione con il 40, che è Il codtce della parola 
+CHIAVE. In altri termini: l'oggetto numero 1 risponde alla parola CHIAVE. 
+Invece di scrivere CHIAVE nell'elenco oggetti, ne scrivo il codice, cioè 40. 
+Dato che la chiave si trova in cantina, il secondo numero è 4 (ricordo che la 
+cantina è 11 luogo numero 4). 
+Non c'è alcun ordine fisso per gli oggetti (alfabetico o altro), ma bisogna 
+ricordarsi che sono identificati dalla loro posizione nell'elenco: il primo è 
+il numero 1, il secondo Il numero 2, ecc. Eventuali nuovi oggetti vanno 
+dunque aggiunti in fondo, per non creare confusione. Tanto perchè lo 
+sappiate, il programma elenca gli oggetti visibili nell'ordine in cui sono 
+nell'elenco. 
+Dunque, ecco l'elenco del nostri oggetti: 
+55000 dato "uno chiave di :sicurezza" ,40,4 
+55010 doto "de i •i crof i I• arroto I ali·, 41, 3 
+55020 doto "uno porto bi indoto" ,60,2 
+55030 doto • fo • 
+Ancora una volta, non dimenticate la chiusura "fo". Dato l'ordine In cui sono 
+messi, gli oggetti hanno questi numeri, che serviranno per Identificarli in 
+tutto il resto del programma: 
+I ) 
+chiave di sicurezza. 
+2) 
+microfilm arrotolati. 
+3) 
+porta blindata. 
+
+
+===== PAGE 38 =====
+Introdotto l'elenco degli oggetti, è il caso di salvare il programma: 
+SAVE "ZANNA4" e VERIFY 
+Spero che stiate usando, come vi ho consigliato, una cassetta corta con 
+nastro da computer: si riavvolge velocemente, e dà più sicurezza. A 
+proposito di sicurezza, è il caso di fare un SAVE "ZANNA4 .. anche sulla 
+seconda cassetta vergine (o disco inizializzato) che avevate preparato 
+(vero?) Salvando sulla seconda cassetta ogni tre versioni, e conservando la 
+seconda cassetta in un posto diverso dal la prima, avete la massima 
+sicurezza di non perdere tutto il vostro lavoro per uno stupido 
+Inconveniente (come il registratore che ha fame e decide di mangiarsi il 
+nastro). 
+D'ora in poi, non vi dirò plù di salvare il programma periodicamente. Se 
+avete capito l'antifona, bene, se no affari vostri. Tanto, non sarò io a 
+doverlo riscrivere daccapo. 
+date il RUN: 
+Sei in un utrio 11rred11to con stile. 
+Uedo una porta bi indata . 
+La porta c'è. Andiamo a vedere il resto: 
+Cosa devo fare 1 b 
+Sei in una eant ina a••uffita. 
+Uedo una eh i ave di si curezzu. 
+Come dicevo, le azioni PRENDI e LASCIA sono già predisposte, dunque è 
+come fossero automatiche: 
+Cosa devo fare ? prendi I a eh i ave 
+Fatto. 
+E possiamo verificare: 
+
+
+===== PAGE 39 =====
+Cosa devo fare 1 cosa 
+Possiedi: 
+- una chiave di sicurezza. 
+Tutto bene, dunque? Quasi: 
+Cosa devo fare ? a 
+Sei in un atrio arredato con ali le. 
+Uedo una porta b I i ndat a. 
+Cosa devo fare ? prendi la porta 
+Fatto. 
+Sei in un atrio arredato con stile. 
+Cosa devo fare ? cosa 
+Possiedi: 
+- una chiave di sicurezza. 
+- una porta b I i ndata. 
+Va be' che un agente segreto è sempre In buona forma fisica, ma portarsi 
+sottobraccio una porta blindata ml pare eccessivo. Come si fa ad Impedire 
+che la porta blindata possa essere presa tranquillamente, come qualsiasi 
+altro oggetto? Torniamo all'elenco degli oggetti: 
+55000 doto "uno chiave di sicurezzo",'40,4 
+55010 data "dei aicrofi I• orrotoloti",'41,3 
+55020 data "una porta bi indata" ,60,2 
+55030 data • fo" 
+L'ultimo numero di ogni linea, come già visto, indica il luogo iniziale 
+dell'oggetto. Ecco tutti i luoghi possibili: 
+----------------------- 33 --
+
+
+===== PAGE 40 =====
+I. . 98 
+- 1 .. -98 
+-99 
+o 
+i I luogo cOf"rispondente, 
+prendibile. 
+i I I uogo corr i spondent e, 
+non prendi b i I e . 
+i I Limbo. 
+trasportato dall'avventuriero. 
+Quindi, se un oggetto si trova nel luogo zero, significa che è in possesso 
+dell'avventuriero. Se si trova nel luogo -99, è nel Limbo, cioè In una specie 
+di deposito fuori del gioco, da cui può essere ripescato quando si vuole. 
+Se Infine Il luogo di un oggetto è negativo, vuol dire che l'oggetto non può 
+essere preso. Questo è Il caso della nostra porta blindata, dunque 
+correggiamo: 
+55000 doto "uno chiave di sicurezza• ,.(0,.( 
+55010 doto "dei •icrofi I• orrotolot i• ,.(1,3 
+55020 doto "uno porto bi indoto" ,60, =2.. 
+55030 doto • fo • 
+e proviamo (RUN): 
+Sei in un atrio arredato con stile. 
+Uedo una porta b I i ndat a. 
+Coaa deuo fare ? prendi la porta 
+- Hon e' posalbile. 
+Cosl va meglio. Però: 
+Sei in un atrio arredato con at I le. 
+Uedo una porta bi indata. 
+Coaa deuo fare ? e 
+Sei nel lo studio del I 'ft•baaciatore. 
+Uedo de i • i ero f i I• arroto I al I . 
+La porta blindata non blocca Il passaggio! Per forza, come fa il programma 
+a saperlo se non glielo spieghiamo? E' ora di passare all'azione, ed a questo 
+è dedicato Il prossimo capitolo. 
+
+
+===== PAGE 41 =====
+Capitolo 8: una porta chiusa a chiave 
+Il programma deve conoscere le azioni che Il giocatore può 
+compiere. ciascuna delle qualt è deflntta da una certa frase 
+scritta In un certo luogo. L'effetto dt un'azione consiste. tn 
+genere. nella stampa dt un messaggio e nella modifica della 
+posizione di uno o più oggetti. 
+Torniamo alla nostra porta blindata. Deve aprirsi con la frase: 
+APRI LA PORTA 
+ma solo se l'avventuriero possiede la chiave (che abbiamo messo in 
+cantina). La prima cosa da fare è insegnare al programma a riconoscere la 
+frase APRI LA PORTA Dato che gli articoli sono ignoratt, la frase si r iduce 
+In realtà a: 
+APRI PORTA 
+C'è un altro punto da considerare: la frase deve valere soltanto nell'atrio, 
+cioè nel luogo 2, dove si trova la porta. Riassumendo: 
+Luogo: 
+Prima parola: 
+Seconda parola: 
+ATRIO 
+APRI 
+PORTA 
+Sostituiamo le parole con I rispettivi codici: l'atrio è il luogo numero 2, 
+APRI e PORTA hanno rispettivamente codice 20 e 60 nel dizionario: 
+Luogo: 
+Prima parola: 
+Seconda parola: 
+2 
+20 
+60 
+Portiamo a due cifre tutti I numeri. In questo caso, è solo il numero del 
+luogo che richiede una modifica: 
+
+
+===== PAGE 42 =====
+Luogo: 
+Prima parola: 
+Seconda parola: 
+02 
+20 
+60 
+e flnalmente uniamo I tre numeri, ottenendo un unico numero di sei cifre: 
+022060 
+Questo è il codtce della frase APRI LA PORTA nel luogo 2 (l'atrio). Dato 
+che si tratta di un numero (e non di una stringa), lo zero iniziale può 
+essere tralasciato (insomma, era inutile aggiungerlo): 
+22060 
+Conviene, comunque, abituarsi a fare questo lavoro con sei cifre: due per il 
+luogo, due per la prima parola e due per la seconda parola, togliendo alla 
+fine lo zero o gli zeri Iniziali di troppo. E' meno facile sbagliarsi. 
+Che ce ne facciamo di questo numero? Scommetto che avete già indovinato: 
+lo Introduciamo nell'apposita tavola delle aztont. Al momento, cl sono 
+alcune azioni già predisposte: 
+<{9970 re• 
+<{9960 re• - ozi on i : 
+<{9990 re• 
+50000 doto 100,1,200,1,300,1,<{00,1,500,1,600,1,699,-2,999,3 
+50010 doto 1000, <{I 1099 I-<{ I 1100, 5, 1200, 6, 1300, 1 
+50020 data •fa": re• --- r i cordars I I 'ordine nu•er i co !! ! 
+Ogni azione è Indicata con due numeri: 11 codice della frase ed Il 
+numero dell'azione. 11 primo non è altro che Il numero che abbiamo 
+appena preparato, Il secondo merita un'ulteriore spiegazione. Per Il 
+momento, diciamo che è un numero compreso tra 8 e 160 e che conviene 
+usare i 1 primo numero libero. Dato che non ne abbiamo ancora impiegato 
+nessuno, usiamo 8. 
+L'azione va Introdotta nella tavola rispettando l'ordtne numertco del 
+codici di frase (il numero di azione non conta). Se cl si sbaglia, niente 
+paura: il programma non parte e segnala un errore, indicando I primi due 
+codici fuori ordine (esattamente come succede con Il dizionario). 
+
+
+===== PAGE 43 =====
+C64A vventure 
+37 
+
+
+===== PAGE 44 =====
+Dunque, Introduciamo la nostra azione numero 8 (APRI LA PORTA, 
+nell'atrio): 
+<f9970 re• 
+<f9980 re• - oz i on i : 
+'49990 re• 
+50000 doto 100, 1,200, 1, 300, 1, <fOO, 1, 500, 1,600, 1, 699 ,-2, 999, 3 
+50010 doto 1000,'4, 1099,-'4, 1100,5, 1200,6, 1300, 7 
+50020 dotg 22060 I 6 
+50030 doto "fa" : re• --- r icordarsi l'ordine nu•erico! ! ! ---
+e facciamo partire Il programma (RUN): 
+Sei In un atrio arredato con ali le. 
+Uedo una porta b I i ndat a. 
+Coaa devo fare ? apri la porta 
+8 
+Che vuol dire? Semplice: Il programma ha riconosciuto la frase ed ha 
+tentato di eseguire l'azione numero 8 (che dobbiamo ancora scrivere). 
+Verifichiamo che l'azione funzioni solo nell'atrio: 
+Cosa devo fare ? n 
+Sei in un'a•pia camera da letto . 
+Cosa devo fare ? apri la porta 
+- Hon capisco. 
+lnf atti, In camera da letto non c'è nessuna porta. Ora che la frase viene 
+riconosciuta, e solo nel luogo voluto, è Il momento di occuparsi dell'azione 
+vera e propria. 
+-- 38 -----------------------
+-
+
+
+===== PAGE 45 =====
+Passiamo all'azione 
+Il numero 8 che viene stampato in risposta alla frase APRI LA PORTA 
+(pronunciata nell'atrio) viene da qui: 
+6390 re• 6: 
+~~DO 11cin1 
+~:cs:turn 
+6590 re• 9: 
+6600 print 9:return 
+6790 re• 10: 
+6800 print 10:return 
+In risposta alla nostra frase, il programma ha eseguito automaticamente 
+un GOSUB 
+MOO. Se avessimo messo 9 come numero dell'azione, avrebbe 
+eseguito un GOSUB 6600, con I O un GOSUB 6800, e così via fino all'azione 
+numero 160, che fa eseguire un GOSUB 36800 (vedi Il listato del Modulo 
+Base nel lAppendice A). 
+Insomma, l'azione numero 8 consiste nell'eseguire le linee BASIC che vanno 
+dalla 6400 fino alla prima Istruzione RETURN, che termina l'azione. 
+Non è troppo chiaro? Modificate la linea 6400: 
+MOO print "Ehi, funziono! ": return 
+RUN 
+Sei In un atrio arredato con stile. 
+Uedo una porta b I i ndat a . 
+Coaa devo fare ? apri la porta 
+Ehi, funziona! 
+Visto? Possiamo costruire l'azione numero 8 come ci pare e piace. 
+Possiamo ottenere tutto quello che vogliamo. 11 problema, naturalmente, è 
+sapere cosa vogliamo. 
+La prima cosa da fare è verificare se l'avventuriero ha la chiave. In caso . 
+contrarlo, la porta non può essere aperta. Diciamolo in modo più formale: 
+
+
+===== PAGE 46 =====
+- Se non ha la chiave, stampa "Non hai la chiave" e tennlna l'azione. 
+- Altrimenti, apre la porta e tennina l'azione. 
+Come si fa a sapere se la chiave è In possesso dell'avventuriero? C'è un 
+array che contiene il luogo di ciascun oggetto. Se non sapete cos'è un array 
+(è roba che si mangia?), niente paura: per usarlo non occorre sapere com'è 
+fatto. Basta sapere che: 
+L(1) 
+è il luogo dell'oggetto I 
+L(2) 
+è il luogo dell'oggetto 2 
+L(3) 
+è li luogo dell'oggetto 3 
+(ecc.) 
+Per capire meglio la cosa, fate partire il programma (RUN), poi fennatelo 
+con Il solito RUN/STOP-RESTORE (e poi SHIFT-C• ) e scrivete: 
+print 1(1) (I è uno elle •inuscolo) 
+<f 
+Dice che Il luogo dell'oggetto I è 4, cioè che l'oggetto I si trova nel luogo 
+4. E' vero? Sl, l'oggetto I è la chiave (vedi cap.7) e li luogo 4 è la cantina. 
+Adesso lo freghiamo noi: gli cambiamo il luogo dell'oggetto I: 
+I (1)=0 
+e lo facciamo ripartire, facendo: 
+goto 760 
+Sei In atrio arredato con stile. 
+Uedo una porta bi indata. 
+Cosa deuo fare ? cosa 
+Possiedi: 
+- una chlaue di sicurezza. 
+-- 40 ----------------------
+
+
+===== PAGE 47 =====
+Cosa abbiamo fatto? Abbiamo messo l'oggetto I (la chiave) nel luogo zero. 
+Ma 11 luogo zero vuol dire "trasportato dall'avventuriero·, quindi abbiamo 
+dato la chiave in mano all'agente segreto! Con questo sistema, possiamo 
+manipolare tutti gli oggetti del gioco a nostro piacimento (Incredibile! con 
+queste diavolerie moderne, chissà dove andremo a finire). 
+Riassumendo, per sapere se l'avventuriero ha la chiave (In altri termini: se 
+la chiave è trasportata), basta l'Istruzione BASIC: 
+i f I (1)•0 then ... 
+Cioè: se (IF) l'oggetto I (la chiave) si trova nel luogo zero (trasportata), 
+allora (THEN) esegue Il resto della linea, altrimenti lo salta. Tornando alla 
+nostra azione 8 In costruzione: 
+6390 rea 6: 
+6400 i f I ( 1)<>0 then pr i nt "lfon hai I o eh i ove.• : return 
+6410 print "Ok":return 
+Dunque: se non ha la chiave (Il luogo dell'oggetto I è diverso da zero, 
+dunque non è trasportato), stampa "Non hai la chiave· e termina l'azione 
+(RETURN). In caso contrarlo (quindi, se ha la chiave), prosegue alla linea 
+successiva, che stampa "Ok" e termina l'azione. Proviamolo (RUN): 
+Sei in un atrio arredato con stile. 
+Uedo una porta b I i ndat a. 
+Cosa devo fare ? apri la porta 
+Hon hai la chiave. 
+Cosa devo fare ? b 
+Se i In una cant i na a••u ff I t a . 
+Uedo una eh i ave di s I curezza. 
+Coaa devo fare 1 prend I I a eh i ave 
+Fatto. 
+
+
+===== PAGE 48 =====
+Cosa devo fare ? a 
+Sei in un atrio arredato con at i le. 
+Uedo una porta b I i ndat a. 
+Cosa devo fare ? apri I a porta 
+Ok 
+Funziona. Per adesso si limita a stampare "01<", ma funziona: apre la porta 
+solo se ha la chiave. 
+Adesso bisogna far aprire effettivamente la porta. Sarebbe una buona cosa 
+trasformare ·una porta blindata" in "una porta blindata aperta", ma il 
+Modulo Base non consente di cambiare la descrizione di un oggetto. E 
+allora? 
+Allora, c'è un trucco molto semplice: aggiungiamo un nuovo oggetto 
+all'elenco: 
+55000 data "una chiave di sicurezza",<(0,4 
+55010 data "dei •icrofì I• 
+arrotolati",~1,3 
+55020 data "una porta bi indota" ,60,-2 
+SSQJQ dg1g "yng ggrtg bi indg1g 
+gg~rtg " ,60,-99 
+550<(0 data "fo" 
+Ricordo che I nuovi oggetti vanno aggiunti in fondo all'elenco, per non 
+alterare Il numero del precedenti. Abbiamo aggiunto l'oggetto numero 4, 
+con descrizione ·una porta blindata aperta·, che risponde alla parola PORTA 
+(codice 60 nel dizionario) e che si trova nel luogo -99. 
+Se l'avete dimenticato, li luogo -99 è Il Limbo, cioè il "deposito" degli 
+oggetti fuori gioco. All'Inizio dell'avventura, l'oggetto 4 non c'è. 
+Dato che siete svegli, avrete già capito il trucco: per aprire la porta, 
+scambiamo due oggetti: facciamo sparire l'oggetto 3 (la porta chiusa) e 
+facciamo apparire l'oggetto 4 (la porta aperta). Si fa in un attimo: 
+6390 re• 8: 
+MOO if 1(1)<>0 then print "Hon hai la chiave. ":return 
+M10 print "Ok" : l(3)•-99:1(fr•-2: return 
+
+
+===== PAGE 49 =====
+(Notate il segno meno del 2, perchè la porta non è prendiblle). Date il solito 
+RUN, andate a prendervi la chiave (B, PRENDI LA CHIAVE, A) e provate: 
+Sei in un atrio arredato con stile. 
+Uedo una porta bi indata. 
+Cosa devo fare 1 apri la porta 
+Ok 
+Sei in un atrio arredato con at i le. 
+Ucdo una porta bi indata aperta. 
+Nol sappiamo che sono stati scambiati due oggetti (il 3 ed il 4), ma li 
+giocatore non se ne accorge: per lui è sempre i I medesimo oggetto (la 
+porta), che ha cambiato stato (da chiusa ad aperta). 
+E la porta funziona. Se vi sembra che ci sia voluto tanto lavoro, è solo 
+perchè ho descritto tutto nei minimi partlcolari: in realtà, sono soltanto 
+quattro righe di programma (6400, 641 O, 50020 e 55030). 
+Resta una cosa da fare: la porta non blocca il passaggio! Bisogna fare in 
+modo che lo spostamento dall'atrio allo studio sia permesso solamente se 
+la porta è aperta. 
+Quando interviene la porta? Quando Il giocatore fa EST (o E) dall'atrio. 
+Dobbiamo quindi scrivere un'azione che risponde alla frase EST pronunciata 
+nell'atrio. Ma questa non va ad interferire con Il regolare funzionamento 
+della direzione EST? No, perchè la frase EST pronunciata in un certo luogo 
+è diversa dalla frase EST generica (valida in tutti i luoghi), ed ha la 
+precedenza su questa. Possiamo dunque costruire il codice di azione: 
+Luogo: 
+Prima parola: 
+Seconda parola: 
+ATRIO 
+EST 
+(nessuna) 
+02 
+03 
+00 
+Due note: il codice di EST è 3, come si vede dal vocabolario (linea 40040), 
+e lo portiamo a due cifre (03). Se la frase dev'essere composta di una sola 
+
+
+===== PAGE 50 =====
+parola, si Indica 00 come seconda parola. 11 codice dell'azione EST 
+nell'atrio è dunque: 
+020300 
+cioè 20300 (gli zeri a sinistra si possono togliere). Mettiamolo nella 
+tavola delle azioni, Indicando 11 numero dell'azione da eseguire in risposta 
+alla frase EST nell'atrio (prendiamo la prima libera: la numero 9): 
+49970 re• 
+49960 re• - az ioni : 
+49990 re• 
+50000 dot Q 100 I 1 I 200 I 1 I 300 J 1 I 400 I 1 I 500 J 1, 600 I 1 I 899 I -2 I 999 I 3 
+50010 doto 1000,4, 1099,-4,1100,5,1200,6,1300,7 
+50020 dot Q 20300 e 9 I 22060 I 8 
+50030 doto •fa• : re• --- r i cordors i 
+I 'ordine nu•er i co ! ! ! ---
+Era la stessa cosa scrivere una nuova linea di DATA, Invece di aggiungerla 
+in una linea preesistente. L'Importante è rispettare l'ordine numerico. 
+Adesso sappiamo (se avete dubbi, provatelo) che la frase EST, scritta 
+nell'atrio, causa l'esecuzione della routine di azione numero 9 (linea 6600). 
+Cosa deve fare l'azione numero 9? Semplice: 
+- Se la porta è chiusa, stampa "La porta è chiusa· e termina l'azione. 
+- Se la porta è aperta, lascia passare nello studio e termina l'azione. 
+Per sapere se la porta è chiusa, basta guardare il luogo dell'oggetto 3 (la 
+porta chiusa): se l'oggetto 3 è nel luogo -2 (l'atrio, ·-· perché non 
+prendibile), la porta è ancora chiusa, se è nel luogo -99 la porta è stata 
+aperta. La stessa cosa, a rovescio, vale per l'oggetto 4 (la porta aperta). 
+Infatti, come ricordate, l'apertura della porta consiste nel far sparire 
+l'oggetto 3 (la porta chiusa) ed apparire l'oggetto 4 (porta aperta). Dunque: 
+6590 re• 9: 
+6600 IF I (3)•-2 then print "Lo porto e' chiuso.• :return 
+6610 ??? 
+(attenti al solito segno meno in -2). Già, cosa vuol dire "lascia passare 
+
+
+===== PAGE 51 =====
+nello studio? Vuol dire spostare l'avventuriero nello studio, ctoè nel luogo 
+3. Ma questo, se ricordate, lo sappiamo già fare: basta mettere il numero 
+del nuovo luogo nella variabile LU (vedi Cap. 6). Quindi: 
+6590 re• 9: 
+6600 I F I (3)•-2 then pr int "Lo porto e' eh i uso.•: ret urn 
+6610 I u•3: return 
+Proviamo: fate RUN ed andate a prendervi la chiave, poi tornate nell'atrio: 
+Sei in un atrio arredato con stile. 
+Uedo una porta bi iodata. 
+Cosa deuo fare ? e 
+La porta e' chiusa. 
+Sei in un atrio arredato con stile. 
+Uedo una porta b I i ndat a . 
+Cosa deuo fare ? apri la porta 
+Ok 
+Sei in un atrio arredato con stile. 
+Uedo una porta bi indata aperta. 
+Cosa deuo fare ? e 
+Sei nel lo studio del 1 ' R•baaciatore . 
+Uedo de i •icrofi I• arroto I al i . 
+Finalmente, et slamo. La sequenza principale è a posto e funziona. Adesso 
+non resta che arricchirla con un po· di dettagli. 
+Nel prossimo capitolo, approfondirò anche le possibilità offerte dalle varie 
+combinazioni possibili per Il codice di azione. Una sintesi di tutto questo 
+si trova, come al solito, nell'Appendice B. Una volta finito Il l ibro, potrete 
+usare l'Appendice B come guida di r iferimento, senza dover sfogliare molte 
+pagine alla ricerca delle Informazioni che vi servono. 
+-------
+-
+-
+-
+- --- ---
+- ----- 45 -
+-
+
+
+===== PAGE 52 =====
+
+
+===== PAGE 53 =====
+~§§§~=§§§§:§§~§~~== C64 Avventure == 
+Capitolo 9: i dettagli contano 
+La qualltà di un'avventura dipende molto dal llvello di dettaglio. 
+Un buon autore dedica parecchio tempo a rifinire ed aggiungere 
+varianti. aiutandosi con i suggerimenti forniti dal collaudatorl a 
+cui fa provare 11 gioco. 
+Come dicevo, la seQuenza prtnctpale è a posto e funziona. Ma l'avventura 
+che ne risulta non è certo interessante: Il giocatore deve sorbirsi 
+un'infinità di ·non capisco·, e le uniche azioni valide sono quelle che 
+portano direttamente alla soluzione dell'avventura. Purtroppo, ci sono in 
+circolazione troppe avventure che non si discostano molto da questo 
+sistema: o si fa l'azione giusta, o niente. 
+Contrariamente a quanto sembrano pensare alcuni autori, perchè 
+un'avventura sia divertente non serve che abbia una mappa particolarmente 
+estesa, o che presenti problemi difficilissimi. Deve Invece essere molto 
+curata nei dettagli, perché sono proprio questi a dare al giocatore 
+l'illusione di vivere realmente dentro l'avventura, in un universo fantastico 
+che voi avete creato. 
+C'è però un prezzo da pagare: la rifinitura del dettagli è la parte più 
+laboriosa dell'intero lavoro, e potete aspettarvi di impiegare oltre la metà 
+del tempo complessivo. Per essere sicuri di ottenere un buon risultato, cl 
+sono due cose da fare: 
+- Aggiungere tutti I dettagli che vi vengono in mente. 
+- Far collaudare l'avventura, ed aggiungere nuovi dettagl I. 
+Iniziamo dalla prima: cosa manca nella nostra mlcro-avventura? Per prima 
+cosa, i I finale. E' ovvio che ci vuole una qualche forma dt conclusione. 
+Gran finale 
+Non cadete nell'altro errore tipico degli sceneggiatori trascurati: il finale 
+insulso del tipo ·congratulations, you win." {bravo, hai vinto). Dopo che uno 
+ha speso sangue, sudore e lacrime per risolvere l'avventura, ha diritto ad 
+
+
+===== PAGE 54 =====
+aspettarsi qualcosa di più gratificante. Direi che merita almeno una decina 
+di righe (meglio se di più) dedicate all'apoteosi della sua Impresa. 
+Dato però che non ho Intenzione di scrivere una~ vera e propria avventura, 
+ml limiterò a darvi uno spunto, che completerete voi se vorrete espandere 
+l'esempio In un'avventura vera e propria (un ottimo e divertente esercizio). 
+Ma, prima di tutto, dove mettiamo il finale? Quando l'agente trova i 
+microfilm? No, troppo presto: potrebbe ancora essere colto In flagrante. 
+Bisogna uscire sani e salvi dall'appartamento, e solo allora la missione può 
+dirsi compiuta. 
+Come f acclamo ad Impedire che l'avventuriero esca dall'appartamento 
+prima di aver trovato i microfilm? Non c'è alcun motivo per impedirglielo, 
+soltanto la sua missione fallisce miseramente se sceglie di farlo. E, si sa, 
+un agente segreto che non sia in grado di compiere una missione è del tutto 
+inutile, anzi è un lntralclo di cui liberarsi al più presto ... 
+Dunque, per concludere la missione occorre uscire dall'appartamento. 
+L'uscita è ad ovest dell'atrio, e non occorre che la mettiamo nella mappa, 
+perchè basta introdurre l'azione "Ovest" nel luogo 2 (l'atrio, appunto), così: 
+Luogo: 
+Prima parola: 
+Seconda parola: 
+ATRIO 
+OVEST 
+(nessuna) 
+02 
+04 
+00 
+Da cui: 
+020400, cioè 20400 
+che facciamo corrispondere alla prima azione libera, la numero I O: 
+'49970 re• 
+'49980 rem - az i on i : 
+'49990 rem 
+50000 data 100,1,200,1,300,1,"00,1,500,1,600,1,899,-2,999,3 
+50010 data 1000, '4, 1099 ,-", 1100, 5, 1200,6, 1300, 7 
+50020 data 20300 I 9 I 20'400' 1 o I 22060 I 8 
+50030 data •fa• : re• --- ricordarsi 
+I ' ordine nu•er i co ! ! ! ---
+
+
+===== PAGE 55 =====
+Ora si tratta di scrivere razione numero lo. Se l'agente ha trovato i 
+microfilm, la missione è riuscita, altrimenti è miseramente fallita. Per 
+evitare di uscire per errore, diamo al giocatore la possibilità di 
+confermare o annullare la sua scelta: 
+6790 re• 10: 
+6800 aS•"Uuoi 
+lasciare 1 'apparta•ento":gosub 
+1600 
+6810 i f not (a) then return 
+6820 pr i nt : i f 
+I (2)"0 goto 6850: re• ok 
+6630 print "Fedeli agli ordini, i tuoi colleghi" 
+68"0 pr i nt •e I i• i nano un agente incapace. • : gol o "000 
+6850 go sub 1500: re• <spazi o> 
+6860 poke 53280, 5 :pr int: pr i nt 
+' - Miss ione co11p iuta! 
+6870 print "Hai salvato i I tuo Paese e ti• 
+6880 pr int "se i guadagnata I a pro•oz ione a:• : pr i nt 
+6890 print • 
+111111•: print 
+6900 print "(il tuo nuovo titolo e ' cosi' segreto" 
+691 O pr i nt "che non posso neHeno no•inar I o).·: pr i nt 
+6920 print "Congratulazioni, 
+llllll!":print :end 
+C'è parecchio da dire. Iniziamo dalle linee 6800-681 O. La 6800 chiama la 
+subroutine 1600, che si occupa di porre una domanda, e torna solo quando il 
+giocatore ha risposto "si" o "no· (o almeno l'iniziale ·s·o "n"). La domanda 
+da porre va messa nella variabile aS (senza spazi o punto di domanda). Al 
+ritorno dalla subroutine, la variabile logica a conterrà il valore vero se la 
+risposta era "si", ~se era "no·. La linea 681 O significa dunque: se la 
+risposta era ·no· (NOT ~ 
+è evidentemente ~), ritorna senza fare 
+nulla. 
+Se possiede I microfilm, cioè se il luogo dell'oggetto 2 (i microfilm) è zero 
+(trasportati), la linea 6820 salta alla 6850, dove viene stampato il finale 
+positivo (missione compiuta), preceduto da un "premi <spazio> per 
+continuare· (che si ottiene con un GOSUB 1500) ed un cambio di colore di 
+fondo. Alla fine, un END conclude il programma. 
+Se Invece non ha I microfilm, Il programma prosegue diritto alla 6830, 
+dove stampa un messaggio di fallimento, e poi salta alla 4000. La routine 
+che inizia alla linea 4000 è quella del finale negativo (corrispondente di 
+solito, anche se non sempre, alla morte dell'avventuriero). Al momento, la 
+routine fa ben poco: 
+
+
+===== PAGE 56 =====
+3970 re• 
+3980 re• - •orlo -
+3990 re• 
+4000 gosub 1500: poke 53280, 2: rea < sp > 
+4010 re• -- - aellere qui i I finale negal ivo 
+4450 a$="Uuoi giocare ancora" :gosub1600: if(a)lhen 
+run:re• riparte 
+4460 print :prinl :prìnt"Ciao! ":print:end 
+Si tratta di introdurre un messaggio, alla fine del quale 11 programma 
+chiede se ripartire dall'inizio o smettere di giocare (linea 4450, notate 
+l'uso della subroutine 1600). 
+Anche qui, ci sta bene un'adeguata conclusione, di cui ml limito a fornire 
+un breve spunto: 
+3970 re• 
+3980 re• - •orlo -
+3990 re• 
+4000 gosub 1500: poke 53280, 2: re• < sp> 
+4010 prinl :prinl "La tua aissìone e' fallita .· 
+4020 prìnt "Di le non reslera ' che un" 
+4030 pr int "polveroso fascicolo, presto" 
+4040 pr int "di•enticato." :print 
+4450 a$="Uuo ì giocare ancora": gosub1600: i f(a)lhen 
+run: re11 ripart e 
+4460 print:print :print"Ciao!":print :end 
+Ora, collaudiamo il tutto (RUN): 
+Sei in un atrio arredato con stile. 
+Uedo una porta bi iodata. 
+Cosa devo fare ? o 
+Uuoi lasciare I 'apparta•ento ? no 
+Sei in un atrio arredato con ali le. 
+Uedo una porta bi iodata. 
+Cosa devo fare ? o 
+
+
+===== PAGE 57 =====
+
+
+===== PAGE 58 =====
+Uuo i I aac I are I 'appartamento 1 si 
+Fede 11 ag I i ordini , 
+I tuo i co 11 egh I 
+e I I • I nano un agente i ncapace • 
+- Pre• i <spazi o> per cont i nuore -
+la tua •Ìssione e' fai I ila. 
+Di te non reatera' che un 
+polueroao fascicolo, presto 
+dimenticato. 
+Uuo i giocare ancora ? 
+Ora, riprovate 11 tutto dopo aver preso i microfilm. Se non avete voglia di 
+fare Il giro per prendere i microfilm, usate il solito trucco: 
+- fermate Il programma con RUN/STOP-RESTORE (e poi SHIFT-C=). 
+- prendete I microfilm con 1(2)•0. 
+- fate ripartire Il programma con goto 760. 
+Con I microfilm In mano, Il finale e· diverso: 
+Sei In un atrio arredato con stile. 
+Uedo una porta b 11 ndat a. 
+Cosa deuo fare ? o 
+Uuol lasciare l'appartamento 1 si 
+- Pre• i <spazi o> per cont i nuore -
+- nlsslone co•plutal -
+Hai saluato 11 tuo Paese e t i 
+sei guadagnala la promozione a: 
+••••• 
+
+
+===== PAGE 59 =====
+(i I tuo nuovo titolo e' cosi' segreto 
+che non posso neaaeno no• i nar I o) . 
+Congratulazioni, •••••! 
+Ed il finale è a posto. Noterete, scrivendo avventure, che una delle cose più 
+noiose è la necessità di controllare l'effetto dei PRINT sul video: bisogna, 
+ogni volta, far ripartire il programma, procurarsi gli oggetti, andare nel 
+luogo giusto, ecc. C'è un sistema più semplice: chiamare direttamente le 
+linee che eseguono la stampa. Per esempio, volendo controllare il finale 
+negativo basta fare un GOSUB (a programma fermo) alla prima linea di 
+PRINT: 
+go:sub "010 
+la tua aissione e' fai I ita. 
+O i te non restera' che un 
+polveroso fascicolo, presto 
+dimenticato. 
+Questa tecnica è comodissima, anche se a volte può dare messaggi di 
+errore del tipo ?BAO SUBSCRIPT 
+ERROR se non avete prima fatto girare il 
+programma. In ogni caso, non c'è nessuna conseguenza negativa. 
+Guardarsi bene In giro 
+Una delle azioni fondamentali in ogni avventura è GUARDA. E' lecito 
+aspettarsi che un giocatore guardi ogni oggetto, alla ricerca di 
+informazioni o indizi. Sarebbe ingiusto e fastidioso rispondere sempre "non 
+noto nulla di particolare·. E' invece il caso di prevedere un'azione GUARDA 
+per tutti, o quasi tutti, gli oggetti. Per esempio, possiamo usare la prima 
+azione libera (la numero 11) per GUARDA LA CHIAVE: 
+Luogo: 
+Prima parola: 
+Seconda parola: 
+(dovunque) 
+GUARDA 
+CHIAVE 
+E' ovvio che non possiamo limitare la frase GUARDA LA CHIAVE ad un solo 
+
+
+===== PAGE 60 =====
+luogo, dato che la chiave può essere presa e portata in giro per 
+l'appartamento. Per Indicare che una frase è valida in tutti I luoghi, si 
+indica zero come numero di luogo: 
+Luogo: 
+Prima parola: 
+Seconda parola: 
+00 
+10 
+40 
+Cioè 1040. Dunque, aggiorniamo la tavola delle azioni: 
+49970 re• 
+49960 re• - azioni : 
+49990 re• 
+50000 data 100,1,200,1,300,1,400, 1,500, 1,600,1,899,-2,999,3 
+50010 data 1 000 I 4 I 1040 + 11 I 1099 I -4 I 1100 I 5 I 1200 J 6 I 1300 I 7 
+50020 data 20300,9,20400, 10,22060,8 
+50030 data • fa" : re• --- ricordarsi l'ordine nu•erico! ! ! 
+E mettiamo un messaggio come azione 11: 
+6990 re• 11 : 
+7000 print "E' una Yole di sicurezza. ":return 
+Ora, proviamo (RUN), andando per prima cosa in cantina a prendere la 
+chiave e poi scrivendo: 
+Cosa deuo fare ? guarda I a eh i aue 
+E' una Yale di :sicurezza. 
+Perfetto. O no? Riproviamo senza la chiave: 
+Cosa deuo fare ? guarda I a eh i aue 
+E' una Yale di :sicurezza. 
+Ahi! Non si accorge che non abbiamo la chiave. Bisogna modificare l'azione 
+1 1 per verificare che la chiave sia trasportata. Dato però che questo è un 
+caso molto comune, ho previsto un sistema automatico per fare Il 
+
+
+===== PAGE 61 =====
+controllo: se il numero di azione è negativo, Il Modulo Base controlla che la 
+seconda parola della frase rappresenti un oggetto presente nel luogo o 
+trasportato dall'avventuriero. Insomma, basta un segno meno: 
+49970 rea 
+49980 rea - azioni : 
+49990 rea 
+50000 doto 100, 1,200, 1,300, 1,400, 1,500,1,600, 1,899,-2,999,3 
+50010 doto 1000,4, 1040.-11'1099,-4, 1100,5, 1200,6, 1300,7 
+50020 doto 20300,9,20400,10,22060,8 
+50030 doto "fa" : rea --- r i cordors i 
+l'ordine nuaerico! ! ! 
+Riprovando (RUN) senza la chiave: 
+Cosa deuo fare ? guarda la chiave 
+- Qui non ne uedo. 
+mentre, con la chiave presa o visibile, funziona tutto come prima. Perchè 
+questo controllo non viene fatto automaticamente su tutte le frasi? Per 
+consentire la massima libertà in frasi come "CERCA LA CHIAVE" , a cui si 
+può rispondere "cercatela da te" anche se non è presente, tanto per fare un 
+esempio. 
+Lascio a voi 11 compito di aggiungere l'azione GUARDA per tutti gli altri 
+oggetti, ricordandovi di mettere un meno davanti al numero di azione 
+quando si tratta di un oggetto trasportabl le. 
+Altre azioni da aggiungere? Quando avete finito le idee, prendete qualche 
+vostro amico, nominatelo ufficialmente "collaudatore di primo livello" e 
+fatelo giocare, prendendo note senza dire nulla: in mezz'ora avrete un notes 
+pieno di frasi a cui non avevate minimamente pensato. Armatevi di 
+pazienza, ed Introducetele (ampliando 11 vocabolario con le nuove parole). 
+E' così che si costruisce una bella avventura. 
+Aztont per tuttt t gustt 
+Avrete notato che cl sono varie possibl Il combinazioni per Il codice di 
+
+
+===== PAGE 62 =====
+azione. Ve le descrivo una per una, ricordandovi che potrete poi consultare 
+l'Appendice B per ricordarvele quando vi servono. 
+Con frasi di una sola parola, sapete già che basta indicare 00 come codice 
+della seconda parola. ad esempio, per NORD nel luogo 3: 
+Luogo: 
+Prima parola: 
+Seconda paro 1 a: 
+03 
+01 
+00 
+quindi il codice è 30 I 00. Cl sono due possibl 1 i combinazioni, che elenco in 
+ordine di precedenza: 
+I - Parola valida in un certo luogo. 
+2 - Parola valida ovunque. 
+La precedenza significa che il programma guarda per prima cosa se è stata 
+prevista l'azione come valida nel luogo corrente dell'avventuriero (come il 
+nostro EST nell'atrio). Se non la trova, guarda se l'azione è stata prevista 
+come valida in tutti i luoghi (come un EST generico). Se non la trova 
+ancora, stampa "non capisco". 
+Con le frasi di due parole, ci sono quattro combinazioni, che sono 
+esaminate in quest'ordine: 
+I - Prima parola+ seconda parola, valide in un certo luogo. 
+2 - Prima parola+ parola qualunque, valide in un certo luogo. 
+3 - Prima parola + seconda parola, valide ovunque. 
+4 - Prima parola• parola qualunque, valide ovunque. 
+11 caso I è ben noto (APRI LA PORTA, nell'atrio), come pure il caso 3 
+(GUARDA LA CHIAVE, dovunque). Per rendere l'azione valida ovunque, basta 
+mettere zero come numero di luogo. 
+I casi 2 e 4 (che differiscono tra loro solo per 11 numero di luogo, che è 
+zero nel caso 4) sono un po' particolari: l'azione viene eseguita comunque, 
+purchè et sia una seconda parola valida, cioè esistente nel dizionario. Un 
+esempio tipico (che avete usato finora senza saperlo) è PRENDI, che viene 
+eseguita qualunque sia la seconda parola che segue. E' utile sapere che in 
+questo caso la variabile OG contiene il numero dell'oggetto nominato, o 
+zero se la seconda parola non indica un oggetto. 
+
+
+===== PAGE 63 =====
+E' istruttivo esaminare come funzionano le azioni di PRENDI (linea 5200) e 
+LASCIA (linea 5400). notando che LASCIA può essere eseguita anche su 
+oggetti non presenti, mentre PRENDI ha numero di azione negativo e viene 
+quindi chiamata solo se la seconda parola indica un oggetto presente o 
+trasportato. 
+Sempre nell'appendice B, trovate le principali variabili usate dal 
+programma, che possono esservi utili nelle vostre routine di azione. Ad 
+esempio, p I$ e p2$ contengono rispettivamente la prima e la seconda 
+parola, mentre cl e c2 sono i rispettivi codici. 
+Se avete le idee un po' confuse, non perdetevi d'animo. Cominciate a 
+scrivere una piccola avventura, e vedrete che molte cose si chiariranno 
+man mano. E mi raccomando: fate più errori possibile. Sbagliando s'impara! 
+
+
+===== PAGE 64 =====
+53 _
+_
+_
+_ _  
+_ 
+
+
+===== PAGE 65 =====
+Capitolo 10: una bomba ad orologeria 
+Il Modulo Base permette anche di Inserire nell'avventura 11 
+fattore tempo, facendo accadere un dato evento In un momento 
+prefissato o In rapporto ad una o più altre azioni compiute 
+dal ravventurlero. 
+Un'avventura può diventare più interessante se sitiene conto del passaggio 
+del tempo. Non il tempo che il giocatore passa a pensare Quale azione 
+compiere, perchè non è il caso di aggiungere l'angoscia di una risposta 
+veloce ai molti problemi che già il poveretto si trova a dover affrontare. 
+Parlo Invece del tempo inteso come numero di mosse compiute: un esempio 
+ormai abusato è quello della lampada la cui batteria si scarica dopo un 
+certo numero di mosse, lasciando l'avventuriero al buio. 
+Nella nostra avventura, mi pare logico porre un tempo limite, come 
+avverrebbe tn condizioni reali. Non è Il caso di renderlo molto stringente: 
+diciamo 25 mosse, al termine delle quali l'ambasciatore torna a casa. 
+11 Modulo Base è già predisposto per tener conto del passaggio del tempo. 
+Ci sono cinque timer usabili a piacimento (ti, t2, t3, t4, t5), che 
+funzionano in questo modo: 
+- Un timer che sta a zero è Inattivo, cioè non ha effetto. 
+- Un timer contenente un numero positivo è in funzione. 
+Se un timer è in funzione, scende di uno ad ogni mossa, e chiama una certa 
+routine (sempre ad ogni mossa), finché non arriva a zero. Per la precisione: 
+- 11 Timer I esegue un GOSUB 3000 ad ogni mossa in cui è attivo. 
+- 11Timer2 esegue un GOSUB 3200 ad ogni mossa In cui è attivo. 
+- 11Timer3 esegue un GOSUB 3400 ad ogni mossa in cui è attivo. 
+- 11Timer4 esegue un GOSUB 3600 ad ogni mossa in cui .è attivo. 
+- 11Timer5 esegue un GOSUB 3800 ad ogni mossa in cui è attivo. 
+Dato che i timer contano alla rovescia, per farli partire occorre metterci 
+un numero positivo. Se vogliamo limitare 11 gioco a 25 mosse, possiamo 
+
+
+===== PAGE 66 =====
+fare cosi: 
+4950 I u• 2 : 1..1.:.Zi: pr i nt : ret urn 
+La linea 4950, come potete controllare sul vostro listato, è l'ultima 
+dell'introduzione. Abbiamo dunque fatto partire il Timer I (ti), che 
+funzionerà per 25 mosse prima di arrivare a zero e fermarsi. Provate a 
+fare RUN: 
+Sei in un atrio arredato con stile. 
+Uedo una porta b I i ndat a . 
+T1 
+E' apparso un "T 1 •. Se provate a far passare un po' di tempo, ad esempio 
+spostandovi tra una stanza e l'altra, vedrete che dopo 25 mosse il "TI " 
+scomparirà: a forza di togliere I, il timer è arrivato a zero e si è fermato. 
+La stampa del "TI" è stata provocata da questa routine: 
+2990 re• t 1: 
+3000 print :print "T1" :return 
+Come al solito, possiamo modificare a piacimento la routine. Nel nostro 
+caso, dobbiamo sempllcemente ignorare il timer (non far niente) se non è 
+arrivato a zero, mentre In quest'ultimo caso accade l'inevitabile: 
+2990 re11 t 1 : 
+3000 i f t 1 >O then return 
+3010 print:print "L'a•basciatore ritorna a casa. 
+3020 print "E' la fine!" :goto 4000 
+Dando il RUN, noterete che non appare più il "T 1 • (per forza, abbiamo tolto 
+Il PRtNT). Dobbiamo ora vermcare che dopo 25 mosse torni l'ambasciatore. 
+Per non aspettare 25 mosse, conviene usare il solito trucco: 
+- Fermare Il programma con RUN/ STOP-RESTORE (e poi SHIFT-C=). 
+- Abbreviare 11 tempo rimasto con t 1 =4. 
+- Ripartire con goto 760. 
+
+
+===== PAGE 67 =====
+Ora, il timer arriverà a zero in sole 3 mosse (la quarta è il goto 760), e 
+stamperà: 
+L 'a•basc i at ore r i torna a casa. 
+E' la fine! 
+- Pre• i <spazi o> per cont i nuare -
+seguito dal solito finale negativo (ottenuto con il goto 4000). Nessuno 
+proibisce di arricchire la vicenda con eventi collegati a certi valori del 
+timer, ad esempio con una sequenza del tipo: 
+3000 i f t 1"5 then print "Sento un'auto che arriva.• :return 
+3010 if t1=3 then print "Sento sbattere una portiera.":return 
+3020 if t1=2 then print "Sento dei passi.":return 
+seguita dalle istruzioni viste in precedenza. La presenza di timer attivi 
+(cioè diversi da zero) rallenta un poco il programma, ma vivacizza il gioco. 
+Un esempio più complesso 
+Vediamo un altro esempio di uso dei timer. Complichiamo la vicenda, 
+mettendo la chiave in una cassaforte che si può aprire soltanto con una 
+bomba ad orologeria mascherata da sveglia. Abbiamo bisogno di questi 
+oggetti: 
+- Una sveglia di buona marca. 
+- Una solida cassaforte. 
+- Una cassaforte sventrata. 
+- Un cumulo di macerie. 
+e delle parole (a cui assegno già i codici): 
+- CARICA 
+21 
+- SVEGLIA 
+42 
+- CASSAFORTE 
+43 
+- CUt'ULO, MACERIE 
+61 
+
+
+===== PAGE 68 =====
+Modifichiamo dunque i! dizionario: 
+39970 re• 
+39980 re• - dizionario: 
+39990 re• 
+40000 dota "?", 13, "o" ,5, "agi i", 7, "al", 7, "al I", 7 
+40010 dota "al la", 7, "al le", 7, "al lo", 7, "alto" ,5 
+40020 data "b",6,"basso",6 
+40025 data "corico" .21. "cassaforte" .43. 
+"chiave" ,40 
+40030 doto "col",7,"con",7,"cosa",13, 
+"cu•ulo".61 
+40040 data "e" ,3, "est• ,3 
+40050 data "gli •, 7, "guarda", 10 
+40060 doto "i",7,"il",7,"inventario",13 
+40070 data "l",7,"la",7,"lascio",9 
+40080 data "le" ,7,"lo",7,"load",12 
+40085 data "•aceri e" .61 , "•icrofi I•" ,41 
+40090 dota "n", 1, "nord", 1 
+40100 data "o",4, "ovest",4 
+40105 dato "porta" ,60 
+40110 data "poso",9,"prendi ",8 
+40120 data "riprendi•, 12 
+40130 dato "s",2,"sali",5,"salvo",11 
+40140 doto "sove", 11, "scendi•, 6, "sud", 2, 
+"sveg I i o", i2 
+40150 doto "un", 7, "una", 7, "uno", 7 
+40160 data "•" ,4 
+40170 doto "fd" : re• -- - ricordarsi 
+l'ordine alfabetico!!! 
+e la tavola degli oggetti: 
+55000 data "una chiave di sicurezzo",40 ...=.22.. 
+55010 dota "dei •icrof i I• orrotoloti",41,3 
+55020 doto "uno porto bi indoto" ,60,-2 
+55030 dato "una porto bi indoto operto",60,-99 
+SSOiO d!il1!il "yag 
+~!i!~gl ig di bY!Ul!il 1gri;g", iZ, l 
+ssoso d!l1!il "1.1ng 
+~QI i dg 
+!<!il~~gf12r1~·,43,-4 
+SS060 dgta ·1.1ag ~g~;g f 12r1 ~ ~v~a1cgtg",4J,-22 
+SS010 da1g "1.1n 1<1.1•1.1112 gi 
+•!i!i<~r i~· 161, -22 
+55080 dato "fo" 
+-- 62 -------------------------
+
+
+===== PAGE 69 =====
+La sveglia si trova, all'inizio, in camera da letto (luogo I), e la cassaforte 
+sta in cantina (luogo 4, ma col segno meno, perchè non è prendibile) La 
+cassaforte sventrata ed il cumulo di macerie sono, ovviamente, nel Limbo 
+(-99). Notate la modifica alla linea 55000: la chiave non è più in cantina, 
+ma nel limbo; apparirà solo una volta distrutta la cassaforte. 
+Provate (RUN), e verificate che la sveglia sia in camera da letto e che si 
+possa prendere, e che la cassaforte sia in cantina, e non prendibile. 
+Si tratta ora di usare un timer per la sveglia/bomba. Dato che il timer I è 
+già Impegnato, useremo il timer 2. L'azione CARICA L~ SVEGLIA farà 
+partire il timer con un tempo abbastanza breve, diciamo 5 mosse. L'azione 
+GUARDA LA SVEGLIA ci dirà se è carica o meno. Entrambe le azioni sono 
+valide dovunque, richiedono che l'oggetto (la sveglia) sia presente (numero 
+di azione negativo), ed hanno rispettivamente codice 00-21-42 (dovunque, 
+CARICA, SVEGLIA), cioè 2142, e 00-10-42 (dovunque, GUARDA, SVEGLIA), 
+cioè I 042. Le prime azioni libere sono la 12 e la 13, dunque: 
+49970 re• 
+49960 re• - azioni: 
+49990 re• 
+50000 data 100,1,200,1,300,1,400,1,500,1,600,1,699,-2,999,3 
+50010 data 1000, 4, 1040, -11, 1012. -13 1 1099 ,-4, 1100, 5, 1200, 6, 1300, 7 
+50015 data 21i2.-12 
+50020 dal a 20300 I 9 I 20400 I 1oI22060 I 6 
+50030 data "fa": re• --- ricordar:si 
+l'ordine nu•erico!!! - - -
+Scriviamo l'azione 12 (CARICA LA SVEGLIA): 
+7190 re• 12: 
+7200 if t2>0 then print "Gia' fatto.":return 
+7210 print "Cric, cric, cric ... ":t2=5:return 
+e la 13 (GUARDA LA SVEGLIA): 
+7390 re• 13: 
+7400 i f t2•0 then print "E' :scarica.• :return 
+7410 print "Ticchetta. • :return 
+Nell'azione 12, è necessario controllare che la sveglia non sia già carica, 
+altrimenti il timer viene rimesso a 5 ogni volta (e non è realistico, anche 
+
+
+===== PAGE 70 =====
+se non pregiudica il gioco). 
+Ora fate RUN, andate in camera da letto, e provate: 
+Sei in un'a•pia ca.era da letto. 
+Uedo una sueg I i a di buona •arca. 
+Cosa deuo fare ? guarda I a sueg I i a 
+E' scarica. 
+Sei in un'a•pia camera da letto. 
+Uedo una sueg I i a di buona •arca. 
+Cosa deuo fare ? prendi la suegl ia 
+Fatto. 
+Sei in un'a•pia ca•era da letto. 
+Cosa deuo fare ? carica la suegl ia 
+Cric, cric, cric ... 
+Sei in un'a•pia ca•era da letto. 
+T2 
+Cosa deuo fare ? cari ca I a sueg·I i a 
+Gia' fatto. 
+T2 
+Cosa deuo fare ? guarda I a sueg I i a 
+Ticchetta. 
+T2 
+
+
+===== PAGE 71 =====
+C64A vventure ;;;;;;;;;;;;;;; 
+65 
+
+
+===== PAGE 72 =====
+Ed il "T2" continua ad apparire per altri due turni, dopo di che scompare: 11 
+timer 2 è arrivato a zero. Adesso, occupiamoci di questo timer: 
+- Ad ogni turno, scrive un "tic, tac" se ha la sveglia in mano Ouogo zero). 
+- A zero, la bomba esplode, e cl sono tre casi: 
+- E' nello stesso luogo dell'avventuriero: ovvia conseguenza. 
+- E' in cantina: distrugge la cassaforte ed appaiono macerie e chiave. 
+- E' in un altro luogo: appaiono solo le macerie. 
+Notate che per sapere se la sveglia (oggetto numero 5) è nello stesso luogo 
+dell'avventuriero, occorre tener conto di due casi: trasportata (luogo della 
+sveglia•O) oppure (OR) presente (luogo della sveglia·lu, cioè stesso luogo 
+dell'avventuriero). Al lavoro: 
+3190 rei t2: 
+3200 ì f 1(5)"'0 then print :print "Tic, tac, tic, tac . .. • 
+3210 ì f t2>0 then return 
+3220 print :print "[[[[[ BOOM! )])]]" 
+3230 if 1(5)•0 OR 1(5)-lu goto 4000 
+3240 if 1(5)=4 then 1(6),.-99: 1(7)•-4: 1(1)•4 
+3250 1(6)=-1(5): 1(5)•-99:return 
+La linea 3200 stampa "Tic, tac ... " solo se l'avventuriero sta trasportando la 
+sveglia (altrimenti è troppo lontano per sentirlo), la 3210 ritorna senza 
+conseguenze se Il timer non è a zero, e la 3220 fa scoppiare la bomba 
+quando il timer arriva a zero (senza controllo di luogo, dato che si sente di 
+sicuro In tutto l'appartamento). 
+Se la sveglia (oggetto 5) è presente (luogo lu) o trasportata (luogo O), 
+l'agente salta In aria (3230, si potrebbe aggiungere un messaggio), 
+altrimenti prosegue. 
+Se la sveglia (oggetto 5) si trova in cantina (luogo 4), scompare la 
+cassaforte (oggetto 6) ed appaiono la cassaforte sventrata (oggetto 7, 
+attenzione al solito segno meno) e la chiave (oggetto 1 ). Si potrebbe anche 
+non far apparire la chiave, e richiedere che Il giocatore scriva GUARDA LA 
+CASSAFORTE o, meglio ancora, GUARDA LE MACERIE. 
+La 3250 fa, in ogni caso, apparire le macerie (oggetto 8) e sparire la 
+sveglia (oggetto 5). Ancora una volta, attenzione al segno meno: dato che le 
+macerie non sono prendibili, devono apparire nel luogo -1(5), non nel luogo 
+1(5). Ho usato 1(5) Invece di un numero fisso, perchè non è possibile sapere 
+dove esplode la bomba, se non guardando dove si trova la sveglia. 
+
+
+===== PAGE 73 =====
+Fate RUN, andate a prendere la sveglia, e scendete in cantina: 
+Sei in una cantina amauffita. 
+Uedo una solida cassaforte. 
+Cosa devo fare ? carica la sveglia 
+Cr i c, cr i e, cr i c ... 
+Sei in una cantina aHuffita. 
+Uedo una so I i da cassaforte. 
+Tic, tac, tic, tac ... 
+Cosa devo fare ? lascia la svegl la 
+Fatto. 
+Sei in una cantina aHuffita. 
+Uedo una sveg I i a di buona aarca. 
+Uedo una solida cassaforte. 
+Cosa devo fare ? guarda I a sveg I i a 
+Ticchetta . 
+(megl1o andarsene, e di corsa) 
+Sei in una cantina aHuffita. 
+Uedo una sveg I i a di buona aarca. 
+Uedo una solida cassaforte. 
+Cosa devo fare ? a 
+Sei in un atrio arredato con stile. 
+Uedo una porta bi indata. 
+Cosa devo fare ? apri I a porta 
+Hon ha i I a eh i ave. 
+(tanto per passare il tempo) 
+------------------------- 67 --
+
+
+===== PAGE 74 =====
+Sei in un atrio arredato con stile. 
+Uedo una porta bi indata. 
+CC cc aoon t 11 11 
+Cosa deuo fare ? b 
+Sei in una cantina a••uffita. 
+Uedo una eh i aue di sicurezza. 
+Uedo una cassaforte suentrata. 
+Uedo un cu•ulo di •acerie. 
+Come dicevo, sarebbe più logico far cercare tra le macerie per trovare la 
+chiave. A proposito, se volete che una certa parola venga ignorata, come il 
+TRA nella frase CERCA TRA LE MACERIE, basta metterla nel dizionario con 
+codice 7. 
+Ho finito con l'agente segreto ed i suoi microfilm. 11 prossimo capitolo 
+mostra alcune comodità del Modulo Base che non ho avuto modo di 
+mostrarvi nel corso di questa avventura. 
+
+
+===== PAGE 75 =====
+Capitolo 11: trucchi e comodità varie 
+Ovvero: come sfruttare Il Modulo Base per rtsparmtare lavoro. 
+come rtsolvere problemt strant e come aggiungere effetti 
+spectall alle vostre avventure. 
+Nella costruzione di ·operazione Zanna Bianca·, non ho sfruttato a fondo le 
+possibilità offerte dal Modulo Base. Colmo subito la lacuna, illustrandovi 
+varie cose interessanti (e riassumendone alcune già viste di passata nel 
+precedenti capitoli). 
+Iniziamo dalle subroutine di uso generale. Ne avete già usate due: 
+- gosub 1500 stampa "Premi <spazio> per continuare· ed attende che il 
+giocatore prema effettivamente la barra spaziatrice. E' utile per evitare 
+che una scritta troppo lunga scorra fuori dal video, o per aggiungere un 
+elemento di suspense alla vicenda. 
+- gosub 1600 stampa la domanda contenuta in a$, ed accetta come risposta 
+soltanto ·sr o ·no· (o comunque parole che Inizino con ·s· o ·n·. Al ritorno, 
+la variabile logica a è vera se la risposta era "si", falsa se era ·no·. 
+Questa subroutine, invece, non la conoscete ancora: 
+- gosub 1700 fa una pausa di attesa, con una durata che dipende da a. Per 
+la precisione, la pausa dura circa a secondi. Esempio: 
+asS:go:sub 1700 
+fa una pausa di 5 secondi. Sono ammessi anche valori decimali e minori di 
+I . Se la subroutine 1700 viene nuovamente chiamata senza aver cambiato 
+il valore di a, ripete lo stesso ritardo dell'ultima volta. Questo vale solo 
+all'Interno delle vostre routine di azione, dato che Il Modulo Base cambia il 
+contenuto di a in molte occasioni. 
+Una nota: le pause di attesa possono aggiungere suspense e coinvolgere il 
+giocatore, ma possono anche annoiarlo se sono usate troppo spesso o a 
+sproposito. In particolare, non mettete mal pause nell'Introduzione, o 
+--- ------------ --- ---- 69 -
+-
+
+
+===== PAGE 76 =====
+comunque quando volete solo dare i I tempo di leggere qualcosa. Usate 
+invece il gosub 1500 (premi <spazio> per continuare), che è fatto apposta. 
+Se trovate comodo aggiungere nuove subroutine di uso generale, che 
+impiegate nelle vostre avventure, 
+potete metterle nello spazio 
+appositamente riservato nel Modulo Base, facendole iniziare alle linee 
+1800, 1900, 2000 ... Ricordate di non fare mai un GOTO o GOSlJB ad una 1 inea 
+di soli REM, per l'ottimo motivo che vi potrà capitare di togliere i REM per 
+recuperare memoria. 
+Le vartabtlt 
+Molte azioni danno un risultato diverso a seconda degli eventi accaduti in 
+precedenza. Ad esempio, CARICA LA SVEGLIA risponde "Già fatto" se la 
+sveglia è già stata caricata, altrimenti la carica. Per sapere se la sveglia 
+è carica, basta guardare se Il timer 2 è in funzione. In altri casi, 
+l'informazione necessaria si ricava controllando se un certo oggetto è in 
+un certo luogo (es. Porta/Porta aperta). 
+Ci sono però situazioni in cui non è possibile sapere se un'azione è stata 
+compiuta o meno, ad esempio se è stata pronunciata una certa parola 
+magica nel tempio di Zot. In questo caso, occorre un posto dove 
+memorizzare l'informazione riguardante l'evento. 
+Il Modulo Base dispone di dieci variabili apposite, che vengono salvate 
+insieme alla situazione dell'avventura e possono essere liberamente usate 
+per conservare informazioni: 
+vl, v2, v3, v4, v5, v6, v7, v8, v9, vO 
+Una vari ab i le può essere usata, ad esempio, per ricordare lo stato di 
+un'azione complessa, che richiede tre o quattro azioni per essere 
+completata, ad esempio uno SCAVA che va ripetuto quattro o cinque volte: 
+9000 i f v3s0 then print "Hai intaccato i I terreno." :v3•1 :return 
+9010 i f v3=1 then print "Hai fatto una piccolo buca." :v3=2:return 
+·9020 i f v3•2 then print "La terra e' u•ida.":v3•3:return 
+9030 i f v3=3 then print "Hai :scavato un pozzo.":v3=4:return 
+9040 print "Hon c'e' •otivo di :scovare ancora . ":return 
+
+
+===== PAGE 77 =====
+Nella linea 9030, sarà anche li caso di far appar1re li pozzo scavato. La 
+variabile v3, come dicevo, contiene lo ·stato di avanzamento" dei lavori di 
+scavo. Dieci variabili possono sembrare poche, ma sono in realtà 
+sufficienti anche per avventure complesse, dato che motte informazioni 
+sono disponibili osservando il luogo in cui si trovano 1 vari oggetti. 
+Load e save 
+Le routine di registrazione e rilettura della situazione sono piuttosto 
+primitive, ma lo scopo di questo libro è di Insegnarvi come scrivere · 
+avventure, non come si usa il registratore (o Il disk drive, se l'avete). Se vi 
+sentite in grado di farlo, potete modif1carle per fare in modo che si 
+possano registrare più sltuazionii con nomi o numeri di identificazione 
+differenti. 
+Attenti però alle trappole: dovete verificare che la situazione richiesta sia 
+effettivamente registrata, e non lasciare che il programmasi fermi se non 
+la trova. Dovete tener conto della possibilità che non ci sia più spazio 
+sull'eventuale dischetto, che il nome battuto non sia valido, ecc. Non è 
+difficilissimo, ma non è nemmeno semplice come sembra: come al solito, 
+le rifiniture portano via più lavoro di tutto Il resto. 
+Out of memory 
+Ahimè, sono certo che prima o poi vi cap1terà. Di finire la memoria, 
+intendo. Se scrivete un'avventura di una certa dlmensloAe, finirete con Il 
+trovarvi 
+In 
+una situazione molto sgradevole: li programma sta 
+tranquillamente 
+In 
+memoria, 
+ma 
+al 
+RUN 
+si 
+ferma 
+lamentando 
+l'Insufficienza della memoria disponibile. Infatti, il programma richiede un 
+certo spazio extra per le variabili numeriche e per i "puntatori" alle 
+variabili stringa (dizionario, descrizioni, e nomi degli oggetti). Se questo 
+spazio manca, non c'è niente da fare. 
+Beh, non siamo cosi pessimisti: qualcosa da fare c'è sempre, ad esempio: 
+- Togliere tutti I REM dal Modulo Base. Ci sono programmi che lo fanno in 
+modo automatico. 
+- Togliere le routine di azione non usate (difficilmente ne userete 160). 
+- Togliere le chiamate alle suddette routine di azione, nelle linee intorno 
+
+
+===== PAGE 78 =====
+alla 2600, ma solo se avete un'idea ben chiara di quello che state facendo. 
+-
+Riunire quante più Istruzioni possibile sulla medesima linea di 
+programma. 
+- Levare tutti gli spazi (meno quelli tra virgolette!). 
+-
+Ridurre le dimensioni degli array (linee 1060-1090) allo stretto 
+necessario. (al contrario, potrà capitarvi di doverle aumentare se non 
+bastano per la vostra avventura). 
+Alla fine di tutto questo, avrete recuperato un bel po· di memoria. Se ne 
+volete dell'altra, avete la scelta tra usare messaggi più corti e trasferire I 
+messaggi in un file su disco, scrivendo una routine che vada a leggerli 
+quando necessario. Oppure potete sfruttare la memoria che 11 BASIC non 
+può usare, per tenerci i messaggi. Occorre, però, una certa esperienza 
+ne I l'uso de I l'assemb ly. 
+Inoltre, eliminando I controlli dalla linea I 170 alla 1220 (cancellando 
+semplicemente le linee) si risparmia ancora un poco di spazio e si riduce 
+l'attesa iniziale. E' però il caso di farlo solo quando il gioco è a posto, 
+altrimenti si rischiano Inconvenienti strani se qualche parola o azione non 
+è in ordine (ad esempio: Introducendo un'azione, non ne funziona più 
+un'altra). 
+Effetti speclall 
+Un'avventura può essere resa più interessante aggiungendo effetti sonori e 
+grafici. Purtroppo, le notevoli capacità del Commodore 64 non sono 
+direttamente utilizzabili da BASIC, se non con complesse, lente e 
+dispendiose sequenze di POKE. Alcune estensioni di BASIC comprendono 
+Istruzioni per la grafica e per Il suono, ma spesso al prezzo di molta 
+memoria in meno. La soluzione migliore sarebbe quella di routine In 
+assembly, se lo sapete usare. Comunque, qualche effetto sonoro può essere 
+ottenuto a base di POKE senza troppo spreco di memoria. 
+Per quanto riguarda la grafica, è chiaro che le descrizioni potrebbero 
+essere sostituite da disegni, anche se non è detto che l'avventura ci 
+guadagni: la fantasia del giocatore, se ben stimolata, immaginerà una 
+scena migliore di qualunque disegno. In ogni caso, potete preparare I 
+disegni con uno degli appositi programmi, e richiamarli al momento 
+opportuno (se avete il disk drive). 
+Alcuni effetti sono però ottenibili anche senza fare uso del disco. In molti 
+
+
+===== PAGE 79 =====
+casi, un accorto uso delle possibilità semigrafiche può essere sufficiente 
+per creare qualcosa di inatteso. Un solo suggerimento: potreste disegnare 
+gli oggetti (in risposta a GUARDA IL ... ) usando caratteri semigrafici 
+colorati. 11 disegno di ciascun oggetto potrebbe anche essere contenuto in 
+una o più stringhe lette dai DATA all'inizio del gioco, ad esempio nell'array 
+doS (disegni oggetti), insieme alle altre caratteristiche degli oggetti. 
+Seguite Il buon esempio 
+Se volete imparare un po' di sistemi & trucchetti vari per sfruttare le 
+possibilità offerte dal Modulo Base, studiatevi le due avventure che avete 
+giocato. Troverete spunti sul modo di affrontare problemi che potrebbe 
+capitare anche a voi di dover risolvere. In particolare, ne "L'astronave 
+condannata·, meritano attenzione: 
+- Le azioni PRENDI e LASCIA, con particolare riferimento a casco, tuta, 
+camice e spazio interplanetario (senz'aria). 
+- L'azione GUARDA INDICATORE. 
+- 11 meccanismo del compartimento stagno. 
+- 11 controllo del reattore. 
+Anche ne "L'anello di Lucrezia Borgia" potete trovare idee e suggerimenti, 
+ad esempio osservando come funzionano: 
+- L'orso che insegue (occhio al l'azione 1, quella delle direzioni). 
+- L'effetto dell'elleboro, con la ciotola che si rovescia. 
+- La sequenza della preghiera, che usa una variabile. 
+- La battaglia, esempio di uso di semplici effetti speciali. 
+- La pianura (osservando mappa e azioni). 
+Non vi do consigli su come trovare queste azioni nel programma: ormai 
+siete esperti. 
+
+
+===== PAGE 80 =====
+-
+Conclusione 
+Ringraziamenti: 
+- A Chiara Tovena, per l'insostituibile collaborazione nella stesura delle 
+sceneggiature de "L'astronave condannata· e "L'anello di Lucrezia Borgia". 
+- A Gianni Cavallari, Roberto Cerruti, Marco Morocutti, Lucia Bonazzi, 
+Luisa Moleri, Fulvio Francesconi, Manuela Spotti, ed a vari amici di 
+passaggio, per i collaudi de "L'astronave condannata" e "L'anello di Lucrezia 
+Borgia". 
+- A Luisa Moleri ·e Fulvio Francesconi de ·11 Computer· di Brescia, per 
+avermi 
+messo 
+a 
+disposizione 
+attrezzature 
+varie, 
+e 
+per 
+aver 
+amichevolmente sopportato i miei grovigli seriali (RS-232) nel loro 
+simpatico computer shop. 
+- Al mio Macintosh, che non mi ha mai tradito, nonostante gli improperi 
+ricevuti per la lentezza a volte esasperante. 
+- A Roberto Pancaldi, ed a tutta la Divisione Libri Jackson, per l'assistenza 
+e la collaborazione organizzativa a tempo di record. 
+A tutti, infine: 
+Enrico Colombini 
+
+
+===== PAGE 81 =====
+C64A vventure __.. 
+75 
+
+
+===== PAGE 82 =====
+Appendice A: listato del Modulo Base 
+100 re• 11 avventura : 
+interprete e •odulo base 11 
+110 re• 11 
+d i enr i co co I oeb in i 
+•• 
+120 re• 11 (c)1985 dinosoft e jackson editrice •• 
+130 re• 
+140 goto710:re• eain 
+150 ree 
+160 ree - cerca p$ in dizionario, c"'cod ice (O se assente) -
+170 re• 
+180 i•1: f• fd 
+190 a• int((i+f)/2) :a$"'dz$(a): ifp$•a$thenc=dz(a):goto240 
+200 ifp$>a$theni• a+1 
+210 i fp$<a$thenf=a-1 
+220 ifi<=fthen190 
+230 c"'O 
+240 return 
+250 re• 
+260 ree - estrae p$ da in$[ in), trova codice e, salta art i col i -
+270 re• 
+280 csO 
+290 e$•• id$( in$, in, 1) : i fc$•" 
+"ore$•"' "then in• i n+1 : goto290 
+300 ifin>lithenp$="" :goto360 
+310 a=in :re• inizio 
+320 c$•eid$(in$,in,1) 
+330 i fc$<>" "onde$<>"' "andin<= I ithenin=in+l :goto320 
+340 p$=•id$( in$,a, in-a) :gosub180:re• 
+cerca 
+350 ifc•7lhen280:re• articolo 
+360 return 
+370 re• 
+380 re• - cerca az i one a, a•az ione (O se non l roval a) -
+390 ree 
+400 i•l :f•fa:n•a 
+410 a• int((i+f)/2) :m•ca(a):ifn•athena•azl(a) :goto460 
+420 ifn>•lheni=a+l 
+430 ifn<athenf•a-1 
+440 i f i <=flhen410 
+450 a=O 
+
+
+===== PAGE 83 =====
+4160 return 
+4170 re• 
+C64 Avventure 
+4160 re11 - esegue azione a, a"'O se non t rovot o -
+4190 re11 
+500 gosub-400: i f a=Ot hen550 
+510 ifc2•0oro>Othen530:re• 
+520 a=-o: ifog=Othenprint"-
+530 gosub2500:re• esegue 
+5410 a"l 
+550 return 
+560 reRt 
+so I o verbo o no test 
+Qui non ne vedo." :goto5'40 
+570 rem - e I enca ogget t i 
+in I uogo I, con prefisso p$, a•O se 
+nessuno -
+560 re111 
+590 poke k,k3:o=O:fori=1tofo 
+600 i fabs(I( i ))=lthenprintp$;og$(i);". ":o"'l 
+610 next :poke k,kO :return 
+620 re111 
+630 re11 - og"indice oggetto c2, O se non pres. o trosp. -
+6'10 re• 
+650 og=O: fori=1tofo 
+660 i f col( i )•c2then i fabs( I (i))" I uor I (i )aOthenog• i : i •fo 
+6 70 next : ret urn 
+660 reia 
+690 re111 -
+110 in (parser) -
+700 re111 
+710 gosub1060:re• 
+init 
+720 gosub4ISOO :re11 
+introduzione 
+730 gosub1500:re• <sp> 
+7410 re111 
+750 rem e i c I o di g i oca: 
+760 poke k,k2:print:print"Sei 
+";de$(1u);".":poke 
+k,kO:re• 
+descrizione 
+770 I= I u: p$= "Uedo 
+• : gosub590: re• oggett i 
+760 gosub970:re• te•po 
+790 print :print 
+800 in$='"':poke k,k1:input"Cosa devo fare ";inS:ifinSs""then800 
+81 O poke k, kO: pr i nt : I i= len( in$): i n'"1: gosub280: p1 $=p$: cl •e 
+820 ifp1$s""thenprint"-
+Beh ?":goto760 
+------------------------- 77 --
+
+
+===== PAGE 84 =====
+830 i fright$(pU,2) .. "re"thenprint ·-
+Oa••i del tu, per 
+favore.":goto760 
+640 ifc1=0andp1$<>""thenprint"-
+Non conosco i I verbo 
+pi$"' . ":goto760 
+650 gosub280: p2$sp$ : c2"'c: i fc2>0andc2<7then650: re11 
+no art i co I i 
+660 i fc2=0ondp2$<>""thenprint ·-
+Non conosco la parola •• 
+p2$"' .":goto760 
+670 ifc2<>0thengosub650:re1 
+og•indice 
+860 nl=lu*IOOOO:n2=ct•too 
+890 a•n1+n2+c2:gosub500: ifagoto760:re• 
+verbo+noae in lu 
+900 ifc2<>0thena•n1+n2+99:gosubSOO: ifagoto760:re• 
+verbo+x in lu 
+910 a=n2+c2:gosub500:ifagoto760:re1 
+verbo+noae generico 
+920 i f c2< >Ot hena•n2+99: gosub500: i fagot o 760: re• 
+verbo+x generico 
+930 pr i nt • -
+Non capisco. • : gol o 760 
+940 rei 
+950 re• - t e•po -
+960 re• 
+970 i ft 1thent1=t1-1 : gosub3000 
+960 ift2thent2=t2-1:gosub3200 
+990 ift3thent3•t3-1 :gosub3400 
+1000 ift4thent1 .. t1-1 :gosub3600 
+1010 ift5thent5•t5-l:gosub3600 
+1020 return 
+1030 re• 
+1010 re• - init -
+1050 rei 
+1060 di11dz$(150),dz(150):re11 
+dizionario 
+1070 di •de$(96), di $(96): rea 
+1appa 
+1060 di 1ca( 160), azl( 160): rei 
+azioni 
+1090 di •og$(50), col(50), I (50) : re11 
+oggetti 
+1095 di"'O:re11 Oztape, 1,.disk 
+1100 f$="situazione":re11 
+file situazione 
+111 O rei fd, f•, fa, fo•O 
+1115 pr i nt chr$( 11)chr$(8): re• 
+lock 1 inusco I e 
+1120 print:print"Un atti10 di pazienza ... "; 
+1130 reada$: i fa$<>" fd"thenfd,.fd+1 : dz$( fd)=a$: readdz(f d): gotol 130 
+1110 reada$:ifo$<>"f•"thenf11=f••l:de$(f1)•0$:reoddi$(f•):goto1110 
+1150 reoda$: i fa$<>" fa"thenfa=fa+I: ca( fa)=va I (a$): reodozl( fa): 
+goto1150 
+
+
+===== PAGE 85 =====
+1160 reodo$: ifoS<>.fo"thenfo•fo+1:ogS(fo)•oS:reodcol(fo),l(fo): 
+gotol 160 
+1170 fori •2tofd:re• --- contro! lo dizionario (el iainobi le) ---
+1160 ifdz$(i)<•dz$( i-1)thenprint•Errore: 
+•dz$(i)• <• •dz$(i-1):end 
+1190 next 
+1200 foriz2tofo :rea --- contro I lo azioni (el iainobi le) ---
+121 O i fco( i )<"'ca( i-1)thenprint "Errore: 
+•ca( i)• <• •ca( i-1) :end 
+1220 next 
+1230 poke 53260, 9: poke 53281 , 11 : rea :sfondo 
+12~0 k·6~6:k0•7 : k1 z 15 : k2•13 : k3•8:poke 
+k,kO:rea colori 
+1250 print :print :return 
+1~70 rea 
+1460 rea - < :sp > per cont i nuore -
+1~90 re• 
+1500 print :print"-
+Pre•i <spazio> per continuare -·i 
+1510 getoS: i toso · 
+•then1510 
+1520 print :print :return 
+1570 re• 
+1560 re• - do•ondo oS, o=vero :se :si ' -
+1590 rea 
+1600 pr i nto$ i : b$•" •: input• 
+• jb$ :b$• left$(b$, 1) 
+1610 ifb$<>"s· ondb$<>•n•then1600 
+1620 o• (b$• ":s") :return 
+1670 re• 
+1660 re• - pou:so o :second i c i rea -
+1690 rea 
+1700 fori •1to1000*o:next:return 
+1710 re• 
+1720 re• * ( •etl ere qui a I tre :subrout i ne di u:so genera I e) * 
+2~70 rea 
+2~80 re• - e:segue az ione a -
+2~90 rea 
+2500 onint((a-1)/20)goto2510,2530,2550,2570,2590,2610,2630,2650 
+2510 onogoto5000,5200,5~00,5600,5800,6000,6200,6~00,6600,6800 
+2520 ono-10goto7000,7200,7~00,7600,7800,8000, 
+6200,6~00,8600,8800 
+2530 ono-20goto9000,9200,9"00,9600,9800, 
+10000, 10200,1CH00,10600,10800 
+25~0 ona-30goto11000,11200,11~00,11600,11800, 
+
+
+===== PAGE 86 =====
+12000, 12200, 12400, 12600, 12600 
+2550 ono-40goto13000,13200, 13400, 13600, 13600, 
+14000, 14200, 14400, 14600, 14600 
+2560 ono-50goto15000,15200,15400,15600,15600, 
+16000, 16200,16400, 16600, 16800 
+2570 ono-60goto17000,17200,17400,17600,17600, 
+18000,18200, 18400, 18600, 18800 
+2580 ono-70goto19000, 19200, 19400,19600,19800, 
+20000,20200,20400,20600,20600 
+2590 ona-80goto21000,21200,21400,21600,21800, 
+22000,22200,22400,22600,22800 
+2600 ona-90goto23000,23200,23400,23600,23800, 
+24000,24200,24400,24600,24800 
+2610 ona-100goto25000,25200,25400,25600,25800, 
+26000,26200,26400,26600,26800 
+2620 ona-110goto27000,27200,27400,27600,27800, 
+28000,28200,28400,28600,28800 
+2630 ona-120goto29000,29200,29400,29600,29800, 
+30000,30200,30400,30600,30800 
+2640 ona-130goto31000,31200,31400,31600,31800, 
+32000,32200,32400,32600,32800 
+2650 ona-140goto33000,33200,33400,33600,33800, 
+34000,'34200,34400,34600,34800 
+2660 ona-150goto35000,35200,35400,35600,35800, 
+36000,36200,36400,36600,36800 
+26 70 pr i nt a• ??? " : ret urn: re• per ~i curezza 
+2920 re• 
+2930 re• 
+2940 rem ... fine interprete, i n i z i o ovvent ura 111 
+2950 re11 
+2960 re• 
+2970 re11 - ti 11er -
+2980 re• 
+2990 re111 l1 : 
+3000 print:print"Tl":return 
+3190 rea t2: 
+3200 print:print"T2" :return 
+3390 re• t3: 
+3400 print:print"T3" :return 
+
+
+===== PAGE 87 =====
+C64 Avventure 
+3590 re• t4: 
+3600 prìnt :print"T"":ret urn 
+3790 re• t5: 
+3600 prìnt :print "T5" :return 
+3970 re• 
+3960 re• - •orto -
+3990 re• 
+4000 go:sub 1500: poke 53260, 2: re• < :sp > 
+'4010 re• --- •etlere qui i I finale negat ivo 
+4450 aS="Uuo i giocare ancora": go:sub1600: i f(a)thenrun: re• 
+4'460 print :pr int :print"Ciao!" :print :end 
+'4'470 re• 
+4460 re• - introduzione -
+"490 re• 
+4500 pr int chr$( 1"7): pr i nt : pr int : pr i nt 
+451 O re• --- •ett ere qu i i nt roduz ione avventuro 
+4520 re• - - - r icordar:si 
+lu•l uogo iniz iale ---
+"950 lu=l :print :return 
+4960 re• 
+'4970 re• - az ioni : -
+4960 re• 
+4990 re• 1 : ( d i rez i on i ) 
+5000 a•val (•id$(di$( lu), 2*c1-1,2)) 
+5010 i fa•Othenpri nt "-
+Di li ' non puoi ondore.":return 
+5020 lu•a :return 
+5190 re• 2: (prend i) 
+5200 i fl (og)•Othenpr int · -
+G i a ' fatto. • : retur n 
+5210 i fl (og)<Othenpr i nt · -
+Non e ' po:s:si bi le .• : return 
+5220 l(og)sO:print"Fatto." :return 
+5390 re• 3: (la:scia) 
+5'400 i fog•Oor l (og)<>Othenpr int ·-
+Non ce l'hai ." :return 
+5410 l(og)=lu:pr int"Fatto. ":return 
+5590 re• 4 : (guarda) 
+5600 pr int "Non noto nulla di port icolore. • :return 
+5790 re• 5: (:save) 
+5600 i f di•O then open 3, 1, 1, f$ :goto 5620:re• t ape 
+5610 open 15,6,15,"i" :open 
+3,6,3,"@0:"+f$+",s,• ":re• 
+di:sk 
+5620 fori=ltofo :print 13,l(i) :next 
+5630 print•3,lu:print•3,t1 :print•3,t2: 
+riparte 
+-----------
+- ----
+- -----
+- -- 81 --
+
+
+===== PAGE 88 =====
+print•3,t3:print•3,t4 :print•3,t5 
+5640 print•3,v1 :print•3,v2:pr int•3,v3 :print•3,v4:pr int•3, v5 
+5650 print•3,v6:print•3,v7:print•3,v8:print13,v9:print 13,v0 
+5660 clo:ie 3:clo:ie 15:return 
+5990 re• 6: (load) 
+6000 i f di=O then open 3, 1,0, f$ :goto6020:re111 
+tape 
+6010 open 15,6,15,"i":open 
+3,6,3,f$+",:1,r": re111 
+di:sk 
+6020 fori •1tofo: input 1 3, I (i) : next 
+6030 input 13, lu,t1,t2,t3, t4,t5,v1,v2, v3,v4,v5,v6, v7,v8,v9,v0 
+6040 e I o:ie 3: e I o:ie 15: return 
+6190 re• 7: (co:sa) 
+6200 pr i nt "Po:i:i i ed i : • : pr i nt: I =O: p$=" -
+·: go:iub590 
+6210 ifa•Othenprint"-
+Un bel nul la.· 
+6220 return 
+6390 re• 6: 
+6400 pr i nt 6: ret urn 
+6590 re• 9: 
+6600 pr i nt 9: ret urn 
+6790 re• 10: 
+6800 pr i nt 1 O: return 
+(continua così, con le routine di azione a passo 200, fino alla 35-400) 
+35590 re• 154: 
+35600 print154:return 
+35790 re• 155: 
+35800 print155:return 
+35990 re• 156 : 
+36000 print156:return 
+36190 re• 157: 
+36200 print157:return 
+36390 re• 156: 
+36400 print156:return 
+36590 re• 159: 
+36600 print159:return 
+36790 re• 160: 
+36600 print160:return 
+_
+_ 
+82 
+
+
+===== PAGE 89 =====
+39970 rem 
+39960 rem - dizionario: 
+39990 re11 
+40000 dal a "? ·, 13, •a", 5, • ag I i ", 7, "a I ", 7, · a Il ", 7 
+40010 data "alla",7,"olle",7, "allo",7,"alto",5 
+40020 data "b",6,"basso",6 
+40030 data "col",7,"con",7,"cosa",13 
+40040 data "e" ,3, "est" ,3 
+40050 data "gli ",7,"guarda",10 
+40060 data "i ",7, "il",7,"inventario",13 
+40070 data " l",7, "la",7,"lascia",9 
+40060 data " le",7,"lo",7,"load",12 
+40090 data "n", 1, "nord", 1 
+40100 data "o" ,4, "ovest• ,4 
+40110 data "posa" ,9, "prendi• ,8 
+40120 data "ri prendi ", 12 
+40130 data "s",2, "sal i", 5, ":sa lva",11 
+40140 data ":save",11,"scendi",6,"sud",2 
+40150 data "un",7,"una",7,"uno",7 
+40160 data "•" ,4 
+40170 data "fd": rea --- r icordar:si 
+l'ordine alfabet ico! !! 
+'4-4970 re11 
+44960 re111 - 1appa: 
+'4'4990 rem 
+45000 data "fm" : re11 ---
+luoghi e mappa, dal luogo n.1 ---
+49970 rea 
+49960 rea - azioni : 
+49990 re11 
+50000 data 100,1,200, 1,300, 1,-400, 1,500,1,600,1,699,-2,999,3 
+50010 data 1000,4, 1099,--4, 1100,5, 1200,6, 1300, 7 
+50020 data "fa": rea --- ricordarsi 
+l'ordine nuaerico!!! 
+54970 reni 
+54980 re• - ogget t i : 
+54990 re• 
+55000 data "fo": re• --- de:scr i z i on i e dati oggetti, da I n. 1 ---
+
+
+===== PAGE 90 =====
+Appendice B: uso del Modulo Base: riassunto 
+Mappa: 
+Inserire descrizioni luoghi e direzioni come~ dalla linea 45000 in poi, 
+in ordine di numero di luogo (dal n. 1) e terminando con ·rm·. 
+Le direzioni si indicano con 12 cifre: le prime due Indicano i I numero del 
+luogo adiacente a Nord, le successive quello a Sud, poi ad Est, Ovest, Alto, 
+Basso. Se lo spostamento non è possibile, mettere 00 (doppio zero) come 
+numero del luogo. Esempio: 
+45000 doto •in fondo al pozzo", "000000002400" 
+Si può andare solo in alto, e si finisce nel luogo 24 (il 240 dell'elenco). 
+Dizionario: 
+Inserire parole e codici come Qfila dalla linea 40000 in poi, ricordandosi di 
+mantenere l'ordine alfabetico e terminare con "fd". Esempio: 
+40000 dato "?", 13, "a" ,5, "accendi • ,35, "agi i•, 7 
+La nuova parola ACCENDI, con codice 35, è stata inserita in mezzo a quelle 
+già presenti nel dizionario, in ordine alfabetico e minuscola. 
+Oggetti: 
+Inserire descrizione, codice parola di riferimento e luogo iniziale come 
+~a 
+partire dalla linea 55000, io ordine di numero di oggetto (dal o.1) e 
+terminando con "fo". Esempio: 
+55000 doto •un I i bro Jockson •, 42, 13 
+La parola a cui l'oggetto risponde (probabilmente LIBRO) si trova nel 
+dizionario con codice 42. Il libro si trova, all'inizio del gioco, nel luogo 13. 
+
+
+===== PAGE 91 =====
+Se un oggetto non è prendibile, va indicato con codice negativo: 
+55010 data "un •asso di granito rosa· ,'4'4,-13 
+Se l'oggetto non è in gioco, si indica -99 (il Limbo) come numero di luogo: 
+55020 dato "un brontosauro sonnolento• ,52,-99 
+Sel'oggetto si deve trovare, all'Inizio del gioco, in possesso 
+dell'avventuriero, si Indica il luogo zero: 
+55030 data "un orologi o scarico•, 55, O 
+11 numero di un oggetto corrisponde alla sua posizione nell'elenco dei ~­
+Riguardando gli esempi fatti, il libro sarebbe l'oggetto 1, il masso 
+l'oggetto 2, il brontosauro l'oggetto 3, e l'orologio l'oggetto 4. 
+Azioni: 
+Inserire codice frase e numero azione come~ dalla linea 50000 in poi, 
+ricordandosi di mantenere l'ordine numerico e terminare con "fa". 
+11 codice di frase è un numero composto da: 
+- Numero del luogo (2 cifre). 
+- Codice della prima parola (2 cifre). 
+- Codice della seconda parola (2 cifre). 
+Gli zeri Iniziali possono poi essere eliminati. 
+Con frasi di una sola parola, per Il codice di frase sono possibili queste 
+due combinazioni (in ordine di precedenza): 
+PRENDI (nel luogo 13) 
+PRENDI (dovunque) 
+131000 (luogo 13/PRENDl/nessuna parola) 
+001000 
+(dovunque/PRENDI/nessuna parola) 
+Con frasi di due parole (articoli e preposizioni non contano), ci sono 
+quattro possibili combinazioni, sempre In ordine di precedenza: 
+
+
+===== PAGE 92 =====
+"PRENDI LIBRO" (luogo 13) 
+"PRENDI X" 
+(luogo 13) 
+"PRENDI LIBRO" (dovunque) 
+"PRENDI X" 
+(dovunque) 
+131042 
+131099 
+001042 
+001099 
+(luogo 13/PRENDl/LIBRO) 
+(luogo 13/PRENDl/qualunque parola) 
+(dovunque I PRENDI/LIBRO) 
+(dovunque I PRENDI I qua 1 unque paro 1 a) 
+Al codice di frase segue il numero dell'azione da eseguire. Se questo 
+numero è negativo, l'azione è eseguita soltanto se la seconda parola della 
+frase indica un oggetto presente o trasportato. Esempio: 
+50010 data 1000, ~, 10~2, -12, 1099, -~, 1100, 5, 1200, 6, 1300, 7 
+11 nuovo codice di frase 1042, è stato inserito in mezzo a quelli già 
+presenti nella tavola, in ordine numerico, seguito dal numero dell'azione da 
+eseguire (-12). Se 10 è il codice di GUARDA nel dizionario, e 42 è il codice 
+di LIBRO, la frase GUARDA IL LIBRO fa eseguire la subroutine di azione 
+numero 12 ma solo se l'oggetto citato (il libro) è presente o trasportato (a 
+causa del segno meno davanti al 12). 
+Subroutine di azione: 
+La subroutine di azione numero 1 inizia alla linea 5000, la numero 2 alla 
+5200, e così via di 200 in 200 fino alla subroutine numero 160, che si 
+trova alla linea 36800. I numeri di linea non vanno modificati. 
+Ogni subroutine di azione è composta di normali istruzioni BASIC e deve 
+terminare con l'istruzione RETURN. 
+Le informazioni sull'avventura sono contenute in alcune variabili 
+fondamentali: 
+Ju 
+og 
+J(n) 
+v0 ... v9 
+t 1...t5 
+Numero del luogo corrente. 
+Numero dell'oggetto citato nella frase (0 se non è un oggetto). 
+Luogo dell'oggetto numero n (O=trasp., -99 .. Limbo), negativo 
+se l'oggetto non è prendibile. 
+Variabili libere, usabili a piacere. 
+Timer, partono mettendoci un numero maggiore di zero. 
+Esempio di azione numero 12 (linea 7200): 
+-- 86 ----------------------
+
+
+===== PAGE 93 =====
+C64 Avventure 
+7200 if 1(1) <>O then print "Hon hai in 111ono il libro." : return 
+721 O pr i nt "Leggi I o poro I o 'FUOCO', po i i I I i bro sco•pore ." 
+7220 I ( 1) = -99 : ret urn : re• mette i I I i bro ne I I i 11bo 
+L'oggetto numero 1 (il libro) è quello elencato per primo nei data alla linea 
+55000. 1( 1) è dunque il luogo in cui si trova il libro. Occorre fare 
+attenzione agli oggetti non prendibili, il cui numero di luogo è e deve 
+restare negativo (a meno che non si voglia renderli prendibili). 
+Indirizzi utlll (numeri di linea): 
+gosub 1500 
+gosub 1600 
+gosub 1700 
+gosub 3000 
+- Premi <spazio> per continuare: 
+Stampa la domanda contenuta in a$, torna con a=vero se la 
+risposta è "sì", falso se è "no". 
+Aspetta a secondi circa. 
+Subroutine di timer 1 (eseguita automaticamente ad ogni 
+turno se i l timer 1 è attivo). Le successive sono alle linee 
+3200 (t2), 3400 (t3), 3600 (t4) e 3800 (t5) 
+Subroutine di azione 1 (eseguita automaticamente), le 
+successive sono alla 5200 (2), 5400 (3), ecc. 
+Per chi vuole approrondlre: 
+11 Quaderno Jackson "Scrivere un'avventura· descrive in dettaglio la teoria 
+ed il funzionamento dell'interprete. Il programma è leggermente diverso, 
+ma il principio di funzionamento è il medesimo. 
+Nella pagina seguente, sono riportate le principali variabili del 
+programma, usabili nelle routine di azione. 
+
+
+===== PAGE 94 =====
+Dizionario : 
+fd 
+dz$( 1 .. fd) 
+dzl(1 .. fd) 
+Mapo a: 
+fil 
+de$(1 .. h1) 
+di$(1 .. f11) 
+fa 
+ca(1 .. fa) 
+ozi( 1 .. fa) 
+Oigetti: 
+fo 
+og$(1 .. fo) 
+col( 1 .. fo) 
+I (1 .. fo) 
+lu 
+og 
+p1$,p2$ 
+c1,é2 
+Numero vocaboli in dizionario. 
+Vocaboli, in ordine alfabetico. 
+Codici dei vocaboli corrispondenti in dz$(). 
+Numero luoghi in mappa. 
+Descrizioni luoghi, in ordine di numero. 
+Collegamenti del luogo descritto nel corrispondente 
+elemento di de$() con i sei luoghi adiacenti (N/S/E/O/A/B ) 
+Numero azioni nella tavola. 
+Codici di azione, in ordine numerico. 
+Numero azione corrispondente da eseguire, negativo 
+se è richiesta la presenza dell'oggetto citato. 
+Numero oggetti presenti. 
+Descrizioni oggetti, in ordine di numero oggetto. 
+Codice nel dizionario dell'oggetto descritto nel 
+corrispondente elemento di 09$(). 
+Luogo dell'oggetto corrispondente: 
+1 . . f• 
+luogo indicato, prendibile. 
+-1 .. -f• 
+luogo indicato, non prendibile. 
+O 
+trasportato da I l'avventuriero. 
+-99 
+limbo (fuori gioco). 
+Luogo corrente del l'avventuriero. 
+Numero oggetto citato come seconda parola, 
+zero se non presente o trasportato. 
+Prima e seconda parola valida della frase. 
+Codici nel dizionario di p1$ e p2$ 
+
+
+===== PAGE 95 =====
+
+
+===== PAGE 96 =====
+Scritto dal più noto autore italiano di giochi di awentura, questo li-
+bro insegna come scrivere avventure sul proprio computer. 
+Il "Modulo Base", incluso nella cassetta consente anche ai princi-
+pianti del BASIC di scrivere un vero gioco di avventura di media 
+complessita, con il minimo lavoro per l'autore ed il massimo diverti-
+mento per i giocatori. I programmatori esperti vi troveranno una mi-
+niera di idee e soluzioni. 
+Contiene: 
+- Due avventure pronte da giocare: "L'astronave condannata" 
+(tempo medio di gioco: 2 ore) e "L'anello di Lucrezia Borgia" 
+(molto, molto di più ... ). 
+- Il "Modulo Base", programma per la scrittura di avventure. 
+- Una raccolta di fogli per il disegno di mappe. 
+- Un corso completo per la creazione di giochi di avventura. 
+-
+Il listato commentato del "Modulo Base". 
+- Tabelle riassuntive per gli autori di awenture. 
+L. 20.000 
+COD. CC260 ISBN 88-7056-339-1

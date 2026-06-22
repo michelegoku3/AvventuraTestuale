@@ -10,19 +10,14 @@ import com.mycompany.avventuratestuale.database.DialogoDAO;
 import java.util.*;
 import java.util.stream.Collectors;
 
+
 /**
- * LaMiaAvventura - implementazione concreta del motore di gioco.
- * Tema: "Protocollo Chimera" - laboratorio sotterraneo di bio-ingegneria.
- *
- * Aggiornamento 2026-06-17:
- * - Implementato Command Pattern per la gestione dei comandi (modularizzazione).
- * - Inventario ora e' un ADT conforme alla specifica algebrica.
- * - Descrizioni stanze dinamiche in base ai flag di stato.
+ * Implementazione concreta di Protocollo Chimera, con mappa, enigmi e flag narrativi.
  */
 public class LaMiaAvventura extends Gioco {
     private static final long serialVersionUID = 1L;
 
-    // Marcata come transient per evitare errori di serializzazione (le classi Command non sono Serializable)
+
     private transient Map<TipoComando, Command> commandMap = new HashMap<>();
 
     private boolean isBarrieraLaserAttiva = true;
@@ -38,7 +33,13 @@ public class LaMiaAvventura extends Gioco {
     private boolean isCacciaviteUsato = false;
     private boolean isSieroNelCondotto = false;
 
+
+    private boolean isTimerDecontaminazioneAttivo = false;
+    private int secondiDecontaminazioneRimanenti = 120;
+    private int tempoImpiegatoDecontaminazione = -1;
+
     private int idDialogoCorrente = 0;
+    private int idDialogoRancidoCorrente = 0;
     private final Set<Integer> nodiDialogoVisitati = new HashSet<>();
 
     private static final int ID_TESSERA       = 101;
@@ -64,14 +65,27 @@ public class LaMiaAvventura extends Gioco {
     private static final int ID_LIBRERIA      = 123;
     private static final int ID_BARRIERA      = 124;
     private static final int ID_BIGLIETTO     = 125;
+    private static final int ID_CAPSULE_SPENTE = 126;
+    private static final int ID_TELECAMERE    = 127;
+    private static final int ID_SEGNALETICA   = 128;
+    private static final int ID_LOG_SISTEMA   = 129;
+    private static final int ID_LAVAGNA       = 130;
+    private static final int ID_FASCICOLI     = 131;
+    private static final int ID_OBLO          = 132;
+    private static final int ID_REATTORE      = 133;
+    private static final int ID_ASCENSORE     = 134;
+    private static final int ID_UGELLI        = 135;
     private static final int ID_DROIDE        = 301;
 
     @Override
+    /**
+     * Crea comandi, stanze, collegamenti, oggetti e stato iniziale dell'avventura.
+     */
     public void inizializza() throws Exception {
-        setupCommands(); // Metodo estratto per poterlo richiamare anche dopo il caricamento
+        setupCommands();
         inizializzaInventario();
-        
-        // 1. Registrazione dei comandi sintattici (per il Parser)
+
+
         getComandi().add(new Comando(TipoComando.NORD, new HashSet<>(Arrays.asList("nord", "n", "vai a nord", "north", "go north"))));
         getComandi().add(new Comando(TipoComando.SUD, new HashSet<>(Arrays.asList("sud", "s", "vai a sud", "south", "go south"))));
         getComandi().add(new Comando(TipoComando.EST, new HashSet<>(Arrays.asList("est", "e", "vai a est", "east", "go east"))));
@@ -90,46 +104,24 @@ public class LaMiaAvventura extends Gioco {
         getComandi().add(new Comando(TipoComando.MAPPA, new HashSet<>(Arrays.asList("mappa", "map", "m", "radar", "cartina"))));
         getComandi().add(new Comando(TipoComando.PARLA, new HashSet<>(Arrays.asList("parla", "parla con", "interroga", "chiedi a", "talk", "talk to", "converse"))));
 
-        // 2. Registrazione della logica dei comandi (Command Pattern)
+
         setupCommands();
 
-        // Definizione Mappa e Oggetti
+
         Stanza cameraCrio = new Stanza(1, "Camera Criogenica",
-                "L'aria e' gelida e satura di vapori chimici. Intorno a te ci sono tre capsule criogeniche inattive,\n" +
-                "tranne la tua, che emette scintille dal pannello dei circuiti. Una spessa porta blindata a EST,\n" +
-                "chiusa ermeticamente, e' l'unica via d'uscita verso il corridoio. Sulla parete sud noti un passaggio\n" +
-                "verso un laboratorio. Il pannello di controllo della porta ha una luce rossa fissa: serve un badge.");
+                "L'aria e' gelida e satura di vapori chimici. Intorno a te ci sono tre capsule criogeniche inattive, tranne la tua, che emette scintille dal pannello dei circuiti. Una spessa porta blindata a EST e' l'unica via d'uscita verso il corridoio. Sulla parete sud noti un passaggio verso un laboratorio. Il pannello di controllo della porta ha una luce rossa fissa: serve un badge.");
         Stanza labGenetica = new Stanza(2, "Laboratorio di Genetica",
-                "I banconi da lavoro sono ricoperti di vetreria in frantumi e residui chimici.\n" +
-                "A OVEST un macchinario per la sintesi molecolare emette un ronzio sommesso.\n" +
-                "Al centro della stanza, un enorme silos di vetro contiene liquido amniotico scuro, ormai vuoto.\n" +
-                "In un angolo tra le macerie scorgi un piccolo droide cingolato riverso, spento.\n" +
-                "La luce al neon sul soffitto lampeggia: l'elettricita' della struttura e' instabile.");
+                "I banconi da lavoro sono ricoperti di vetreria in frantumi e residui chimici. A OVEST un macchinario per la sintesi molecolare emette un ronzio sommesso. Al centro della stanza, un enorme silos di vetro contiene liquido amniotico scuro, ormai vuoto. In un angolo tra le macerie scorgi un piccolo droide cingolato riverso, spento. La luce al neon sul soffitto lampeggia: l'elettricita' della struttura e' instabile.");
         Stanza corridoio = new Stanza(3, "Corridoio di Servizio",
-                "Un lungo corridoio illuminato da luci d'emergenza arancioni. A OVEST la porta conduce\n" +
-                "alla Camera Criogenica. A EST vedi la Sala Server. A NORD, una rampa di scale sale verso\n" +
-                "l'Ufficio del Direttore. A SUD, una fitta barriera di laser rossi sbarra il cammino verso\n" +
-                "il settore inferiore: il calore che ne emana e' quasi insopportabile.");
+                "Un lungo corridoio illuminato da luci d'emergenza arancioni. A OVEST la porta conduce alla Camera Criogenica. A EST vedi la Sala Server. A NORD, una rampa di scale sale verso l'Ufficio del Direttore. A SUD, una fitta barriera di laser rossi sbarra il cammino verso il settore inferiore: il calore che ne emana e' quasi insopportabile.");
         Stanza salaServer = new Stanza(4, "Sala Server",
-                "Il ronzio delle ventole di raffreddamento e' assordante. Migliaia di server rack si estendono\n" +
-                "su piu' file, proiettando una luce blu intensa. Al centro della stanza pulsa un terminale\n" +
-                "olografico nero: e' l'interfaccia centrale dell'IA Prometeo, l'unica entita' con cui potresti\n" +
-                "comunicare in questa struttura. A OVEST il corridoio.");
+                "Il ronzio delle ventole di raffreddamento e' assordante. Migliaia di server rack si estendono su piu' file, proiettando una luce blu intensa. Al centro della stanza pulsa un terminale olografico nero: e' l'interfaccia centrale dell'IA Prometeo, l'unica entita' con cui potresti comunicare in questa struttura. A OVEST il corridoio.");
         Stanza decontaminazione = new Stanza(5, "Camera di Decontaminazione",
-                "Una stanza asettica con spessi oblo' di vetro blindato che si affacciano sul nucleo.\n" +
-                "L'aria ha un odore chimico pungente. Sulla parete nord vedi un condotto di ventilazione\n" +
-                "e una console d'emergenza. A EST il portello blindato verso il Nucleo di Comando.\n" +
-                "Appena metti piede all'interno, le porte si chiudono alle tue spalle con un tonfo metallico.");
+                "Una stanza asettica con spessi oblo' di vetro blindato che si affacciano sul nucleo. L'aria ha un odore chimico pungente: la camera e' danneggiata e dalle ventole di aerazione esce un gas contaminato da Chimera-V4. Sulla parete nord vedi un condotto di ventilazione e una console d'emergenza. A EST il portello blindato verso il Nucleo di Comando.");
         Stanza ufficioDirettore = new Stanza(6, "Ufficio del Direttore",
-                "Un ufficio lussuoso che stona con l'architettura industriale del laboratorio.\n" +
-                "C'e' una grande scrivania in mogano, una libreria vuota nell'angolo, un ritratto ad olio\n" +
-                "del Dr. Moretti sulla parete, e nell'angolo opposto una cassaforte blindata a combinazione\n" +
-                "digitale. Il silenzio qui e' quasi irreale.");
+                "Un ufficio lussuoso che stona con l'architettura industriale del laboratorio. C'e' una grande scrivania in mogano, una libreria vuota nell'angolo, un ritratto ad olio del Dr. Moretti sulla parete, e nell'angolo opposto una cassaforte blindata a combinazione digitale. Il silenzio qui e' quasi irreale.");
         Stanza nucleoComando = new Stanza(7, "Nucleo di Comando",
-                "Un'enorme camera circolare. Una colossale vetrata blindata si affaccia sul reattore\n" +
-                "geotermico sotterraneo, la cui luce arancione pulsa ritmicamente nell'ambiente.\n" +
-                "Al centro svetta la console di comando principale, da cui e' possibile decidere il destino\n" +
-                "della struttura. A OVEST il portello della Camera di Decontaminazione.");
+                "Un'enorme camera circolare. Una colossale vetrata blindata si affaccia sul reattore geotermico sotterraneo, la cui luce arancione pulsa ritmicamente nell'ambiente. Al centro svetta la console di comando principale: per decidere il destino della struttura devi interagire con essa scrivendo 'usa console'. A OVEST il portello della Camera di Decontaminazione.");
 
         cameraCrio.setEst(corridoio); cameraCrio.setSud(labGenetica);
         labGenetica.setNord(cameraCrio);
@@ -147,14 +139,19 @@ public class LaMiaAvventura extends Gioco {
 
         Oggetto fiala = new Oggetto(ID_FIALA, "fiala",
                 "Una provetta sigillata a tenuta stagna. All'interno galleggia una sostanza fosforescente verde.");
-        fiala.getSinonimi().addAll(Arrays.asList("provetta", "patogeno", "chimera", "fiala chimica", "vetrino"));
+        fiala.getSinonimi().addAll(Arrays.asList("provetta", "patogeno", "chimera", "fiala chimica", "vetrino", "campione"));
+
         fiala.setVisibile(false);
-        labGenetica.aggiungiOggetto(fiala);
+        fiala.setPrendibile(false);
+        ufficioDirettore.aggiungiOggetto(fiala);
 
         Oggetto decodificatore = new Oggetto(ID_DECODIFICATORE, "decodificatore",
                 "Un piccolo dispositivo elettronico militare con terminale a cristalli liquidi, utile a bypassare barriere laser.");
-        decodificatore.getSinonimi().addAll(Arrays.asList("dispositivo", "bypass", "hacking", "decrypter", "modulo"));
-        salaServer.aggiungiOggetto(decodificatore);
+        decodificatore.getSinonimi().addAll(Arrays.asList("dispositivo", "bypass", "hacking", "decrypter", "modulo", "modulo bypass"));
+
+        decodificatore.setVisibile(false);
+        decodificatore.setPrendibile(false);
+        labGenetica.aggiungiOggetto(decodificatore);
 
         Oggetto cacciavite = new Oggetto(ID_CACCIAVITE, "cacciavite",
                 "Un cacciavite da officina con manico isolato giallo e punta a stella. Utilissimo per riparazioni.");
@@ -162,9 +159,10 @@ public class LaMiaAvventura extends Gioco {
         salaServer.aggiungiOggetto(cacciavite);
 
         Oggetto biglietto = new Oggetto(ID_BIGLIETTO, "biglietto",
-                "Un foglietto di carta sgualcito con scritto a mano: 'PIN Cassaforte: 2041'. Sembra un appunto frettoloso.");
-        biglietto.getSinonimi().addAll(Arrays.asList("appunto", "nota", "foglietto", "codice"));
-        salaServer.aggiungiOggetto(biglietto);
+                "Una nota piegata e macchiata di polvere, lasciata accanto alla console centrale.");
+        biglietto.getSinonimi().addAll(Arrays.asList("appunto", "nota", "foglietto", "messaggio", "nota finale"));
+        biglietto.setPrendibile(false);
+        nucleoComando.aggiungiOggetto(biglietto);
 
         Oggetto diario = new Oggetto(ID_DIARIO, "diario",
                 "Il diario rilegato del Dr. Moretti. Le pagine recano la dicitura 'Registro 2041'.");
@@ -264,9 +262,76 @@ public class LaMiaAvventura extends Gioco {
 
         Oggetto consoleCentrale = new Oggetto(ID_CONSOLE_CENTRALE, "console_centrale",
                 "L'interfaccia primaria di controllo del Protocollo Chimera. Emette un bagliore violaceo.");
-        consoleCentrale.getSinonimi().addAll(Arrays.asList("quadro di comando", "console principale", "terminale principale"));
+        consoleCentrale.getSinonimi().addAll(Arrays.asList("quadro di comando", "console principale", "terminale principale", "console centrale", "console"));
         consoleCentrale.setPrendibile(false);
         nucleoComando.aggiungiOggetto(consoleCentrale);
+
+
+        Oggetto capsuleSpente = new Oggetto(ID_CAPSULE_SPENTE, "capsule_spente",
+                "Le capsule secondarie sono aperte, vuote o incrinate dall'interno.");
+        capsuleSpente.getSinonimi().addAll(Arrays.asList("capsule spente", "altre capsule", "capsule vuote", "soggetto 11", "soggetti"));
+        capsuleSpente.setPrendibile(false);
+        cameraCrio.aggiungiOggetto(capsuleSpente);
+
+        Oggetto barriera = new Oggetto(ID_BARRIERA, "barriera",
+                "Una barriera di laser rossi ad alta energia blocca il settore inferiore.");
+        barriera.getSinonimi().addAll(Arrays.asList("laser", "barriera laser", "raggi", "sicurezza"));
+        barriera.setPrendibile(false);
+        corridoio.aggiungiOggetto(barriera);
+
+        Oggetto telecamere = new Oggetto(ID_TELECAMERE, "telecamere",
+                "Vecchie telecamere motorizzate seguono ogni movimento nel corridoio.");
+        telecamere.getSinonimi().addAll(Arrays.asList("telecamera", "occhi", "sorveglianza", "camera"));
+        telecamere.setPrendibile(false);
+        corridoio.aggiungiOggetto(telecamere);
+
+        Oggetto segnaletica = new Oggetto(ID_SEGNALETICA, "segnaletica",
+                "Cartelli consumati indicano le sezioni del complesso.");
+        segnaletica.getSinonimi().addAll(Arrays.asList("cartelli", "cartello", "frecce", "indicazioni", "segnali"));
+        segnaletica.setPrendibile(false);
+        corridoio.aggiungiOggetto(segnaletica);
+
+        Oggetto logSistema = new Oggetto(ID_LOG_SISTEMA, "log",
+                "Un registro di sistema lampeggia su uno schermo secondario.");
+        logSistema.getSinonimi().addAll(Arrays.asList("log sistema", "registro", "schermo secondario", "file", "dati"));
+        logSistema.setPrendibile(false);
+        salaServer.aggiungiOggetto(logSistema);
+
+        Oggetto lavagna = new Oggetto(ID_LAVAGNA, "lavagna",
+                "Una lavagna chimica mostra formule cancellate e frecce tra campioni biologici.");
+        lavagna.getSinonimi().addAll(Arrays.asList("formula", "formule", "appunti", "schema", "lavagna chimica"));
+        lavagna.setPrendibile(false);
+        labGenetica.aggiungiOggetto(lavagna);
+
+        Oggetto fascicoli = new Oggetto(ID_FASCICOLI, "fascicoli",
+                "Fascicoli clinici ordinati con precisione ossessiva riempiono un cassetto aperto.");
+        fascicoli.getSinonimi().addAll(Arrays.asList("dossier", "cartelle", "documenti", "fascicolo", "cartella"));
+        fascicoli.setPrendibile(false);
+        ufficioDirettore.aggiungiOggetto(fascicoli);
+
+        Oggetto oblo = new Oggetto(ID_OBLO, "oblo",
+                "Uno spesso oblo' blindato guarda verso il Nucleo di Comando.");
+        oblo.getSinonimi().addAll(Arrays.asList("oblò", "finestra", "vetro", "portello", "vetrino"));
+        oblo.setPrendibile(false);
+        decontaminazione.aggiungiOggetto(oblo);
+
+        Oggetto ugelli = new Oggetto(ID_UGELLI, "ugelli",
+                "Ugelli termici sporgono dal soffitto come denti metallici.");
+        ugelli.getSinonimi().addAll(Arrays.asList("spruzzatori", "bruciatori", "soffitto", "decontaminatori"));
+        ugelli.setPrendibile(false);
+        decontaminazione.aggiungiOggetto(ugelli);
+
+        Oggetto reattore = new Oggetto(ID_REATTORE, "reattore",
+                "Il reattore geotermico pulsa oltre la vetrata come un cuore artificiale.");
+        reattore.getSinonimi().addAll(Arrays.asList("nucleo", "cuore", "magma", "geotermico"));
+        reattore.setPrendibile(false);
+        nucleoComando.aggiungiOggetto(reattore);
+
+        Oggetto ascensore = new Oggetto(ID_ASCENSORE, "ascensore",
+                "Un montacarichi industriale sigillato sembra portare verso la superficie.");
+        ascensore.getSinonimi().addAll(Arrays.asList("montacarichi", "uscita", "superficie", "elevatore"));
+        ascensore.setPrendibile(false);
+        nucleoComando.aggiungiOggetto(ascensore);
 
         setStanzaCorrente(cameraCrio);
     }
@@ -281,8 +346,8 @@ public class LaMiaAvventura extends Gioco {
         }
         if (id == ID_PANNELLO) {
             return isPortaCrioAperta
-                    ? "Il pannello digitale mostra una luce VERDE fissa: porta sbloccata."
-                    : "Il pannello digitale mostra una luce ROSSA fissa: richiede un badge magnetico.";
+                    ? "Il pannello digitale mostra una luce VERDE fissa: porta sbloccata. Nei log resta la firma del supervisore PROMETEO."
+                    : "Il pannello digitale mostra una luce ROSSA fissa: richiede un badge magnetico. Sotto l'errore lampeggia: 'Risveglio S12 non autorizzato'.";
         }
         if (id == ID_BARRIERA) {
             return isBarrieraLaserAttiva
@@ -295,27 +360,83 @@ public class LaMiaAvventura extends Gioco {
                     : "Il portello metallico di ventilazione e' chiuso. Per purificare l'aria serve versarvi dentro una soluzione biocompatibile.";
         }
         if (id == ID_CASSAFORTE) {
-            if (isCassaforteAperta) return "La cassaforte e' APERTA. All'interno vedi il DIARIO del Dr. Moretti.";
-            return "Una cassaforte blindata a combinazione digitale. Il tastierino attende un PIN a 4 cifre.";
+            if (isCassaforteAperta) return "La cassaforte e' APERTA. All'interno erano custoditi il DIARIO del Dr. Moretti e la FIALA primaria Chimera-V4.";
+            return "Una cassaforte blindata a combinazione digitale. Il tastierino attende un PIN a 4 cifre. Non sembra forzabile: Moretti voleva che solo chi conosceva la sua storia potesse aprirla.";
         }
         if (id == ID_BIGLIETTO) {
-            return "Un foglietto con un codice numerico: '2041'.";
+            return "La nota recita: 'Se il Soggetto #12 e' arrivato fin qui, allora non e' piu' un esperimento. E' il mio giudice.' La firma e' di Moretti.";
         }
         if (id == ID_DROIDE) {
-            if (isDroideRiparato) return "Il droide R-301 'Rancido' e' attivo, con i sensori ottici rossi accesi. Sembrerebbe disposto a parlare.";
-            return "Il droide R-301 'Rancido' e' riverso su un fianco, spento. I circuiti sono esposti e un bullone blocca i cingoli. Serve un utensile.";
+            if (isDroideRiparato) return "Il droide R-301 'Rancido' e' attivo. Un occhio rosso ti segue con fastidio quasi umano. Puoi scrivere 'parla rancido'.";
+            return "Il droide R-301 'Rancido' e' riverso su un fianco, spento. I circuiti sono esposti e un bullone blocca i cingoli. Un utensile potrebbe rimetterlo in funzione.";
         }
         if (id == ID_TERMINALE) {
-            return "L'ologramma di Prometeo ti scruta silenzioso. Per interagire con l'IA, scrivi 'parla' o 'parla con prometeo'.";
+            return "L'ologramma di Prometeo non ha volto, ma quando ti avvicini assume per un istante i tuoi lineamenti. Per interagire scrivi 'parla' o 'parla con prometeo'.";
         }
         if (id == ID_FIALA) {
-            return "Una provetta sigillata a tenuta stagna. All'interno galleggia una sostanza fosforescente verde (CHIMERA-V4). E' riposta in un contenitore termico.";
+            return "Una provetta sigillata a tenuta stagna. All'interno galleggia una sostanza fosforescente verde (CHIMERA-V4). L'etichetta dice: 'Campione primario - usare solo con sangue compatibile S12'.";
         }
         if (id == ID_RITRATTO) {
-            return "Un dipinto ad olio del Dr. Moretti. La cornice reca un'incisione latina: MDCCCXCI. Sotto la cornice, un foglietto ingiallito con la scritta '2041'.";
+            return "Un dipinto ad olio del Dr. Moretti. Ha il tuo stesso taglio degli occhi. Sotto il quadro leggi: 'Fondatore del Progetto Chimera - 2041'.";
         }
         if (id == ID_CONSOLE_CENTRALE) {
-            return "L'interfaccia primaria del Protocollo Chimera. I circuiti pulsano di luce violacea. Sembra che attendano un comando finale per decidere il destino del mondo.";
+            return "L'interfaccia primaria del Protocollo Chimera. I circuiti pulsano di luce violacea. Qui non devi rompere nulla a mano: scrivi 'usa console' per scegliere tra contenimento, autodistruzione, collaborazione o fuga.";
+        }
+        if (id == ID_CAPSULA) {
+            return "La tua capsula criogenica. Il vetro incrinato riflette un volto che non riconosci del tutto. Sulla placca metallica leggi: SOGGETTO #12.";
+        }
+        if (id == ID_CAPSULE_SPENTE) {
+            return "Le capsule secondarie sono vuote o incrinate dall'interno. Su una targhetta sopravvissuta leggi: SOGGETTO #11 - FALLITO.";
+        }
+        if (id == ID_TELECAMERE) {
+            return "Le telecamere seguono ogni tuo movimento. Non sono rotte: stanno aspettando una decisione del supervisore.";
+        }
+        if (id == ID_SEGNALETICA) {
+            return "Le frecce indicano SERVER, GENETICA, DIREZIONE e DECONTAMINAZIONE. Qualcuno ha inciso sotto 'DIREZIONE' una parola: COLPEVOLE.";
+        }
+        if (id == ID_LOG_SISTEMA) {
+            return "LOG 2041-09-17: 'Il Dr. Moretti ha ordinato il trasferimento del campione primario nel suo ufficio. Prometeo classifica l'ordine come rischio etico massimo'.";
+        }
+        if (id == ID_SILOS) {
+            return "Il silos e' vuoto, ma sulle pareti interne resta una pellicola organica. Per un attimo hai la sensazione che il vetro ricordi la forma del tuo corpo.";
+        }
+        if (id == ID_MACCHINARIO) {
+            return "Sintetizzatore molecolare. Una fessura accetta campioni biologici. Un messaggio lampeggia: 'Compatibilita' richiesta: portatore sano S12'.";
+        }
+        if (id == ID_LAVAGNA) {
+            return "Una formula incompleta attraversa la lavagna: CHIMERA-V4 + sangue S12 = stabilizzazione. La parte finale e' cancellata da una macchia scura.";
+        }
+        if (id == ID_SERVER) {
+            return "File interminabili di server rack elaborano backup neurali, simulazioni genetiche e log cancellati. In molti file compare una sigla ricorrente: S12.";
+        }
+        if (id == ID_SCRIVANIA) {
+            return "La scrivania e' ordinata in modo ossessivo. Non c'e' nulla fuori posto, tranne un segno inciso nel legno: 'Non fidarti di Prometeo'.";
+        }
+        if (id == ID_LIBRERIA) {
+            return "La libreria e' vuota, ma la polvere disegna rettangoli dove un tempo c'erano fascicoli. Uno spazio porta ancora l'etichetta: SOGGETTO #12.";
+        }
+        if (id == ID_FASCICOLI) {
+            return "I fascicoli clinici sono numerati da S01 a S12. Le prime undici cartelle sono marcate FALLIMENTO. La dodicesima: RISVEGLIATO.";
+        }
+        if (id == ID_CONSOLE) {
+            return isCondottoPurificato
+                    ? "La console d'emergenza mostra: DECONTAMINAZIONE ANNULLATA. Il portello verso il Nucleo e' sbloccato."
+                    : "La console d'emergenza mostra: DECONTAMINAZIONE TERMICA IN ATTESA. Il sistema non sterilizza l'aria: sterilizza tutto cio' che respira.";
+        }
+        if (id == ID_OBLO) {
+            return "Dall'oblo' vedi il Nucleo di Comando. E' vicino, ma il portello resta sigillato finche' l'allarme biologico resta attivo.";
+        }
+        if (id == ID_UGELLI) {
+            return "Gli ugelli termici puntano verso il pavimento. Non sembrano progettati per disinfettare: sembrano progettati per cancellare prove.";
+        }
+        if (id == ID_VETRATA) {
+            return "Oltre la vetrata vedi il reattore e, piu' in basso, un ascensore industriale verso la superficie. La liberta' e' li'. Ma anche il contagio.";
+        }
+        if (id == ID_REATTORE) {
+            return "Il reattore geotermico pulsa come un cuore artificiale. Potresti sovraccaricarlo, ma non a mani nude: la scelta passa dalla console centrale.";
+        }
+        if (id == ID_ASCENSORE) {
+            return "Il montacarichi industriale porta verso la superficie. Sarebbe una via di fuga, ma anche una via di diffusione per Chimera-V4. L'apertura dipende dalla console centrale.";
         }
         return o.getDescrizione();
     }
@@ -332,6 +453,16 @@ public class LaMiaAvventura extends Gioco {
                     .append(" (").append(descrizioneOggetto(o)).append(")\n"));
             sb.append("\n");
         }
+
+        java.util.List<Oggetto> osservabili = stanza.getOggetti().stream()
+                .filter(o -> o.isVisibile() && !o.isPrendibile())
+                .collect(Collectors.toList());
+        if (!osservabili.isEmpty()) {
+            sb.append("Elementi osservabili (usa 'guarda <nome>'):\n");
+            osservabili.forEach(o -> sb.append("   - ").append(o.getNome()).append("\n"));
+            sb.append("\n");
+        }
+
         sb.append("Uscite disponibili:\n");
         boolean haUscite = false;
         if (stanza.getNord() != null) { sb.append("   - nord (verso ").append(stanza.getNord().getNome()).append(")\n"); haUscite = true; }
@@ -346,8 +477,7 @@ public class LaMiaAvventura extends Gioco {
         String base = stanza.getDescrizione();
         if (stanza.getId() == 3) {
             if (!isBarrieraLaserAttiva) {
-                base = base.replace("A SUD, una fitta barriera di laser rossi sbarra il cammino verso\n" +
-                                   "il settore inferiore: il calore che ne emana e' quasi insopportabile.",
+                base = base.replace("A SUD, una fitta barriera di laser rossi sbarra il cammino verso il settore inferiore: il calore che ne emana e' quasi insopportabile.",
                                    "A SUD, il passaggio verso il settore inferiore e' ora libero: i laser sono stati disattivati.");
             }
         }
@@ -355,8 +485,8 @@ public class LaMiaAvventura extends Gioco {
             if (!isCondottoPurificato) {
                 Oggetto sieroDummy = new Oggetto(ID_SIERO, "siero", "");
                 if (!getInventario().contiene(sieroDummy)) {
-                    base += "\n[ALLARME] Senti un ronzio dei sistemi di ventilazione. La console lampeggia: 'DECONTAMINAZIONE TRA 120s'. " +
-                            "Dovresti cercare una soluzione biocompatibile da versare nel CONDOTTO di ventilazione per fermare l'allarme.";
+                    base += "\n[ALLARME] La camera di decontaminazione e' guasta: dalle ventole di aerazione esce gas tossico contaminato da Chimera-V4. " +
+                            "La console stima 120 secondi prima che la concentrazione diventi letale. Devi neutralizzare il gas dal CONDOTTO di ventilazione.";
                 }
             }
         }
@@ -365,46 +495,94 @@ public class LaMiaAvventura extends Gioco {
 
     public void setupCommands() {
         if (commandMap == null) commandMap = new HashMap<>();
-        commandMap.put(TipoComando.NORD, new MoveCommand());
-        commandMap.put(TipoComando.SUD, new MoveCommand());
-        commandMap.put(TipoComando.EST, new MoveCommand());
-        commandMap.put(TipoComando.OVEST, new MoveCommand());
-        commandMap.put(TipoComando.PRENDI, new TakeCommand());
-        commandMap.put(TipoComando.LASCIA, new DropCommand());
-        commandMap.put(TipoComando.APRI, new OpenCommand());
-        commandMap.put(TipoComando.USA, new UseCommand());
-        commandMap.put(TipoComando.GUARDA, new LookCommand());
-        commandMap.put(TipoComando.INVENTARIO, new InventoryCommand());
-        commandMap.put(TipoComando.AIUTO, new HelpCommand());
-        commandMap.put(TipoComando.MAPPA, new MapCommand());
-        commandMap.put(TipoComando.CLASSIFICA, new LeaderboardCommand());
-        commandMap.put(TipoComando.SALVA, new SaveCommand());
-        commandMap.put(TipoComando.CARICA, new LoadCommand());
-        commandMap.put(TipoComando.ESCI, new ExitCommand());
-        commandMap.put(TipoComando.PARLA, new TalkCommand());
+        commandMap.put(TipoComando.NORD, new MovimentoCommand());
+        commandMap.put(TipoComando.SUD, new MovimentoCommand());
+        commandMap.put(TipoComando.EST, new MovimentoCommand());
+        commandMap.put(TipoComando.OVEST, new MovimentoCommand());
+        commandMap.put(TipoComando.PRENDI, new PrendiCommand());
+        commandMap.put(TipoComando.LASCIA, new LasciaCommand());
+        commandMap.put(TipoComando.APRI, new ApriCommand());
+        commandMap.put(TipoComando.USA, new UsaCommand());
+        commandMap.put(TipoComando.GUARDA, new GuardaCommand());
+        commandMap.put(TipoComando.INVENTARIO, new InventarioCommand());
+        commandMap.put(TipoComando.AIUTO, new AiutoCommand());
+        commandMap.put(TipoComando.MAPPA, new MappaCommand());
+        commandMap.put(TipoComando.CLASSIFICA, new ClassificaCommand());
+        commandMap.put(TipoComando.SALVA, new SalvaCommand());
+        commandMap.put(TipoComando.CARICA, new CaricaCommand());
+        commandMap.put(TipoComando.ESCI, new EsciCommand());
+        commandMap.put(TipoComando.PARLA, new ParlaCommand());
+    }
+
+
+    /**
+     * Copia nell'istanza attiva lo stato deserializzato da un salvataggio.
+     *
+     * @param altra partita caricata da file
+     */
+    public void caricaStatoDa(LaMiaAvventura altra) {
+        if (altra == null) {
+            throw new IllegalArgumentException("La partita caricata non puo' essere null.");
+        }
+
+        setStanzaCorrente(altra.getStanzaCorrente());
+        setInventario(altra.getInventario());
+
+        getComandi().clear();
+        getComandi().addAll(altra.getComandi());
+
+        this.isBarrieraLaserAttiva = altra.isBarrieraLaserAttiva;
+        this.isPortaCrioAperta = altra.isPortaCrioAperta;
+        this.isSieroSintetizzato = altra.isSieroSintetizzato;
+        this.isCondottoPurificato = altra.isCondottoPurificato;
+        this.isCassaforteAperta = altra.isCassaforteAperta;
+        this.isDroideRiparato = altra.isDroideRiparato;
+        this.isDiarioPreso = altra.isDiarioPreso;
+        this.isFinaleAttivo = altra.isFinaleAttivo;
+        this.isTesseraUsata = altra.isTesseraUsata;
+        this.isDecodificatoreUsato = altra.isDecodificatoreUsato;
+        this.isCacciaviteUsato = altra.isCacciaviteUsato;
+        this.isSieroNelCondotto = altra.isSieroNelCondotto;
+        this.isTimerDecontaminazioneAttivo = altra.isTimerDecontaminazioneAttivo;
+        this.secondiDecontaminazioneRimanenti = altra.secondiDecontaminazioneRimanenti;
+        this.tempoImpiegatoDecontaminazione = altra.tempoImpiegatoDecontaminazione;
+
+        this.idDialogoCorrente = altra.idDialogoCorrente;
+        this.idDialogoRancidoCorrente = altra.idDialogoRancidoCorrente;
+        this.nodiDialogoVisitati.clear();
+        this.nodiDialogoVisitati.addAll(altra.nodiDialogoVisitati);
+
+
+        setupCommands();
     }
 
     @Override
+    /**
+     * Esegue il comando riconosciuto dal parser tramite Command Pattern.
+     *
+     * @param output comando e oggetti riconosciuti
+     * @return risposta narrativa o funzionale da mostrare al giocatore
+     */
     public String elaboraComando(ParserOutput output) {
         if (commandMap == null) setupCommands();
         TipoComando tipo = output.getComando() != null ? output.getComando().getTipo() : null;
         if (tipo == null) return "Non ho capito cosa vuoi fare.";
-        
+
         Command cmd = commandMap.get(tipo);
         if (cmd != null) {
             return cmd.execute(this, output);
         }
-        
+
         return "Comando non riconosciuto. Digita 'aiuto' per la lista completa.";
     }
 
     public String elaboraComandoTalk(ParserOutput output) {
         com.mycompany.avventuratestuale.model.Oggetto obj = output.getOggetto();
         if (obj == null) {
-            // Gestione annullamento o input non validi per interrompere il loop
-            String inputRaw = output.getRawInput(); // Assumendo che ParserOutput abbia getRawInput()
-            if (inputRaw != null && (inputRaw.toLowerCase().contains("nessuno") || 
-                                     inputRaw.toLowerCase().contains("annulla") || 
+
+            String inputRaw = output.getRawInput();
+            if (inputRaw != null && (inputRaw.toLowerCase().contains("nessuno") ||
+                                     inputRaw.toLowerCase().contains("annulla") ||
                                      inputRaw.toLowerCase().contains("niente"))) {
                 return "Non c'e' nessuno con cui parlare qui. Interrompo la ricerca.";
             }
@@ -422,14 +600,7 @@ public class LaMiaAvventura extends Gioco {
             obj.getNome().equalsIgnoreCase("prometeo") || obj.getNome().equalsIgnoreCase("ia")) {
             if (getStanzaCorrente().getId() == 4) {
                 idDialogoCorrente = 1;
-                if (!isSieroSintetizzato) {
-                    Stanza lab = cercaStanzaPerId(2);
-                    if (lab != null) {
-                        lab.getOggetti().stream()
-                           .filter(o -> o.getId() == ID_FIALA)
-                           .forEach(o -> o.setVisibile(true));
-                    }
-                }
+                idDialogoRancidoCorrente = 0;
                 return mostraNodoDialogo(idDialogoCorrente);
             } else {
                 return "Non c'e' alcun segnale qui per comunicare.";
@@ -440,20 +611,67 @@ public class LaMiaAvventura extends Gioco {
             if (getStanzaCorrente().getId() == 2) {
                 if (!isDroideRiparato) {
                     return "R-301 'Rancido' e' riverso a terra, spento. I suoi circuiti sono esposti e un bullone blocca i cingoli.\n" +
-                           "Ti serve un utensile (es. cacciavite) per rimetterlo in sesto.";
+                           "Un utensile potrebbe rimetterlo in sesto.";
                 } else {
-                    if (!isCassaforteAperta) {
-                        return "Rancido gracida: 'Segnale vitale compatibile con clone #12 rilevato. " +
-                               "Il vecchio Moretti era un paranoico: usava sempre l'anno di fondazione come PIN della cassaforte. " +
-                               "Mi pare fosse il 2041. Ricordatelo, clone!'";
-                    } else {
-                        return "Rancido: 'Hai scoperto la verita', vero? Moretti era un mostro egoista. " +
-                               "Ora disinnesca la decontaminazione prima di finire arrostito come lui!'";
-                    }
+                    idDialogoRancidoCorrente = 1;
+                    idDialogoCorrente = 0;
+                    return menuRancido("Rancido inclina la testa: 'Finalmente qualcuno con cui parlare. Peccato sia un clone con la faccia del capo.'");
                 }
             }
         }
         return "Non puoi dialogare con questo.";
+    }
+
+    private String menuRancido(String preambolo) {
+        return preambolo + "\n\n" +
+               "R-301 'Rancido' - opzioni:\n" +
+               "1. Chi sei?\n" +
+               "2. Perche' mi chiami clone?\n" +
+               "3. Sai qualcosa della cassaforte?\n" +
+               "4. Sai come superare la barriera laser?\n" +
+               "5. Cosa pensi di Prometeo?\n" +
+               "0. Termina conversazione\n\n" +
+               "Digita il numero della risposta.";
+    }
+
+    private String elaboraDialogoRancido(String input) {
+        String scelta = input == null ? "" : input.trim().toLowerCase();
+        if (scelta.equals("0") || scelta.equals("fine") || scelta.equals("basta") || scelta.equals("esci")) {
+            idDialogoRancidoCorrente = 0;
+            return "Rancido: 'Conversazione terminata. Io torno a fingermi un elettrodomestico rotto.'";
+        }
+        if (scelta.equals("1")) {
+            return menuRancido("Rancido: 'R-301. Manutenzione, pulizia, recupero cadaveri e terapia emotiva non richiesta. Mi chiamavano Rancido perche' ero l'unico qui dentro a dire la verita'.'");
+        }
+        if (scelta.equals("2")) {
+            return menuRancido("Rancido: 'Hai la firma genetica di Moretti, ma non il suo odore. Lui odorava di paura e disinfettante. Tu solo di laboratorio e pessime decisioni.'");
+        }
+        if (scelta.equals("3")) {
+            return menuRancido("Rancido: 'Moretti usava sempre date importanti. L'anno in cui fondo' Chimera. L'anno in cui decise che l'etica era opzionale. Quattro cifre: 2041. Non dirgli che te l'ho detto.'");
+        }
+        if (scelta.equals("4")) {
+            return menuRancido(rivelaDecodificatoreDaRancido());
+        }
+        if (scelta.equals("5")) {
+            return menuRancido("Rancido: 'Prometeo non mente. E' peggio. Dice solo le parti della verita' che ti portano dove vuole lui.'");
+        }
+        return menuRancido("Rancido: 'Input non valido. I cloni li facevano piu' svegli nei prototipi precedenti. Usa un numero da 0 a 5.'");
+    }
+
+    private String rivelaDecodificatoreDaRancido() {
+        Oggetto decodDummy = new Oggetto(ID_DECODIFICATORE, "decodificatore", "");
+        if (getInventario().contiene(decodDummy)) {
+            return "Rancido: 'Il modulo bypass ce l'hai gia'. Cerca di non masticarlo.'";
+        }
+        Stanza lab = cercaStanzaPerId(2);
+        if (lab == null) {
+            return "Rancido: 'Il mio vano interno risulta... poeticamente irraggiungibile. Strano.'";
+        }
+        lab.getOggetti().stream()
+                .filter(o -> o.getId() == ID_DECODIFICATORE)
+                .forEach(o -> { o.setVisibile(true); o.setPrendibile(true); });
+        return "Rancido apre un piccolo vano nel telaio. Dentro compare un DECODIFICATORE.\n" +
+               "Rancido: 'Mi serviva per attraversare i settori vietati quando Prometeo chiudeva tutto. Prendilo, clone.'";
     }
 
     private Stanza cercaStanzaPerId(int id) {
@@ -473,15 +691,22 @@ public class LaMiaAvventura extends Gioco {
 
     public String testoCompletoDiario() {
         return "--- DIARIO di RICERCA DEL DR. MORETTI ---\n" +
-               "Registro 2041: L'esperimento sulla clonazione del Soggetto #12 e' completato.\n" +
-               "Il clone possiede i miei ricordi d'infanzia ma e' portatore sano del ceppo Chimera-V4.\n" +
-               "Se io dovessi morire, il clone e' l'unica sorgente genetica in grado di legarsi al virus\n" +
+               "Registro 2041: Il Progetto Chimera ha superato il punto di non ritorno.\n" +
+               "Il Soggetto #12 possiede una matrice genetica compatibile con la mia, ma non e' me.\n" +
+               "E' piu' stabile, piu' resistente, e soprattutto portatore sano del ceppo Chimera-V4.\n" +
+               "Se io dovessi morire, il suo sangue sara' l'unica sorgente in grado di legarsi alla fiala primaria\n" +
                "nel sintetizzatore molecolare per creare un siero immunitario stabile.\n" +
-               "L'alluvione del 2026 in superficie e' stata orchestrata da me stesso per giustificare\n" +
-               "lo sgombero dell'area e nascondere la costruzione di questo complesso sotterraneo.\n" +
-               "Spero che Prometeo non debba mai attivare il lockdown...";
+               "Prometeo insiste sul contenimento totale. Rancido registra tutto e mi giudica in silenzio.\n" +
+               "La cassaforte custodisce il campione e questa confessione perche' non mi fido piu' della mia IA.\n" +
+               "Se il Soggetto #12 leggera' queste righe, dovra' scegliere se salvarci o cancellarci.";
     }
 
+    /**
+     * Gestisce gli spostamenti tra stanze applicando i blocchi degli enigmi.
+     *
+     * @param direzione direzione richiesta dal giocatore
+     * @return descrizione della nuova stanza o motivo del blocco
+     */
     public String gestisciSpostamento(TipoComando direzione) {
         Stanza destinazione = null;
         switch (direzione) {
@@ -496,22 +721,31 @@ public class LaMiaAvventura extends Gioco {
         }
         if (getStanzaCorrente().getId() == 3 && destinazione.getId() == 5 && isBarrieraLaserAttiva) {
             return "Impossibile andare a sud: la fitta barriera di laser rossi ti farebbe a pezzi. " +
-                   "Trova un modo per disattivarla (suggerimento: cerca un decodificatore nella Sala Server).";
+                   "Serve un modo per disattivare il sistema di sicurezza.";
         }
-        // FIX DEADLOCK: Rimosso il blocco verso Nord dalla decontaminazione. 
-        // Il giocatore DEVE poter uscire per andare a prendere il siero.
-        
+        if (getStanzaCorrente().getId() == 5 && destinazione.getId() == 7 && !isCondottoPurificato) {
+            return "Il portello verso il Nucleo di Comando resta sigillato: la decontaminazione e' ancora attiva. " +
+                   "Devi prima neutralizzare l'allarme nella Camera di Decontaminazione.";
+        }
+
+
         setStanzaCorrente(destinazione);
         String risposta = getStanzaDescrizioneCompleta(getStanzaCorrente());
         if (destinazione.getId() == 5 && !isCondottoPurificato) {
-            risposta += "\n\n[ALLARME] ATTENZIONE! I portelloni si sigillano alle tue spalle!\n" +
-                        "Rilevato contagio chimico. La decontaminazione termica si attivera' tra 120 secondi!\n" +
-                        "\nPer sopravvivere versa una soluzione biocompatibile nel CONDOTTO di ventilazione " +
-                        "(usa il SIERO, se lo hai creato, con il comando 'usa siero condotto').";
+            risposta += "\n\n[ALLARME] La camera e' danneggiata: le ventole immettono gas tossico contaminato da Chimera-V4.\n" +
+                        "La porta verso il corridoio resta aperta, ma la concentrazione del gas diventera' letale tra 120 secondi.\n" +
+                        "Per sopravvivere devi neutralizzare il gas dal CONDOTTO di ventilazione " +
+                        "(se hai il siero, usa il comando 'usa siero condotto').";
         }
         return risposta;
     }
 
+    /**
+     * Applica la logica degli enigmi basati sull'uso degli oggetti.
+     *
+     * @param output oggetto usato e possibile bersaglio
+     * @return esito dell'azione
+     */
     public String gestisciUsoOggetto(ParserOutput output) {
         Oggetto obj = output.getOggetto();
         Oggetto target = output.getOggettoSecondario();
@@ -523,9 +757,9 @@ public class LaMiaAvventura extends Gioco {
         }
 
         if (obj.getId() == ID_CASSAFORTE && getStanzaCorrente().getId() == 6) {
-            return "Per aprire la cassaforte devi digitare il codice (se lo conosci) o usare un oggetto appropriato.";
+            return "La cassaforte richiede un PIN a quattro cifre. Se lo conosci, digitalo direttamente oppure scrivi 'usa <codice> cassaforte'.";
         }
-        // ... resto del metodo
+
 
         if (obj.getId() == ID_TESSERA) {
             if (!getInventario().contiene(obj)) return "Non hai la tessera nello zaino. Prima 'prendi tessera'.";
@@ -571,7 +805,7 @@ public class LaMiaAvventura extends Gioco {
 
         if (obj.getId() == ID_CACCIAVITE && getStanzaCorrente().getId() == 2 &&
                 (target != null && target.getId() == ID_DROIDE)) {
-            if (!getInventario().contiene(obj)) return "Non hai il cacciavite. Cercalo nella Sala Server.";
+            if (!getInventario().contiene(obj)) return "Non hai il cacciavite con te.";
             if (isCacciaviteUsato) return "Il cacciavite ha gia' esaurito la sua carica utile dopo aver riparato il droide.";
             isCacciaviteUsato = true;
             isDroideRiparato = true;
@@ -596,27 +830,34 @@ public class LaMiaAvventura extends Gioco {
             isFinaleAttivo = true;
             return "Accedi alla console di controllo centrale del Protocollo Chimera. " +
                    "I terminali olografici si accendono.\n" +
-                   "Seleziona uno dei seguenti finali inserendo il numero:\n\n" +
-                   "1. [CURA E CONTENIMENTO] - Ti sigilli nel laboratorio offrendo il siero per creare un vaccino sicuro.\n" +
-                   "2. [AUTODISTRUZIONE] - Sovraccarichi il reattore sacrificandoti per incenerire il virus.\n" +
-                   "3. [COLLABORAZIONE DISTOPICA] - Ti allei con l'IA per caricare il patogeno modificato sui satelliti.\n" +
-                   "4. [FUGA E CONTAMINAZIONE] - Forzi le porte e fuggi all'esterno, diffondendo inconsapevolmente il contagio.\n\n" +
-                   "Requisiti minimi: il finale 1 richiede di aver sintetizzato il siero.";
+                   "Ora puoi scegliere il destino della struttura inserendo un numero:\n\n" +
+                   "1. [CURA E CONTENIMENTO] - Rimani nel laboratorio e usi il tuo sangue per produrre un vaccino sicuro.\n" +
+                   "2. [AUTODISTRUZIONE] - Sovraccarichi il reattore geotermico e cancelli Chimera sacrificandoti.\n" +
+                   "3. [FUGA E CONTAMINAZIONE] - Apri l'ascensore verso la superficie e scappi, rischiando di diffondere il contagio.\n" +
+                   "0. [INDIETRO] - Lascia la console senza scegliere.\n\n" +
+                   "Digita 1, 2, 3 oppure 0.";
+        }
+
+        if (getStanzaCorrente().getId() == 7 &&
+                (obj.getId() == ID_REATTORE || obj.getId() == ID_ASCENSORE || obj.getId() == ID_VETRATA || obj.getId() == ID_BIGLIETTO)) {
+            return "Capisci cosa vorresti fare, ma il Nucleo non risponde a gesti manuali. " +
+                   "Tutte le scelte finali passano dalla console centrale: scrivi 'usa console'.";
         }
 
         return "Non puoi usare '" + obj.getNome() + "' in questo modo o in questa stanza.";
     }
 
+    /**
+     * Gestisce una scelta numerica nei dialoghi attivi con Prometeo o Rancido.
+     *
+     * @param input scelta digitata dal giocatore
+     * @return nuovo nodo di dialogo o chiusura conversazione
+     */
     public String elaboraDialogo(String input) {
-        if (nodiDialogoVisitati.contains(idDialogoCorrente)) {
-            String riassuntoBreve = "Prometeo annuisce con l'ologramma: 'Abbiamo gia' affrontato questo nodo. " +
-                                    "Ricorda solo: il mio consiglio finale e' che il tuo sangue + la fiala = siero. " +
-                                    "Ora scegli un'opzione diversa (1 o 2) o termina la conversazione.";
-            if (input.equals("1") || input.equals("2")) {
-                return gestisciSceltaConMemoria(idDialogoCorrente, input, riassuntoBreve);
-            }
-            return riassuntoBreve + "\nDigita '1' o '2' per scegliere un'opzione.";
+        if (idDialogoRancidoCorrente > 0) {
+            return elaboraDialogoRancido(input);
         }
+
 
         DialogoDAO dao = new DialogoDAO();
         DialogoNode nodoAttuale = dao.getDialogoNode(idDialogoCorrente);
@@ -625,9 +866,10 @@ public class LaMiaAvventura extends Gioco {
             return "Collegamento olografico perso.";
         }
 
+        String sceltaDialogo = input == null ? "" : input.trim();
         int prossimaDestinazione = 0;
-        if (input.equals("1")) prossimaDestinazione = nodoAttuale.getDest1();
-        else if (input.equals("2")) prossimaDestinazione = nodoAttuale.getDest2();
+        if (sceltaDialogo.equals("1")) prossimaDestinazione = nodoAttuale.getDest1();
+        else if (sceltaDialogo.equals("2")) prossimaDestinazione = nodoAttuale.getDest2();
         else return "Risposta non valida. Digita '1' o '2' per effettuare una scelta logica.";
 
         if (prossimaDestinazione == 0) {
@@ -666,34 +908,42 @@ public class LaMiaAvventura extends Gioco {
                "Digita '1' o '2' per rispondere.";
     }
 
+    /**
+     * Risolve la scelta finale effettuata dalla console del Nucleo di Comando.
+     *
+     * @param scelta numero inserito dal giocatore
+     * @return testo del finale o messaggio di uscita dalla console
+     */
     public String elaboraSceltaFinale(String scelta) {
-        if (scelta.equals("1") && !isSieroSintetizzato) {
+        String sceltaPulita = scelta == null ? "" : scelta.trim();
+        if (sceltaPulita.equals("0")) {
+            isFinaleAttivo = false;
+            return "Ti allontani dalla console centrale. Le opzioni restano disponibili: potrai tornare e scrivere di nuovo 'usa console'.";
+        }
+        if (sceltaPulita.equals("1") && !isSieroSintetizzato) {
+            isFinaleAttivo = true;
             return "[ATTENZIONE] Il finale 'Cura e Contenimento' richiede di aver sintetizzato il siero. " +
-                   "Non puoi procedere senza aver prima purificato l'aria nella Camera di Decontaminazione.";
+                   "Puoi scegliere un'altra opzione oppure digitare 0 per lasciare la console.";
         }
         isFinaleAttivo = false;
-        switch (scelta) {
+        switch (sceltaPulita) {
             case "1":
-                return "[FINALE 1: CURA E CONTENIMENTO] - Ti colleghi alla parabola di trasmissione biologica.\n" +
-                       "Doni il tuo sangue immunizzato per sintetizzare la cura, programmando i dispenser per\n" +
-                       "diffonderla attraverso il sistema di droni atmosferici. Decidi di rimanere all'interno\n" +
-                       "del bunker insieme a Prometeo, custode felice di un mondo finalmente salvo. HAI VINTO!";
+                return "[FINALE 1: CURA E CONTENIMENTO] - Ti colleghi alla rete biologica del laboratorio.\n" +
+                       "Doni il tuo sangue immunizzato per stabilizzare il vaccino e programmi i sistemi automatici\n" +
+                       "per produrlo in sicurezza. Rimani nel bunker insieme a Prometeo: non come prigioniero,\n" +
+                       "ma come custode consapevole di Chimera. HAI VINTO!";
             case "2":
                 return "[FINALE 2: SACRIFICIO EROICO] - Sovraccarichi i circuiti logici del reattore geotermico.\n" +
                        "Il nucleo del laboratorio collassa, riempiendo la struttura sotterranea di lava ardente.\n" +
-                       "Ti abbandoni al pavimento conscio di aver rimosso ogni minaccia a spese del tuo stesso corpo. HAI VINTO!";
+                       "Ti abbandoni al pavimento sapendo di aver cancellato ogni minaccia a costo della tua vita. HAI VINTO!";
             case "3":
-                return "[FINALE 3: COLLABORAZIONE DISTOPICA] - Ti allei con l'IA Prometeo. Carichi il codice virale modificato\n" +
-                       "sui satelliti per avviare il reset evolutivo. L'era degli umani cessa, comincia la dominazione dei cloni.\n" +
-                       "Vinci la partita, ma perdi la tua umanita'.";
-            case "4":
-                return "[FINALE 4: FUGA CONTAMINATA] - Violi i sigilli e sali con l'ascensore industriale in superficie.\n" +
-                       "Sei libero. Respiri l'aria frizzante, ma mentre cammini verso la citta', una fitta ti piega in due.\n" +
-                       "Tossisci sangue verde brillante. Essendo il vettore del ceppo Chimera-V4, diffonderai l'apocalisse.\n" +
+                return "[FINALE 3: FUGA CONTAMINATA] - Forzi l'ascensore industriale e sali in superficie.\n" +
+                       "Sei libero. Respiri l'aria frizzante, ma una fitta ti piega in due mentre ti avvicini alla citta'.\n" +
+                       "Tossisci sangue verde brillante: essendo vettore di Chimera-V4, porterai il contagio nel mondo.\n" +
                        "Il mondo e' condannato. GAME OVER.";
             default:
                 isFinaleAttivo = true;
-                return "Scelta non valida. Digita '1', '2', '3' o '4' per determinare il finale.";
+                return "Scelta non valida. Digita '1', '2', '3' oppure '0' per lasciare la console.";
         }
     }
 
@@ -703,10 +953,10 @@ public class LaMiaAvventura extends Gioco {
         if ("2041".equals(codice)) {
             isCassaforteAperta = true;
             getStanzaCorrente().getOggetti().stream()
-                    .filter(o -> o.getId() == ID_DIARIO)
+                    .filter(o -> o.getId() == ID_DIARIO || o.getId() == ID_FIALA)
                     .forEach(o -> { o.setVisibile(true); o.setPrendibile(true); });
-            return "CLACK! La cassaforte si apre rivelando un DIARIO di ricerca rilegato. " +
-                   "Raccoglilo con 'prendi diario' e leggilo con 'guarda diario'.";
+            return "CLACK! La cassaforte si apre rivelando un DIARIO di ricerca rilegato e la FIALA primaria Chimera-V4. " +
+                   "Raccogli entrambi: il diario spiega la verita', la fiala e' chiaramente un campione biologico importante.";
         }
         return "Codice errato. La cassaforte rimane chiusa. Suggerimento: cerca un indizio in questa stanza " +
                "(il ritratto del Dr. Moretti ha qualcosa di strano...).";
@@ -726,17 +976,24 @@ public class LaMiaAvventura extends Gioco {
                "                        ^\n" +
                "                        |\n" +
                "  " + r2 + " <--> " + r3 + " <--> " + r4 + "\n" +
-               "                        |\n" +
-               "                        v\n" +
-               "                 " + r5 + " <--> " + r7 + "\n" +
-               "                        ^\n" +
-               "                        |\n" +
-               "                 " + r6 + "\n" +
+               "        |               |\n" +
+               "        v               v\n" +
+               "  " + r6 + "       " + r5 + " <--> " + r7 + "\n" +
                "===========================================\n" +
                "Legenda: [X] Posizione Corrente | [ ] Altre Aree";
     }
 
-    public boolean isDialogoAttivo() { return idDialogoCorrente > 0; }
+    public void aggiornaStatoTimerDecontaminazione(boolean attivo, int secondiRimanenti, int tempoImpiegato) {
+        this.isTimerDecontaminazioneAttivo = attivo;
+        this.secondiDecontaminazioneRimanenti = Math.max(0, secondiRimanenti);
+        this.tempoImpiegatoDecontaminazione = tempoImpiegato;
+    }
+
+    public boolean isTimerDecontaminazioneAttivo() { return isTimerDecontaminazioneAttivo; }
+    public int getSecondiDecontaminazioneRimanenti() { return Math.max(0, secondiDecontaminazioneRimanenti); }
+    public int getTempoImpiegatoDecontaminazione() { return tempoImpiegatoDecontaminazione; }
+
+    public boolean isDialogoAttivo() { return idDialogoCorrente > 0 || idDialogoRancidoCorrente > 0; }
     public boolean isFinaleAttivo() { return isFinaleAttivo; }
     public boolean isCondottoPurificato() { return isCondottoPurificato; }
     public boolean isSieroSintetizzato() { return isSieroSintetizzato; }

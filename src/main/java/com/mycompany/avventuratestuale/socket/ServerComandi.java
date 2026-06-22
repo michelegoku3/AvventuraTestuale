@@ -7,6 +7,9 @@ import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Server socket multiclient per spettatori e terminali remoti.
+ */
 public class ServerComandi extends Thread {
 
     private final int porta;
@@ -24,7 +27,7 @@ public class ServerComandi extends Thread {
         inEsecuzione = false;
         try {
             if (serverSocket != null && !serverSocket.isClosed()) {
-                serverSocket.close(); // Sblocca accept() [Lezioni/14 / Lezioni/15 - Programmazione in Rete.pdf, Slide 10]
+                serverSocket.close();
             }
         } catch (IOException e) {
             System.err.println("Errore interruzione server socket: " + e.getMessage());
@@ -41,16 +44,16 @@ public class ServerComandi extends Thread {
     @Override
     public void run() {
         try {
-            // Avvia ServerSocket [Lezioni/14 / Lezioni/15 - Programmazione in Rete.pdf, Slide 11]
+
             serverSocket = new ServerSocket(porta);
-            // Stampa silenziosa in standard output per evitare di inquinare la console Swing d'inizio partita del giocatore
-            System.out.println("🌐 Server Socket di Hacking attivo in background sulla porta " + porta + "...");
-            
+
+            System.out.println("[Socket] Server di Hacking attivo in background sulla porta " + porta + "...");
+
             while (inEsecuzione) {
-                Socket clientSocket = serverSocket.accept(); // Operazione bloccante [Lezioni/14 / Lezioni/15 - Programmazione in Rete.pdf, Slide 10]
-                gui.stampaTesto("🔌 Terminale di sicurezza connesso da IP: " + clientSocket.getRemoteSocketAddress());
-                
-                // Crea e lancia thread concorrente per il client [Lezioni/14 / Lezioni/15 - Programmazione in Rete.pdf, Slide 13]
+                Socket clientSocket = serverSocket.accept();
+                gui.stampaTesto("[Socket] Terminale di sicurezza connesso da IP: " + clientSocket.getRemoteSocketAddress());
+
+
                 ClientHandler handler = new ClientHandler(clientSocket, gui);
                 synchronized (this) {
                     clientConnessi.add(handler);

@@ -1,0 +1,586 @@
+SOURCE: /home/user/AvventuraTestuale/Materiale/Avventura Testuale/Lab 1 - Introduzione.pdf
+PAGES: 41
+
+===== PAGE 1 =====
+Capitolo I
+Cosa è un’avventura testuale
+Corso di Metodi Avanzati di Programmazione (Laboratorio)
+Dipartimento di Informatica - Università degli studi di Bari Aldo Moro
+Pierpaolo Basile
+
+
+===== PAGE 2 =====
+Avventura nel castello, Enrico Colombini
+
+
+===== PAGE 3 =====
+Cosa è un’avventura testuale
+▣
+Sono dei programmi che simulano un ambiente nel 
+quale i giocatori usano comandi testuali per istruire 
+il personaggio della storia a interagire con l'ambiente 
+circostante
+▣
+Le avventure testuali possono essere interpretate sia 
+come un lavoro letterario che come un videogioco
+○
+in inglese: interactive ﬁction
+▣
+Hanno avuto il loro picco di successo durante gli anni 
+80 
+3
+
+
+===== PAGE 4 =====
+Cosa è un’avventura testuale
+▣
+Sono stati uno dei primi videogiochi per PC
+○
+Prendono ispirazione dai giochi di ruolo (D&D)
+▣
+L’interazione avviene attraverso il testo
+○
+Alcune avventure testuali possono prevedere 
+anche delle immagini ma queste hanno solo 
+scopo narrativo come in un libro
+▣
+Se è permessa l’interazione attraverso oggetti graﬁci 
+allora si parla di avventure graﬁche 
+4
+
+
+===== PAGE 5 =====
+Monkey Island, LucasFilm Games
+
+
+===== PAGE 6 =====
+Come funzionano
+▣
+Il giocatore usa un’interfaccia a riga di comando per 
+controllare il gioco
+▣
+La situazione di gioco è descritta al giocatore tramite 
+frasi di testo
+▣
+I comandi sono sotto forma di semplici frasi del tipo 
+"prendi chiave" o "vai nord", che vengono interpretate 
+da un parser
+○
+la complessità del parser può variare
+6
+
+
+===== PAGE 7 =====
+Il parser
+▣
+Può interpretare semplici coppie verbo-oggetto 
+(prendi chiave)
+▣
+Parser più complessi ammettono anche l’uso di 
+articoli o preposizioni
+▣
+Possono interpretare anche frasi complesse
+○
+"apri la scatola rossa con la chiave verde poi vai a 
+nord"
+7
+
+
+===== PAGE 8 =====
+Evoluzioni
+▣
+Le avventure si sono evolute per supportare la 
+modalità multigiocatore
+○
+Multi user dungeon (MUD)
+▣
+In questo caso più giocatori agiscono nello stesso 
+ambiente ed è possibile l’interazione tra giocatori
+8
+
+
+===== PAGE 9 =====
+Stile di scrittura
+▣
+I comandi inseriti dall’utente sono in genere frasi 
+all’imperativo (raccogli…, apri..., vai…)
+▣
+Le risposte del gioco sono solitamente scritte al 
+presente indicativo dal punto di vista di un'altra 
+persona
+○
+il protagonista del gioco deve identiﬁcarsi con il 
+giocatore (Tiri la leva. La porta si apre, e vieni 
+abbagliato dalla vista di uno splendente scrigno del 
+tesoro.)
+9
+
+
+===== PAGE 10 =====
+Stile di scrittura
+▣
+E’ importante dotare il protagonista di una sua 
+personalità
+▣
+Molto spesso le risposte possono essere umoristiche 
+o sarcastiche per rendere l’avventura più divertente
+○
+Magari prendendo in giro il giocatore
+10
+
+
+===== PAGE 11 =====
+Un po’ di storia
+▣
+1975 Will Crowther scrisse la prima avventura 
+testuale, Adventure
+○
+implementata in Fortran per il PDP-10
+▣
+Nel 1976 Don Wood estese Adventure
+○
+Il gioco si diffuse tramite Arpanet (la rete che 
+sarebbe poi diventata Internet)
+11
+
+
+===== PAGE 12 =====
+Un po’ di storia
+▣
+1978 prima avventura commerciale, Adventureland 
+scritta da Scott Adams
+○
+Adams fondò nel 1979 la Adventure 
+International, che durò ﬁno al 1985
+▣
+1979, Zork di Infocom l’azienda più rilevante in 
+questo settore
+○
+Trinity, The Hitchhiker's Guide to the Galaxy e A 
+Mind Forever Voyaging
+12
+
+
+===== PAGE 13 =====
+Un po’ di storia
+▣
+Infocom sviluppa la Z-machine
+○
+una macchina virtuale che poteva essere 
+implementata su molte piattaforme
+○
+esistono Z-machine per OS mobile
+▣
+Infocom viene acquisita nel 1986 dalla Activision
+13
+
+
+===== PAGE 14 =====
+Storia recente
+▣
+Dopo la ﬁne commerciale delle avventure testuali 
+(primi anni 90) è rimasta viva una produzione 
+amatoriale di avventure e tool per lo sviluppo
+▣
+Il mercato venne poi sostituito dalle avventure 
+graﬁche (LucasArts, Sierra, …) 
+▣
+Dal 2010 in poi ci sono stati alcuni esperimenti 
+commerciali su dispositivi mobile
+▣
+Giochi recenti ispirati al genere: Stories Untold 
+14
+
+
+===== PAGE 15 =====
+Storia recente (avventure graﬁche)
+▣
+Il genere avventura testuale viene sostituito negli 
+anni novanta dalle avventure graﬁche
+○
+Avventure punta e clicca
+▣
+Queste hanno un declino agli inizi degli anni 2000 
+poiché difﬁcilmente si adattano alla graﬁca 3D di 
+moda in quel periodo
+○
+Tranne alcune eccezioni: Myst, Syberia
+▣
+Attualmente stanno riscoprendo un nuovo successo 
+grazie alla ri-pubblicazione di titoli storici e 
+all’utilizzo di dispositivi touch
+15
+
+
+===== PAGE 16 =====
+Avventura testuale VS Avventura graﬁca
+▣
+Le avventure graﬁche sono una naturale evoluzione 
+delle avventure testuali
+▣
+Le avventure graﬁche permettono al giocatore di 
+selezionare le azioni da compiere e gli oggetti da 
+utilizzare grazie ad un’interfaccia graﬁca
+▣
+La graﬁca non ha solo un’utilità narrativa ma è parte 
+del meccanismo di interazione
+16
+
+
+===== PAGE 17 =====
+Avventura testuale VS avventura graﬁca
+▣
+Caratteristiche comuni
+○
+Gli enigmi sono un aspetto distintivo della storia e 
+sono disseminati lungo il gioco e si presentano 
+generalmente sotto forma di meccanismi da sbloccare, 
+oggetti da recuperare/trovare, serie di azioni da 
+svolgere in un ordine preciso
+○
+È presente un inventario, nel quale il protagonista può 
+conservare oggetti, rinvenuti in precedenza, per usarli 
+nei momenti più opportuni
+17
+
+
+===== PAGE 18 =====
+Avventura testuale VS avventura graﬁca
+▣
+Caratteristiche comuni
+○
+In genere lo scopo dell’avventura è far vivere una 
+storia la cui narrazione è già stabilita e può 
+arrivare alla conclusione se il giocatore svolge le 
+giuste azioni
+○
+Il giocatore può acquisire punti raccogliendo 
+oggetti, compiendo le azioni corrette, 
+impiegando meno tempo nel risolvere gli enigmi
+18
+
+
+===== PAGE 19 =====
+Avventura testuale VS avventura graﬁca
+▣
+Caratteristiche comuni
+○
+Normalmente non è possibile morire durante il 
+gioco, alcune avventure testuali del passato 
+prevedevano la morte del giocatore
+○
+In genere sono progettate per permettere al 
+giocatore di arrivare alla ﬁne senza bloccarsi
+■
+Alcune avventure testuali prevedevano situazioni 
+senza via di uscita perché magari il giocatore non 
+aveva raccolto un oggetto o aveva utilizzato un 
+oggetto in modo non corretto 
+19
+
+
+===== PAGE 20 =====
+L’ambiente
+▣
+L’avventura è ambientata in un ambiente più o meno 
+grande
+○
+Una casa, una foresta, un’isola, un labirinto
+▣
+Avventure più complesse possono prevedere anche diverse 
+ambientazioni
+○
+Ciò complica la progettazione dell’avventura 
+20
+
+
+===== PAGE 21 =====
+L’ambiente
+▣
+In genere è utile disegnare una mappa dove ogni 
+casella è una stanza (ambiente)
+▣
+Ambienti comunicanti verranno inseriti in caselle 
+adiacenti nella mappa
+○
+Magari rispettando anche la direzione per cui è 
+possibile andare da una stanza all’altra 
+21
+
+
+===== PAGE 22 =====
+22
+Mappa → griglia (matrice)
+
+
+===== PAGE 23 =====
+23
+Muro
+Stanza
+(ambiente)
+Ambienti
+comunicanti
+Direzioni
+Se siamo nel “Pool of light” possiamo andare a:
+●
+Sud: “Sitting room”
+●
+Nord: “Dark Alcove”
+●
+Est: “Vaulted Hall”
+
+
+===== PAGE 24 =====
+La mappa
+▣
+La mappa è fondamentale per capire come gli 
+ambienti sono posizionati nello spazio
+▣
+E’ fondamentale per capire dove si trova il giocatore 
+e muoverlo in base ai comandi (vai a est, vai a sud)
+▣
+La mappa può essere utilizzata anche per 
+posizionare i vari oggetti
+▣
+Ogni ambiente può essere caratterizzato da diversi 
+attributi (es. descrizione, illuminato/buio, …)
+24
+
+
+===== PAGE 25 =====
+L’inventario
+▣
+L’inventario è fondamentale poiché raccoglie gli 
+oggetti in possesso del giocatore
+▣
+L’inventario può essere inizialmente vuoto o 
+contenere alcuni oggetti
+▣
+Gli oggetti vengono raccolti dal giocatore durante il 
+gioco
+▣
+Il giocatore può anche scegliere di rimuovere gli 
+oggetti e lasciarli nell’ambiente in cui si trova
+25
+
+
+===== PAGE 26 =====
+L’inventario
+▣
+Gli oggetti dell’inventario possono essere combinati 
+tra loro o con altri oggetti dell’ambiente
+▣
+L’inventario potrebbe avere una capienza limitata
+○
+Questo rende più difﬁcile l’avventura poiché il 
+giocatore deve capire quali oggetti portare con sé
+26
+
+
+===== PAGE 27 =====
+Gli oggetti
+▣
+Gli oggetti sono disseminati nell’ambiente di gioco
+▣
+In genere devono essere in qualche modo nascosti e 
+non facilmente accessibili
+▣
+Gli oggetti hanno una descrizione
+○
+Questa descrizione potrebbe variare durante il gioco 
+se l’oggetto viene in qualche modo modiﬁcato (es. un 
+ﬁammifero dopo essere stato utilizzato dovrebbe avere 
+una differente descrizione)
+▣
+Un oggetto potrebbe contenere altri oggetti se aperto 
+(es. un forziere, una sacca, …)
+▣
+Ad ogni oggetto potrebbe essere associato uno score
+27
+
+
+===== PAGE 28 =====
+Gli enigmi
+▣
+Dopo aver stabilito la mappa e la locazione degli 
+oggetti e come recuperarli è necessario pensare a 
+degli enigmi
+○
+Enigmi per raccogliere ulteriori oggetti
+○
+Enigmi in cui bisogna combinare oggetti
+▣
+Gli enigmi sono essenziali per rendere il gioco 
+divertente e interessante
+○
+Enigmi troppo difﬁcili potrebbero rendere il 
+gioco frustrante
+28
+
+
+===== PAGE 29 =====
+I nemici
+▣
+Oltre agli oggetti lungo il percorso il giocatore 
+potrebbe incontrare degli avversari
+○
+Questi vanno posizionati nella mappa
+▣
+In genere un avversario può essere eliminato con un 
+oggetto o una combinazione di oggetti
+○
+È possibile escogitare enigmi più complessi per 
+aggirare/eliminare un avversario
+29
+
+
+===== PAGE 30 =====
+Altri personaggi
+▣
+L’avventura potrebbe prevedere la presenza di altri 
+personaggi (non nemici) disseminati nella mappa
+○
+Si potrà dialogare con essi per ottenere oggetti o 
+consigli per risolvere gli enigmi
+▣
+La presenza di altri personaggi complica l’avventura 
+soprattutto per la gestione del dialogo con essi
+○
+È possibile utilizzare dei dialoghi a scelta 
+multipla per sempliﬁcare l’interazione
+30
+
+
+===== PAGE 31 =====
+Capitolo II
+Come creare un’avventura
+
+
+===== PAGE 32 =====
+Tanta creatività!
+32
+
+
+===== PAGE 33 =====
+Creare un’avventura
+1. Ideare la trama dell'avventura
+2. Scrivere il programma che la realizza
+33
+
+
+===== PAGE 34 =====
+Ideare la trama
+▣
+Trovare l'ispirazione
+○
+l'idea base della trama, l'ambientazione e lo schema 
+generale della vicenda
+▣
+La trama dev'essere accuratamente deﬁnita:
+○
+La mappa dei luoghi in cui si svolge l'avventura
+○
+Il dizionario, cioè l'elenco delle parole conosciute dal 
+programma
+○
+Gli oggetti ed i personaggi che l'avventuriero può 
+incontrare
+○
+Le azioni, cioè le frasi che hanno effetto sul gioco 
+nelle varie situazioni
+34
+
+
+===== PAGE 35 =====
+Quando scrivi un gioco d’avventura tu sei l'inventore di un 
+mondo fantastico dove tu stabilisci tutte le regole del 
+gioco. Tu decidi dove è ambientata, quali sono le creature e 
+le cose che ci vivono e cosa queste creature e cose possono 
+e non possono fare.
+35
+
+
+===== PAGE 36 =====
+Alcune idee per le ambientazioni
+▣
+Un pianeta alieno
+▣
+Un castello
+▣
+Un mondo fantastico dove vivono elﬁ e draghi
+▣
+Un’ambientazione storica
+▣
+Utilizzare come punto di partenza: racconti, libri, 
+ﬁlm, serie TV per trovare la giusta ispirazione
+▣
+Il mondo creato deve comunque avere una sua logica 
+(seppur fantastica) altrimenti il giocatore sarà 
+annoiato e frustrato 
+36
+
+
+===== PAGE 37 =====
+I luoghi e la mappa
+▣
+Individuare i luoghi e disegnare una mappa
+▣
+Trasformare la mappa in una matrice/griglia/grafo in 
+cui sia chiaro come si giunge in ogni luogo
+○
+Individuare tutte le possibili direzioni
+▣
+Deﬁnire una descrizione per ogni luogo
+○
+Pensare a come questa descrizione può cambiare 
+in seguito ad alcune azioni del giocatore
+37
+
+
+===== PAGE 38 =====
+Gli oggetti e i personaggi
+▣
+Posizionare gli oggetti e i personaggi nella mappa
+▣
+Deﬁnire una descrizione degli oggetti
+▣
+Progettare gli enigmi
+▣
+Scrivere e progettare eventuali dialoghi con i 
+personaggi (se previsti)
+38
+
+
+===== PAGE 39 =====
+Gli oggetti e i personaggi
+▣
+Gli oggetti e i personaggi potrebbero avere delle 
+proprietà
+○
+Anche i luoghi possono essere caratterizzati da 
+alcune proprietà che cambiano durante 
+l’avventura
+▣
+Stabilire come queste proprietà possono cambiare
+39
+
+
+===== PAGE 40 =====
+Le azioni
+▣
+Lo svolgimento dell’avventura avviene attraverso 
+delle azioni del giocatore
+○
+Le azioni possono modiﬁcare le proprietà di 
+luoghi/oggetti/personaggi
+○
+Spostano il giocatore nell’ambiente
+○
+La sequenza delle azioni stabilisce la trama che 
+vogliamo creare
+40
+
+
+===== PAGE 41 =====
+Immagina la tua 
+avventura!

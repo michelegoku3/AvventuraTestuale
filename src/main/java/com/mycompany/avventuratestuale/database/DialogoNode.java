@@ -1,5 +1,8 @@
 package com.mycompany.avventuratestuale.database;
 
+/**
+ * DTO immutabile per un nodo di dialogo a due scelte.
+ */
 public class DialogoNode {
     private final int id;
     private final String testoIa;
